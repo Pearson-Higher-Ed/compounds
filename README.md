@@ -8,5 +8,5 @@ This module provides a foundational set of React.js components for building a Pe
 
 ## License
 
-[MIT](LICENSE.md)
+[MIT](LICENSE)
 
