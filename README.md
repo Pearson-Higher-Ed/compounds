@@ -6,3 +6,7 @@ This module provides a foundational set of React.js components for building a Pe
 
     npm install --save react react-dom pearson-compounds
 
+## License
+
+[MIT](LICENSE.md)
+
