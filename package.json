@@ -13,7 +13,8 @@
     "build-umd": "NODE_ENV=production webpack ./index.js umd/pearson-compounds.js",
     "build-min": "NODE_ENV=production webpack -p ./index.js umd/pearson-compounds.min.js",
     "build-all": "npm run build && npm run build-umd && npm run build-min",
-    "test": "exit 0"
+    "test": "exit 0",
+    "release": "./npm_scripts/release.sh"
   },
   "license": "MIT",
   "peerDependencies": {
