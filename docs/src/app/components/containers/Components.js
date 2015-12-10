@@ -10,7 +10,8 @@ const navData = [
     items: [
       { title: 'Buttons' },
       { title: 'Card' },
-      { title: 'Labels' }
+      { title: 'Labels' },
+      { title: 'Dropdowns' }
     ]
   }
 ];

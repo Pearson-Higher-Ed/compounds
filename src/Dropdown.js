@@ -1,0 +1,69 @@
+import React, { PropTypes } from 'react';
+import ReactDOM from 'react-dom';
+
+import indexOfElement from './util/indexOfElement';
+import dispatchEvent from './util/dispatchEvent';
+
+class Dropdown extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      expanded: false
+    };
+  }
+  handleKeydown(e) {
+    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    var rootElement = ReactDOM.findDOMNode(this),
+      toggleElement = rootElement.querySelector('[data-toggle="dropdown-menu"]'),
+      isExpanded = rootElement.classList.contains('pe-dropdown-menu--expanded');
+
+    if ((!isExpanded && e.which !== 27) || (isExpanded && e.which === 27)) {
+      // focus the element
+      if (e.which === 27) dispatchEvent(toggleElement, 'focus');
+      return dispatchEvent(toggleElement, 'click');
+    }
+
+    // Focus menu item
+    var itemEls = rootElement.querySelectorAll('.pe-dropdown-menu__menu-item:not(.pe-dropdown-menu__menu-item--disabled) a');
+
+    if (!itemEls.length) return;
+
+    var index = indexOfElement(itemEls, e.target);
+
+    if (e.which === 38 && index > 0) index--;
+    if (e.which === 40 && index < itemEls.length - 1) index++;
+    if (!~index) index = 0;
+
+    itemEls[index].focus();
+  }
+  render() {
+    let {
+      inverse
+    } = this.props;
+    let classes = ['pe-dropdown-menu'];
+    if(this.state.expanded){
+      classes.push('pe-dropdown-menu--expanded');
+    }
+    if(inverse){
+      classes.push('pe-dropdown-menu--inverse');
+    }
+    return <div {...this.props} className={classes.join(' ')} onKeyDown={this.handleKeydown.bind(this)} >
+        <div data-toggle="dropdown-menu"></div>
+        <div className=".pe-dropdown-menu__menu-items">
+          {this.props.children}
+        </div>
+      </div>
+  }
+}
+
+export default Dropdown;
+export function DropdownDivider(props){
+  return <div className="" role="seperator"></div>
+};
+export function DropdownItem(props){
+  return <div {...props} className="pe-dropdown-menu__menu-item">{props.children}</div>
+};
