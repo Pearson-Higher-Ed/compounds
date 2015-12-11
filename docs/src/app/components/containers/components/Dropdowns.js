@@ -4,18 +4,24 @@ import Demo from '../../Demo';
 import ApiDocs from '../../ApiDocs';
 
 const code = `
-<Dropdown>
+<a href="#" data-toggle="dropdown" data-target="demo-dropdown">Toggle Default Dropdown</a>
+<Dropdown id="demo-dropdown">
 
-  <Button>Default</Button>
-  <Button type="primary">Primary</Button>
-  <Button type="link">Link</Button>
+  <DropdownItem><a href="#">Menu Item 1</a></DropdownItem>
+  <DropdownItem><a href="#">Menu Item 2</a></DropdownItem>
+  <DropdownItem><a href="#">Menu Item 3</a></DropdownItem>
+  <DropdownDivider></DropdownDivider>
+  <DropdownItem><a href="#">Menu 2 Item 1</a></DropdownItem>
 
-  <Button disabled>Disabled</Button>
-  <Button type="primary" disabled>Disabled</Button>
-  <Button type="link" disabled>Disabled</Button>
+</Dropdown>
 
-  <Button size="small">Small</Button>
-  <Button size="large">Large</Button>
+<Dropdown inverse id="demo-dropdown-inverse">
+
+  <DropdownItem><a href="#">Menu Item 1</a></DropdownItem>
+  <DropdownItem><a href="#">Menu Item 2</a></DropdownItem>
+  <DropdownItem><a href="#">Menu Item 3</a></DropdownItem>
+  <DropdownDivider></DropdownDivider>
+  <DropdownItem><a href="#">Menu 2 Item 1</a></DropdownItem>
 
 </Dropdown>
 
@@ -23,17 +29,22 @@ const code = `
 
 const apiData = [
   {
+    title: 'Props',
+    items: [
+      {
+        title: 'inverse',
+        propType: 'boolean',
+        description: 'Use the inverse color scheme for dropdowns. (default false)'
+      }
+    ]
+  },
+  {
     title: 'State',
     items: [
       {
         title: 'expanded',
         propType: 'boolean',
         description: 'wether or not the dropdown is expanded (shown).'
-      },
-      {
-        title: 'size',
-        propType: 'oneOf([\'small\', \'large\'])',
-        description: 'The button size.'
       }
     ]
   }
@@ -42,13 +53,23 @@ const apiData = [
 function DropdownsContainer(props) {
   return (
     <div>
-      <Dropdown>
+      <a href="#" data-toggle="dropdown" data-target="demo-dropdown">Toggle Default Dropdown</a>
+      <Dropdown id="demo-dropdown">
         <DropdownItem><a href="#">Menu Item 1</a></DropdownItem>
         <DropdownItem><a href="#">Menu Item 2</a></DropdownItem>
         <DropdownItem><a href="#">Menu Item 3</a></DropdownItem>
         <DropdownDivider></DropdownDivider>
         <DropdownItem><a href="#">Menu 2 Item 1</a></DropdownItem>
       </Dropdown>
+      <a href="#" data-toggle="dropdown" data-target="demo-dropdown-inverse">Toggle Inverse Dropdown</a>
+      <Dropdown inverse id="demo-dropdown-inverse">
+        <DropdownItem><a href="#">Menu Item 1</a></DropdownItem>
+        <DropdownItem><a href="#">Menu Item 2</a></DropdownItem>
+        <DropdownItem><a href="#">Menu Item 3</a></DropdownItem>
+        <DropdownDivider></DropdownDivider>
+        <DropdownItem><a href="#">Menu 2 Item 1</a></DropdownItem>
+      </Dropdown>
+      <br/><br/>
       <ApiDocs data={apiData} />
     </div>
   );
