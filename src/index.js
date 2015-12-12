@@ -5,3 +5,4 @@ export { default as CardContent } from './card/CardContent';
 export { default as Label } from './Label';
 export { default as Lead } from './Lead';
 export { default as Title } from './Title';
+export { default as TestClickOutside } from './TestClickOutside';
