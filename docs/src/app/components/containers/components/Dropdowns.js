@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, DropdownDivider, DropdownItem, Button } from 'pearson-compounds';
+import { Dropdown, DropdownDivider, DropdownItem } from 'pearson-compounds';
 import Demo from '../../Demo';
 import ApiDocs from '../../ApiDocs';
 
@@ -53,6 +53,7 @@ const apiData = [
 function DropdownsContainer(props) {
   return (
     <div>
+      <Demo code={code}>
       <a href="#" data-toggle="dropdown" data-target="demo-dropdown">Toggle Default Dropdown</a>
       <Dropdown id="demo-dropdown">
         <DropdownItem><a href="#">Menu Item 1</a></DropdownItem>
@@ -69,6 +70,7 @@ function DropdownsContainer(props) {
         <DropdownDivider></DropdownDivider>
         <DropdownItem><a href="#">Menu 2 Item 1</a></DropdownItem>
       </Dropdown>
+      </Demo>
       <br/><br/>
       <ApiDocs data={apiData} />
     </div>
