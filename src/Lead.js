@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 function Lead(props) {
   return <div>PLACEHOLDER: Lead</div>
