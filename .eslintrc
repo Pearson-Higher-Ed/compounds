@@ -40,7 +40,7 @@ rules:
 
   # Variables
   no-undef: 2
-  no-unused-vars: [2, {varsIgnorePattern: React}]
+  no-unused-vars: [2, {varsIgnorePattern: React, argsIgnorePattern: props}]
 
   # Syntax errors
   comma-dangle: [2, never]

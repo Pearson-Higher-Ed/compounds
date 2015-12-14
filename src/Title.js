@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 function Title(props) {
   return <div>PLACEHOLDER: Title</div>;

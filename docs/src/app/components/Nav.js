@@ -3,7 +3,9 @@ import { Link } from 'react-router';
 import normalizeUrlPathPart from '../utilities/normalizeUrlPathPart';
 
 function renderItems(items, path = ['']) {
-  if (!items) return;
+  if (!items) {
+    return;
+  }
 
   return (
     <ul>

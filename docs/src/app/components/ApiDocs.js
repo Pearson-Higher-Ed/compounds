@@ -29,25 +29,25 @@ function ApiDocs(props) {
             <table>
               <tbody>
                 {section.items.map(item => {
-                    const {
-                      title,
-                      propType,
-                      isRequired,
-                      description
-                    } = item;
+                  const {
+                    title,
+                    propType,
+                    isRequired,
+                    description
+                  } = item;
 
-                    return (
-                      <tr key={title}>
-                        <td>{title}</td>
-                        <td>
-                          <ApiDocsItemDescription
-                            propType={propType}
-                            isRequired={isRequired}
-                            description={description}
-                          />
-                        </td>
-                      </tr>
-                    );
+                  return (
+                    <tr key={title}>
+                      <td>{title}</td>
+                      <td>
+                        <ApiDocsItemDescription
+                          propType={propType}
+                          isRequired={isRequired}
+                          description={description}
+                        />
+                      </td>
+                    </tr>
+                  );
                 })}
               </tbody>
             </table>
