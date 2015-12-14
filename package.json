@@ -16,6 +16,7 @@
     "build-docs": "webpack --config ./webpack-docs.config.js",
     "build-all": "npm run build && npm run build-umd && npm run build-min && npm run build-docs",
     "test": "exit 0",
+    "ci": "npm run lint && npm run test",
     "gh-pages": "node ./npm_scripts/gh-pages.js",
     "deploy-wip": "node ./npm_scripts/deploy-wip.js",
     "release": "./npm_scripts/release.sh"
