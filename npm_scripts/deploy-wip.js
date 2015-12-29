@@ -11,12 +11,13 @@ const stdin = readline.createInterface({
 });
 
 stdin.question(`Branch name (${currentBranch}): `, (branchName) => {
-  branchName = branchName || currentBranch;
+  branchName = branchName || currentBranch || '';
 
-  const domain = `pearson-compounds-${branchName}.surge.sh`;
+  const domain = `pearson-compounds-${branchName}.surge.sh`.toLowerCase();
 
   console.log(`Deploying ${deployPath} to ${domain}`);
 
+  exec('npm run build-docs');
   exec(`surge -p ${deployPath} -d ${domain}`);
 
   stdin.close();

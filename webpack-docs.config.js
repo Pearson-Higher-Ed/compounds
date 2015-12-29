@@ -50,6 +50,7 @@ module.exports = {
 
   module: {
     loaders: [
+      { test: /\.(woff|ttf|eot|svg)(\?[a-z0-9]+)?$/, loaders: ['file'] },
       { test: /\.js$/, loaders: ['babel'], exclude: /node_modules/ },
       { test: /\.scss$/, loaders: ['style', 'css', 'sass'] }
     ]

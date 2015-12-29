@@ -16,8 +16,7 @@ module.exports = {
   resolve: {
     alias: {
       'pearson-compounds': path.join(__dirname, './src'),
-      'main.scss': path.join(__dirname, './docs/src/www/scss/main.scss'),
-      'elements.scss': path.join(__dirname, './node_modules/pearson-elements/scss/elements.scss')
+      'main.scss': path.join(__dirname, './docs/src/www/scss/main.scss')
     }
   },
 
@@ -36,6 +35,7 @@ module.exports = {
 
   module: {
     loaders: [
+      { test: /\.(woff|ttf|eot|svg)(\?[a-z0-9]+)?$/, loaders: ['file'] },
       { test: /\.js$/, loaders: ['babel'], exclude: /node_modules/ },
       { test: /\.scss$/, loaders: ['style', 'css', 'sass'] }
     ]
