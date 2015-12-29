@@ -17,6 +17,7 @@ stdin.question(`Branch name (${currentBranch}): `, (branchName) => {
 
   console.log(`Deploying ${deployPath} to ${domain}`);
 
+  exec('npm run build-docs');
   exec(`surge -p ${deployPath} -d ${domain}`);
 
   stdin.close();
