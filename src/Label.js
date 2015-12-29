@@ -16,34 +16,36 @@ const LABEL_WEIGHTS = {
 function Label(props) {
   let className = ['pe-label'];
 
-  if (props.type) {
-    className = className.concat([`pe-label--${props.type}`]);
+  const { type, size, weight, inverse, ...other } = props;
+
+  if (type) {
+    className = className.concat([`pe-label--${type}`]);
   }
 
-  if (props.size) {
-    className = className.concat([`pe-label--${props.size}`]);
+  if (size) {
+    className = className.concat([`pe-label--${size}`]);
   }
 
-  if (props.weight) {
-    className = className.concat([`pe-label--${props.weight}`]);
+  if (weight) {
+    className = className.concat([`pe-label--${weight}`]);
   }
 
-  if (props.inverse) {
+  if (inverse) {
     className = className.concat(['pe-label--inverse']);
   }
 
   // If props.children is a string, render the label as a div,
   // otherwise use a clone of the provided element as the root.
-  if (typeof props.children === HTMLElement) {
+  if (typeof props.children === 'undefined' || typeof props.children === 'string') {
+    return (
+      <span className={className.join(' ')} {...other}>
+        {props.children}
+      </span>
+    );
+  } else {
     return React.cloneElement(
       props.children,
       { className: className.join(' ') }
-    );
-  } else {
-    return (
-      <span className={className.join(' ')} {...props}>
-        {props.children}
-      </span>
     );
   }
 
