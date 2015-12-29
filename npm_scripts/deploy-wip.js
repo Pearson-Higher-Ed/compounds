@@ -12,9 +12,8 @@ const stdin = readline.createInterface({
 
 stdin.question(`Branch name (${currentBranch}): `, (branchName) => {
   branchName = branchName || currentBranch || '';
-  branchName = branchName.toLowerCase();
 
-  const domain = `pearson-compounds-${branchName}.surge.sh`;
+  const domain = `pearson-compounds-${branchName}.surge.sh`.toLowerCase();
 
   console.log(`Deploying ${deployPath} to ${domain}`);
 
