@@ -11,7 +11,8 @@ const stdin = readline.createInterface({
 });
 
 stdin.question(`Branch name (${currentBranch}): `, (branchName) => {
-  branchName = branchName || currentBranch;
+  branchName = branchName || currentBranch || '';
+  branchName = branchName.toLowerCase();
 
   const domain = `pearson-compounds-${branchName}.surge.sh`;
 
