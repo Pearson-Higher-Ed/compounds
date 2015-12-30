@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import indexOfElement from './util/indexOfElement';
-import dispatchEvent from './util/dispatchEvent';
-import delegateEvents from './util/delegateEvents';
+import indexOfElement from '../util/indexOfElement';
+import dispatchEvent from '../util/dispatchEvent';
+import delegateEvents from '../util/delegateEvents';
 
-class Dropdown extends React.Component {
+class DropdownMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,6 +21,11 @@ class Dropdown extends React.Component {
       })
     }
   }
+
+  toggle() {
+    this.setState({expanded: !this.state.expanded});
+  }
+
   handleKeydown(e) {
     if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) {
       return;
@@ -68,7 +73,7 @@ class Dropdown extends React.Component {
       classes.push('pe-dropdown-menu--inverse');
     }
     return <div {...this.props} className={classes.join(' ')} onKeyDown={this.handleKeydown.bind(this)} >
-        <div data-toggle="dropdown-menu"></div>
+        <div onClick={this.toggle.bind(this)}></div>
         <div className="pe-dropdown-menu__menu-items">
           {this.props.children}
         </div>
@@ -76,10 +81,4 @@ class Dropdown extends React.Component {
   }
 }
 
-export default Dropdown;
-export function DropdownDivider(props) {
-  return <div className="pe-dropdown-menu__divider" role="seperator"></div>
-};
-export function DropdownItem(props) {
-  return <div {...props} className="pe-dropdown-menu__menu-item">{props.children}</div>
-};
+export default DropdownMenu;
