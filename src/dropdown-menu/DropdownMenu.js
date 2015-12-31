@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import indexOfElement from '../util/indexOfElement';
-import dispatchEvent from '../util/dispatchEvent';
-import delegateEvents from '../util/delegateEvents';
+import indexOfElement from '../extensions/indexOfElement';
+import dispatchEvent from '../extensions/dispatchEvent';
+import delegateEvents from '../extensions/delegateEvents';
+import addHandleClickOutside from '../extensions/addHandleClickOutside';
 
 class DropdownMenu extends React.Component {
   constructor(props) {
@@ -20,6 +21,11 @@ class DropdownMenu extends React.Component {
         this.setState({expanded: !expanded});
       })
     }
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  handleClickOutside() {
+    this.setState({expanded: false});
   }
 
   toggle() {
@@ -39,14 +45,13 @@ class DropdownMenu extends React.Component {
     const isExpanded = rootElement.classList.contains('pe-dropdown-menu--expanded');
 
     if ((!isExpanded && e.which !== 27) || (isExpanded && e.which === 27)) {
-      // focus the element
-      if (e.which === 27) {
-        dispatchEvent(toggleElement, 'focus');
-      }
-      return dispatchEvent(toggleElement, 'click');
+      this.toggle();
+      return;
     }
 
     // Focus menu item
+    // in the future, it might be possible to do this with child refs array
+    // currently not possible, using querySelector instead
     const itemEls = rootElement.querySelectorAll('.pe-dropdown-menu__menu-item:not(.pe-dropdown-menu__menu-item--disabled) a');
 
     if (!itemEls.length) {
@@ -72,7 +77,7 @@ class DropdownMenu extends React.Component {
     if (inverse) {
       classes.push('pe-dropdown-menu--inverse');
     }
-    return <div {...this.props} className={classes.join(' ')} onKeyDown={this.handleKeydown.bind(this)} >
+    return <div {...this.props} className={classes.join(' ')} aria-expanded={this.state.expanded} onKeyDown={this.handleKeydown.bind(this)} >
         <div onClick={this.toggle.bind(this)}></div>
         <div className="pe-dropdown-menu__menu-items">
           {this.props.children}
@@ -81,4 +86,4 @@ class DropdownMenu extends React.Component {
   }
 }
 
-export default DropdownMenu;
+export default addHandleClickOutside(DropdownMenu);

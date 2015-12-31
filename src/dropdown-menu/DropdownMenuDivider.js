@@ -1,6 +1,6 @@
 import React from 'react';
 
-function DropdownDivider(props) {
+function DropdownMenuDivider(props) {
   return <div className="pe-dropdown-menu__divider" role="seperator"></div>
 };
 

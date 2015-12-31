@@ -1,29 +1,26 @@
 import React from 'react';
-import { Dropdown, DropdownDivider, DropdownItem } from 'pearson-compounds';
+import { DropdownMenu, DropdownMenuDivider, DropdownMenuItem, Button } from 'pearson-compounds';
 import Demo from '../../Demo';
 import ApiDocs from '../../ApiDocs';
 
 const code = `
-<a href="#" data-toggle="dropdown" data-target="demo-dropdown">Toggle Default Dropdown</a>
-<Dropdown id="demo-dropdown">
+<Button data-toggle="dropdown" data-target="demo-dropdown">Toggle Default Dropdown</Button>
+<DropdownMenu id="demo-dropdown">
+  <DropdownMenuItem><a href="#">Menu Item 1</a></DropdownMenuItem>
+  <DropdownMenuItem><a href="#">Menu Item 2</a></DropdownMenuItem>
+  <DropdownMenuItem><a href="#">Menu Item 3</a></DropdownMenuItem>
+  <DropdownMenuDivider></DropdownMenuDivider>
+  <DropdownMenuItem><a href="#">Menu 2 Item 1</a></DropdownMenuItem>
+</DropdownMenu>
 
-  <DropdownItem><a href="#">Menu Item 1</a></DropdownItem>
-  <DropdownItem><a href="#">Menu Item 2</a></DropdownItem>
-  <DropdownItem><a href="#">Menu Item 3</a></DropdownItem>
-  <DropdownDivider></DropdownDivider>
-  <DropdownItem><a href="#">Menu 2 Item 1</a></DropdownItem>
-
-</Dropdown>
-
-<Dropdown inverse id="demo-dropdown-inverse">
-
-  <DropdownItem><a href="#">Menu Item 1</a></DropdownItem>
-  <DropdownItem><a href="#">Menu Item 2</a></DropdownItem>
-  <DropdownItem><a href="#">Menu Item 3</a></DropdownItem>
-  <DropdownDivider></DropdownDivider>
-  <DropdownItem><a href="#">Menu 2 Item 1</a></DropdownItem>
-
-</Dropdown>
+<Button type="primary" data-toggle="dropdown" data-target="demo-dropdown-inverse">Toggle Inverse Dropdown</Button>
+<DropdownMenu inverse id="demo-dropdown-inverse">
+  <DropdownMenuItem><a href="#">Menu Item 1</a></DropdownMenuItem>
+  <DropdownMenuItem><a href="#">Menu Item 2</a></DropdownMenuItem>
+  <DropdownMenuItem><a href="#">Menu Item 3</a></DropdownMenuItem>
+  <DropdownMenuDivider></DropdownMenuDivider>
+  <DropdownMenuItem><a href="#">Menu 2 Item 1</a></DropdownMenuItem>
+</DropdownMenu>
 
 `;
 
@@ -54,22 +51,22 @@ function DropdownsContainer(props) {
   return (
     <div>
       <Demo code={code}>
-      <a href="#" data-toggle="dropdown" data-target="demo-dropdown">Toggle Default Dropdown</a>
-      <Dropdown id="demo-dropdown">
-        <DropdownItem><a href="#">Menu Item 1</a></DropdownItem>
-        <DropdownItem><a href="#">Menu Item 2</a></DropdownItem>
-        <DropdownItem><a href="#">Menu Item 3</a></DropdownItem>
-        <DropdownDivider></DropdownDivider>
-        <DropdownItem><a href="#">Menu 2 Item 1</a></DropdownItem>
-      </Dropdown>
-      <a href="#" data-toggle="dropdown" data-target="demo-dropdown-inverse">Toggle Inverse Dropdown</a>
-      <Dropdown inverse id="demo-dropdown-inverse">
-        <DropdownItem><a href="#">Menu Item 1</a></DropdownItem>
-        <DropdownItem><a href="#">Menu Item 2</a></DropdownItem>
-        <DropdownItem><a href="#">Menu Item 3</a></DropdownItem>
-        <DropdownDivider></DropdownDivider>
-        <DropdownItem><a href="#">Menu 2 Item 1</a></DropdownItem>
-      </Dropdown>
+      <Button data-toggle="dropdown" data-target="demo-dropdown">Toggle Default Dropdown</Button>
+      <DropdownMenu id="demo-dropdown">
+        <DropdownMenuItem><a href="#">Menu Item 1</a></DropdownMenuItem>
+        <DropdownMenuItem><a href="#">Menu Item 2</a></DropdownMenuItem>
+        <DropdownMenuItem><a href="#">Menu Item 3</a></DropdownMenuItem>
+        <DropdownMenuDivider></DropdownMenuDivider>
+        <DropdownMenuItem><a href="#">Menu 2 Item 1</a></DropdownMenuItem>
+      </DropdownMenu>
+      <Button type="primary" data-toggle="dropdown" data-target="demo-dropdown-inverse">Toggle Inverse Dropdown</Button>
+      <DropdownMenu inverse id="demo-dropdown-inverse">
+        <DropdownMenuItem><a href="#">Menu Item 1</a></DropdownMenuItem>
+        <DropdownMenuItem><a href="#">Menu Item 2</a></DropdownMenuItem>
+        <DropdownMenuItem><a href="#">Menu Item 3</a></DropdownMenuItem>
+        <DropdownMenuDivider></DropdownMenuDivider>
+        <DropdownMenuItem><a href="#">Menu 2 Item 1</a></DropdownMenuItem>
+      </DropdownMenu>
       </Demo>
       <br/><br/>
       <ApiDocs data={apiData} />
