@@ -10,19 +10,20 @@ const addHandleClickOutside = OuterComponent => class extends Component {
   componentDidMount() {
     const eventHandler = this.refs.outerComponent.handleClickOutside;
 
-    if (typeof eventHandler !== 'function')
+    if (typeof eventHandler !== 'function') {
       throw new Error('Expected component to have function handleClickOutside(event).');
+    }
+
 
     const fn = this.outsideClickHandler_ = (localNode => event => {
       event.stopPropagation();
 
       let source = event.target;
-      let found = false;
 
       // If source is local then this event came from *somewhere*
       // inside and should be ignored.
       while (source.parentNode) {
-        if (source === localNode) return;
+        if (source === localNode) {return;}
         source = source.parentNode;
       }
 

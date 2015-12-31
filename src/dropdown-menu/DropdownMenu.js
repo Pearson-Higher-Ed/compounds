@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import indexOfElement from '../extensions/indexOfElement';
-import dispatchEvent from '../extensions/dispatchEvent';
 import delegateEvents from '../extensions/delegateEvents';
 import addHandleClickOutside from '../extensions/addHandleClickOutside';
 
@@ -41,7 +40,6 @@ class DropdownMenu extends React.Component {
     e.stopPropagation();
 
     const rootElement = ReactDOM.findDOMNode(this);
-    const toggleElement = rootElement.querySelector('[data-toggle="dropdown-menu"]');
     const isExpanded = rootElement.classList.contains('pe-dropdown-menu--expanded');
 
     if ((!isExpanded && e.which !== 27) || (isExpanded && e.which === 27)) {
