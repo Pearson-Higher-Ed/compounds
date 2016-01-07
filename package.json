@@ -17,7 +17,7 @@
     "build-all": "npm run build && npm run build-umd && npm run build-min && npm run build-docs",
     "test": "mocha --opts .mocha",
     "test-watch": "mocha --opts .mocha --watch --reporter min",
-    "ci": "npm run lint && npm run test",
+    "ci": "npm run test && npm run lint",
     "gh-pages": "node ./npm_scripts/gh-pages.js",
     "deploy-wip": "node ./npm_scripts/deploy-wip.js",
     "release": "./npm_scripts/release.sh"
