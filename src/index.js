@@ -5,3 +5,6 @@ export { default as CardContent } from './card/CardContent';
 export { default as Label } from './Label';
 export { default as Lead } from './Lead';
 export { default as Title } from './Title';
+export { default as DropdownMenu } from './dropdown-menu/DropdownMenu';
+export { default as DropdownMenuItem } from './dropdown-menu/DropdownMenuItem';
+export { default as DropdownMenuDivider } from './dropdown-menu/DropdownMenuDivider';
