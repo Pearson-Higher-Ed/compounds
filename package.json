@@ -41,7 +41,7 @@
     "expect": "^1.13.4",
     "expect-jsx": "^2.2.1",
     "file-loader": "^0.8.5",
-    "highlight.js": "^8.9.1",
+    "highlight.js": "^9.2.0",
     "history": "^1.13.1",
     "html-webpack-plugin": "^1.7.0",
     "mocha": "^2.3.4",
@@ -61,5 +61,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "pearson-elements": "^0.2.0"
   }
 }
