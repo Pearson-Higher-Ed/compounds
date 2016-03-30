@@ -1,52 +1,47 @@
 import React from 'react';
 import expect from 'expect';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { Card, CardHeader, CardContent } from '../';
-import {jsdom} from 'jsdom';
 
 describe('Card', () => {
 
-  describe('Basic Card Test', function(){
-    beforeEach(function(){
+  describe('Basic Card Test', function() {
+    beforeEach(function() {
       this.wrapper = shallow(<Card></Card>);
     });
 
-    //it('should render the Card as button element', function(){
-    //  expect(this.wrapper.node.type).toEqual('button');
-    //});
-
-    it('should have the correct default className', function(){
+    it('should have the correct default className', function() {
       expect(this.wrapper.hasClass('pe-card')).toExist();
     });
 
   });
 
-  describe('CardHeader Test', function(){
-      beforeEach(function(){
-        this.wrapper = shallow(<CardHeader>Card Header Content</CardHeader>);
-      });
+  describe('CardHeader Test', function() {
+    beforeEach(function() {
+      this.wrapper = shallow(<CardHeader>Card Header Content</CardHeader>);
+    });
 
-    it('should have the correct className', function(){
+    it('should have the correct className', function() {
       expect(this.wrapper.hasClass('pe-card__header')).toExist();
     });
 
-    it('should have right content', function(){
+    it('should have right content', function() {
       expect(this.wrapper.text()).toEqual('Card Header Content');
     });
 
-    describe('Nested CardHeader Test', function(){
-        beforeEach(function(){
-          this.wrapper = shallow(
+    describe('Nested CardHeader Test', function() {
+      beforeEach(function() {
+        this.wrapper = shallow(
             <CardHeader>
               <Card>
                 <CardHeader>Header</CardHeader>
                 <CardContent>Content</CardContent>
               </Card>
             </CardHeader>);
-        });
+      });
 
-      it('nests correctly', function(){
-        var _children =  <Card>
+      it('nests correctly', function() {
+        const _children =  <Card>
           <CardHeader>Header</CardHeader>
           <CardContent>Content</CardContent>
         </Card>;
@@ -56,8 +51,8 @@ describe('Card', () => {
     });
   });
 
-  describe('CardContent Test', function(){
-    beforeEach(function(){
+  describe('CardContent Test', function() {
+    beforeEach(function() {
       this.wrapper = shallow(<CardContent>
         <address>
           123 Main Street<br />
@@ -66,12 +61,12 @@ describe('Card', () => {
       </CardContent>);
     });
 
-    it('should have the correct className', function(){
+    it('should have the correct className', function() {
       expect(this.wrapper.hasClass('pe-card__content')).toExist();
     });
 
-    it('should have correctly nested children', function(){
-      var _address = <address>
+    it('should have correctly nested children', function() {
+      const _address = <address>
         123 Main Street<br />
         Anywhere, USA
       </address>;
@@ -81,8 +76,8 @@ describe('Card', () => {
 
   });
 
-  describe('Complex Card Test', function(){
-    beforeEach(function(){
+  describe('Complex Card Test', function() {
+    beforeEach(function() {
       this.wrapper = shallow(<Card>
         <CardHeader>Jane Doe</CardHeader>
         <CardContent>
@@ -94,12 +89,12 @@ describe('Card', () => {
       </Card>);
     });
 
-    it('should have the correct default className', function(){
+    it('should have the correct default className', function() {
       expect(this.wrapper.hasClass('pe-card')).toExist();
     });
 
-    it('should have correctly nested children', function(){
-        var _structure =
+    it('should have correctly nested children', function() {
+      const _structure =
           <CardContent>
           <address>
             123 Main Street<br />
@@ -107,10 +102,10 @@ describe('Card', () => {
           </address>
           </CardContent>
 
-        var _header = <CardHeader>Jane Doe</CardHeader>;
+      const _header = <CardHeader>Jane Doe</CardHeader>;
 
-        expect(this.wrapper.contains(_structure)).toExist();
-        expect(this.wrapper.contains(_header)).toExist();
-      });
+      expect(this.wrapper.contains(_structure)).toExist();
+      expect(this.wrapper.contains(_header)).toExist();
+    });
   });
 });
