@@ -23,9 +23,6 @@
     "release": "./npm_scripts/release.sh"
   },
   "license": "MIT",
-  "peerDependencies": {
-    "react": "^0.14.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.2.0",
     "babel-core": "^6.0.0",
@@ -48,9 +45,8 @@
     "mocha": "^2.3.4",
     "node-sass": "^3.4.2",
     "portfinder": "^0.4.0",
-    "react": "^0.14.0",
+    "react": "~0.14.7",
     "react-addons-test-utils": "^0.14.7",
-    "react-dom": "^0.14.7",
     "react-router": "^1.0.0",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
@@ -64,6 +60,7 @@
     }
   },
   "dependencies": {
-    "pearson-elements": "^0.2.0"
+    "pearson-elements": "^0.2.0",
+    "react-dom": "~0.14.7"
   }
 }
