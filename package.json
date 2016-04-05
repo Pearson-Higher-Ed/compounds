@@ -16,14 +16,15 @@
     "build-docs": "webpack --config ./webpack-docs.config.js",
     "build-all": "npm run build && npm run build-umd && npm run build-min && npm run build-docs",
     "test-watch": "mocha --opts .mocha --watch --reporter min",
-    "ci": "npm test && npm run lint",
+    "ci": "npm run test-ci && npm run lint",
     "gh-pages": "node ./npm_scripts/gh-pages.js",
     "deploy-wip": "node ./npm_scripts/deploy-wip.js",
     "release": "./npm_scripts/release.sh",
     "compile" : "babel --stage 0 -d dist/ src/",
     "istanbul": "npm run compile && istanbul cover --dir coverage/istanbul _mocha dist/__tests__/*.js --report lcovonly",
     "coveralls": "cat coverage/istanbul/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test": "npm run istanbul && npm run coveralls && rm -rf dist"
+    "test-ci": "npm run istanbul && npm run coveralls && rm -rf dist",
+    "test": "npm run istanbul && rm -rf dist"
   },
   "license": "MIT",
   "devDependencies": {
