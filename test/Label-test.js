@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import { Label } from '../';
+import { Label } from '../lib';
 
 describe('Label', () => {
 
