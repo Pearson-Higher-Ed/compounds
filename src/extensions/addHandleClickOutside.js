@@ -1,5 +1,7 @@
-import { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+
+const { Component } = React;
 
 // Store the components and their handlers separately. This could
 // eventually be replaced with a WeakMap.
