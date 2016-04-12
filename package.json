@@ -23,7 +23,7 @@
     "compile": "babel ./src --out-dir ./lib --source-maps both",
     "istanbul": "npm run compile && babel-node ./node_modules/istanbul/lib/cli.js cover _mocha -- ./test",
     "coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "test-ci": "npm run istanbul && npm run coveralls",
+    "test-ci": "npm run istanbul && npm run coveralls && rm -rf coverage",
     "test": "npm run istanbul"
   },
   "license": "MIT",
