@@ -1,9 +1,27 @@
 import React from 'react';
 import expect from 'expect';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import jsdom from 'jsdom';
+import sinon from 'sinon';
 import { Button, DropdownMenu, DropdownMenuDivider, DropdownMenuItem } from '../lib';
 
+var exposedProperties = ['window', 'navigator', 'document'];
+
+global.document = jsdom.jsdom('');
+global.window = document.defaultView;
+Object.keys(document.defaultView).forEach((property) => {
+  if (typeof global[property] === 'undefined') {
+    exposedProperties.push(property);
+    global[property] = document.defaultView[property];
+  }
+});
+
+global.navigator = {
+  userAgent: 'node.js'
+};
+
 describe('DropDown', () => {
+
 
   describe('Basic Dropdown Test', function() {
     beforeEach(function() {
@@ -69,6 +87,93 @@ describe('DropDown', () => {
 
   });
 
+  describe('Dropdown Event Test', function(){
+    beforeEach(function(){
+      this.wrapper = mount(<DropdownMenu id="myMenu">
+        <DropdownMenuItem><a href="#">Menu Item 1</a></DropdownMenuItem>
+        <DropdownMenuItem><a href="#">Menu Item 2</a></DropdownMenuItem>
+        <DropdownMenuDivider></DropdownMenuDivider>
+      </DropdownMenu>);
+    });
+
+    it('should contain element', function(){
+      expect(this.wrapper.render().find('.pe-dropdown-menu')).toExist();
+    });
+
+    it('should work with events correctly', function(){
+      var e = {
+        which : 38
+      };
+      this.wrapper.simulate('keyDown', e);
+      console.log(this.wrapper.state());
+
+    });
+
+    it('should focus correctly', function(){
+      var e = {
+        which : 38
+      };
+      this.wrapper.simulate('keyDown', e);
+
+    });
+
+    it('should toggle', function(){
+      this.wrapper.childAt(0).simulate('click');
+      var e = {
+        which : 38
+      };
+      this.wrapper.simulate('keyDown', e);
+    });
+
+
+    describe('it should only respond to pertinent keyboard events', function(){
+      beforeEach(function(){
+        this.spy = sinon.spy();
+        this.e = {
+          preventDefault : this.spy
+        };
+      });
+
+      it('should respond to key up', function(){
+        this.e['which'] = 38;
+        this.wrapper.simulate('keyDown', this.e);
+        expect(this.spy.calledOnce).toBe(true);
+      })
+
+      it('should respond to key down', function(){
+        this.e['which'] = 40;
+        this.wrapper.simulate('keyDown', this.e);
+        expect(this.spy.calledOnce).toBe(true);
+      })
+
+      it('should respond to escape', function(){
+        this.e['which'] = 27;
+        this.wrapper.simulate('keyDown', this.e);
+        expect(this.spy.calledOnce).toBe(true);
+      })
+
+      it('should respond to space', function(){
+        this.e['which'] = 32;
+        this.wrapper.simulate('keyDown', this.e);
+        expect(this.spy.calledOnce).toBe(true);
+      })
+
+      it('should not respond to any other key', function(){
+
+        for(var i = 0; i< 100; i++){
+          if([38, 40, 27, 32].indexOf(i) == -1) {
+            this.e['which'] = i;
+            this.wrapper.simulate('keyDown', this.e);
+            expect(this.spy.calledOnce).toBe(false);
+          }
+        }
+
+      })
+
+    });
+
+  });
+
   describe('Inverse Dropdown Test', function() {
     beforeEach(function() {
 
@@ -87,6 +192,9 @@ describe('DropDown', () => {
 
     });
 
+    it('should contain the right className', function(){
+      expect(this.wrapper.render().find('.pe-dropdown-menu--inverse')).toExist();
+    })
 
     it('button should be set up correctly', function() {
       expect(this.button).toExist();
