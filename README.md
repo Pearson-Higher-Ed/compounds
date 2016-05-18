@@ -2,52 +2,56 @@
 [![Build Status](https://travis-ci.org/Pearson-Higher-Ed/compounds.svg?branch=v0)](https://travis-ci.org/Pearson-Higher-Ed/compounds)
 [![Coverage Status](https://coveralls.io/repos/github/Pearson-Higher-Ed/compounds/badge.svg?branch=v0)](https://coveralls.io/github/Pearson-Higher-Ed/compounds?branch=v0)
 
-This module provides a foundational set of [React](http://facebook.github.io/react) or vanilla JS (ES6-preferred) 
-components for building Pearson web user experiences.
+This module provides a foundational set of [React](http://facebook.github.io/react) components for building Pearson web 
+user experiences.
 
-## Consuming this Module
+## Usage
 
-When published, the Universal Module Definition (UMD-compliant) package can be installed in the root of your consuming 
-application:
+(FUTURE - not yet published)
 
-    npm install --save react react-dom pearson-compounds
-    
-## Toolchain
+This project supports [Node v4+](https://nodejs.org) and npm 2+ installed in your development toolchain.
 
-- [Node.js](http://nodejs.org) v5
-- [webpack](https://webpack.github.io/) (`npm install -g webpack`)
-    - Bundling of all dependencies, including external React
-    - Pre-processing of styles and icons
-    - Babel 6 for transpiling ES6 and JSX
+Install and save in your package.json:
 
-Recommendation: If you are using different node versions on your machine, use [nvm](https://github.com/creationix/nvm) 
-to manage them.
+    npm install pearson-compounds --save
 
-## Getting Started on Development
+### External Dependencies
 
-Compounds depends on Elements. As neither SDK is published yet, there is no current explicit dependency. When published,
-Elements will be defined in this project's package.json.
+React and ReactDOM (v0.14 or v15) are external dependencies required to use this component. They are npm-installable or 
+available from a third-party [CDN](https://cdnjs.com/libraries/react/).
 
-Temporarily, the dependency must be sym-linked:
+This component targets the styling in the [Pearson Elements SDK](https://www.npmjs.com/package/pearson-elements).
 
-Perform a git clone of both repositories to your local development environment.
+## Contributing
 
-    cd elements
+### Initial Machine Setup
+
+1. Install [Git](https://git-scm.com/downloads). 
+2. Install [Node 4.0.0 or greater](https://nodejs.org) - Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm).
+3. On a Mac? You're all set. If you're on Windows, complete the steps for your OS below.  
+
+**On Windows:**
+
+1. Install Ruby as the runtime engine for SCSS.
+2. Install [Python 2.7](https://www.python.org/downloads/). Some node modules may rely on node-gyp, which requires Python on Windows.
+
+**On Chrome browser:**
+
+Optionally, install [React developer tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en).
+
+### Quick Start
+
+After cloning the repository:
+
     npm install
-    npm link
-    cd ../compounds
-    npm install
-    npm link pearson-elements
-    
-Now you can start a hot-reloadable webpack dev server at localhost:8000:
-
     npm start
     
-The spawned Node server hosts a webpack-generated SPA using React Router for rendering the components.
+Navigate to **http://localhost:8000/#/components**, where the spawned Node server hosts a webpack-generated SPA using 
+React Router for rendering the components.
 
-As you save changes, the changes are automatically reloaded in the browser.
+As you save changes to the source, the changes are automatically reloaded in the browser.
 
-## Test
+### Test
 
 The project is wired to unit test with the Mocha framework, "expect" assertion library, and expect-jsx to turn React 
 elements into formatted strings.
@@ -58,11 +62,11 @@ elements into formatted strings.
 
 The static demo site is scripted to deploy to GitHub Pages (gh-pages branch).
 
-## Contributions
+## Guidelines
 
 All submissions must be via pull request and approved before the pearson-design-accelerator@pearson.com team will merge 
 and allow it to enter the release process. All submissions must pass this project's linting, test with 100% code coverage, 
-and be compatible with the version of React (if applicable) approved for the Pearson User Experience Platform.
+and be compatible with the version(s) of React approved for the Pearson User Experience Platform.
 
 ## License
 
