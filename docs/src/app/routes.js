@@ -8,6 +8,8 @@ import Buttons from './components/containers/components/Buttons';
 import Card from './components/containers/components/Card';
 import Labels from './components/containers/components/Labels';
 import Dropdowns from './components/containers/components/Dropdowns';
+import Calendar from '../../../src/calendar/Calendar';
+
 
 const Routes = (
   <Route path="/" component={Root}>
@@ -16,6 +18,8 @@ const Routes = (
       <Route path="card" component={Card} />
       <Route path="labels" component={Labels} />
       <Route path="dropdowns" component={Dropdowns} />
+      <Route path="calendar" component={Calendar} />
+      <Route path="calendar/:locale" component={Calendar} />
     </Route>
   </Route>
 );
