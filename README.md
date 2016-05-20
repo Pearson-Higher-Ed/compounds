@@ -47,7 +47,7 @@ After cloning the repository:
     npm start
     
 Navigate to **http://localhost:8000/#/components**, where the spawned Node server hosts a webpack-generated SPA using 
-React Router for rendering the components.
+React Router for defining how to render the components.
 
 As you save changes to the source, the changes are automatically reloaded in the browser.
 
@@ -58,6 +58,27 @@ elements into formatted strings.
 
     npm test
     
+## Local Linking to Elements SDK
+
+When you need to work with a local version of Elements SDK that has not been published, you can utilize **npm link**.
+
+In the elements project, create a symlink.
+    
+    elements> npm link
+    
+In the compounds project, link to this newly-created symlink using the package.json name field value for the Elements SDK.
+
+    compounds> npm link pearson-elements
+    
+Note that the linking occurs immediately in node_modules, without rebuilding. You may need to re-execute this to pick up
+any changes made to Elements.
+
+To undo this specific symlink:
+
+    compounds> npm unlink pearson-elements
+    
+Note that re-installing node_modules will remove all symlinks.
+
 ## Documentation Site
 
 The static demo site is scripted to deploy to GitHub Pages (gh-pages branch).
