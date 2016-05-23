@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 
 const BUTTON_TYPES = {
   PRIMARY: 'primary',
-  LINK: 'link'
+  LINK: 'link',
+  SUBMIT: 'submit'
 };
 
 const BUTTON_SIZES = {
@@ -14,6 +15,12 @@ function Button(props) {
   let classes = ['pe-btn'];
 
   if (props.type) {
+
+    // Handle IE overriding element type
+    if (props.type === BUTTON_TYPES.SUBMIT) {
+      props.type = BUTTON_TYPES.PRIMARY;
+    }
+
     classes = classes.concat([`pe-btn--${props.type}`]);
   }
 
