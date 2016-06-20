@@ -67,6 +67,6 @@ stdin.question(`Next version (current is ${currentVersion})? `, (nextVersion) =>
   // Go back from whence you came
   exec(`git checkout ${branchName}`);
 
-});
+  stdin.close();
 
-stdin.close();
+});
