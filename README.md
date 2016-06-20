@@ -7,8 +7,6 @@ user experiences.
 
 ## Usage
 
-(FUTURE - not yet published)
-
 This project supports [Node v4+](https://nodejs.org) and npm 2+ installed in your development toolchain.
 
 Install and save in your package.json:
