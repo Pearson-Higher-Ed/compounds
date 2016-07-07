@@ -12,7 +12,8 @@ const navData = [
       { title: 'Card' },
       { title: 'Labels' },
       { title: 'Dropdowns' },
-      { title: 'Calendar' }
+      { title: 'Calendar' },
+      { title: 'DatePicker' }
     ]
   }
 ];
