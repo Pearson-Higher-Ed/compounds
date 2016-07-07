@@ -11,7 +11,8 @@ const navData = [
       { title: 'Buttons' },
       { title: 'Card' },
       { title: 'Labels' },
-      { title: 'Dropdowns' }
+      { title: 'Dropdowns' },
+      { title: 'Calendar' }
     ]
   }
 ];
