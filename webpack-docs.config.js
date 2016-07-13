@@ -54,8 +54,5 @@ module.exports = {
       { test: /\.js$/, loaders: ['babel'], exclude: /node_modules/ },
       { test: /\.scss$/, loaders: ['style', 'css', 'sass'] }
     ]
-  },
-node:{
-  fs: "empty"
-}
+  }
 };
