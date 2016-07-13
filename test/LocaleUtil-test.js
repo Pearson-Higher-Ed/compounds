@@ -4,15 +4,15 @@ import React from 'react';
 
 
 describe('LocaleUtils', () => {
-  // describe('formatDay', () => {
-  //   it('should return day as string', () => {
-  //     const date = new Date('2015-12-20');
-  //     const formattedDate = LocaleUtils.formatDay(date, 'en');
-  //     expect(formattedDate).toEqual('Sat Dec 19, 2015');
-  //     const formattedDateIT = LocaleUtils.formatDay(date, 'it');
-  //     expect(formattedDateIT).toEqual('Sab 19 dic 2015');
-  //   });
-  // });
+  describe('formatDay', () => {
+    it('should return day as string', () => {
+      const date = new Date('2015-12-20');
+      const formattedDate = LocaleUtils.formatDay(date, 'en');
+      expect(formattedDate).toEqual('Sun Dec 20, 2015');
+      const formattedDateIT = LocaleUtils.formatDay(date, 'it');
+      expect(formattedDateIT).toEqual('Dom 20 dic 2015');
+    });
+  });
 
   describe('formatMonthTitle', () => {
     it('should return month and day as string', () => {
