@@ -7,7 +7,6 @@ import addHandleClickOutside from '../extensions/addHandleClickOutside';
 
 // jsdom for eventharness**
 import jsdom from 'jsdom';
-const exposedProperties = ['window', 'document'];
 global.document = jsdom.jsdom('');
 global.window = document.defaultView;
 document.body.addEventListener('o.initDropdownMenu', e => new DropdownMenu(e.detail))
@@ -20,7 +19,7 @@ class DropdownMenu extends React.Component {
       expanded: false
     };
     if (props.id) {
-      const selector = '[data-toggle="dropdown"][data-target="'+props.id+'"]';
+      const selector = '[data-toggle='dropdown'][data-target=''+props.id+'']';
       delegateEvents(document.body, 'click', selector, (evt) =>{
         evt.preventDefault();
 
@@ -85,7 +84,7 @@ class DropdownMenu extends React.Component {
     }
     return <div {...this.props} className={classes.join(' ')} aria-expanded={this.state.expanded} onKeyDown={this.handleKeydown.bind(this)} >
         <div onClick={this.toggle.bind(this)}></div>
-        <div className="pe-dropdown-menu__menu-items">
+        <div className='pe-dropdown-menu__menu-items'>
           {this.props.children}
         </div>
       </div>

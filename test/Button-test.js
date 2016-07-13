@@ -21,7 +21,7 @@ describe('Button', () => {
 
   describe('Primary Button Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button type="primary">Test Button</Button>);
+      this.wrapper = shallow(<Button type='primary'>Test Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -40,7 +40,7 @@ describe('Button', () => {
 
   describe('Link Button Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button type="link">Link Button</Button>);
+      this.wrapper = shallow(<Button type='link'>Link Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -81,7 +81,7 @@ describe('Button', () => {
 
   describe('Primary Disabled Button Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button type="primary" disabled>Disabled Primary Button</Button>);
+      this.wrapper = shallow(<Button type='primary' disabled>Disabled Primary Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -104,7 +104,7 @@ describe('Button', () => {
 
   describe('Primary Disabled Link Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button type="link" disabled>Disabled Primary Link Button</Button>);
+      this.wrapper = shallow(<Button type='link' disabled>Disabled Primary Link Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -127,7 +127,7 @@ describe('Button', () => {
 
   describe('Small Button Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button size="small">Small Button</Button>);
+      this.wrapper = shallow(<Button size='small'>Small Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -147,7 +147,7 @@ describe('Button', () => {
 
   describe('Large Button Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button size="large">Large Button</Button>);
+      this.wrapper = shallow(<Button size='large'>Large Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -167,7 +167,7 @@ describe('Button', () => {
 
   describe('Mixed Button Test - Primary Small', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button type="primary" size="small">Primary Small Button</Button>);
+      this.wrapper = shallow(<Button type='primary' size='small'>Primary Small Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -188,7 +188,7 @@ describe('Button', () => {
 
   describe('Mixed Button Test - Link Large Disabled', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button type="link" size="large" disabled>Link Big Disabled</Button>);
+      this.wrapper = shallow(<Button type='link' size='large' disabled>Link Big Disabled</Button>);
     });
 
     it('should render the Button as button element', function() {

@@ -74,7 +74,7 @@ const addHandleClickOutside = OuterComponent => class extends Component {
   }
 
   render() {
-    return <OuterComponent {...this.props} ref="outerComponent" />;
+    return <OuterComponent {...this.props} ref='outerComponent' />;
   }
 }
 

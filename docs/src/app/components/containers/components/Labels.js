@@ -5,7 +5,7 @@ import ApiDocs from '../../ApiDocs';
 
 const code = `
 <Label>This is the default label.</Label>
-<Label type="secondary">This is a secondary label.</Label>
+<Label type='secondary'>This is a secondary label.</Label>
 `;
 
 const apiData = [
@@ -36,9 +36,9 @@ function LabelsContainer(props) {
     <div>
       <Demo code={code}>
         <Label>This is the default label.</Label>
-        <Label type="secondary">This is a secondary label.</Label>
-        <Label size="small">This is a small label.</Label>
-        <Label size="large">This is a large label.</Label>
+        <Label type='secondary'>This is a secondary label.</Label>
+        <Label size='small'>This is a small label.</Label>
+        <Label size='large'>This is a large label.</Label>
         <Label inverse style={{ backgroundColor: '#000' }}>This is an inverse label.</Label>
         <Label><h4>A label may include a single child element, which will be used as the root element.</h4></Label>
       </Demo>

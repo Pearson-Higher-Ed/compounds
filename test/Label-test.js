@@ -28,7 +28,7 @@ describe('Label', () => {
   });
 
   it('should render a secondary label', function () {
-    const wrapper = shallow(<Label type="secondary">Secondary label</Label>);
+    const wrapper = shallow(<Label type='secondary'>Secondary label</Label>);
     const element = wrapper.find('.pe-label--secondary');
     expect(element.length).toEqual(1);
     expect(element.text()).toEqual('Secondary label');
@@ -37,7 +37,7 @@ describe('Label', () => {
   });
 
   it('should render a small label', function () {
-    const wrapper = shallow(<Label size="small">Small label</Label>);
+    const wrapper = shallow(<Label size='small'>Small label</Label>);
     const element = wrapper.find('.pe-label--small');
     expect(element.length).toEqual(1);
     expect(element.text()).toEqual('Small label');
@@ -46,7 +46,7 @@ describe('Label', () => {
   });
 
   it('should render a large label', function () {
-    const wrapper = shallow(<Label size="large">Large label</Label>);
+    const wrapper = shallow(<Label size='large'>Large label</Label>);
     const element = wrapper.find('.pe-label--large');
     expect(element.length).toEqual(1);
     expect(element.text()).toEqual('Large label');
@@ -72,7 +72,7 @@ describe('Label', () => {
   });
 
   it('should concat the classNames correctly for complex labels', function() {
-    const wrapper = shallow(<Label size="small" inverse type="secondary">This is complex label</Label>)
+    const wrapper = shallow(<Label size='small' inverse type='secondary'>This is complex label</Label>)
     expect(wrapper.hasClass('pe-label')).toExist();
     expect(wrapper.hasClass('pe-label--secondary')).toExist();
     expect(wrapper.hasClass('pe-label--inverse')).toExist();

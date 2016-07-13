@@ -121,10 +121,10 @@ export function isDayInRange(day, range) {
 export function isDayExists(day) {
 
   let value = false;
-  let dueDates = ['Tue Jun 07 2016 12:00:00 GMT+0530 (IST)', 'Tue Jun 28 2016 12:00:00 GMT+0530 (IST)'];
+  const dueDates = ['Tue Jun 07 2016 12:00:00 GMT+0530 (IST)', 'Tue Jun 28 2016 12:00:00 GMT+0530 (IST)'];
 
   for (let i = 0; i < dueDates.length ; i++) {
-    let internalVariable = dueDates[i];
+    const internalVariable = dueDates[i];
     if (internalVariable === day) {
       value = true;
       i = dueDates.length;
