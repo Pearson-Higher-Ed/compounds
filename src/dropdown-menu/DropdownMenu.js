@@ -6,7 +6,7 @@ import delegateEvents from '../extensions/delegateEvents';
 import addHandleClickOutside from '../extensions/addHandleClickOutside';
 
 
-document.body.addEventListener('o.initDropdownMenu', e => new DropdownMenu(e.detail))
+() => document.body.addEventListener('o.initDropdownMenu', e => new DropdownMenu(e.detail))
 
 
 class DropdownMenu extends React.Component {

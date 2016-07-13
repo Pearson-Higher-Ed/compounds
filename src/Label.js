@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-document.body.addEventListener('o.initLabel', e => new Label(e.detail))
+() => document.body.addEventListener('o.initLabel', e => new Label(e.detail))
 
 const LABEL_TYPES = {
   SECONDARY: 'secondary'

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-document.body.addEventListener('o.initButton', e => new Button(e.detail))
+() => document.body.addEventListener('o.initButton', e => new Button(e.detail))
 
 const BUTTON_TYPES = {
   PRIMARY: 'primary',

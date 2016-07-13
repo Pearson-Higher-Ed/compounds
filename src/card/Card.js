@@ -1,6 +1,6 @@
 import React from 'react';
 
-document.body.addEventListener('o.initCard', e => new Card(e.detail))
+() => document.body.addEventListener('o.initCard', e => new Card(e.detail))
 
 function Card(props) {
   return (
