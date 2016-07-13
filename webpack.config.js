@@ -31,7 +31,8 @@ module.exports = {
   },
 
   node: {
-    Buffer: false
+    Buffer: false,
+    fs: "empty"
   },
 
   plugins: [

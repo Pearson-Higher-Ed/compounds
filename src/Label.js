@@ -1,11 +1,6 @@
 import React, { PropTypes } from 'react';
 
-// jsdom for eventharness**
-import jsdom from 'jsdom';
-global.document = jsdom.jsdom('');
-global.window = document.defaultView;
 document.body.addEventListener('o.initLabel', e => new Label(e.detail))
-// *************************
 
 const LABEL_TYPES = {
   SECONDARY: 'secondary'
