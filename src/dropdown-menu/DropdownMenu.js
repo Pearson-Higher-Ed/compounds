@@ -7,7 +7,6 @@ import addHandleClickOutside from '../extensions/addHandleClickOutside';
 
 // jsdom for eventharness**
 import jsdom from 'jsdom';
-const exposedProperties = ['window', 'document'];
 global.document = jsdom.jsdom('');
 global.window = document.defaultView;
 document.body.addEventListener('o.initDropdownMenu', e => new DropdownMenu(e.detail))
