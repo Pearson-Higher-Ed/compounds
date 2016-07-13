@@ -8,9 +8,9 @@ describe('LocaleUtils', () => {
     it('should return day as string', () => {
       const date = new Date('2015-12-20');
       const formattedDate = LocaleUtils.formatDay(date, 'en');
-      expect(formattedDate).toEqual('Sun Dec 20, 2015');
+      expect(formattedDate).toEqual('Sat Dec 19, 2015');
       const formattedDateIT = LocaleUtils.formatDay(date, 'it');
-      expect(formattedDateIT).toEqual('Dom 20 dic 2015');
+      expect(formattedDateIT).toEqual('Sab 19 dic 2015');
     });
   });
 

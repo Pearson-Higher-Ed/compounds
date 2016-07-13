@@ -1,5 +1,13 @@
 import React from 'react';
 
+// jsdom for eventharness**
+import jsdom from 'jsdom';
+const exposedProperties = ['window', 'document'];
+global.document = jsdom.jsdom('');
+global.window = document.defaultView;
+document.body.addEventListener('o.initCard', e => new Card(e.detail))
+// *************************
+
 function Card(props) {
   return (
     <div className="pe-card">{props.children}</div>

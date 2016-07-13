@@ -1,5 +1,13 @@
 import React, { PropTypes } from 'react';
 
+// jsdom for eventharness**
+import jsdom from 'jsdom';
+const exposedProperties = ['window', 'document'];
+global.document = jsdom.jsdom('');
+global.window = document.defaultView;
+document.body.addEventListener('o.initButton', e => new Button(e.detail))
+// *************************
+
 const BUTTON_TYPES = {
   PRIMARY: 'primary',
   LINK: 'link',

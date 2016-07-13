@@ -5,6 +5,14 @@ import indexOfElement from '../extensions/indexOfElement';
 import delegateEvents from '../extensions/delegateEvents';
 import addHandleClickOutside from '../extensions/addHandleClickOutside';
 
+// jsdom for eventharness**
+import jsdom from 'jsdom';
+const exposedProperties = ['window', 'document'];
+global.document = jsdom.jsdom('');
+global.window = document.defaultView;
+document.body.addEventListener('o.initDropdownMenu', e => new DropdownMenu(e.detail))
+// *************************
+
 class DropdownMenu extends React.Component {
   constructor(props) {
     super(props);
