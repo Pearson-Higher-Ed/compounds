@@ -5,8 +5,8 @@ function ApiDocsItemDescription(props) {
   return (
     <div>
       <p>
-        <Label type='secondary' size='small'>{props.propType}</Label>
-        <Label type='secondary' size='small'>{props.isRequired ? '' : 'optional'}</Label>
+        <Label type="secondary" size="small">{props.propType}</Label>
+        <Label type="secondary" size="small">{props.isRequired ? '' : 'optional'}</Label>
       </p>
       <p>{props.description}</p>
     </div>

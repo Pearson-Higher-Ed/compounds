@@ -12,14 +12,14 @@ import Calendar from '../../../src/calendar/Calendar';
 
 
 const Routes = (
-  <Route path='/' component={Root}>
-    <Route path='components' component={Components}>
-      <Route path='buttons' component={Buttons} />
-      <Route path='card' component={Card} />
-      <Route path='labels' component={Labels} />
-      <Route path='dropdowns' component={Dropdowns} />
-      <Route path='calendar' component={Calendar} />
-      <Route path='calendar/:locale' component={Calendar} />
+  <Route path="/" component={Root}>
+    <Route path="components" component={Components}>
+      <Route path="buttons" component={Buttons} />
+      <Route path="card" component={Card} />
+      <Route path="labels" component={Labels} />
+      <Route path="dropdowns" component={Dropdowns} />
+      <Route path="calendar" component={Calendar} />
+      <Route path="calendar/:locale" component={Calendar} />
     </Route>
   </Route>
 );

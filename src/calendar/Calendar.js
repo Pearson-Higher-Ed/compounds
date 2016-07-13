@@ -1,8 +1,9 @@
 import React from 'react';
-import SimpleCalendar from '../../docs/src/app/components/containers/components/SimpleCalendar';
+import SimpleCalendar from "../../docs/src/app/components/containers/components/SimpleCalendar";
 
 // jsdom for eventharness**
 import jsdom from 'jsdom';
+const exposedProperties = ['window', 'document'];
 global.document = jsdom.jsdom('');
 global.window = document.defaultView;
 document.body.addEventListener('o.initCalendar', e => new Calendar(e.detail))

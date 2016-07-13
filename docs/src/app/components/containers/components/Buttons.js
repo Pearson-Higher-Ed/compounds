@@ -5,15 +5,15 @@ import ApiDocs from '../../ApiDocs';
 
 const code = `
 <Button>Default</Button>
-<Button type='primary'>Primary</Button>
-<Button type='link'>Link</Button>
+<Button type="primary">Primary</Button>
+<Button type="link">Link</Button>
 
 <Button disabled>Disabled</Button>
-<Button type='primary' disabled>Disabled</Button>
-<Button type='link' disabled>Disabled</Button>
+<Button type="primary" disabled>Disabled</Button>
+<Button type="link" disabled>Disabled</Button>
 
-<Button size='small'>Small</Button>
-<Button size='large'>Large</Button>
+<Button size="small">Small</Button>
+<Button size="large">Large</Button>
 `;
 
 const apiData = [
@@ -50,8 +50,8 @@ function ButtonsContainer(props) {
 
         <br />
 
-        <Button size='small'>Small</Button>
-        <Button size='large'>Large</Button>
+        <Button size="small">Small</Button>
+        <Button size="large">Large</Button>
       </Demo>
       <ApiDocs data={apiData} />
     </div>

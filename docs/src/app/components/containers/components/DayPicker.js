@@ -15,8 +15,8 @@ class Caption extends React.Component { // eslint-disable-line
   render() {
     const { date, locale, localeUtils, onClick } = this.props;
     return (
-      <div className='pe-calendar-year'>
-      <h3 className='pe-calendar-month' onClick = {onClick} >
+      <div className="pe-calendar-year">
+      <h3 className="pe-calendar-month" onClick = {onClick} >
         {localeUtils.formatMonthTitle(date, locale)}
       </h3>
       </div>
@@ -226,7 +226,7 @@ export default class DayPicker extends React.Component {
 
   handleDayClick(e, day, modifiers) {
     e.persist();
-    if (modifiers.indexOf('outside') > -1) {
+    if (modifiers.indexOf("outside") > -1) {
       this.handleOutsideDayPress(day);
     }
 
@@ -255,34 +255,34 @@ export default class DayPicker extends React.Component {
   }
 
   renderNavBar() {
-    const isRTL = this.props.dir === 'rtl';
+    const isRTL = this.props.dir === "rtl";
 
     const leftButton = isRTL ? this.allowNextMonth() : this.allowPreviousMonth();
     const rightButton = isRTL ? this.allowPreviousMonth() : this.allowNextMonth();
 
     return (
-      <div className='pe-calendar-year pe-calendar-buttons'>
+      <div className="pe-calendar-year pe-calendar-buttons">
         {leftButton &&
           <button
-            key='left'
+            key="left"
             className={`pe-btn--inverse-link`}
-            aria-label='Previous'
-            title='Previous'
+            aria-label="Previous"
+            title="Previous"
             onClick={() => isRTL ? this.showNextMonth() : this.showPreviousMonth()}
 
           >
-          <span className='pe-icon--chevron-left' aria-hidden='true'></span>
+          <span className="pe-icon--chevron-left" aria-hidden="true"></span>
           </button>
         }&nbsp;
         {rightButton &&
           <button
-            key='right'
+            key="right"
             className={`pe-btn--inverse-link`}
-            aria-label='Next'
-            title='Next'
+            aria-label="Next"
+            title="Next"
             onClick={() => isRTL ? this.showPreviousMonth() : this.showNextMonth()}
             >
-            <span className='pe-icon--chevron-right' aria-hidden='true'></span>
+            <span className="pe-icon--chevron-right" aria-hidden="true"></span>
             </button>
         }
       </div>
@@ -305,9 +305,9 @@ export default class DayPicker extends React.Component {
 
         {caption}
 
-        <table className='pe-calendar-dates' role='rowgroup'>
+        <table className="pe-calendar-dates" role="rowgroup">
         <thead>
-          <abbr className='pe-calendar-title' role='columnheader'>
+          <abbr className="pe-calendar-title" role="columnheader">
             {this.renderWeekDays()}
           </abbr>
         </thead>
@@ -325,7 +325,7 @@ export default class DayPicker extends React.Component {
     for (let i = 0; i < 7; i++) {
       days.push(
         <th key={i}>
-          <abbr className='pe-calendar-title1' title={localeUtils.formatWeekdayLong(i, locale)}>
+          <abbr className="pe-calendar-title1" title={localeUtils.formatWeekdayLong(i, locale)}>
             {localeUtils.formatWeekdayShort(i, locale).split('_')}
           </abbr>
         </th>
@@ -338,7 +338,7 @@ export default class DayPicker extends React.Component {
     const { locale, localeUtils } = this.props;
     const firstDayOfWeek = localeUtils.getFirstDayOfWeek(locale);
     return Helpers.getWeekArray(month, firstDayOfWeek).map((week, i) =>
-      <tr key={i} role='row'>
+      <tr key={i} role="row">
         {week.map(day => this.renderDay(month, day))}
       </tr>
     );
@@ -348,13 +348,13 @@ export default class DayPicker extends React.Component {
 
     const { enableOutsideDays, modifiers: modifierFunctions } = this.props;
 
-    let className = 'pe-calendar-dates';
+    let className = "pe-calendar-dates";
     let modifiers = [];
     const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
 
     const isOutside = day.getMonth() !== month.getMonth();
     if (isOutside) {
-      modifiers.push('outside');
+      modifiers.push("outside");
     }
 
     if (modifierFunctions) {
@@ -362,7 +362,7 @@ export default class DayPicker extends React.Component {
       modifiers = [...modifiers, ...customModifiers];
     }
 
-    className = modifiers.map(modifier => ` ${className}--${modifier}`).join('');
+    className = modifiers.map(modifier => ` ${className}--${modifier}`).join("");
 
 
     if (className === ' pe-calendar-dates--selected_from pe-calendar-dates--highlighted') {
@@ -371,28 +371,28 @@ export default class DayPicker extends React.Component {
       className =  ` pe-calendar-dates--selected_from`;
     }
     if (className === ' pe-calendar-dates--selected_to pe-calendar-dates--highlighted') {
-      modifiers.push('selected_to');
+      modifiers.push("selected_to");
 
       className =  ` pe-calendar-dates--selected_to`;
     }
     if (className === ' pe-calendar-dates--selected_from pe-calendar-dates--selected_to pe-calendar-dates--highlighted') {
-      modifiers.push('selected_from');
+      modifiers.push("selected_from");
 
       className =  ` pe-calendar-dates--selected_from`;
     }
     if (className === ' pe-calendar-dates--outside pe-calendar-dates--selected_from pe-calendar-dates--highlighted') {
-      modifiers.push('selected_from');
+      modifiers.push("selected_from");
 
       className =  ` pe-calendar-dates--selected_from`;
     }
     if (className === ' pe-calendar-dates--outside pe-calendar-dates--highlighted') {
-      modifiers.push('highlighted');
+      modifiers.push("highlighted");
 
       className =  ` pe-calendar-dates--highlighted`;
     }
 
     if (className === ' pe-calendar-dates--outside pe-calendar-dates--selected_to pe-calendar-dates--highlighted') {
-      modifiers.push('selected_to');
+      modifiers.push("selected_to");
 
       className =  ` pe-calendar-dates--selected_to`;
     }
@@ -407,11 +407,11 @@ export default class DayPicker extends React.Component {
 
     const { localeUtils, locale } = this.props;
     const ariaLabel = localeUtils.formatDay(day, locale);
-    const ariaDisabled = isOutside ? 'true' : 'false';
+    const ariaDisabled = isOutside ? "true" : "false";
 
     return (
       <td key={key} className={className}
-        role='gridcell'
+        role="gridcell"
         aria-label={ariaLabel}
         aria-disabled={ariaDisabled}
         onKeyDown={
@@ -423,7 +423,7 @@ export default class DayPicker extends React.Component {
         onClick= {onDayClick ?
           (e) => this.handleDayClick(e, day, modifiers) : null}
         >
-        <div className='pe-calendar-dates-div'>
+        <div className="pe-calendar-dates-div">
         {this.props.renderDay(day)}
         </div>
       </td>
@@ -454,7 +454,7 @@ export default class DayPicker extends React.Component {
       <div
         {...attributes}
         className={className}
-        ref='dayPicker'
+        ref="dayPicker"
         onKeyDown={e => this.handleKeyDown(e)}>
         {canChangeMonth && this.renderNavBar()}
         {months}
@@ -497,7 +497,7 @@ DayPicker.propTypes = {
 DayPicker.defaultProps = {
   initialMonth: new Date(),
   numberOfMonths: 1,
-  locale: 'en',
+  locale: "en",
   localeUtils: LocaleUtils,
   enableOutsideDays: false,
   canChangeMonth: true,

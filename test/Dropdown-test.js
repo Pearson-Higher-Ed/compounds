@@ -27,10 +27,10 @@ describe('DropDown', () => {
     beforeEach(function() {
       this.wrapper = shallow(
         <div>
-          <Button id='the-button' data-toggle='dropdown' data-target='demo-dropdown'>Toggle Default Dropdown</Button>
-          <DropdownMenu id='demo-dropdown'>
-            <DropdownMenuItem><a href='#'>Menu Item 1</a></DropdownMenuItem>
-            <DropdownMenuItem><a href='#'>Menu Item 2</a></DropdownMenuItem>
+          <Button id="the-button" data-toggle="dropdown" data-target="demo-dropdown">Toggle Default Dropdown</Button>
+          <DropdownMenu id="demo-dropdown">
+            <DropdownMenuItem><a href="#">Menu Item 1</a></DropdownMenuItem>
+            <DropdownMenuItem><a href="#">Menu Item 2</a></DropdownMenuItem>
             <DropdownMenuDivider></DropdownMenuDivider>
           </DropdownMenu>
         </div>);
@@ -89,9 +89,9 @@ describe('DropDown', () => {
 
   describe('Dropdown Event Test', function() {
     beforeEach(function() {
-      this.wrapper = mount(<DropdownMenu id='myMenu'>
-        <DropdownMenuItem><a href='#'>Menu Item 1</a></DropdownMenuItem>
-        <DropdownMenuItem><a href='#'>Menu Item 2</a></DropdownMenuItem>
+      this.wrapper = mount(<DropdownMenu id="myMenu">
+        <DropdownMenuItem><a href="#">Menu Item 1</a></DropdownMenuItem>
+        <DropdownMenuItem><a href="#">Menu Item 2</a></DropdownMenuItem>
         <DropdownMenuDivider></DropdownMenuDivider>
       </DropdownMenu>);
     });
@@ -179,10 +179,10 @@ describe('DropDown', () => {
 
       this.wrapper = shallow(
         <div>
-          <Button id='the-button' data-toggle='dropdown' data-target='demo-dropdown-inverse'>Toggle Default Dropdown</Button>
-          <DropdownMenu inverse id='demo-dropdown-inverse'>
-            <DropdownMenuItem><a href='#'>Menu Item 1</a></DropdownMenuItem>
-            <DropdownMenuItem><a href='#'>Menu Item 2</a></DropdownMenuItem>
+          <Button id="the-button" data-toggle="dropdown" data-target="demo-dropdown-inverse">Toggle Default Dropdown</Button>
+          <DropdownMenu inverse id="demo-dropdown-inverse">
+            <DropdownMenuItem><a href="#">Menu Item 1</a></DropdownMenuItem>
+            <DropdownMenuItem><a href="#">Menu Item 2</a></DropdownMenuItem>
             <DropdownMenuDivider></DropdownMenuDivider>
           </DropdownMenu>
         </div>);

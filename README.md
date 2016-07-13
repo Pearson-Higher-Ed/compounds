@@ -51,7 +51,7 @@ As you save changes to the source, the changes are automatically reloaded in the
 
 ### Test
 
-The project is wired to unit test with the Mocha framework, 'expect' assertion library, and expect-jsx to turn React 
+The project is wired to unit test with the Mocha framework, "expect" assertion library, and expect-jsx to turn React 
 elements into formatted strings.
 
     npm test

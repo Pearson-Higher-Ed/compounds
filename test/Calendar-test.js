@@ -1,16 +1,16 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import expect from 'expect';
+import expect from "expect";
 
-const DayPicker = require('../docs/src/app/components/containers/components/DayPicker').default;
+const DayPicker = require("../docs/src/app/components/containers/components/DayPicker").default;
 
-describe('DayPicker', () => {
+describe("DayPicker", () => {
 
   beforeEach(function() {
     this.wrapper = shallow(<DayPicker>Test</DayPicker>);
   });
 
-  it('has the default props properly set', () => {
+  it("has the default props properly set", () => {
     const dayPicker = <DayPicker />;
     const now = new Date();
     expect(dayPicker.props.initialMonth.getMonth()).toEqual(now.getMonth());
