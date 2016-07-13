@@ -1,92 +1,92 @@
 {
-  'name': 'pearson-compounds',
-  'version': '0.1.0',
-  'description': 'Atomic React Components for Pearson Web UX',
-  'repository': {
-    'type': 'git',
-    'url': 'https://github.com/Pearson-Higher-Ed/compounds.git'
+  "name": "pearson-compounds",
+  "version": "0.1.0",
+  "description": "Atomic React Components for Pearson Web UX",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pearson-Higher-Ed/compounds.git"
   },
-  'files': [
-    'lib',
-    'umd'
+  "files": [
+    "lib",
+    "umd"
   ],
-  'main': 'lib/index.js',
-  'scripts': {
-    'start': 'node server.js',
-    'lint': 'eslint --ignore-path .gitignore .',
-    'build-lib': 'babel ./src -d ./lib --ignore '__tests__'',
-    'build-umd': 'NODE_ENV=production webpack ./index.js umd/pearson-compounds.js',
-    'build-min': 'NODE_ENV=production webpack -p ./index.js umd/pearson-compounds.min.js',
-    'build-docs': 'webpack --config ./webpack-docs.config.js',
-    'build-dist': 'npm run build-lib && npm run build-umd && npm run build-min',
-    'build-all': 'npm run build-lib && npm run build-umd && npm run build-min && npm run build-docs',
-    'test-watch': 'mocha --opts .mocha --watch --reporter min',
-    'ci': 'npm run test-ci && npm run lint && npm run build-dist',
-    'gen-changelog': 'node ./npm_scripts/gen-changelog.js',
-    'gh-pages': 'node ./npm_scripts/gh-pages.js',
-    'deploy-wip': 'node ./npm_scripts/deploy-wip.js',
-    'release': 'node ./npm_scripts/release.js',
-    'compile': 'babel ./src --out-dir ./lib --source-maps both',
-    'test-local': 'babel-node ./node_modules/istanbul/lib/cli.js cover _mocha -- ./test',
-    'istanbul': 'npm run compile && babel-node ./node_modules/istanbul/lib/cli.js cover _mocha -- ./test',
-    'coveralls': 'cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js',
-    'test-ci': 'npm run istanbul && npm run coveralls && rm -rf coverage',
-    'test': 'npm run istanbul',
-    'version': 'npm run gen-changelog && git add CHANGELOG.md'
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint --ignore-path .gitignore .",
+    "build-lib": "babel ./src -d ./lib --ignore '__tests__'",
+    "build-umd": "NODE_ENV=production webpack ./index.js umd/pearson-compounds.js",
+    "build-min": "NODE_ENV=production webpack -p ./index.js umd/pearson-compounds.min.js",
+    "build-docs": "webpack --config ./webpack-docs.config.js",
+    "build-dist": "npm run build-lib && npm run build-umd && npm run build-min",
+    "build-all": "npm run build-lib && npm run build-umd && npm run build-min && npm run build-docs",
+    "test-watch": "mocha --opts .mocha --watch --reporter min",
+    "ci": "npm run test-ci && npm run lint && npm run build-dist",
+    "gen-changelog": "node ./npm_scripts/gen-changelog.js",
+    "gh-pages": "node ./npm_scripts/gh-pages.js",
+    "deploy-wip": "node ./npm_scripts/deploy-wip.js",
+    "release": "node ./npm_scripts/release.js",
+    "compile": "babel ./src --out-dir ./lib --source-maps both",
+    "test-local": "babel-node ./node_modules/istanbul/lib/cli.js cover _mocha -- ./test",
+    "istanbul": "npm run compile && babel-node ./node_modules/istanbul/lib/cli.js cover _mocha -- ./test",
+    "coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test-ci": "npm run istanbul && npm run coveralls && rm -rf coverage",
+    "test": "npm run istanbul",
+    "version": "npm run gen-changelog && git add CHANGELOG.md"
   },
-  'keywords': [
-    'pearson-components',
-    'pearson-sdk'
+  "keywords": [
+    "pearson-components",
+    "pearson-sdk"
   ],
-  'author': 'Pearson Design Accelerator',
-  'license': 'MIT',
-  'engines': {
-    'node': '^4.0.0'
+  "author": "Pearson Design Accelerator",
+  "license": "MIT",
+  "engines": {
+    "node": "^4.0.0"
   },
-  'devDependencies': {
-    'babel-cli': '^6.2.0',
-    'babel-core': '^6.0.0',
-    'babel-eslint': '^5.0.0-beta6',
-    'babel-loader': '^6.0.0',
-    'babel-plugin-transform-object-rest-spread': '^6.3.13',
-    'babel-preset-es2015': '^6.6.0',
-    'babel-preset-react': '^6.0.0',
-    'conventional-changelog': '^1.1.0',
-    'coveralls': '^2.11.9',
-    'css-loader': '^0.23.0',
-    'cz-conventional-changelog': '^1.1.4',
-    'enzyme': '^2.2.0',
-    'eslint': '^1.10.3',
-    'eslint-plugin-react': '^3.11.3',
-    'expect': '^1.13.4',
-    'file-loader': '^0.8.5',
-    'highlight.js': '^9.2.0',
-    'history': '^1.13.1',
-    'html-webpack-plugin': '^1.7.0',
-    'istanbul': '^0.4.2',
-    'jsdom': '^8.3.1',
-    'mocha': '^2.3.4',
-    'node-sass': '^3.4.2',
-    'portfinder': '^0.4.0',
-    'react': '^15.0.1',
-    'react-addons-test-utils': '^15.0.1',
-    'react-dom': '^15.0.1',
-    'react-router': '^1.0.0',
-    'sass-loader': '^3.1.2',
-    'semver': '^5.1.0',
-    'sinon': '^1.17.3',
-    'style-loader': '^0.13.0',
-    'surge': '^0.17.4',
-    'webpack': '^1.12.2',
-    'webpack-dev-server': '^1.12.1',
-    'moment': '2.12.0'
+  "devDependencies": {
+    "babel-cli": "^6.2.0",
+    "babel-core": "^6.0.0",
+    "babel-eslint": "^5.0.0-beta6",
+    "babel-loader": "^6.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.0.0",
+    "conventional-changelog": "^1.1.0",
+    "coveralls": "^2.11.9",
+    "css-loader": "^0.23.0",
+    "cz-conventional-changelog": "^1.1.4",
+    "enzyme": "^2.2.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.11.3",
+    "expect": "^1.13.4",
+    "file-loader": "^0.8.5",
+    "highlight.js": "^9.2.0",
+    "history": "^1.13.1",
+    "html-webpack-plugin": "^1.7.0",
+    "istanbul": "^0.4.2",
+    "jsdom": "^8.3.1",
+    "mocha": "^2.3.4",
+    "node-sass": "^3.4.2",
+    "portfinder": "^0.4.0",
+    "react": "^15.0.1",
+    "react-addons-test-utils": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "react-router": "^1.0.0",
+    "sass-loader": "^3.1.2",
+    "semver": "^5.1.0",
+    "sinon": "^1.17.3",
+    "style-loader": "^0.13.0",
+    "surge": "^0.17.4",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1",
+    "moment": "2.12.0"
   },
-  'config': {
-    'commitizen': {
-      'path': './node_modules/cz-conventional-changelog'
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  'dependencies': {
-    'pearson-elements': '^0.7.0'
+  "dependencies": {
+    "pearson-elements": "^0.7.0"
   }
 }
