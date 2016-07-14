@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 
-() => document.body.addEventListener('o.initLabel', e => new Label(e.detail))
-
 const LABEL_TYPES = {
   SECONDARY: 'secondary'
 };
@@ -16,6 +14,8 @@ const LABEL_WEIGHTS = {
 };
 
 function Label(props) {
+  eventHarness()
+
   let className = ['pe-label'];
 
   const { type, size, weight, inverse, ...other } = props;
@@ -69,3 +69,5 @@ Label.propTypes = {
 };
 
 export default Label;
+
+let eventHarness = () => document.body.addEventListener('o.initLabel', e => new Label(e.detail))

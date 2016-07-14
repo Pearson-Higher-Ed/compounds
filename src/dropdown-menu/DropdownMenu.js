@@ -6,12 +6,10 @@ import delegateEvents from '../extensions/delegateEvents';
 import addHandleClickOutside from '../extensions/addHandleClickOutside';
 
 
-() => document.body.addEventListener('o.initDropdownMenu', e => new DropdownMenu(e.detail))
-
-
 class DropdownMenu extends React.Component {
   constructor(props) {
     super(props);
+    eventHarness()
     this.state = {
       expanded: false
     };
@@ -89,3 +87,5 @@ class DropdownMenu extends React.Component {
 }
 
 export default addHandleClickOutside(DropdownMenu);
+
+let eventHarness = () => document.body.addEventListener('o.initDropdownMenu', e => new DropdownMenu(e.detail))

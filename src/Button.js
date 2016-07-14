@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 
-() => document.body.addEventListener('o.initButton', e => new Button(e.detail))
-
 const BUTTON_TYPES = {
   PRIMARY: 'primary',
   LINK: 'link',
@@ -14,6 +12,9 @@ const BUTTON_SIZES = {
 };
 
 function Button(props) {
+
+  eventHarness()
+
   let classes = ['pe-btn'];
 
   if (props.type) {
@@ -42,3 +43,5 @@ Button.propTypes = {
 };
 
 export default Button;
+
+let eventHarness = () => document.body.addEventListener('o.initButton', e => new Button(e.detail))

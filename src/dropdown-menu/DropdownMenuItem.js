@@ -1,9 +1,10 @@
 import React from 'react';
 
-() => document.body.addEventListener('o.initDropdownMenuItem', e => new DropdownMenuItem(e.detail))
-
 function DropdownMenuItem(props) {
+  eventHarness()
   return <div {...props} className="pe-dropdown-menu__menu-item">{props.children}</div>
 };
 
 export default DropdownMenuItem;
+
+let eventHarness = () => document.body.addEventListener('o.initDropdownMenuItem', e => new DropdownMenuItem(e.detail))

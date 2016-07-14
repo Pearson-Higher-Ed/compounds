@@ -1,9 +1,12 @@
 import React from 'react';
 
-() => document.body.addEventListener('o.initLead', e => new Lead(e.detail))
+
 
 function Lead(props) {
+  eventHarness()
   return <div>PLACEHOLDER: Lead</div>
 }
 
 export default Lead;
+
+let eventHarness = () => document.body.addEventListener('o.initLead', e => new Lead(e.detail))

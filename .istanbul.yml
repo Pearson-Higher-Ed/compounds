@@ -1,6 +1,6 @@
-verbose: true
+verbose: false
 instrumentation:
-    root: .
+    root: src
     extensions:
         - .js
     default-excludes: true
