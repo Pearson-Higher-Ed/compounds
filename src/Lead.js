@@ -1,7 +1,6 @@
 import React from 'react';
 
 
-
 function Lead(props) {
   eventHarness()
   return <div>PLACEHOLDER: Lead</div>
