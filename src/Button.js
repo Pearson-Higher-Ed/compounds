@@ -42,4 +42,4 @@ Button.propTypes = {
 
 export default Button;
 
-let eventHarness = () => document.body.addEventListener('o.initButton', e => new Button(e.detail))
+const eventHarness = () => document.body.addEventListener('o.initButton', e => new Button(e.detail))

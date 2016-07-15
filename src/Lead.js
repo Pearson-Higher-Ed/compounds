@@ -8,4 +8,4 @@ function Lead(props) {
 
 export default Lead;
 
-let eventHarness = () => document.body.addEventListener('o.initLead', e => new Lead(e.detail))
+const eventHarness = () => document.body.addEventListener('o.initLead', e => new Lead(e.detail))

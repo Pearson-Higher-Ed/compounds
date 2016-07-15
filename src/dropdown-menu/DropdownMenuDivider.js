@@ -7,4 +7,4 @@ function DropdownMenuDivider(props) {
 
 export default DropdownMenuDivider;
 
-let eventHarness = () => document.body.addEventListener('o.initDropdownMenuDivider', e => new DropdownMenuDivider(e.detail))
+const eventHarness = () => document.body.addEventListener('o.initDropdownMenuDivider', e => new DropdownMenuDivider(e.detail))

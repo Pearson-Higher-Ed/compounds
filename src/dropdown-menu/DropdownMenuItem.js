@@ -7,4 +7,4 @@ function DropdownMenuItem(props) {
 
 export default DropdownMenuItem;
 
-let eventHarness = () => document.body.addEventListener('o.initDropdownMenuItem', e => new DropdownMenuItem(e.detail))
+const eventHarness = () => document.body.addEventListener('o.initDropdownMenuItem', e => new DropdownMenuItem(e.detail))

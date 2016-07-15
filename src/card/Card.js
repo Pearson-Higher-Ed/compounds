@@ -9,4 +9,4 @@ function Card(props) {
 
 export default Card;
 
-let eventHarness = () => document.body.addEventListener('o.initCard', e => new Card(e.detail))
+const eventHarness = () => document.body.addEventListener('o.initCard', e => new Card(e.detail))

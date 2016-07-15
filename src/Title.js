@@ -7,4 +7,4 @@ function Title(props) {
 
 export default Title;
 
-let eventHarness = () => document.body.addEventListener('o.initTitle', e => new Title(e.detail))
+const eventHarness = () => document.body.addEventListener('o.initTitle', e => new Title(e.detail))

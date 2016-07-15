@@ -70,4 +70,4 @@ Label.propTypes = {
 
 export default Label;
 
-let eventHarness = () => document.body.addEventListener('o.initLabel', e => new Label(e.detail))
+const eventHarness = () => document.body.addEventListener('o.initLabel', e => new Label(e.detail))

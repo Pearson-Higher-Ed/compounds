@@ -7,4 +7,4 @@ function CardHeader(props) {
 
 export default CardHeader;
 
-let eventHarness = () => document.body.addEventListener('o.initCardHeader', e => new CardHeader(e.detail))
+const eventHarness = () => document.body.addEventListener('o.initCardHeader', e => new CardHeader(e.detail))

@@ -88,4 +88,4 @@ class DropdownMenu extends React.Component {
 
 export default addHandleClickOutside(DropdownMenu);
 
-let eventHarness = () => document.body.addEventListener('o.initDropdownMenu', e => new DropdownMenu(e.detail))
+const eventHarness = () => document.body.addEventListener('o.initDropdownMenu', e => new DropdownMenu(e.detail))
