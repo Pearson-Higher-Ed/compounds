@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import * as Helpers from './Helpers';
 import * as DateUtils from './DateUtils';
 import * as LocaleUtils from './LocaleUtils';
+import uuid from 'uuid';
 
 const keys = {
   LEFT: 37,
@@ -9,20 +10,6 @@ const keys = {
   ENTER: 13,
   SPACE: 32
 };
-
-class Caption extends React.Component { // eslint-disable-line
-
-  render() {
-    const { date, locale, localeUtils, onClick } = this.props;
-    return (
-      <div className="pe-calendar-year">
-      <h3 className="pe-calendar-month" onClick = {onClick} >
-        {localeUtils.formatMonthTitle(date, locale)}
-      </h3>
-      </div>
-    );
-  }
-}
 
 export default class DayPicker extends React.Component {
 
@@ -219,11 +206,6 @@ export default class DayPicker extends React.Component {
     }
   }
 
-  handleCaptionClick(e, currentMonth) {
-    e.persist();
-    this.props.onCaptionClick(e, currentMonth);
-  }
-
   handleDayClick(e, day, modifiers) {
     e.persist();
     if (modifiers.indexOf("outside") > -1) {
@@ -261,7 +243,7 @@ export default class DayPicker extends React.Component {
     const rightButton = isRTL ? this.allowPreviousMonth() : this.allowNextMonth();
 
     return (
-      <div className="pe-calendar-year pe-calendar-buttons">
+      <div className="pe-calendar-buttons">
         {leftButton &&
           <button
             key="left"
@@ -277,9 +259,9 @@ export default class DayPicker extends React.Component {
         {rightButton &&
           <button
             key="right"
-            className={`pe-btn--inverse-link`}
             aria-label="Next"
             title="Next"
+            className={`pe-btn--inverse-link`}
             onClick={() => isRTL ? this.showPreviousMonth() : this.showNextMonth()}
             >
             <span className="pe-icon--chevron-right" aria-hidden="true"></span>
@@ -289,32 +271,41 @@ export default class DayPicker extends React.Component {
     );
   }
 
-  renderMonth(date, i) {
-    const { locale, localeUtils, onCaptionClick, captionElement } = this.props;
+  renderCaption(date) {
+    const { locale, localeUtils } = this.props;
 
-    const caption = React.cloneElement(captionElement, {
-      date, localeUtils, locale,
-      onClick: onCaptionClick ? e => this.handleCaptionClick(e, date) : null
-    });
+    return (
+      <div className="pe-calendar-year">
+      <h3 className="pe-calendar-month" role="heading" aria-live="assertive" aria-atomic="true">
+        {localeUtils.formatMonthTitle(date, locale)}
+      </h3>
+      {this.renderNavBar()}
+      </div>
+    );
+  }
+
+
+  renderMonth(date, i) {
 
     return (
 
       <div
 
-        key={i}>
+       key={i}>
+        {this.renderCaption(date)}
+         <table className="pe-calendar-dates" role="grid" aria-labelledby={'_'+uuid.v1()}>
+         <thead>
+           <tr>
+             {this.renderWeekDays()}
+           </tr>
+         </thead>
+        <tbody>
+           {this.renderWeeksInMonth(date)}
+        </tbody>
 
-        {caption}
-
-        <table className="pe-calendar-dates" role="rowgroup">
-        <thead>
-          <abbr className="pe-calendar-title" role="columnheader">
-            {this.renderWeekDays()}
-          </abbr>
-        </thead>
-          {this.renderWeeksInMonth(date)}
         </table>
 
-      </div>
+        </div>
 
     );
   }
@@ -325,8 +316,7 @@ export default class DayPicker extends React.Component {
     for (let i = 0; i < 7; i++) {
       days.push(
         <th key={i}>
-          <abbr className="pe-calendar-title1" title={localeUtils.formatWeekdayLong(i, locale)}>
-            {localeUtils.formatWeekdayShort(i, locale).split('_')}
+          <abbr title={localeUtils.formatWeekdayLong(i, locale)}>{localeUtils.formatWeekdayShort(i, locale).split('_')}
           </abbr>
         </th>
       );
@@ -345,7 +335,6 @@ export default class DayPicker extends React.Component {
   }
 
   renderDay(month, day) {
-
     const { enableOutsideDays, modifiers: modifierFunctions } = this.props;
 
     let className = "pe-calendar-dates";
@@ -366,7 +355,7 @@ export default class DayPicker extends React.Component {
 
 
     if (className === ' pe-calendar-dates--selected_from pe-calendar-dates--highlighted') {
-      modifiers.push('selected_from');
+      modifiers.push("selected_from");
 
       className =  ` pe-calendar-dates--selected_from`;
     }
@@ -409,6 +398,17 @@ export default class DayPicker extends React.Component {
     const ariaLabel = localeUtils.formatDay(day, locale);
     const ariaDisabled = isOutside ? "true" : "false";
 
+    let stateText = null;
+    if (modifiers[modifiers.length-1]==='selected_from') {
+      stateText="First selection";
+    }
+    if (modifiers[modifiers.length-1]==='selected_to') {
+      stateText="Last selection";
+    }
+    if (modifiers[modifiers.length-1]==='highlighted') {
+      stateText="Highlighted";
+    }
+
     return (
       <td key={key} className={className}
         role="gridcell"
@@ -424,7 +424,8 @@ export default class DayPicker extends React.Component {
           (e) => this.handleDayClick(e, day, modifiers) : null}
         >
         <div className="pe-calendar-dates-div">
-        {this.props.renderDay(day)}
+          {this.props.renderDay(day)}
+          {stateText && <span className="pe-sr-only">{stateText}</span>}
         </div>
       </td>
     );
@@ -452,11 +453,9 @@ export default class DayPicker extends React.Component {
 
     return (
       <div
-        {...attributes}
         className={className}
         ref="dayPicker"
         onKeyDown={e => this.handleKeyDown(e)}>
-        {canChangeMonth && this.renderNavBar()}
         {months}
       </div>
     );
@@ -487,11 +486,7 @@ DayPicker.propTypes = {
   onDayMouseEnter: PropTypes.func,
   onDayMouseLeave: PropTypes.func,
   onMonthChange: PropTypes.func,
-  onCaptionClick: PropTypes.func,
-
-  renderDay: PropTypes.func,
-
-  captionElement: PropTypes.element
+  renderDay: PropTypes.func
 };
 
 DayPicker.defaultProps = {
@@ -502,6 +497,5 @@ DayPicker.defaultProps = {
   enableOutsideDays: false,
   canChangeMonth: true,
   reverseMonths: false,
-  renderDay: day => day.getDate(),
-  captionElement: <Caption />
+  renderDay: day => day.getDate()
 };
