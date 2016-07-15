@@ -12,9 +12,7 @@ const BUTTON_SIZES = {
 };
 
 function Button(props) {
-
   eventHarness()
-
   let classes = ['pe-btn'];
 
   if (props.type) {
