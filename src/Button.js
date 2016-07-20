@@ -12,7 +12,6 @@ const BUTTON_SIZES = {
 };
 
 function Button(props) {
-  eventHarness()
   let classes = ['pe-btn'];
 
   if (props.type) {
@@ -42,4 +41,4 @@ Button.propTypes = {
 
 export default Button;
 
-const eventHarness = () => document.body.addEventListener('o.initButton', e => new Button(e.detail))
+document.body.addEventListener('o.initButton', e => new Button(e.detail))

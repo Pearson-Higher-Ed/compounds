@@ -2,7 +2,6 @@ import React from "react";
 import DayPicker from "./DayPicker";
 import DateUtils from "./DateUtils";
 
-let eventHarness = () => document.body.addEventListener('o.initCalendar', e => new SimpleCalendar(e.detail))
 
 export default class SimpleCalendar extends React.Component {
 
@@ -12,7 +11,7 @@ export default class SimpleCalendar extends React.Component {
       from: null,
       to:null
     };
-    eventHarness()
+
   }
 
   handleDayClick(e, day) {

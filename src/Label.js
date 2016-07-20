@@ -14,7 +14,7 @@ const LABEL_WEIGHTS = {
 };
 
 function Label(props) {
-  eventHarness()
+  
 
   let className = ['pe-label'];
 
@@ -70,4 +70,4 @@ Label.propTypes = {
 
 export default Label;
 
-const eventHarness = () => document.body.addEventListener('o.initLabel', e => new Label(e.detail))
+document.body.addEventListener('o.initLabel', e => new Label(e.detail))
