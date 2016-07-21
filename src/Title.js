@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 
 function Title(props) {
   return <div>PLACEHOLDER: Title</div>;

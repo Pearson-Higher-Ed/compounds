@@ -7,6 +7,6 @@ function Card(props) {
   );
 }
 
-export default Card;
+export default Card
 
 document.body.addEventListener('o.initCard', e => ReactDOM.render(new Card(e.detail),document.getElementById('app')))
