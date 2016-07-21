@@ -1,5 +1,6 @@
 import React from 'react';
 import SimpleCalendar from "../../docs/src/app/components/containers/components/SimpleCalendar";
+import ReactDOM from 'react-dom';
 
 function Calendar(props) {
   return (
@@ -10,4 +11,4 @@ function Calendar(props) {
 export default Calendar;
 
 
-document.body.addEventListener('o.initCalendar', e => new Calendar(e.detail))
+document.body.addEventListener('o.initCalendar', e => ReactDOM.render(new Calendar(e.detail),document.getElementById('app')))

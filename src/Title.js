@@ -6,4 +6,4 @@ function Title(props) {
 
 export default Title;
 
-document.body.addEventListener('o.initTitle', e => new Title(e.detail))
+document.body.addEventListener('o.initTitle', e => ReactDOM.render(new Title(e.detail),document.getElementById('app')))

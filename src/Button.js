@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 
 const BUTTON_TYPES = {
   PRIMARY: 'primary',
@@ -41,4 +42,4 @@ Button.propTypes = {
 
 export default Button;
 
-document.body.addEventListener('o.initButton', e => new Button(e.detail))
+document.body.addEventListener('o.initButton', e => ReactDOM.render(new Button(e.detail),document.getElementById('app')))
