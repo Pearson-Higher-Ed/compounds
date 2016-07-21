@@ -1,6 +1,6 @@
-import React from "react";
-import DayPicker from "./DayPicker";
-import DateUtils from "./DateUtils";
+import React from 'react';
+import DayPicker from './DayPicker';
+import DateUtils from './DateUtils';
 
 
 export default class SimpleCalendar extends React.Component {
