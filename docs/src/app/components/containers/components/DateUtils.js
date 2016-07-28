@@ -42,10 +42,10 @@ export function isSameDay(d1, d2) {
  * @param  {Date}  d
  * @return {Boolean}
  */
-export function isPastDay(d) {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  return d < today;
+export function isPastDay(d, d1) {
+
+  d1.setHours(0, 0, 0, 0);
+  return d < d1;
 }
 
 /**
@@ -78,12 +78,19 @@ export function isDayBetween(d, d1, d2) {
  */
 export function addDayToRange(day, range={from: null, to: null}) {
   let { from, to } = range;
-  if (!from) {
+
+  if (from && from > day && to) {
     from = day;
   }
-  else if (from && to && isSameDay(from, to) && isSameDay(day, from)) {
-    from = null;
-    to = null;
+  else if (from && (to > day || to < day )&& to) {
+    to = day;
+  }
+  else if (!from) {
+    from = day;
+  }
+  else if (from && from < day && to) {
+    to = day;
+    from = day;
   }
   else if (to && day < from) {
     from = day;
@@ -98,6 +105,54 @@ export function addDayToRange(day, range={from: null, to: null}) {
       to = from;
       from = day;
     }
+  }
+
+  return { from, to };
+}
+
+/**
+ * Add a day to a range and return a new range. A range is an object with
+ * `from` and `to` days.
+ *
+ * @param {Date} day
+ * @param {Object} range
+ * @return {Object} Returns a new range object
+ */
+export function addDayToRange1(day, range={from: null, to: null}) {
+  let { from, to } = range;
+
+  if (from && ((to > day) && (day > from || day < from)) && to) {
+    from = day;
+    to = to;
+  }else if (from && ((from < day) && (to < day)) && to) {
+    from = day;
+    to = day;
+  }else if (!from && (!to || to)) {
+    to = day;
+  }else if (!to && (!from || from)) {
+    from = day;
+  }else if (from && from < day && to) {
+    to = day;
+    from = day;
+  }
+
+  return { from, to };
+}
+
+/**
+ * Add a day to a range and return a new range. A range is an object with
+ * `from` and `to` days.
+ *
+ * @param {Date} day
+ * @param {Object} range
+ * @return {Object} Returns a new range object
+ */
+export function addDayToRange2(day, range={from: null, to: null}) {
+  let { from, to } = range;
+
+  if ((day > to && to && (!from || from))) {
+    from=day;
+    to='';
   }
 
   return { from, to };
@@ -119,6 +174,8 @@ export function isDayInRange(day, range) {
 
 export default {
   addDayToRange,
+  addDayToRange1,
+  addDayToRange2,
   addMonths,
   clone,
   isSameDay,

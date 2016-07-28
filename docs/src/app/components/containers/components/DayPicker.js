@@ -208,11 +208,21 @@ export default class DayPicker extends React.Component {
 
   handleDayClick(e, day, modifiers) {
     e.persist();
-    if (modifiers.indexOf("outside") > -1) {
-      this.handleOutsideDayPress(day);
+
+    let className = "pe-calendar-dates";
+    className = modifiers.map(modifier => ` ${className}--${modifier}`).join("");
+
+    if (className !==  ` pe-calendar-dates--disabled`) {
+
+      if (className !==  ` pe-calendar-dates--outside pe-calendar-dates--disabled`)
+      {
+        this.props.onDayClick(e, day, modifiers);
+      }
     }
 
-    this.props.onDayClick(e, day, modifiers);
+    if (className === ` pe-calendar-dates--outside`) {
+      this.handleOutsideDayPress(day);
+    }
   }
 
   handleDayMouseEnter(e, day, modifiers) {
@@ -384,6 +394,15 @@ export default class DayPicker extends React.Component {
       modifiers.push("selected_to");
 
       className =  ` pe-calendar-dates--selected_to`;
+    }
+    if (className === ' pe-calendar-dates--outside pe-calendar-dates--selected_to pe-calendar-dates--highlighted') {
+      modifiers.push('selected_to');
+
+      className =  ` pe-calendar-dates--selected_to`;
+    }
+    if (className === ' pe-calendar-dates--outside pe-calendar-dates--disabled') {
+      
+      className =  ` pe-calendar-dates--disabled`;
     }
 
 
