@@ -93,7 +93,8 @@ export default class DatePicker extends React.Component {
           <div className="pe-input-group pe-input-icon">
           <div className="pe-input" style={divStyle1}>
            <Onclickout onClickOut={this.handleOnClickOutside}>
-           <input ref="input" type="text" id="i2" placeholder="mm/dd/yyyy"
+           <input ref="input" type="text" id="i2"
+           placeholder={(moment.localeData(this.props.locale)._longDateFormat.L).toLowerCase()}
            onClick={this.handleOnClick}  value={this.state.value}
            onChange={this.handleInputChange}
            onFocus={this.handleOnClick} />
