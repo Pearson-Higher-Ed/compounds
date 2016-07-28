@@ -10,6 +10,7 @@ import Labels from './components/containers/components/Labels';
 import Dropdowns from './components/containers/components/Dropdowns';
 import Calendar from '../../../src/calendar/Calendar';
 import DatePicker from '../../../src/calendar/DatePicker';
+import DatePickerRange from '../../../src/calendar/DatePickerRange';
 
 
 const Routes = (
@@ -23,6 +24,8 @@ const Routes = (
       <Route path="calendar/:locale" component={Calendar} />
       <Route path="datepicker/:locale" component={DatePicker} />
       <Route path="datepicker" component={DatePicker} />
+      <Route path="datepickerrange" component={DatePickerRange} />
+      <Route path="datepickerrange/:locale" component={DatePickerRange} />
     </Route>
   </Route>
 );
