@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 
 function Calendar(props) {
   return (
-     <SimpleCalendar locale={props.locale}/>
+     <SimpleCalendar locale={props.params.locale}/>
    );
 }
 
