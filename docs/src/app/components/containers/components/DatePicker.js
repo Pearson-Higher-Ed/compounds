@@ -63,7 +63,7 @@ export default class DatePicker extends React.Component {
    if (moment(value, 'L', true).isValid()) {
      this.setState({
        month: moment(value, 'L').toDate(),
-       value,
+       value
      }, this.showCurrentDate);
    } else {
      this.setState({ value }, this.showCurrentDate);
