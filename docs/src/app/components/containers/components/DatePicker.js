@@ -55,20 +55,26 @@ export default class DatePicker extends React.Component {
     this.refs.daypicker.showMonth(this.state.month);
   }
 
- handleInputChange(e) {
-   const { value } = e.target;
+  handleInputChange(e,day) {
+    event.preventDefault();
+    let { value } = e.target;
+    this.setState({
+      showComponent: false
+    });
 
-   // Change the current month only if the value entered by the user
-   // is a valid date, according to the `L` format
-   if (moment(value, 'L', true).isValid()) {
-     this.setState({
-       month: moment(value, 'L').toDate(),
-       value
-     }, this.showCurrentDate);
-   } else {
-     this.setState({ value }, this.showCurrentDate);
-   }
- }
+    if (moment(value, 'L', true).isValid()) {
+      this.setState({
+        selectedDay: moment(this.state.value, 'L', true).toDate(),
+        moment: moment.locale('en'),
+        value: value,
+        month: moment(value, 'L').toDate(),
+        showComponent: true
+      });
+    } else {
+      this.setState({ value });
+    }
+
+  }
 
   render() {
 
