@@ -83,9 +83,8 @@ The static demo site is scripted to deploy to GitHub Pages (gh-pages branch).
 
 ## Guidelines
 
-All submissions must be via pull request and approved before the pearson-design-accelerator@pearson.com team will merge 
-and allow it to enter the release process. All submissions must pass this project's linting, test with 100% code coverage, 
-and be compatible with the version(s) of React approved for the Pearson User Experience Platform.
+Please review the [guidelines](https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md) for contributing before getting started.
+All submissions must be via pull request and approved before the pearson-design-accelerator@pearson.com team will merge and allow it to enter the release process. All submissions must pass this project's linting, test with 100% code coverage, and be compatible with the version(s) of React approved for the Pearson User Experience Platform.
 
 ## License
 

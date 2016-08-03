@@ -117,26 +117,6 @@ export function isDayInRange(day, range) {
     (from && to && isDayBetween(day, from, to));
 }
 
-
-export function isDayExists(day) {
-
-  let value = false;
-  let dueDates = ['Tue Jun 07 2016 12:00:00 GMT+0530 (IST)', 'Tue Jun 28 2016 12:00:00 GMT+0530 (IST)'];
-
-  for (let i = 0; i < dueDates.length ; i++) {
-    let internalVariable = dueDates[i];
-    if (internalVariable === day) {
-      value = true;
-      i = dueDates.length;
-    }
-  }
-
-  return value;
-}
-
-
-
-
 export default {
   addDayToRange,
   addMonths,
@@ -144,6 +124,5 @@ export default {
   isSameDay,
   isDayInRange,
   isDayBetween,
-  isPastDay,
-  isDayExists
+  isPastDay
 }

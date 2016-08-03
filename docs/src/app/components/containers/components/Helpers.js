@@ -1,6 +1,6 @@
 
-import { clone } from "./DateUtils";
-import { getFirstDayOfWeek } from "./LocaleUtils";
+import { clone } from './DateUtils';
+import { getFirstDayOfWeek } from './LocaleUtils';
 
 export function cancelEvent(e) {
   e.preventDefault();
