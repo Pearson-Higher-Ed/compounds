@@ -65,7 +65,7 @@ export default class DatePicker extends React.Component {
         month: moment(value, 'L').toDate(),
         showComponent: true
       });
-    }else if (value==0) {
+    }else if (value.length===0) {
       this.setState({
         showComponent: true,
         value : value
