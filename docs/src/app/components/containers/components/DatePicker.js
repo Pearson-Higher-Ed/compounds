@@ -55,25 +55,27 @@ export default class DatePicker extends React.Component {
     this.refs.daypicker.showMonth(this.state.month);
   }
 
-  handleInputChange(e,day) {
-    event.preventDefault();
-    let { value } = e.target;
-    this.setState({
-      showComponent: false
-    });
-
+  handleInputChange(e) {
+    const { value } = e.target;
     if (moment(value, 'L', true).isValid()) {
       this.setState({
         selectedDay: moment(this.state.value, 'L', true).toDate(),
-        moment: moment.locale('en'),
+        moment: moment.locale(this.props.locale),
         value: value,
         month: moment(value, 'L').toDate(),
         showComponent: true
       });
+    }else if (value===0) {
+      this.setState({
+        showComponent: true,
+        value : value
+      });
     } else {
-      this.setState({ value });
+      this.setState({
+        showComponent: false,
+        value : value
+      });
     }
-
   }
 
   render() {
