@@ -1,4 +1,5 @@
-import React from 'react';
+import React    from 'react'
+import ReactDOM from 'react-dom'
 
 function Card(props) {
   return (
@@ -6,4 +7,8 @@ function Card(props) {
   );
 }
 
-export default Card;
+export default Card
+
+if (typeof window !== 'undefined') {
+  document.body.addEventListener('o.initCard', e => ReactDOM.render(new Card(e.detail), document.getElementById('app')))
+}

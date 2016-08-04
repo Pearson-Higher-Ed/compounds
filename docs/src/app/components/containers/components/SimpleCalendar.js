@@ -11,6 +11,7 @@ export default class SimpleCalendar extends React.Component {
       from: null,
       to:null
     };
+
   }
 
   handleDayClick(e, day) {

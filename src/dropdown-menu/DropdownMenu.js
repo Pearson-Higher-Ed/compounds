@@ -5,6 +5,7 @@ import indexOfElement from '../extensions/indexOfElement';
 import delegateEvents from '../extensions/delegateEvents';
 import addHandleClickOutside from '../extensions/addHandleClickOutside';
 
+
 class DropdownMenu extends React.Component {
   constructor(props) {
     super(props);
@@ -85,3 +86,7 @@ class DropdownMenu extends React.Component {
 }
 
 export default addHandleClickOutside(DropdownMenu);
+
+if (typeof window !== 'undefined') {
+  document.body.addEventListener('o.initDropdownMenu', e => ReactDOM.render(new DropdownMenu(e.detail), document.getElementById('app')))
+}
