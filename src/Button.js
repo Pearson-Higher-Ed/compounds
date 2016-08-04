@@ -42,4 +42,6 @@ Button.propTypes = {
 
 export default Button;
 
-document.body.addEventListener('o.initButton', e => ReactDOM.render(new Button(e.detail),document.getElementById('app')))
+if(typeof window !== 'undefined') {
+  document.body.addEventListener('o.initButton', e => ReactDOM.render(new Button(e.detail),document.getElementById('app')))
+}

@@ -7,4 +7,6 @@ function CardHeader(props) {
 
 export default CardHeader;
 
-document.body.addEventListener('o.initCardHeader', e => ReactDOM.render(new CardHeader(e.detail),document.getElementById('app')))
+if(typeof window !== 'undefined') {
+  document.body.addEventListener('o.initCardHeader', e => ReactDOM.render(new CardHeader(e.detail),document.getElementById('app')))
+}

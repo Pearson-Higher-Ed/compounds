@@ -87,4 +87,6 @@ class DropdownMenu extends React.Component {
 
 export default addHandleClickOutside(DropdownMenu);
 
-document.body.addEventListener('o.initDropdownMenu', e => ReactDOM.render(new DropdownMenu(e.detail),document.getElementById('app')))
+if(typeof window !== 'undefined') {
+  document.body.addEventListener('o.initDropdownMenu', e => ReactDOM.render(new DropdownMenu(e.detail),document.getElementById('app')))
+}

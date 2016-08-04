@@ -8,4 +8,6 @@ function Lead(props) {
 
 export default Lead
 
-document.body.addEventListener('o.initLead', e => ReactDOM.render(new Lead(e.detail),document.getElementById('app')))
+if(typeof window !== 'undefined') {
+  document.body.addEventListener('o.initLead', e => ReactDOM.render(new Lead(e.detail),document.getElementById('app')))
+}

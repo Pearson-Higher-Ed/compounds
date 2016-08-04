@@ -71,4 +71,6 @@ Label.propTypes = {
 
 export default Label;
 
-document.body.addEventListener('o.initLabel', e => ReactDOM.render(new Label(e.detail),document.getElementById('app')))
+if(typeof window !== 'undefined') {
+  document.body.addEventListener('o.initLabel', e => ReactDOM.render(new Label(e.detail),document.getElementById('app')))
+}

@@ -7,4 +7,6 @@ function DropdownMenuDivider(props) {
 
 export default DropdownMenuDivider
 
-document.body.addEventListener('o.initDropdownMenuDivider', e => ReactDOM.render(new DropdownMenuDivider(e.detail),document.getElementById('app')))
+if(typeof window !== 'undefined') {
+  document.body.addEventListener('o.initDropdownMenuDivider', e => ReactDOM.render(new DropdownMenuDivider(e.detail),document.getElementById('app')))
+}

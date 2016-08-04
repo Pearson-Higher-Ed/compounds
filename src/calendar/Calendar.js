@@ -11,5 +11,6 @@ function Calendar(props) {
 
 export default Calendar;
 
-
-document.body.addEventListener('o.initCalendar', e => ReactDOM.render(new Calendar(e.detail),document.getElementById('app')))
+if(typeof window !== 'undefined') {
+  document.body.addEventListener('o.initCalendar', e => ReactDOM.render(new Calendar(e.detail),document.getElementById('app')))
+}

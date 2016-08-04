@@ -7,4 +7,6 @@ function CardContent(props) {
 
 export default CardContent
 
-document.body.addEventListener('o.initCardContent', e => ReactDOM.render(new CardContent(e.detail),document.getElementById('app')))
+if(typeof window !== 'undefined') {
+  document.body.addEventListener('o.initCardContent', e => ReactDOM.render(new CardContent(e.detail),document.getElementById('app')))
+}
