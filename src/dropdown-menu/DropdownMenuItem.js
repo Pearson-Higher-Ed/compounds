@@ -7,6 +7,6 @@ function DropdownMenuItem(props) {
 
 export default DropdownMenuItem;
 
-if(typeof window !== 'undefined') {
-  document.body.addEventListener('o.initDropdownMenuItem', e => ReactDOM.render(new DropdownMenuItem(e.detail),document.getElementById('app')))
+if (typeof window !== 'undefined') {
+  document.body.addEventListener('o.initDropdownMenuItem', e => ReactDOM.render(new DropdownMenuItem(e.detail), document.getElementById('app')))
 }

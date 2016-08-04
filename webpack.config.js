@@ -32,7 +32,7 @@ module.exports = {
 
   node: {
     Buffer: false,
-    fs: "empty"
+    fs: 'empty'
   },
 
   plugins: [

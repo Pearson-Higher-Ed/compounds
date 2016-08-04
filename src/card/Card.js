@@ -9,6 +9,6 @@ function Card(props) {
 
 export default Card
 
-if(typeof window !== 'undefined') {
-  document.body.addEventListener('o.initCard', e => ReactDOM.render(new Card(e.detail),document.getElementById('app')))
+if (typeof window !== 'undefined') {
+  document.body.addEventListener('o.initCard', e => ReactDOM.render(new Card(e.detail), document.getElementById('app')))
 }

@@ -10,6 +10,6 @@ function DatePickerCalendar(props) {
 
 export default DatePickerCalendar;
 
-if(typeof window !== 'undefined') {
-  document.body.addEventListener('o.initDatePickerCalendar', e => ReactDOM.render(new DatePickerCalendar(e.detail), document.getElementById('app')))
+if (typeof window !== "undefined") {
+  document.body.addEventListener("o.initDatePickerCalendar", e => ReactDOM.render(new DatePickerCalendar(e.detail), document.getElementById("app")))
 }
