@@ -83,7 +83,8 @@ export default class DatePicker extends React.Component {
     const selectedDay = moment(this.state.value, 'L', true).toDate();
 
     const modifiers = {
-      selected_from: day => DateUtils.isSameDay(selectedDay, day)
+      selected_from: day => DateUtils.isSameDay(selectedDay, day),
+      highlighted:day => DateUtils.isSameDay(selectedDay, day)
     };
 
 
@@ -101,7 +102,7 @@ export default class DatePicker extends React.Component {
           <div className="pe-input-group pe-input-icon">
           <div className="pe-input" style={divStyle1}>
            <Onclickout onClickOut={this.handleOnClickOutside}>
-           <input ref="input" type="text" id="i2" 
+           <input ref="input" type="text" id="i2"
            placeholder={(moment.localeData(this.props.locale)._longDateFormat.L).toLowerCase()}
            onClick={this.handleOnClick}  value={this.state.value}
            onChange={this.handleInputChange}
