@@ -288,18 +288,17 @@ export default class DatePickerRange extends React.Component {
          toVal: value
        });
      }
-   else{
-     this.setState({
-       month: new Date(selfrom),
-       showComponentFrom: false,
-       showComponentTo: true,
-       valTo: '',
-       to: value,
-       toVal: value
-     });
+     else {
+       this.setState({
+         month: new Date(selfrom),
+         showComponentFrom: false,
+         showComponentTo: true,
+         valTo: '',
+         to: value,
+         toVal: value
+       });
+     }
    }
- }
-
    else {
      this.setState({
        showComponentFrom: false,
