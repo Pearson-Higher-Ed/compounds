@@ -3,7 +3,7 @@ import DayPicker from './DayPicker';
 import DateUtils from './DateUtils';
 import moment from 'moment';
 import Onclickout from 'react-onclickout';
-import '../../../../www/scss/calendar.scss';
+// import '../../../docs/src/www/scss/calendar.scss';
 
 export default class DatePicker extends React.Component {
 

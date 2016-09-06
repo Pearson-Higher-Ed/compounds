@@ -41,7 +41,7 @@ const apiData = [
       {
         title: 'expanded',
         propType: 'boolean',
-        description: 'wether or not the dropdown is expanded (shown).'
+        description: 'whether or not the dropdown is expanded (shown).'
       }
     ]
   }

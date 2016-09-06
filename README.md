@@ -2,8 +2,7 @@
 [![Build Status](https://travis-ci.org/Pearson-Higher-Ed/compounds.svg?branch=v0)](https://travis-ci.org/Pearson-Higher-Ed/compounds)
 [![Coverage Status](https://coveralls.io/repos/github/Pearson-Higher-Ed/compounds/badge.svg?branch=v0)](https://coveralls.io/github/Pearson-Higher-Ed/compounds?branch=v0)
 
-This module provides a foundational set of [React](http://facebook.github.io/react) components for building Pearson web 
-user experiences.
+This module provides a foundational set of [React](http://facebook.github.io/react) components for building Pearson web user experiences.
 
 ## Usage
 
@@ -15,8 +14,7 @@ Install and save in your package.json:
 
 ### External Dependencies
 
-React and ReactDOM (v0.14 or v15) are external dependencies required to use this component. They are npm-installable or 
-available from a third-party [CDN](https://cdnjs.com/libraries/react/).
+React and ReactDOM (v0.14 or v15) are external dependencies required to use this component. They are npm-installable or available from a third-party [CDN](https://cdnjs.com/libraries/react/).
 
 This component targets the styling in the [Pearson Elements SDK](https://www.npmjs.com/package/pearson-elements).
 
@@ -44,15 +42,13 @@ After cloning the repository:
     npm install
     npm start
     
-Navigate to **http://localhost:8000/#/components**, where the spawned Node server hosts a webpack-generated SPA using 
-React Router for defining how to render the components.
+Navigate to **http://localhost:8000/#/components**, where the spawned Node server hosts a webpack-generated SPA using React Router for defining how to render the components.
 
 As you save changes to the source, the changes are automatically reloaded in the browser.
 
 ### Test
 
-The project is wired to unit test with the Mocha framework, "expect" assertion library, and expect-jsx to turn React 
-elements into formatted strings.
+The project is wired to unit test with the Mocha framework, "expect" assertion library, and expect-jsx to turn React elements into formatted strings.
 
     npm test
     
@@ -68,8 +64,7 @@ In the compounds project, link to this newly-created symlink using the package.j
 
     compounds> npm link pearson-elements
     
-Note that the linking occurs immediately in node_modules, without rebuilding. You may need to re-execute this to pick up
-any changes made to Elements.
+Note that the linking occurs immediately in node_modules, without rebuilding. You may need to re-execute this to pick up any changes made to Elements.
 
 To undo this specific symlink:
 
@@ -88,4 +83,4 @@ All submissions must be via pull request and approved before the pearson-design-
 
 ## License
 
-Copyright 2015 Pearson Education. This software is published under the [MIT](LICENSE) license.
+Copyright 2016 Pearson Education. This software is published under the [MIT](LICENSE) license.
