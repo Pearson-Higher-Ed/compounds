@@ -13,7 +13,8 @@ const navData = [
       { title: 'Labels' },
       { title: 'Dropdowns' },
       { title: 'Calendar' },
-      { title: 'DatePicker' }
+      { title: 'DatePicker' },
+      { title: 'DatePickerRange' }
     ]
   }
 ];

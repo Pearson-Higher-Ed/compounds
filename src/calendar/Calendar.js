@@ -37,7 +37,7 @@ class SimpleCalendar extends React.Component {
 
 function Calendar(props) {
   return (
-     <SimpleCalendar locale={props.locale}/>
+     <SimpleCalendar locale={props.params.locale}/>
    );
 }
 
