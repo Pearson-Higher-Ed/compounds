@@ -88,6 +88,9 @@ export function addDayToRange(day, range={from: null, to: null}) {
   else if (!from) {
     from = day;
   }
+  else if (from && isSameDay(day, to) && to) {
+    to = day;
+  }
   else if (from && from < day && to) {
     to = day;
     from = day;
@@ -100,8 +103,10 @@ export function addDayToRange(day, range={from: null, to: null}) {
     to = day;
   }
   else {
-    to = day;
-    if (to < from) {
+    if (!to && !isSameDay(day, from)) {
+      to = day;
+    }
+    if (to !== '' && to < from) {
       to = from;
       from = day;
     }
@@ -129,7 +134,11 @@ export function addDayToRange1(day, range={from: null, to: null}) {
     to = day;
   }else if (!from && (!to || to)) {
     to = day;
-  }else if (!to && (!from || from)) {
+  }else if (from && isSameDay(from, day) && !to) {
+    from = day;
+    to = day;
+  }
+  else if (!to && (!from || from)) {
     from = day;
   }else if (from && from < day && to) {
     to = day;

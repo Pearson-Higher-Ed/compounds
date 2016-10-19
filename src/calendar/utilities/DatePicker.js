@@ -3,7 +3,7 @@ import DayPicker from './DayPicker';
 import DateUtils from './DateUtils';
 import moment from 'moment';
 import Onclickout from 'react-onclickout';
-import '../../../../www/scss/calendar.scss';
+// import '../../../docs/src/www/scss/calendar.scss';
 
 export default class DatePicker extends React.Component {
 
@@ -55,27 +55,36 @@ export default class DatePicker extends React.Component {
     this.refs.daypicker.showMonth(this.state.month);
   }
 
- handleInputChange(e) {
-   const { value } = e.target;
-
-   // Change the current month only if the value entered by the user
-   // is a valid date, according to the `L` format
-   if (moment(value, 'L', true).isValid()) {
-     this.setState({
-       month: moment(value, 'L').toDate(),
-       value: moment().format('L')
-     }, this.showCurrentDate);
-   } else {
-     this.setState({ value }, this.showCurrentDate);
-   }
- }
+  handleInputChange(e) {
+    const { value } = e.target;
+    if (moment(value, 'L', true).isValid()) {
+      this.setState({
+        selectedDay: moment(this.state.value, 'L', true).toDate(),
+        moment: moment.locale(this.props.locale),
+        value: value,
+        month: moment(value, 'L').toDate(),
+        showComponent: true
+      });
+    }else if (value.length===0) {
+      this.setState({
+        showComponent: true,
+        value : value
+      });
+    } else {
+      this.setState({
+        showComponent: false,
+        value : value
+      });
+    }
+  }
 
   render() {
 
     const selectedDay = moment(this.state.value, 'L', true).toDate();
 
     const modifiers = {
-      selected_from: day => DateUtils.isSameDay(selectedDay, day)
+      selected_from: day => DateUtils.isSameDay(selectedDay, day),
+      highlighted:day => DateUtils.isSameDay(selectedDay, day)
     };
 
 

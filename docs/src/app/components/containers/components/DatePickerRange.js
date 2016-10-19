@@ -11,6 +11,14 @@ export default class DatePickerRange extends React.Component {
     this.state = {
       from: '',
       to: '',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+      fromVal:'',
+      toVal:'',
+>>>>>>> v0
+>>>>>>> v0
       month: new Date()
     };
 
@@ -78,6 +86,7 @@ export default class DatePickerRange extends React.Component {
     this.refs.inputFrom.select();
 
     let range = null;
+<<<<<<< HEAD
 
     if (day > to && to !== '') {
       range = DateUtils.addDayToRange2(day, this.state);
@@ -90,29 +99,77 @@ export default class DatePickerRange extends React.Component {
 
     }else if ((day > from || day < from || day < to) && (from !== '' && to === '')) {
       range = DateUtils.addDayToRange1(day, this.state);
+=======
+    let selectedMonth = false;
+
+    if (day <= to && from !== '' && to !== '' && !DateUtils.isSameDay(from, day)) {
+
+      range = DateUtils.addDayToRange1(day, this.state);
+      this.refs.inputTo.select();
+
+      this.setState({
+        month: new Date(to)
+      });
+
+      selectedMonth = true;
+
+    }else if (day > to && to !== '') {
+      range = DateUtils.addDayToRange2(day, this.state);
+
+      this.refs.inputTo.select();
+<<<<<<< HEAD
+      this.state = { text: '' };
+=======
+      this.state = { text: '', toVal:''};
+>>>>>>> v0
+
+    }else if ((day > from || day < from || day < to) && (from !== '')) {
+      range = DateUtils.addDayToRange1(day, this.state);
+
+>>>>>>> v0
     }else {
       range = DateUtils.addDayToRange(day, this.state);
     }
 
     this.setState(range);
 
+<<<<<<< HEAD
     this.setState({
       moment: moment.locale(this.props.locale),
       value: moment(day).format('L'),
       month: day,
+=======
+    if (!selectedMonth) {
+      this.setState({
+        moment: moment.locale(this.props.locale),
+        value: moment(day).format('L'),
+        month: day
+      })
+    }
+
+    this.setState({
+>>>>>>> v0
       showComponentFrom: false,
       valFrom: true
     });
   }
 
   handleDayClickTo(e, day) {
+<<<<<<< HEAD
     const { from } = this.state;
+=======
+    const { from, to } = this.state;
+>>>>>>> v0
 
     this.refs.inputTo.select();
 
     let range = null;
 
+<<<<<<< HEAD
     if (from === '') {
+=======
+    if (from === '' || (from && to === '' && DateUtils.isSameDay(from, day))) {
+>>>>>>> v0
       range = DateUtils.addDayToRange1(day, this.state);
     }else {
       range = DateUtils.addDayToRange(day, this.state);
@@ -138,6 +195,10 @@ export default class DatePickerRange extends React.Component {
   }
 
  handleInputChangeFrom(e) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> v0
    const { from } = e.target;
 
    if (moment(from, 'L', true).isValid()) {
@@ -147,10 +208,102 @@ export default class DatePickerRange extends React.Component {
      }, this.showCurrentDateFrom);
    } else {
      this.setState({ from }, this.showCurrentDateFrom);
+<<<<<<< HEAD
+=======
+=======
+   const { value } = e.target;
+   const selfrom=moment(this.refs.inputFrom.value, 'L', true).toDate();
+   const selto=moment(this.refs.inputTo.value, 'L', true).toDate();
+   if (moment(value, 'L', true).isValid()) {
+     if (selfrom > selto && selto !== '' ) {
+       this.setState({
+         moment: moment.locale(this.props.locale),
+         from: moment(value, 'L', true).toDate(),
+         fromVal:value,
+         month: moment(value, 'L').toDate(),
+         showComponentFrom: false,
+         showComponentTo: false
+       });
+       this.refs.inputTo.select();
+       this.state = { text: '', toVal:''};
+       this.setState({
+         month: moment(value, 'L', true).toDate()
+       });
+     }
+     else if (selfrom !== '' && selto !== '' && selfrom < selto) {
+       this.setState({
+         moment: moment.locale(this.props.locale),
+         from: moment(value, 'L', true).toDate(),
+         fromVal:value,
+         month: moment(value, 'L').toDate(),
+         showComponentFrom: false,
+         showComponentTo: false
+       });
+       this.refs.inputTo.select();
+     }
+     else if (selfrom !== '' && selto !== '' && selfrom > selto) {
+       this.setState({
+         moment: moment.locale(this.props.locale),
+         from: moment(value, 'L', true).toDate(),
+         fromVal:value,
+         to: '',
+         toVal:'',
+         month: moment(value, 'L').toDate(),
+         showComponentFrom: false,
+         showComponentTo: false
+       });
+       this.refs.inputTo.select();
+       this.state = { text: '', toVal:''};
+     }
+     else {
+       this.setState({
+         moment: moment.locale(this.props.locale),
+         from: moment(value, 'L', true).toDate(),
+         fromVal:value,
+         month: moment(value, 'L').toDate(),
+         showComponentFrom: true
+       });
+     }
+   }
+   else if (value.length===0) {
+     if (this.refs.inputTo.value === "") {
+       this.setState({
+         month: new Date(),
+         showComponentFrom: true,
+         showComponentTo: false,
+         valFrom: '',
+         fromVal: value,
+         from: value
+       });
+     }
+     else {
+       this.setState({
+         month: new Date(selto),
+         showComponentFrom: true,
+         showComponentTo: false,
+         valFrom: '',
+         fromVal: value,
+         from: value
+       });
+     }
+   }
+   else {
+     this.setState({
+       showComponentFrom: false,
+       showComponentTo: false,
+       valFrom: '',
+       fromVal:value
+     });
+>>>>>>> v0
+>>>>>>> v0
    }
  }
 
  handleInputChangeTo(e) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> v0
    const { to } = e.target;
 
    if (moment(to, 'L', true).isValid()) {
@@ -160,11 +313,89 @@ export default class DatePickerRange extends React.Component {
      }, this.showCurrentDateTo);
    } else {
      this.setState({ to }, this.showCurrentDateTo);
+<<<<<<< HEAD
+=======
+=======
+   const { value } = e.target;
+   const endDate=this.state.from;
+   const selfrom=moment(this.refs.inputFrom.value, 'L', true).toDate();
+   const selto=moment(this.refs.inputTo.value, 'L', true).toDate();
+   if (moment(value, 'L', true).isValid()) {
+     if (selfrom > selto && selto !== '' && selfrom !== '') {
+       this.setState({
+         moment: moment.locale(this.props.locale),
+         to: '',
+         toVal: '',
+         showComponentTo: true
+       });
+       this.setState({
+         month: new Date(this.state.from)
+       });
+     }
+     else if (selfrom > selto && selto === '' && selfrom !== '') {
+       this.setState({
+         moment: moment.locale(this.props.locale),
+         to: '',
+         toVal: '',
+         month: new Date(endDate),
+         showComponentTo: true
+       });
+     }
+     else {
+       this.setState({
+         moment: moment.locale(this.props.locale),
+         month: moment(value, 'L').toDate(),
+         to: moment(value, 'L', true).toDate(),
+         toVal: value,
+         showComponentTo: true
+       });
+     }
+   }
+   else if (value.length === 0) {
+     if (this.refs.inputFrom.value==="") {
+       this.setState({
+         showComponentFrom: false,
+         month: new Date(),
+         showComponentTo: true,
+         valTo: '',
+         to: value,
+         toVal: value
+       });
+     }
+     else {
+       this.setState({
+         month: new Date(selfrom),
+         showComponentFrom: false,
+         showComponentTo: true,
+         valTo: '',
+         to: value,
+         toVal: value
+       });
+     }
+   }
+   else {
+     this.setState({
+       showComponentFrom: false,
+       showComponentTo: false,
+       valTo: '',
+       toVal: value,
+       to: value,
+       month: moment(value, 'L').toDate()
+     });
+>>>>>>> v0
+>>>>>>> v0
    }
  }
 
   render() {
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+  //  const { from, to, month, fromVal, toVal } = this.state;
+>>>>>>> v0
+>>>>>>> v0
     const { from, to, month } = this.state;
     const { locale } = this.props;
 
@@ -192,7 +423,15 @@ export default class DatePickerRange extends React.Component {
       paddingRight:'5px'
     };
 
+<<<<<<< HEAD
     return <div>
+=======
+<<<<<<< HEAD
+    return (<div>
+=======
+    return <div>
+>>>>>>> v0
+>>>>>>> v0
     <div className="pe-input" style={divStyle1}><label htmlFor="i1">Choose a start date</label>
           <div className="pe-input-group pe-input-icon">
           <div className="pe-input" style={divStyle1}>
@@ -200,7 +439,15 @@ export default class DatePickerRange extends React.Component {
            <input ref="inputFrom" type="text" id="i1"
            placeholder={(moment.localeData(locale)._longDateFormat.L).toLowerCase()}
            onClick={this.handleOnClickFrom}
+<<<<<<< HEAD
            value={this.state.valFrom ? moment(from).locale(locale).format('L') : from}
+=======
+<<<<<<< HEAD
+           value={this.state.valFrom ? moment(from).locale(locale).format('L') : from}
+=======
+           value={this.state.valFrom ? moment(from).locale(locale).format('L') : this.state.fromVal}
+>>>>>>> v0
+>>>>>>> v0
 
            onChange={this.handleInputChangeFrom}
            onFocus={this.handleOnClickFrom} />
@@ -224,7 +471,15 @@ export default class DatePickerRange extends React.Component {
                  <input ref="inputTo" type="text" id="i2"
                  placeholder={(moment.localeData(locale)._longDateFormat.L).toLowerCase()}
                  onClick={this.handleOnClickTo}
+<<<<<<< HEAD
                  value={this.state.valTo ? moment(to).locale(locale).format('L') : ''}
+=======
+<<<<<<< HEAD
+                 value={this.state.valTo ? moment(to).locale(locale).format('L') : ''}
+=======
+                 value={this.state.valTo ? moment(to).locale(locale).format('L') : this.state.toVal}
+>>>>>>> v0
+>>>>>>> v0
                  onChange={this.handleInputChangeTo}
                  onFocus={this.handleOnClickTo} />
 
@@ -240,6 +495,14 @@ export default class DatePickerRange extends React.Component {
                 </Onclickout></div>
                 </div></div>
 
+<<<<<<< HEAD
           </div>;
+=======
+<<<<<<< HEAD
+          </div>);
+=======
+          </div>;
+>>>>>>> v0
+>>>>>>> v0
   }
 }

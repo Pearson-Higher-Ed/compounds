@@ -218,6 +218,8 @@ export default class DayPicker extends React.Component {
       {
         this.props.onDayClick(e, day, modifiers);
       }
+    if (modifiers.indexOf('outside') > -1) {
+      this.handleOutsideDayPress(day);
     }
 
     if (className === ` pe-calendar-dates--outside`) {
@@ -247,7 +249,7 @@ export default class DayPicker extends React.Component {
   }
 
   renderNavBar() {
-    const isRTL = this.props.dir === "rtl";
+    const isRTL = this.props.dir === 'rtl';
 
     const leftButton = isRTL ? this.allowNextMonth() : this.allowPreviousMonth();
     const rightButton = isRTL ? this.allowPreviousMonth() : this.allowNextMonth();
@@ -259,7 +261,7 @@ export default class DayPicker extends React.Component {
             key="left"
             className={`pe-btn--inverse-link`}
             aria-label="Previous"
-            title="Previous"
+            title="Previous month"
             onClick={() => isRTL ? this.showNextMonth() : this.showPreviousMonth()}
 
           >
@@ -270,7 +272,7 @@ export default class DayPicker extends React.Component {
           <button
             key="right"
             aria-label="Next"
-            title="Next"
+            title="Next month"
             className={`pe-btn--inverse-link`}
             onClick={() => isRTL ? this.showPreviousMonth() : this.showNextMonth()}
             >
@@ -347,13 +349,13 @@ export default class DayPicker extends React.Component {
   renderDay(month, day) {
     const { enableOutsideDays, modifiers: modifierFunctions } = this.props;
 
-    let className = "pe-calendar-dates";
+    let className = 'pe-calendar-dates';
     let modifiers = [];
     const key = `${day.getFullYear()}${day.getMonth()}${day.getDate()}`;
 
     const isOutside = day.getMonth() !== month.getMonth();
     if (isOutside) {
-      modifiers.push("outside");
+      modifiers.push('outside');
     }
 
     if (modifierFunctions) {
@@ -361,37 +363,37 @@ export default class DayPicker extends React.Component {
       modifiers = [...modifiers, ...customModifiers];
     }
 
-    className = modifiers.map(modifier => ` ${className}--${modifier}`).join("");
+    className = modifiers.map(modifier => ` ${className}--${modifier}`).join('');
 
 
     if (className === ' pe-calendar-dates--selected_from pe-calendar-dates--highlighted') {
-      modifiers.push("selected_from");
+      modifiers.push('selected_from');
 
       className =  ` pe-calendar-dates--selected_from`;
     }
     if (className === ' pe-calendar-dates--selected_to pe-calendar-dates--highlighted') {
-      modifiers.push("selected_to");
+      modifiers.push('selected_to');
 
       className =  ` pe-calendar-dates--selected_to`;
     }
     if (className === ' pe-calendar-dates--selected_from pe-calendar-dates--selected_to pe-calendar-dates--highlighted') {
-      modifiers.push("selected_from");
+      modifiers.push('selected_from');
 
       className =  ` pe-calendar-dates--selected_from`;
     }
     if (className === ' pe-calendar-dates--outside pe-calendar-dates--selected_from pe-calendar-dates--highlighted') {
-      modifiers.push("selected_from");
+      modifiers.push('selected_from');
 
       className =  ` pe-calendar-dates--selected_from`;
     }
     if (className === ' pe-calendar-dates--outside pe-calendar-dates--highlighted') {
-      modifiers.push("highlighted");
+      modifiers.push('highlighted');
 
       className =  ` pe-calendar-dates--highlighted`;
     }
 
     if (className === ' pe-calendar-dates--outside pe-calendar-dates--selected_to pe-calendar-dates--highlighted') {
-      modifiers.push("selected_to");
+      modifiers.push('selected_to');
 
       className =  ` pe-calendar-dates--selected_to`;
     }
@@ -401,7 +403,6 @@ export default class DayPicker extends React.Component {
       className =  ` pe-calendar-dates--selected_to`;
     }
     if (className === ' pe-calendar-dates--outside pe-calendar-dates--disabled') {
-      
       className =  ` pe-calendar-dates--disabled`;
     }
 
@@ -415,17 +416,17 @@ export default class DayPicker extends React.Component {
 
     const { localeUtils, locale } = this.props;
     const ariaLabel = localeUtils.formatDay(day, locale);
-    const ariaDisabled = isOutside ? "true" : "false";
+    const ariaDisabled = isOutside ? 'true' : 'false';
 
     let stateText = null;
     if (modifiers[modifiers.length-1]==='selected_from') {
-      stateText="First selection";
+      stateText='First selection';
     }
     if (modifiers[modifiers.length-1]==='selected_to') {
-      stateText="Last selection";
+      stateText='Last selection';
     }
     if (modifiers[modifiers.length-1]==='highlighted') {
-      stateText="Highlighted";
+      stateText='Highlighted';
     }
 
     return (
@@ -511,7 +512,7 @@ DayPicker.propTypes = {
 DayPicker.defaultProps = {
   initialMonth: new Date(),
   numberOfMonths: 1,
-  locale: "en",
+  locale: 'en',
   localeUtils: LocaleUtils,
   enableOutsideDays: false,
   canChangeMonth: true,
