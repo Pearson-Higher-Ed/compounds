@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import expect from 'expect';
 
-const DayPicker = require('../docs/src/app/components/containers/components/DayPicker').default;
+const DayPicker = require('../src/calendar/utilities/DayPicker').default;
 
 describe('DayPicker', () => {
 

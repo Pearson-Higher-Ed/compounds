@@ -8,8 +8,8 @@ import Buttons from './components/containers/components/Buttons';
 import Card from './components/containers/components/Card';
 import Labels from './components/containers/components/Labels';
 import Dropdowns from './components/containers/components/Dropdowns';
-import Calendar from '../../../src/calendar/Calendar';
-import DatePicker from '../../../src/calendar/DatePicker';
+import Calendar from './components/containers/components/Calendar';
+import DatePickerCalendar from './components/containers/components/DatePickerCalendar';
 
 
 const Routes = (
@@ -21,8 +21,8 @@ const Routes = (
       <Route path="dropdowns" component={Dropdowns} />
       <Route path="calendar" component={Calendar} />
       <Route path="calendar/:locale" component={Calendar} />
-      <Route path="datepicker/:locale" component={DatePicker} />
-      <Route path="datepicker" component={DatePicker} />
+      <Route path="datepicker" component={DatePickerCalendar} />
+      <Route path="datepicker/:locale" component={DatePickerCalendar} />
     </Route>
   </Route>
 );

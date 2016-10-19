@@ -3,6 +3,7 @@ export { default as Card } from './card/Card';
 export { default as CardHeader } from './card/CardHeader';
 export { default as CardContent } from './card/CardContent';
 export { default as Calendar } from './calendar/Calendar';
+export { default as DatePickerCalendar } from './calendar/DatePickerCalendar';
 export { default as Label } from './Label';
 export { default as Lead } from './Lead';
 export { default as Title } from './Title';

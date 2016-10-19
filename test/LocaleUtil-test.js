@@ -1,5 +1,5 @@
 import expect from 'expect';
-import  LocaleUtils  from '../docs/src/app/components/containers/components/LocaleUtils';
+import  LocaleUtils  from '../src/calendar/utilities/LocaleUtils';
 import React from 'react';
 
 
