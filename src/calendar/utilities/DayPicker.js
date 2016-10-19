@@ -208,7 +208,6 @@ export default class DayPicker extends React.Component {
 
   handleDayClick(e, day, modifiers) {
     e.persist();
-<<<<<<< HEAD:docs/src/app/components/containers/components/DayPicker.js
 
     let className = "pe-calendar-dates";
     className = modifiers.map(modifier => ` ${className}--${modifier}`).join("");
@@ -219,10 +218,9 @@ export default class DayPicker extends React.Component {
       {
         this.props.onDayClick(e, day, modifiers);
       }
-=======
+
     if (modifiers.indexOf('outside') > -1) {
       this.handleOutsideDayPress(day);
->>>>>>> v0:src/calendar/utilities/DayPicker.js
     }
 
     if (className === ` pe-calendar-dates--outside`) {

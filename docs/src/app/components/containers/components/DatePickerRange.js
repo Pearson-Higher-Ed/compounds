@@ -11,8 +11,11 @@ export default class DatePickerRange extends React.Component {
     this.state = {
       from: '',
       to: '',
+<<<<<<< HEAD
+=======
       fromVal:'',
       toVal:'',
+>>>>>>> v0
       month: new Date()
     };
 
@@ -97,7 +100,11 @@ export default class DatePickerRange extends React.Component {
       range = DateUtils.addDayToRange2(day, this.state);
 
       this.refs.inputTo.select();
+<<<<<<< HEAD
+      this.state = { text: '' };
+=======
       this.state = { text: '', toVal:''};
+>>>>>>> v0
 
     }else if ((day > from || day < from || day < to) && (from !== '')) {
       range = DateUtils.addDayToRange1(day, this.state);
@@ -155,6 +162,17 @@ export default class DatePickerRange extends React.Component {
   }
 
  handleInputChangeFrom(e) {
+<<<<<<< HEAD
+   const { from } = e.target;
+
+   if (moment(from, 'L', true).isValid()) {
+     this.setState({
+       month: moment(from, 'L').toDate(),
+       from: moment().format('L')
+     }, this.showCurrentDateFrom);
+   } else {
+     this.setState({ from }, this.showCurrentDateFrom);
+=======
    const { value } = e.target;
    const selfrom=moment(this.refs.inputFrom.value, 'L', true).toDate();
    const selto=moment(this.refs.inputTo.value, 'L', true).toDate();
@@ -238,10 +256,22 @@ export default class DatePickerRange extends React.Component {
        valFrom: '',
        fromVal:value
      });
+>>>>>>> v0
    }
  }
 
  handleInputChangeTo(e) {
+<<<<<<< HEAD
+   const { to } = e.target;
+
+   if (moment(to, 'L', true).isValid()) {
+     this.setState({
+       month: moment(to, 'L').toDate(),
+       to: moment().format('L')
+     }, this.showCurrentDateTo);
+   } else {
+     this.setState({ to }, this.showCurrentDateTo);
+=======
    const { value } = e.target;
    const endDate=this.state.from;
    const selfrom=moment(this.refs.inputFrom.value, 'L', true).toDate();
@@ -308,12 +338,16 @@ export default class DatePickerRange extends React.Component {
        to: value,
        month: moment(value, 'L').toDate()
      });
+>>>>>>> v0
    }
  }
 
   render() {
 
+<<<<<<< HEAD
+=======
   //  const { from, to, month, fromVal, toVal } = this.state;
+>>>>>>> v0
     const { from, to, month } = this.state;
     const { locale } = this.props;
 
@@ -341,7 +375,11 @@ export default class DatePickerRange extends React.Component {
       paddingRight:'5px'
     };
 
+<<<<<<< HEAD
+    return (<div>
+=======
     return <div>
+>>>>>>> v0
     <div className="pe-input" style={divStyle1}><label htmlFor="i1">Choose a start date</label>
           <div className="pe-input-group pe-input-icon">
           <div className="pe-input" style={divStyle1}>
@@ -349,7 +387,11 @@ export default class DatePickerRange extends React.Component {
            <input ref="inputFrom" type="text" id="i1"
            placeholder={(moment.localeData(locale)._longDateFormat.L).toLowerCase()}
            onClick={this.handleOnClickFrom}
+<<<<<<< HEAD
+           value={this.state.valFrom ? moment(from).locale(locale).format('L') : from}
+=======
            value={this.state.valFrom ? moment(from).locale(locale).format('L') : this.state.fromVal}
+>>>>>>> v0
 
            onChange={this.handleInputChangeFrom}
            onFocus={this.handleOnClickFrom} />
@@ -373,7 +415,11 @@ export default class DatePickerRange extends React.Component {
                  <input ref="inputTo" type="text" id="i2"
                  placeholder={(moment.localeData(locale)._longDateFormat.L).toLowerCase()}
                  onClick={this.handleOnClickTo}
+<<<<<<< HEAD
+                 value={this.state.valTo ? moment(to).locale(locale).format('L') : ''}
+=======
                  value={this.state.valTo ? moment(to).locale(locale).format('L') : this.state.toVal}
+>>>>>>> v0
                  onChange={this.handleInputChangeTo}
                  onFocus={this.handleOnClickTo} />
 
@@ -389,6 +435,10 @@ export default class DatePickerRange extends React.Component {
                 </Onclickout></div>
                 </div></div>
 
+<<<<<<< HEAD
+          </div>);
+=======
           </div>;
+>>>>>>> v0
   }
 }
