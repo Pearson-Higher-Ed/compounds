@@ -1,4 +1,3 @@
-
 import { clone } from './DateUtils';
 import { getFirstDayOfWeek } from './LocaleUtils';
 

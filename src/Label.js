@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 
 const LABEL_TYPES = {
   SECONDARY: 'secondary'
@@ -14,6 +15,8 @@ const LABEL_WEIGHTS = {
 };
 
 function Label(props) {
+
+
   let className = ['pe-label'];
 
   const { type, size, weight, inverse, ...other } = props;
@@ -67,3 +70,7 @@ Label.propTypes = {
 };
 
 export default Label;
+
+if (typeof window !== 'undefined') {
+  document.body.addEventListener('o.initLabel', e => ReactDOM.render(new Label(e.detail), document.getElementById('app')))
+}

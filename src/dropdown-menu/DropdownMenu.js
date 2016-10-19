@@ -5,6 +5,7 @@ import indexOfElement from '../extensions/indexOfElement';
 import delegateEvents from '../extensions/delegateEvents';
 import addHandleClickOutside from '../extensions/addHandleClickOutside';
 
+
 class DropdownMenu extends React.Component {
   constructor(props) {
     super(props);
@@ -75,13 +76,19 @@ class DropdownMenu extends React.Component {
     if (inverse) {
       classes.push('pe-dropdown-menu--inverse');
     }
-    return <div {...this.props} className={classes.join(' ')} aria-expanded={this.state.expanded} onKeyDown={this.handleKeydown.bind(this)} >
+    return (
+	  <div className={classes.join(' ')} aria-expanded={this.state.expanded} onKeyDown={this.handleKeydown.bind(this)} >
         <div onClick={this.toggle.bind(this)}></div>
         <div className="pe-dropdown-menu__menu-items">
           {this.props.children}
         </div>
       </div>
+	)
   }
 }
 
 export default addHandleClickOutside(DropdownMenu);
+
+if (typeof window !== 'undefined') {
+  document.body.addEventListener('o.initDropdownMenu', e => ReactDOM.render(new DropdownMenu(e.detail), document.getElementById('app')))
+}
