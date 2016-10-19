@@ -13,8 +13,11 @@ export default class DatePickerRange extends React.Component {
       to: '',
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
       fromVal:'',
       toVal:'',
+>>>>>>> v0
 >>>>>>> v0
       month: new Date()
     };
@@ -83,6 +86,20 @@ export default class DatePickerRange extends React.Component {
     this.refs.inputFrom.select();
 
     let range = null;
+<<<<<<< HEAD
+
+    if (day > to && to !== '') {
+      range = DateUtils.addDayToRange2(day, this.state);
+
+      this.refs.inputTo.select();
+      this.state = { text: '' };
+
+    }else if ((day > from || day < to) && (from !== '' && to !== '')) {
+      range = DateUtils.addDayToRange1(day, this.state);
+
+    }else if ((day > from || day < from || day < to) && (from !== '' && to === '')) {
+      range = DateUtils.addDayToRange1(day, this.state);
+=======
     let selectedMonth = false;
 
     if (day <= to && from !== '' && to !== '' && !DateUtils.isSameDay(from, day)) {
@@ -109,12 +126,19 @@ export default class DatePickerRange extends React.Component {
     }else if ((day > from || day < from || day < to) && (from !== '')) {
       range = DateUtils.addDayToRange1(day, this.state);
 
+>>>>>>> v0
     }else {
       range = DateUtils.addDayToRange(day, this.state);
     }
 
     this.setState(range);
 
+<<<<<<< HEAD
+    this.setState({
+      moment: moment.locale(this.props.locale),
+      value: moment(day).format('L'),
+      month: day,
+=======
     if (!selectedMonth) {
       this.setState({
         moment: moment.locale(this.props.locale),
@@ -124,19 +148,28 @@ export default class DatePickerRange extends React.Component {
     }
 
     this.setState({
+>>>>>>> v0
       showComponentFrom: false,
       valFrom: true
     });
   }
 
   handleDayClickTo(e, day) {
+<<<<<<< HEAD
+    const { from } = this.state;
+=======
     const { from, to } = this.state;
+>>>>>>> v0
 
     this.refs.inputTo.select();
 
     let range = null;
 
+<<<<<<< HEAD
+    if (from === '') {
+=======
     if (from === '' || (from && to === '' && DateUtils.isSameDay(from, day))) {
+>>>>>>> v0
       range = DateUtils.addDayToRange1(day, this.state);
     }else {
       range = DateUtils.addDayToRange(day, this.state);
@@ -163,6 +196,9 @@ export default class DatePickerRange extends React.Component {
 
  handleInputChangeFrom(e) {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> v0
    const { from } = e.target;
 
    if (moment(from, 'L', true).isValid()) {
@@ -172,6 +208,8 @@ export default class DatePickerRange extends React.Component {
      }, this.showCurrentDateFrom);
    } else {
      this.setState({ from }, this.showCurrentDateFrom);
+<<<<<<< HEAD
+=======
 =======
    const { value } = e.target;
    const selfrom=moment(this.refs.inputFrom.value, 'L', true).toDate();
@@ -257,11 +295,15 @@ export default class DatePickerRange extends React.Component {
        fromVal:value
      });
 >>>>>>> v0
+>>>>>>> v0
    }
  }
 
  handleInputChangeTo(e) {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> v0
    const { to } = e.target;
 
    if (moment(to, 'L', true).isValid()) {
@@ -271,6 +313,8 @@ export default class DatePickerRange extends React.Component {
      }, this.showCurrentDateTo);
    } else {
      this.setState({ to }, this.showCurrentDateTo);
+<<<<<<< HEAD
+=======
 =======
    const { value } = e.target;
    const endDate=this.state.from;
@@ -339,6 +383,7 @@ export default class DatePickerRange extends React.Component {
        month: moment(value, 'L').toDate()
      });
 >>>>>>> v0
+>>>>>>> v0
    }
  }
 
@@ -346,7 +391,10 @@ export default class DatePickerRange extends React.Component {
 
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
   //  const { from, to, month, fromVal, toVal } = this.state;
+>>>>>>> v0
 >>>>>>> v0
     const { from, to, month } = this.state;
     const { locale } = this.props;
@@ -376,9 +424,13 @@ export default class DatePickerRange extends React.Component {
     };
 
 <<<<<<< HEAD
+    return <div>
+=======
+<<<<<<< HEAD
     return (<div>
 =======
     return <div>
+>>>>>>> v0
 >>>>>>> v0
     <div className="pe-input" style={divStyle1}><label htmlFor="i1">Choose a start date</label>
           <div className="pe-input-group pe-input-icon">
@@ -390,7 +442,11 @@ export default class DatePickerRange extends React.Component {
 <<<<<<< HEAD
            value={this.state.valFrom ? moment(from).locale(locale).format('L') : from}
 =======
+<<<<<<< HEAD
+           value={this.state.valFrom ? moment(from).locale(locale).format('L') : from}
+=======
            value={this.state.valFrom ? moment(from).locale(locale).format('L') : this.state.fromVal}
+>>>>>>> v0
 >>>>>>> v0
 
            onChange={this.handleInputChangeFrom}
@@ -418,7 +474,11 @@ export default class DatePickerRange extends React.Component {
 <<<<<<< HEAD
                  value={this.state.valTo ? moment(to).locale(locale).format('L') : ''}
 =======
+<<<<<<< HEAD
+                 value={this.state.valTo ? moment(to).locale(locale).format('L') : ''}
+=======
                  value={this.state.valTo ? moment(to).locale(locale).format('L') : this.state.toVal}
+>>>>>>> v0
 >>>>>>> v0
                  onChange={this.handleInputChangeTo}
                  onFocus={this.handleOnClickTo} />
@@ -436,9 +496,13 @@ export default class DatePickerRange extends React.Component {
                 </div></div>
 
 <<<<<<< HEAD
+          </div>;
+=======
+<<<<<<< HEAD
           </div>);
 =======
           </div>;
+>>>>>>> v0
 >>>>>>> v0
   }
 }

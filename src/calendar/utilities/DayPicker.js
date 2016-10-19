@@ -218,7 +218,6 @@ export default class DayPicker extends React.Component {
       {
         this.props.onDayClick(e, day, modifiers);
       }
-
     if (modifiers.indexOf('outside') > -1) {
       this.handleOutsideDayPress(day);
     }
@@ -404,7 +403,6 @@ export default class DayPicker extends React.Component {
       className =  ` pe-calendar-dates--selected_to`;
     }
     if (className === ' pe-calendar-dates--outside pe-calendar-dates--disabled') {
-
       className =  ` pe-calendar-dates--disabled`;
     }
 
