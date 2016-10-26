@@ -1,6 +1,5 @@
 # Core Components for Pearson Web UX
 [![Build Status](https://travis-ci.org/Pearson-Higher-Ed/compounds.svg?branch=v0)](https://travis-ci.org/Pearson-Higher-Ed/compounds)
-[![Coverage Status](https://coveralls.io/repos/github/Pearson-Higher-Ed/compounds/badge.svg?branch=v0)](https://coveralls.io/github/Pearson-Higher-Ed/compounds?branch=v0)
 
 This module provides a foundational set of [React](http://facebook.github.io/react) components for building Pearson web
 user experiences.
