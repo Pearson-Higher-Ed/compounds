@@ -1,7 +1,7 @@
-import React from 'react';
-import expect from 'expect';
+import React       from 'react';
+import expect      from 'expect';
 import { shallow } from 'enzyme';
-import { Button } from '../lib'; 
+import { Button }  from '../../Compounds';
 
 describe('Button', () => {
 

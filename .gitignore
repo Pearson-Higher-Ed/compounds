@@ -1,7 +1,10 @@
-lib
-node_modules
-npm-debug.log
+.DS_Store
 .idea
-coverage
-umd
-/www
+node_modules
+fonts
+demo/elements.css
+npm-debug.log
+*.iml
+build/dev*
+build/dist*
+npm_scripts/*.js

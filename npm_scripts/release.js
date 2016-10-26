@@ -1,6 +1,8 @@
 // Execute this script in the target branch to release to npm!
 
+const log = require('./log');
 const exec = require('./exec');
+const path = require('path');
 const readline = require('readline');
 const semver = require('semver');
 const pkg = require('../package.json');
@@ -16,20 +18,25 @@ const syncRemote = (branchName, nextVersion) => {
 
   if (nextVersion) {
     exec(`git push --tags`);
-    console.log(`TravisCI will now release to npm on the tagged commit ${nextVersion} for the pearson-ux account.`);
+    log.secondary(`TravisCI will now release to npm on the tagged commit ${nextVersion} for the pearson-ux account.`);
   }
 };
 const exitFailure = (message) => {
-  console.error(message);
+  log.primaryError(message);
   process.exit(1);
 };
 
-if (!branchName.startsWith('v')) {
-  exitFailure('You must be on the official version branch in order to release to npm.');
+if (branchName !== 'master') {
+  exitFailure('You must be on the master branch in order to execute a release.');
 }
 
-// *** Releaser provides the target SEMVER-compliant version ***
+// Ensure unit tests pass before continuing!
+exec('npm test');
 
+// Verify that governance checks pass
+exec('npm run verify');
+
+// *** Releaser provides the target SEMVER-compliant version ***
 stdin.question(`Next version (current is ${currentVersion})? `, (nextVersion) => {
 
   if (!semver.valid(nextVersion)) {
@@ -44,12 +51,6 @@ stdin.question(`Next version (current is ${currentVersion})? `, (nextVersion) =>
     nextVersion = nextVersion.slice(1);
   }
 
-  // Ensure unit tests pass before continuing!
-  exec('npm test');
-
-  // Ensure the build will successfully generate
-  exec('npm run build-dist');
-
   // Order of operations:
   // 1. Bump the version update in package.json and npm-shrinkwrap.json
   // 2. The 'version' custom npm script (defined in package.json) executes changelog generation and adding to commit
@@ -59,14 +60,5 @@ stdin.question(`Next version (current is ${currentVersion})? `, (nextVersion) =>
   // push commit and tag on target release branch
   syncRemote(branchName, nextVersion);
 
-  // Generate gh-pages branch and sync with remote
-  exec('npm run gh-pages');
-  exec('git pull -s recursive -Xours --no-edit');
-  syncRemote('gh-pages');
-
-  // Go back from whence you came
-  exec(`git checkout ${branchName}`);
-
   stdin.close();
-
 });

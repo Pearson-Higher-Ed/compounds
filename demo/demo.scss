@@ -1,0 +1,38 @@
+.displaySection{
+  border: 1px solid black;
+  overflow:auto;
+  padding: 5px 5px 5px 5px;
+  margin-right:10px;
+  margin-left:10px;
+  margin-bottom:20px;
+}
+
+.elementContainer{
+  width:100%;
+  height:100%;
+  background-color:lightGray;
+  padding: 10px;
+}
+
+.elementDescription{
+  height:50%;
+  width:100%;
+}
+
+.displayTitle{
+  border:none;
+  margin-bottom:20px;
+};
+
+.displayTitleLink{
+  color:black;
+  text-decoration:none
+};
+
+.code{
+  background-color:WhiteSmoke;
+  border: 1px solid gray;
+  font-size:13;
+  padding: 5px;
+  margin-top:5px;
+};

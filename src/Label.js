@@ -1,20 +1,8 @@
 import React, { PropTypes } from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM             from 'react-dom'
 
-const LABEL_TYPES = {
-  SECONDARY: 'secondary'
-};
 
-const LABEL_SIZES = {
-  SMALL: 'small',
-  LARGE: 'large'
-};
-
-const LABEL_WEIGHTS = {
-  BOLD: 'bold'
-};
-
-function Label(props) {
+const Label = (props) => {
 
 
   let className = ['pe-label'];
@@ -54,6 +42,19 @@ function Label(props) {
 
 }
 
+const LABEL_TYPES = {
+  SECONDARY: 'secondary'
+};
+
+const LABEL_SIZES = {
+  SMALL: 'small',
+  LARGE: 'large'
+};
+
+const LABEL_WEIGHTS = {
+  BOLD: 'bold'
+};
+
 Label.LABEL_TYPES = LABEL_TYPES;
 Label.LABEL_SIZES = LABEL_SIZES;
 Label.LABEL_WEIGHTS = LABEL_WEIGHTS;
@@ -70,7 +71,3 @@ Label.propTypes = {
 };
 
 export default Label;
-
-if (typeof window !== 'undefined') {
-  document.body.addEventListener('o.initLabel', e => ReactDOM.render(new Label(e.detail), document.getElementById('app')))
-}
