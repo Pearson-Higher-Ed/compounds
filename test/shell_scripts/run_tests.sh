@@ -6,7 +6,7 @@ echo "Trigger the Selenium tests for master branch: ux-test-platform repo...."
 body="{
 \"request\": {
 \"message\": \"feat(compounds): Run Compounds Tests\",
-\"branch\":\"v0\",
+\"branch\":\"master\",
 \"config\": {
 \"script\": [
 \"export component=compounds\",
