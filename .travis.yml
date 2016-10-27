@@ -3,7 +3,6 @@ sudo: false
 node_js:
 - 4
 - 6
-- 7
 script:
 - npm run ci
 - chmod 777 ./test/shell_scripts/run_tests.sh
@@ -16,7 +15,7 @@ deploy:
     secure: I7MhEd++LqQyxQcivH7thVwazRHmV1By4TzjdKicHHur4qHaQzjiq5a5pM7LtPzrDbgxZapBwA/9okz13iSGeqG+/Nks8Nc2ac1wGOpnewnOSNnCw4e8tJT7Ug88s5cdcIfKeA0GhzUrRie5xEADBk1+9T+UXUujGiUNYcVftmqwV2xEHeE2FqjLGat0OLLx33llpM7ppt3pC00W7dRz/1IEY1Ov/U4lSqEqlppGfbLhi3X7SrgK66eqAiBS21lHUc2EF+/9Z5cebYjVMB6Wlbb6DcbYsm2rUEXiNmKu23P89yOBgLx9VEImDnyfOAfwGXX0H8fHgDXXC0dQboC9pCcBMbe6v4PH9zg0qs2pfUbsBTEX8m376dI1jm8RZhwVAQ0o1wsqLe0d11+p9hEROp0vs4Vgi7Uern7Fzyvpsi/b/ZpxIxbldqbhyb9GVgcrepfBvG3OFCVxNTcjYjyUjn1BATHZA9MdFQgsZTf//AjsbuQp6KGEPzCUTRLlzc5TvJ6LwsPw5Kvbj5hTLUblcgbPNTQH31vcHxkqWaQ8cnwSFinjiKJtdYn5SCHHpMLxdGSg2Pr16mNP+uByf6/A7tpb304TOJGzv3WQdZrwaOTG0KFRIGb4Lurjn+sZXzIsKkboUsJDijdnuxOLCl5a7aPT0JfP+I2IR0GHcAdpG0M=
   skip_cleanup: true
   on:
-    branch: master
+    branch: v0
     tags: true
 env:
   global:
