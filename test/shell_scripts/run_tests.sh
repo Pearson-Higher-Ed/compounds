@@ -5,15 +5,15 @@ echo "Trigger the Selenium tests for master branch: ux-test-platform repo...."
 #Step 1: API to trigger the ux-test-platform build with the below config
 body="{
 \"request\": {
-\"message\": \"feat(component-archetype): Run Demo Tests\",
-\"branch\":\"master\",
+\"message\": \"feat(compounds): Run Compounds Tests\",
+\"branch\":\"v0\",
 \"config\": {
 \"script\": [
-\"export component=component-archetype\",
+\"export component=compounds\",
 \"export feature_branch=$TRAVIS_BRANCH\",
 \"chmod 777 ./src/main/shell_scripts/components.sh\",
 \"./src/main/shell_scripts/components.sh\",
-\"mvn -Dtest_suite_xml=component_archetype.xml test\"
+\"mvn -Dtest_suite_xml=compounds.xml test\"
 ]
 }
 }}"
@@ -34,7 +34,7 @@ REPO_URI="https://api.travis-ci.org/repos/Pearson-Higher-Ed/ux-test-platform/bui
 i=1
 max=20
 while [ $i -lt $max ]
-do  
+do
   curl -i $REPO_URI > test.json #Push the json response to a temp file 'test.json'
 
   LATEST_STATE=$(grep -o '"state":.[a-z\"]*' test.json | head -1 ) #Fetch the state of the last build
@@ -50,8 +50,8 @@ do
   then LATEST_ID=$(grep -o '"id":.[0-9]*' test.json | head -1  | grep ':.[0-9]*') #
   echo "LATEST_ID of master branch.............................. $LATEST_ID"
   export LATEST_ID
-    break 
-  else  
+    break
+  else
     true $(( i++ ))
     sleep 1
   fi
@@ -69,7 +69,7 @@ max=900 #Max time for the tests to run.
 while [ $i -lt $max ]
 do
 
-curl -i $REPO_URI_WITH_BUILDID > test.json 
+curl -i $REPO_URI_WITH_BUILDID > test.json
 
 STATE=$(grep -o '"state":.[a-z\"]*' test.json | head -1 ) #Fetch the state of master build
 #RESULT=$(grep -o '"result":.[0-9]*' test.json | head -1  | grep ':.[0-9]*') #For debug
