@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { DemoButton }       from './demoCompounds/DemoButton';
-import { DemoLabel }        from './demoCompounds/DemoLabel';
 
 import './demo.scss'
 
@@ -15,7 +14,6 @@ class DemoCompounds extends Component {
     return (
       <div>
         <DemoButton />
-        <DemoLabel />
       </div>
     )
   };

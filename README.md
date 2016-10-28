@@ -43,7 +43,7 @@ After cloning the repository:
     npm install
     npm start
 
-Navigate to **http://localhost:8000/#/components**, where the spawned Node server hosts a webpack-generated SPA using
+Navigate to **http://localhost:8081/demo**, where the spawned Node server hosts a webpack-generated SPA using
 React Router for defining how to render the components.
 
 As you save changes to the source, the changes are automatically reloaded in the browser.
