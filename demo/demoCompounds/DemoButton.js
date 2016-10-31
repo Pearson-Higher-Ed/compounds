@@ -5,9 +5,9 @@ import { Button } from '../../Compounds';
 export const DemoButton = (props) => {
   return(
     <div className="displaySection">
-      <h1 className="displayTitle"><a className="displayTitleLink" href="https://pearson-higher-ed.github.io/design/c/buttons/">Button</a></h1>
+      <h2 className="displayTitle"><a className="displayTitleLink" href="https://pearson-higher-ed.github.io/design/c/buttons/">Button</a></h2>
       <div className="elementDescription">
-        <iframe src="https://pearson-higher-ed.github.io/design/c/buttons/" style={{width:'100%', height:'100%'}}/>
+        <iframe src="https://pearson-higher-ed.github.io/design/c/buttons/" title="Buttons Design page"  style={{width:'100%', height:'100%'}}/>
       </div>
       <div className="elementContainer">
         <Button>Default</Button>

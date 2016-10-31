@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { DemoButton }       from './demoCompounds/DemoButton';
+import { DemoButton } from './demoCompounds/DemoButton';
+import { DemoIcon } from './demoCompounds/DemoIcon';
 
 import './demo.scss'
 
@@ -14,6 +15,7 @@ class DemoCompounds extends Component {
     return (
       <div>
         <DemoButton />
+        <DemoIcon />
       </div>
     )
   };

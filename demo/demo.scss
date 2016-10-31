@@ -1,36 +1,58 @@
 .displaySection{
-  border: 1px solid black;
-  overflow:auto;
-  padding: 5px 5px 5px 5px;
-  margin-right:10px;
-  margin-left:10px;
-  margin-bottom:20px;
+  border: 1px solid #000;
+  overflow: auto;
+  padding: 5px;
+  margin: 0 10px 20px;
 }
 
-.elementContainer{
-  background-color: #d3d3d3;
+.elementContainer {
+  background-color: #ededed;
   padding: 10px;
 }
 
-.elementDescription{
-  height:50%;
-  width:100%;
+h2 {
+  margin-bottom:20px;
 }
 
-.displayTitle{
-  border:none;
-  margin-bottom:20px;
-};
+h2 a {
+  color: #000;
+}
 
-.displayTitleLink{
-  color:black;
-  text-decoration:none
-};
-
-.code{
-  background-color:WhiteSmoke;
-  border: 1px solid gray;
-  font-size:13;
+.code {
+  background-color: #f5f5f5;
+  border: 1px solid #808080;
+  font-size: .85em;
   padding: 5px;
-  margin-top:5px;
-};
+  margin-top: 5px;
+}
+
+li {
+  margin-bottom: .6em;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: top;
+  fill: currentColor;
+  margin-left: 10px;
+}
+button svg {
+  margin: 4px 0 0;
+}
+svg[class$="-18"] {
+  width: 18px;
+  height: 18px;
+}
+svg[class$="-24"] {
+  width: 24px;
+  height: 24px;
+}
+/* special according to Van */
+[class$="font-setting-18"] {
+  width: 24px;
+  height: 18px;
+}
+[class$="font-setting-24"] {
+  width: 32px;
+  height: 24px;
+}
