@@ -16,7 +16,7 @@ const Icon = (props) => {
            aria-labelledby = {i_id}
            className = {icon_class}>
         <title id = {i_id}>{props.children}</title>
-        <use xlinkHref = {'/assets/p-icons-sprite-1.1.svg#' + props.name}></use>
+        <use xlinkHref = {'/icons/p-icons-sprite-1.1.svg#' + props.name}></use>
       </svg>
     );
   }
@@ -27,7 +27,7 @@ const Icon = (props) => {
            xmlnsXlink = "http://www.w3.org/1999/xlink"
            aria-hidden = "true"
            className = {icon_class}>
-        <use xlinkHref = {'/assets/p-icons-sprite-1.1.svg#' + props.name}></use>
+        <use xlinkHref = {'/icons/p-icons-sprite-1.1.svg#' + props.name}></use>
       </svg>
     );
   }

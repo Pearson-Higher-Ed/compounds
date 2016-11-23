@@ -28,7 +28,6 @@
     "react-intl": "~2.0.1"
   },
   "devDependencies": {
-    "@pearson-components/npm-scripts": "^0.3.2",
     "babel-core": "^6.18.0",
     "babel-eslint": "~4.1.6",
     "babel-loader": "~6.2.0",
@@ -54,7 +53,7 @@
     "json-loader": "~0.5.4",
     "mocha": "~2.4.5",
     "node-sass": "~3.7.0",
-    "pearson-elements": "^0.12.0",
+    "pearson-elements": "^1.0.2",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
     "react-dom": "^15.0.0",

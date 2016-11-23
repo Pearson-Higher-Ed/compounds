@@ -5,27 +5,31 @@ import { Button } from '../../Compounds';
 export const DemoButton = (props) => {
   return(
     <div className="displaySection">
-      <h2 className="displayTitle"><a className="displayTitleLink" href="https://pearson-higher-ed.github.io/design/c/buttons/">Button</a></h2>
+      <h2><a href="https://pearson-higher-ed.github.io/design/c/buttons/">Button</a></h2>
+
       <div className="elementDescription">
-        <iframe src="https://pearson-higher-ed.github.io/design/c/buttons/" title="Buttons Design page"  style={{width:'100%', height:'100%'}}/>
+        <iframe src="http://pearson-higher-ed.github.io/design/c/buttons/beta/" title="Buttons v2 Design page"  style={{width:'100%', height:'100%'}}/>
       </div>
+
       <div className="elementContainer">
         <Button>Default</Button>
         <p className="code">{'<Button>Default</Button>'}</p>
-        <Button type="primary">Primary</Button>
-        <p className="code">{'<Button type="primary">Primary</Button>'}</p>
-        <Button type="link">Link</Button>
-        <p className="code">{'<Button type="link">Link</Button>'}</p>
+        <Button btntype="primary">Primary</Button>
+        <p className="code">{'<Button btntype="primary">Primary</Button>'}</p>
+        <Button btntype="cta">Call to Action</Button>
+        <p className="code">{'<Button btntype="cta">Call to Action</Button>'}</p>
         <Button disabled>Disabled</Button>
         <p className="code">{'<Button disabled>Disabled</Button>'}</p>
-        <Button type="primary" disabled>Disabled</Button>
-        <p className="code">{'<Button type="primary" disabled>Disabled</Button>'}</p>
-        <Button type="link" disabled>Disabled</Button>
-        <p className="code">{'<Button type="link" disabled>Disabled</Button>'}</p>
-        <Button size="small">Small</Button>
-        <p className="code">{'<Button size="small">Small</Button>'}</p>
-        <Button size="large">Large</Button>
-        <p className="code">{'<Button size="large">Large</Button>'}</p>
+        <Button btntype="primary" disabled>Disabled</Button>
+        <p className="code">{'<Button btntype="primary" disabled>Disabled</Button>'}</p>
+        <Button btnsize="small">Small</Button>
+        <p className="code">{'<Button btnsize="small">Small</Button>'}</p>
+        <Button btnsize="large">Large</Button>
+        <p className="code">{'<Button btnsize="large">Large</Button>'}</p>
+        <Button btnsize="xlarge">XLarge</Button>
+        <p className="code">{'<Button btnsize="xlarge">XLarge</Button>'}</p>
+        <Button btntype="primary" btnsize="xlarge">XLarge</Button>
+        <p className="code">{'<Button btntype="primary" btnsize="xlarge">XLarge</Button>'}</p>
       </div>
     </div>
   )

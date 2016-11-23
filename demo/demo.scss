@@ -31,28 +31,18 @@ li {
 }
 
 svg {
-  display: inline-block;
-  vertical-align: top;
-  fill: currentColor;
   margin-left: 10px;
 }
 button svg {
   margin: 4px 0 0;
 }
-svg[class$="-18"] {
-  width: 18px;
-  height: 18px;
+.warning {
+  padding: 5px;
+  background-color: pink;
+  border: 1px solid #db0020;
 }
-svg[class$="-24"] {
-  width: 24px;
-  height: 24px;
-}
-/* special according to Van */
-[class$="font-setting-18"] {
-  width: 24px;
-  height: 18px;
-}
-[class$="font-setting-24"] {
-  width: 32px;
-  height: 24px;
-}
+  .warning h2 {
+    margin-bottom: 0;
+    color: #db0020;
+    line-height: 24px;
+  }

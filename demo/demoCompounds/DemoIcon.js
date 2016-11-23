@@ -283,11 +283,11 @@ export const DemoIcon = (props) => {
         <Button type="primary"><Icon name="remove-sm-18">close</Icon></Button>
         <p className="code">{"<Button type='primary'><Icon name='remove-sm-18'>close</Icon></Button>"}</p>
         <br/>
-        <p>This is "warning-18" inside a heading as a decorative (no alt text) icon.</p>
-        <div style={{backgroundColor:'pink', border:'1px solid #b00'}}>
-          <h2 style={{color: '#b00', padding: '5px'}}><Icon name="warning-18" /> Alert! Form was not submitted!</h2>
+        <p>This is "warning-24" inside a heading as a decorative (no alt text) icon.</p>
+        <div className="warning">
+          <h2><Icon name="warning-24" /> Alert! Form was not submitted!</h2>
         </div>
-        <p className="code">{"<h2><Icon name='warning-18'/> Alert! Form was not submitted!</h2>"}</p>
+        <p className="code">{"<h2><Icon name='warning-24'/> Alert! Form was not submitted!</h2>"}</p>
       </div>
     </div>
   )
