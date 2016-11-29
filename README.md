@@ -19,6 +19,18 @@ available from a third-party [CDN](https://cdnjs.com/libraries/react/).
 
 This component targets the styling in the [Pearson Elements SDK](https://www.npmjs.com/package/pearson-elements).
 
+#### Polyfills
+
+React components with internationalisation use React-Intl which relies on the ECMAScript Internationalisation API. This was not supported in Safari until version 10. If you are supporting Safari older than 10, there is a polyfill from Andy Earnshaw (see below).
+
+CustomEvent support in IE is also polyfilled. Because many teams are supporting both IE 11 and Safari 9, we've combined the polyfills into a single script. The example below polyfills for CustomEvent and localisation for English and French:
+
+```
+<script src="https://cdn.polyfill.io/v2/polyfill.js?features=CustomEvent,Intl.~locale.en,Intl.~locale.fr"></script>
+```
+
+Be sure to include the above script (a version of it that makes sense for your project and supported browsers) on your HTML page running CompoundsSDK, if you need it.
+
 ## Contributing
 
 ### Initial Machine Setup
@@ -89,4 +101,4 @@ and be compatible with the version(s) of React approved for the Pearson User Exp
 
 ## License
 
-Copyright 2015 Pearson Education. This software is published under the [MIT](LICENSE) license.
+Copyright 2016 Pearson Education. This software is published under the [MIT](LICENSE) license.

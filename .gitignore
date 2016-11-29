@@ -2,6 +2,7 @@
 .idea
 node_modules
 fonts
+icons
 demo/elements.css
 npm-debug.log
 *.iml
