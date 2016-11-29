@@ -1,9 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Compounds Demo</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="elements.css">
+  <meta charset="UTF-8">
+  <title>Compounds Demo</title>
+  <link rel="stylesheet" type="text/css" href="elements.css">
+  <script src="icons.js">
+    var pe_ajax = new XMLHttpRequest();                                     
+    pe_ajax.open("GET", "/icons/p-icons-sprite-1.1.svg", true);                        
+    pe_ajax.responseType = "document";                                                 
+    pe_ajax.onload = function(e) {                                                     
+      document.body.insertBefore(                                                   
+        pe_ajax.responseXML.documentElement,                                           
+        document.body.childNodes[0]                                                 
+      );                                                                            
+    }                                                                               
+    pe_ajax.send();
+  </script>
 </head>
 <body>
     <h1>Compounds Demo</h1>
