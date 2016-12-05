@@ -280,8 +280,8 @@ export const DemoIcon = (props) => {
 
         <h3>Examples</h3>
         <p>This is "remove-sm-18" inside a button, with the alt text "close".</p>
-        <Button type="primary"><Icon name="remove-sm-18">close</Icon></Button>
-        <p className="code">{"<Button type='primary'><Icon name='remove-sm-18'>close</Icon></Button>"}</p>
+        <Button btnType="primary"><Icon name="remove-sm-18">close</Icon></Button>
+        <p className="code">{"<Button btnType='primary'><Icon name='remove-sm-18'>close</Icon></Button>"}</p>
         <br/>
         <p>This is "warning-24" inside a heading as a decorative (no alt text) icon.</p>
         <div className="warning">
