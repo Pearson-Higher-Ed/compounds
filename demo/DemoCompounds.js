@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { DemoButton } from './demoCompounds/DemoButton';
-import { DemoIcon } from './demoCompounds/DemoIcon';
+import { DemoButton }       from './demoCompounds/DemoButton';
+// import { DemoIcon }         from './demoCompounds/DemoIcon';
 
-import './demo.scss'
-
+import './demo.scss';
 
 class DemoCompounds extends Component {
 
@@ -15,7 +14,7 @@ class DemoCompounds extends Component {
     return (
       <div>
         <DemoButton />
-        <DemoIcon />
+        {/* <DemoIcon /> */}
       </div>
     )
   };

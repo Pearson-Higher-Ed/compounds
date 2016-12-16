@@ -1,7 +1,7 @@
 import React       from 'react';
 import expect      from 'expect';
 import { shallow } from 'enzyme';
-import { Button }  from '../Compounds';
+import { Button }  from '../../Compounds';
 
 describe('Button', () => {
 
@@ -21,7 +21,7 @@ describe('Button', () => {
 
   describe('Primary Button Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button type="primary">Test Button</Button>);
+      this.wrapper = shallow(<Button btnType="primary">Test Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -29,31 +29,11 @@ describe('Button', () => {
     });
 
     it('should have the correct classNames', function() {
-      expect(this.wrapper.hasClass('pe-btn')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--primary')).toExist();
+      expect(this.wrapper.hasClass('pe-btn__primary')).toExist();
     });
 
     it('should render text correctly', function() {
       expect(this.wrapper.text()).toEqual('Test Button');
-    })
-  });
-
-  describe('Link Button Test', function() {
-    beforeEach(function() {
-      this.wrapper = shallow(<Button type="link">Link Button</Button>);
-    });
-
-    it('should render the Button as button element', function() {
-      expect(this.wrapper.node.type).toEqual('button');
-    });
-
-    it('should have the correct classNames', function() {
-      expect(this.wrapper.hasClass('pe-btn')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--link')).toExist();
-    });
-
-    it('should render text correctly', function() {
-      expect(this.wrapper.text()).toEqual('Link Button');
     })
   });
 
@@ -81,7 +61,7 @@ describe('Button', () => {
 
   describe('Primary Disabled Button Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button type="primary" disabled>Disabled Primary Button</Button>);
+      this.wrapper = shallow(<Button btnType="primary" disabled>Disabled Primary Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -89,8 +69,7 @@ describe('Button', () => {
     });
 
     it('should have the correct classNames', function() {
-      expect(this.wrapper.hasClass('pe-btn')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--primary')).toExist();
+      expect(this.wrapper.hasClass('pe-btn__primary')).toExist();
     });
 
     it('should render text correctly', function() {
@@ -102,32 +81,10 @@ describe('Button', () => {
     })
   });
 
-  describe('Primary Disabled Link Test', function() {
-    beforeEach(function() {
-      this.wrapper = shallow(<Button type="link" disabled>Disabled Primary Link Button</Button>);
-    });
-
-    it('should render the Button as button element', function() {
-      expect(this.wrapper.node.type).toEqual('button');
-    });
-
-    it('should have the correct classNames', function() {
-      expect(this.wrapper.hasClass('pe-btn')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--link')).toExist();
-    });
-
-    it('should render text correctly', function() {
-      expect(this.wrapper.text()).toEqual('Disabled Primary Link Button');
-    })
-
-    it('should have the disabled attribute', function() {
-      expect(this.wrapper.prop('disabled')).toExist();
-    })
-  });
 
   describe('Small Button Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button size="small">Small Button</Button>);
+      this.wrapper = shallow(<Button btnSize="small">Small Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -135,8 +92,7 @@ describe('Button', () => {
     });
 
     it('should have the correct classNames', function() {
-      expect(this.wrapper.hasClass('pe-btn')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--small')).toExist();
+      expect(this.wrapper.hasClass('pe-btn--btn_small')).toExist();
     });
 
     it('should render text correctly', function() {
@@ -147,7 +103,7 @@ describe('Button', () => {
 
   describe('Large Button Test', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button size="large">Large Button</Button>);
+      this.wrapper = shallow(<Button btnSize="large">Large Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -155,8 +111,7 @@ describe('Button', () => {
     });
 
     it('should have the correct classNames', function() {
-      expect(this.wrapper.hasClass('pe-btn')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--large')).toExist();
+      expect(this.wrapper.hasClass('pe-btn--btn_large')).toExist();
     });
 
     it('should render text correctly', function() {
@@ -167,7 +122,7 @@ describe('Button', () => {
 
   describe('Mixed Button Test - Primary Small', function() {
     beforeEach(function() {
-      this.wrapper = shallow(<Button type="primary" size="small">Primary Small Button</Button>);
+      this.wrapper = shallow(<Button btnType="primary" btnSize="small">Primary Small Button</Button>);
     });
 
     it('should render the Button as button element', function() {
@@ -175,9 +130,7 @@ describe('Button', () => {
     });
 
     it('should have the correct classNames', function() {
-      expect(this.wrapper.hasClass('pe-btn')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--small')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--primary')).toExist();
+      expect(this.wrapper.hasClass('pe-btn__primary--btn_small')).toExist();
     });
 
     it('should render text correctly', function() {
@@ -186,27 +139,4 @@ describe('Button', () => {
   });
 
 
-  describe('Mixed Button Test - Link Large Disabled', function() {
-    beforeEach(function() {
-      this.wrapper = shallow(<Button type="link" size="large" disabled>Link Big Disabled</Button>);
-    });
-
-    it('should render the Button as button element', function() {
-      expect(this.wrapper.node.type).toEqual('button');
-    });
-
-    it('should have the correct classNames', function() {
-      expect(this.wrapper.hasClass('pe-btn')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--large')).toExist();
-      expect(this.wrapper.hasClass('pe-btn--link')).toExist();
-    });
-
-    it('should render text correctly', function() {
-      expect(this.wrapper.text()).toEqual('Link Big Disabled');
-    });
-
-    it('should have the disabled attribute', function() {
-      expect(this.wrapper.prop('disabled')).toExist();
-    })
-  });
 });

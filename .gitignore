@@ -9,3 +9,5 @@ npm-debug.log
 build/dev*
 build/dist*
 npm_scripts/*.js
+coverage
+*.log

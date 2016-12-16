@@ -1,5 +1,5 @@
-import React from 'react';    
-import { Icon } from '../../Compounds';
+import React      from 'react';
+import { Icon }   from '../../Compounds';
 import { Button } from '../../Compounds';
 
 
@@ -7,11 +7,6 @@ export const DemoIcon = (props) => {
   return (
     <div className="displaySection">
       <h2><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icons</a></h2>
-
-        {/*
-      <div className="elementDescription">
-        <iframe src="http://pearson-higher-ed.github.io/design/c/icons/beta/" style={{width:'100%', height:'100%'}} title="Icons Design page" />
-      </div> */}
 
       <div className="elementContainer">
         <h3>Available icons</h3>
