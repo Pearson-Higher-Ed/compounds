@@ -14,7 +14,7 @@
     "dev-setup": "node ./npm_scripts/dev-setup.js",
     "dev": "node ./npm_scripts/dev.js",
     "pretest": "node ./npm_scripts/pretest.js",
-    "test": "jest --watch --coverage",
+    "test": "jest --watchAll --coverage",
     "build": "node ./npm_scripts/build.js",
     "lint": "node ./npm_scripts/lint.js",
     "gen-changelog": "node ./npm_scripts/gen-changelog.js",
