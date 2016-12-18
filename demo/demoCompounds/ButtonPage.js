@@ -3,7 +3,7 @@ import { Button } from '../../Compounds';
 import { Icon }   from '../../Compounds';
 
 
-export const DemoButton = (props) => {
+export const ButtonPage = (props) => {
   return(
     <div className="displaySection">
       <h2><a href="https://pearson-higher-ed.github.io/design/c/buttons/">Button</a></h2>

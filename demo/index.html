@@ -6,15 +6,13 @@
   <link rel="stylesheet" type="text/css" href="elements.css">
 </head>
 <body>
-    <h1>Compounds Demo</h1>
-    <p>Styled using the Elements SDK.</p>
-    <br />
+
     <div id="app"></div>
 
     <script>
       if (document.body.children[0].nodeName != 'svg') {
         var pe_ajax = new XMLHttpRequest();
-        pe_ajax.open("GET", "/icons/p-icons-sprite-1.1.svg", true);
+        pe_ajax.open("GET", "../node_modules/pearson-elements/assets/icons/p-icons-sprite-1.1.svg", true);
         pe_ajax.responseType = "document";
         pe_ajax.onload = function(e) {
           document.body.insertBefore(

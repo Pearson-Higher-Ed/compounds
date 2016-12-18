@@ -1,3 +1,5 @@
+
+//========Global Styles=================
 .displaySection{
   border: 1px solid #000;
   overflow: auto;
@@ -6,7 +8,7 @@
 }
 
 .elementContainer {
-  background-color: #ededed;
+  background-color: white;
   padding: 10px;
 }
 
@@ -30,19 +32,24 @@ li {
   margin-bottom: .6em;
 }
 
+
+//=========Button Page=======================
 svg {
   margin-left: 10px;
 }
+
 button svg {
   margin: 4px 0 0;
 }
+
 .warning {
   padding: 5px;
   background-color: pink;
   border: 1px solid #db0020;
 }
-  .warning h2 {
-    margin-bottom: 0;
-    color: #db0020;
-    line-height: 24px;
-  }
+
+.warning h2 {
+  margin-bottom: 0;
+  color: #db0020;
+  line-height: 24px;
+}

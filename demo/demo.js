@@ -1,24 +1,21 @@
-import React            from 'react';
-import ReactDOM         from 'react-dom';
-import frLocaleData     from 'react-intl/locale-data/fr';
-import frJson           from './translations/fr.json';
-import DemoCompounds    from './DemoCompounds';
+// import React          from 'react';
+import ReactDOM       from 'react-dom';
+import { ButtonPage } from './demoPages/ButtonPage';
+import { IconPage }   from './demoPages/IconPage';
+import { HomePage }   from './demoPages/_HomePage';
 
-import {
-  addLocaleData,
-  IntlProvider
-} from 'react-intl';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-const translations = { 'fr' : frJson };
-const locale       = 'en';
-const config       = {};
-
-addLocaleData(frLocaleData);
+import './demo.scss';
 
 
 ReactDOM.render(
-  <IntlProvider locale={locale} messages={translations[locale]}>
-    <DemoCompounds data={config} />
-  </IntlProvider>,
+    <Router history={hashHistory}>
+      <Route path="/" >
+        <IndexRoute component={HomePage} />
+        <Route path="/button" component={ButtonPage} />
+        <Route path="/icon" component={IconPage} />
+      </Route>
+    </Router>,
   document.getElementById('app')
 );

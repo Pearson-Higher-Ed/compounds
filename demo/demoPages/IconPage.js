@@ -3,8 +3,7 @@ import { Icon }   from '../../Compounds';
 import { Button } from '../../Compounds';
 
 
-export const DemoIcon = (props) => {
-  return (
+export const IconPage = (props) => (
     <div className="displaySection">
       <h2><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icons</a></h2>
 
@@ -286,4 +285,3 @@ export const DemoIcon = (props) => {
       </div>
     </div>
   )
-};
