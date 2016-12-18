@@ -10,7 +10,7 @@ export const IconPage = (props) => (
       <div className="elementContainer">
         <h3>Examples</h3>
         <p>Basic Icon</p>
-        <Icon name='remove-sm-18'>close</Icon>
+        <Icon name="remove-sm-18">close</Icon>
         <p className="code">{"<Icon name='remove-sm-18'>close</Icon>"}</p>
 
         <br />

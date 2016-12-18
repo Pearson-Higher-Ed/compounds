@@ -1,5 +1,6 @@
-import React from 'react';
+import React    from 'react';
+
 
 export const HomePage = (props) => (
-    <h1>Home</h1>
+    <iframe src="../README.md" height="700" width="100%"></iframe>
   )

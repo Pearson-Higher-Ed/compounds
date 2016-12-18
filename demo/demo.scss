@@ -1,10 +1,20 @@
 
 //========Global Styles=================
+.header{
+  width:100%;
+  background-color:black;
+  height:50px;
+}
+
+.header svg{
+  color:white;
+}
+
 .displaySection{
   border: 1px solid #000;
   overflow: auto;
   padding: 5px;
-  margin: 0 10px 20px;
+  margin: 10px 10px 20px;
 }
 
 .elementContainer {

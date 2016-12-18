@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 
 const Button = (props) => {
@@ -28,3 +28,8 @@ const Button = (props) => {
 
 
 export default Button;
+
+Button.propTypes = {
+  btnType: PropTypes.string,
+  btnSize: PropTypes.string
+};

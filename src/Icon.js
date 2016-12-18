@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import uuid                 from 'uuid'; 
+import uuid                 from 'uuid';
 
 const Icon = (props) => {
 
@@ -37,5 +37,7 @@ Icon.propTypes = {
   name: PropTypes.string.isRequired,
   children: React.PropTypes.string
 };
+
+
 
 export default Icon;
