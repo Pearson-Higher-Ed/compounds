@@ -5,7 +5,7 @@ import { Button } from '../../Compounds';
 
 export const IconPage = (props) => (
     <div className="displaySection">
-      <h2><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icons</a></h2>
+      <h2><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icon</a></h2>
 
       <div className="elementContainer">
         <h3>Examples</h3>

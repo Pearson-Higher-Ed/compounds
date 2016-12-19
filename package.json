@@ -5,14 +5,16 @@
   "main": "./build/dist.Compounds.js",
   "author": "Pearson Design Accelerator",
   "license": "MIT",
+  "homepage": "http://pearson-higher-ed.github.io/compounds/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pearson-Higher-Ed/Compounds"
+    "url": "https://github.com/Pearson-Higher-Ed/compounds"
   },
   "scripts": {
     "start": "npm run dev",
     "dev-setup": "node ./npm_scripts/dev-setup.js",
     "dev": "node ./npm_scripts/dev.js",
+    "gh-pages": "npm run build&&gh-pages -d build",
     "pretest": "node ./npm_scripts/pretest.js",
     "test": "jest --watchAll --coverage",
     "build": "node ./npm_scripts/build.js",
@@ -80,6 +82,7 @@
     "expect": "~1.18.0",
     "expect-jsx": "~2.5.1",
     "file-loader": "~0.8.5",
+    "gh-pages": "^0.12.0",
     "ignore-styles": "~5.0.1",
     "intl": "~1.1.0",
     "jest": "16.0.2",

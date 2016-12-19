@@ -1,23 +1,20 @@
 
-//========Global Styles=================
-.header{
-  width:100%;
-  background-color:black;
-  height:50px;
+%clearfix {
+  content:"";
+  clear: both;
 }
 
-.header svg{
-  color:white;
-}
-
+//========Global Styles=======================
 .displaySection{
-  border: 1px solid #000;
+  @extend %clearfix;
   overflow: auto;
   padding: 5px;
   margin: 10px 10px 20px;
+  width:96%;
 }
 
 .elementContainer {
+  @extend %clearfix;
   background-color: white;
   padding: 10px;
 }
@@ -42,8 +39,74 @@ li {
   margin-bottom: .6em;
 }
 
+//---------HomePage-------------------------------
+.link_homepage {
+  color:#778899;
+  text-decoration:none;
+}
 
-//=========Button Page=======================
+.homepage {
+  margin:10px;
+}
+
+//**********Header*********************************
+.header{
+  @extend %clearfix;
+  width:100%;
+  background-color:black;
+  height:50px;
+}
+
+.header svg{
+  color:white;
+}
+
+.header button {
+  float:right;
+  margin:2.5px;
+  outline:none;
+}
+
+.headerTitle {
+  width:50%;
+  float:left;
+  margin:10px;
+  color:#DCDCDC;
+}
+
+.header button svg {
+  margin-left:10px;
+  color:black;
+}
+
+.buttonList {
+  display:none;
+  position:absolute;
+  right:0;
+  padding-top:10px;
+  padding-bottom:10px;
+  background-color:black;
+  width: 125px;
+  margin-top:0;
+  list-style: none;
+  border-bottom-left-radius:15px;
+  &:first-child {
+    margin-left:-5px;
+  }
+}
+
+.link {
+  text-decoration:none;
+  color:lightgray;
+  &:hover {
+    color:gray;
+  }
+  &:focus {
+    color:gray;
+  }
+}
+
+//=========Button Page===============================
 svg {
   margin-left: 10px;
 }
@@ -52,6 +115,8 @@ button svg {
   margin: 4px 0 0;
 }
 
+
+//##############Icon Page#############################
 .warning {
   padding: 5px;
   background-color: pink;
