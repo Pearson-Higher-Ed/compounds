@@ -9,13 +9,13 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import './demo.scss';
 
 
-ReactDOM.render(
-  <Router history={browserHistory}>
+const Routes = (
     <Route path="/demo" component={Header} >
       <IndexRoute component={HomePage} />
       <Route path="/button" component={ButtonPage} />
       <Route path="/icon" component={IconPage} />
     </Route>
-  </Router>,
-  document.getElementById('app')
-);
+  );
+
+
+ReactDOM.render(<Router history={browserHistory} routes={Routes} />, document.getElementById('app'));
