@@ -62,7 +62,7 @@
     "react-router": "^3.0.0"
   },
   "devDependencies": {
-    "@pearson-components/npm-scripts": "^0.3.7",
+    "@pearson-components/npm-scripts": "^0.3.11",
     "babel-core": "^6.18.0",
     "babel-eslint": "~4.1.6",
     "babel-jest": "16.0.0",
