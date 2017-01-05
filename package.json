@@ -16,7 +16,7 @@
     "dev": "node ./npm_scripts/dev.js",
     "gh-pages": "npm run build&&gh-pages -d build",
     "pretest": "node ./npm_scripts/pretest.js",
-    "test": "jest --watchAll --coverage",
+    "test": "jest --coverage",
     "build": "node ./npm_scripts/build.js",
     "lint": "node ./npm_scripts/lint.js",
     "gen-changelog": "node ./npm_scripts/gen-changelog.js",
