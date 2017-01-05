@@ -4,6 +4,7 @@ node_js:
 - 4
 - 6
 script:
+- npm run copy-utils        
 - npm run ci
 - chmod 777 ./test/shell_scripts/run_tests.sh
 #- ./test/shell_scripts/run_tests.sh
