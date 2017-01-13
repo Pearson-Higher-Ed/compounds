@@ -1,47 +1,35 @@
 import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 
-const BUTTON_TYPES = {
-  PRIMARY: 'primary',
-  LINK: 'link',
-  SUBMIT: 'submit'
-};
 
-const BUTTON_SIZES = {
-  SMALL: 'small',
-  LARGE: 'large'
-};
+const Button = (props) => {
 
-function Button(props) {
-  let classes = ['pe-btn'];
+  const { btnType, btnSize, ...rest } = props;
 
-  if (props.type) {
+  let classes;
 
-    // Handle IE overriding element type
-    if (props.type === BUTTON_TYPES.SUBMIT) {
-      props.type = BUTTON_TYPES.PRIMARY;
+  if (!btnType) {
+    if (!btnSize) {
+      classes = `pe-btn`;
+    } else {
+      classes = `pe-btn--btn_${btnSize}`;
     }
+  };
 
-    classes = classes.concat([`pe-btn--${props.type}`]);
-  }
+  if (btnType) {
+    if (!btnSize) {
+      classes = `pe-btn__${btnType}`;
+    } else {
+      classes = `pe-btn__${btnType}--btn_${btnSize}`;
+    }
+  };
 
-  if (props.size) {
-    classes = classes.concat([`pe-btn--${props.size}`]);
-  }
-
-  return <button className={classes.join(' ')} {...props}>{props.children}</button>;
-}
-
-Button.BUTTON_TYPES = BUTTON_TYPES;
-Button.BUTTON_SIZES = BUTTON_SIZES;
-
-Button.propTypes = {
-  type: PropTypes.oneOf(Object.keys(BUTTON_TYPES).map(k => k.toLowerCase())),
-  size: PropTypes.oneOf(Object.keys(BUTTON_SIZES).map(k => k.toLowerCase()))
+  return <button className={classes} {...rest}>{props.children}</button>;
 };
+
 
 export default Button;
 
-if (typeof window !== 'undefined') {
-  document.body.addEventListener('o.initButton', e => ReactDOM.render(new Button(e.detail), document.getElementById('app')))
-}
+Button.propTypes = {
+  btnType: PropTypes.string,
+  btnSize: PropTypes.string
+};

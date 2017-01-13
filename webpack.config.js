@@ -1,45 +1,58 @@
-const webpack = require('webpack');
-
 module.exports = {
-
-  output: {
-    library: ['Pearson', 'Compounds'],
-    libraryTarget: 'umd'
+  entry: {
+   dev  : ['webpack/hot/dev-server', './demo/demo.js'],
+   dist : ['./Compounds.js']
   },
-
+  output: {
+    path          : './',
+    filename      : 'build/[name].compounds.js',
+    libraryTarget : 'umd'
+  },
+  devtool: 'cheap-module-source-map',
   externals: [
     {
-      react: {
-        root: 'React',
-        commonjs2: 'react',
-        commonjs: 'react',
-        amd: 'react'
-      },
+      'react': {
+        root      : 'React',
+        commonjs2 : 'react',
+        commonjs  : 'react',
+        amd       : 'react'
+      }
+    },
+    {
       'react-dom': {
-        root: 'ReactDOM',
-        commonjs2: 'react-dom',
-        commonjs: 'react-dom',
-        amd: 'react-dom'
+        root      : 'ReactDOM',
+        commonjs2 : 'react-dom',
+        commonjs  : 'react-dom',
+        amd       : 'react-dom'
       }
     }
   ],
-
+  contentBase: './demo', // for webpack dev server
   module: {
+    preLoaders: [
+      {
+        test    : /\.js$/,
+        loader  : 'eslint',
+        exclude : /node_modules/
+      }
+    ],
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+      {
+        test   : /\.scss$/,
+        loader : 'style!css!sass' // sass -> css -> javascript -> inline style
+      },
+      {
+        test   : /\.js$/,
+        loader : 'babel',
+        query  : {
+          cacheDirectory : true,
+          presets        : ['es2015', 'react', 'stage-0']
+        }
+      },
+      {
+        test   : /\.json$/,
+        loader : 'json'
+      }
     ]
-  },
-
-  node: {
-    Buffer: false,
-    fs: 'empty'
-  },
-
-  plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
-  ]
-
+  }
 };
