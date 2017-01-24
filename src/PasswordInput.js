@@ -6,18 +6,22 @@ class PasswordInput extends Component {
     super(props)
 
     this.state = {
-      hidePassword : true,
-      passwordStatusText:'show'
+      hidePassword       : true,
+      passwordStatusText : 'show',
+      errorStateModifier : '--label_error',
+      inputType          : 'password'
     };
 
     this.togglePassword = _togglePassword.bind(this);
   };
 
+  // add error prop and move toggle to state...
+
   render() {
     return(
       <div>
-        <label className="pe-textLabelInput__label" htmlFor="password">Password</label>
-        <input type="password" className="pe-textInput" id="password" placeholder={this.props.label} />
+        <label className={`pe-textLabelInput__label${this.state.errorStateModifier}`} htmlFor={`password${this.props.id}`}>{this.props.label}</label>
+        <input type={this.state.inputType} className="pe-textInput" id={`password${this.props.id}`} placeholder={this.props.placeholder} />
         <a id="showbutton" className="pe-textInput__showButton" onClick={this.togglePassword}>{this.state.passwordStatusText}</a>
         <span className="pe-input_underline"></span>
       </div>
