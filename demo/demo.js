@@ -1,8 +1,9 @@
-import ReactDOM       from 'react-dom';
-import { ButtonPage } from './demoPages/ButtonPage';
-import { IconPage }   from './demoPages/IconPage';
-import { HomePage }   from './demoPages/_HomePage';
-import  { Header }    from './demoPages/_Header';
+import ReactDOM              from 'react-dom';
+import { ButtonPage }        from './demoPages/ButtonPage';
+import { IconPage }          from './demoPages/IconPage';
+import { HomePage }          from './demoPages/_HomePage';
+import  { Header }           from './demoPages/_Header';
+import { PasswordInputPage } from './demoPages/PasswordInputPage';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
@@ -14,6 +15,7 @@ const Routes = (
       <IndexRoute component={HomePage} />
       <Route path="/button" component={ButtonPage} />
       <Route path="/icon" component={IconPage} />
+      <Route path="/passwordinput" component={PasswordInputPage} />
     </Route>
   );
 
