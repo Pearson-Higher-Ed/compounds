@@ -17,9 +17,9 @@ class PasswordInput extends Component {
     return(
       <div>
 
-        <label class="pe-textLabelInput__label" for="a">First Name</label>
-        <input type="text" class="pe-textInput" id="a" placeholder="First Name" />
-        <button id="showbutton" className="pe-btn--link showbutton" onClick={this.togglePassword}>{this.state.passwordStatusText}</button>
+        <label class="pe-textLabelInput__label" for={this.props.id}>{this.props.label}</label>
+        <input type="text" class="pe-textInput" id={this.props.id} placeholder={this.props.label} />
+        <a id="showbutton" className="pe-textInput__showButton" onClick={this.togglePassword}>{this.state.passwordStatusText}</a>
         <span class="pe-input_underline"></span>
 
       </div>
@@ -29,9 +29,7 @@ class PasswordInput extends Component {
 
 export default PasswordInput;
 
-function _togglePassword(e) {
-
-  e.preventDefault();
+function _togglePassword() {
 
   if (this.state.hidePassword) {
     document.getElementById('password').setAttribute('type', 'text');

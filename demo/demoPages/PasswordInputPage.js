@@ -8,7 +8,10 @@ export const PasswordInputPage = (props) => (
 
       <div className="elementContainer">
 
-        <PasswordInput />
+        <PasswordInput
+          id={"a"}
+          label={"First Name"}
+        />
 
       </div>
     </div>
