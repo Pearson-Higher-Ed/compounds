@@ -16,7 +16,7 @@ export const HomePage = (props) => (
       <ul className="homepageList">
         <li><Link className="link_homepage" to={`/button`}>Button</Link></li>
         <li><Link className="link_homepage" to={`/icon`}>Icon</Link></li>
-        <li><Link className="link_homepage" to={`/passwordinput`}>PasswordInput</Link></li>
+        <li><Link className="link_homepage" to={`/inputs`}>Inputs</Link></li>
       </ul>
 
       <p>Contributions: <a href="https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md">FAQ</a></p>
@@ -25,6 +25,6 @@ export const HomePage = (props) => (
       <p>Unit Test Coverage: <a href="http://localhost:8081/coverage/lcov-report/">http://localhost:8081/coverage/lcov-report/</a></p>
       <p>HipChat Room: PDA-Help</p>
       <p>Email: pearson-design-accelerator@pearson.com</p>
-      
+
     </div>
   )

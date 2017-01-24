@@ -16,12 +16,10 @@ class PasswordInput extends Component {
   render() {
     return(
       <div>
-
-        <label class="pe-textLabelInput__label" for={this.props.id}>{this.props.label}</label>
-        <input type="text" class="pe-textInput" id={this.props.id} placeholder={this.props.label} />
+        <label className="pe-textLabelInput__label" htmlFor="password">Password</label>
+        <input type="password" className="pe-textInput" id="password" placeholder={this.props.label} />
         <a id="showbutton" className="pe-textInput__showButton" onClick={this.togglePassword}>{this.state.passwordStatusText}</a>
-        <span class="pe-input_underline"></span>
-
+        <span className="pe-input_underline"></span>
       </div>
     )
   };
