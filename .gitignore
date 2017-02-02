@@ -11,3 +11,4 @@ build/dist*
 npm_scripts/*.js
 coverage
 *.log
+yarn.lock
