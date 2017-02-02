@@ -1,6 +1,11 @@
-import React             from 'react';
-import { PasswordInput } from '../../Compounds';
-import { TextInput }     from '../../Compounds';
+import React from 'react';
+
+import {
+  PasswordInput,
+  // Checkbox,
+  TextInput
+} from '../../Compounds';
+
 
 
 export const InputsPage = (props) => (
@@ -59,25 +64,33 @@ export const InputsPage = (props) => (
 
         <h4>PasswordInput:</h4>
         <br />
+
         <h5>Default:</h5>
-        <PasswordInput id="e" />
-        <p className="code">{'<PasswordInput id="a" />'}</p>
-        <br />
-        <br />
-
-
-        <h5>Custom Label:</h5>
-        <PasswordInput id="f" label="Password" />
-        <p className="code">{'<PasswordInput id="a" label="Password" />'}</p>
-        <br />
-        <br />
-
-
-        <h5>Custom Label:</h5>
-        <PasswordInput id="g" label="Custom Password" placeholder="Enter Password" />
+        <PasswordInput id="e" placeholder="Enter Password" />
         <p className="code">{'<PasswordInput id="a" placeholder="Enter Password" />'}</p>
         <br />
         <br />
+
+
+        <h5>Custom Label:</h5>
+        <PasswordInput id="f" label="Password" placeholder="Enter Password" />
+        <p className="code">{'<PasswordInput id="a" label="Password" placeholder="Enter Password" />'}</p>
+        <br />
+        <br />
+
+
+        <h5>Error:</h5>
+        <PasswordInput id="h" label="Password" placeholder="Enter Password" error={true} />
+        <p className="code">{'<PasswordInput id="h" label="Password" placeholder="Enter Password" error={true} />'}</p>
+        <br />
+        <br />
+
+
+        {/* <h5>Checkbox:</h5>
+        <Checkbox label="Bacon" size="18" value="1" />
+        <p className="code">{'<Checkbox label="Bacon" size="18" value="1" />'}</p>
+        <br />
+        <br /> */}
 
 
       </div>

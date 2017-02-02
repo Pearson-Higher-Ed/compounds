@@ -6,27 +6,29 @@ class PasswordInput extends Component {
     super(props)
 
     this.state = {
-      hidePassword       : true,
       passwordStatusText : 'show',
-      errorStateModifier : '--label_error',
-      inputType          : 'password'
+      inputType          : 'password',
+      defaultLabel       : 'Password'
     };
 
     this.togglePassword = _togglePassword.bind(this);
   };
 
-  // add error prop and move toggle to state...
-
   render() {
-    const { errorStateModifier, passwordStatusText, inputType } = this.state;
-    const { id, label, placeholder } = this.props;
+    const { passwordStatusText, inputType, defaultLabel } = this.state;
+    const { id, label, placeholder, error } = this.props;
+
+    const appliedLabelStyle = (error) ? 'pe-textLabelInput__label--label_error' : 'pe-textLabelInput__label';
+    const appliedStyleLine  = (error) ? 'pe-inputError_underline' : 'pe-input_underline';
+    const appliedInputStyle = (error) ? 'pe-textInput--input_error' : 'pe-textInput';
+    const appliedLabel      = (label) ? label : defaultLabel;
 
     return(
       <div>
-        <label className={`pe-textLabelInput__label${errorStateModifier}`} htmlFor={`password${id}`}>{label}</label>
-        <input type={inputType} className="pe-textInput" id={`password${id}`} placeholder={placeholder} />
+        <label className={appliedLabelStyle} htmlFor={`password-${id}`}>{appliedLabel}</label>
+        <input type={inputType} className={appliedInputStyle} id={`password-${id}`} placeholder={placeholder} />
+        <span className={appliedStyleLine}></span>
         <button id="showbutton" className="pe-textInput__showButton" onClick={this.togglePassword}>{passwordStatusText}</button>
-        <span className="pe-input_underline"></span>
       </div>
     )
   };
@@ -35,17 +37,7 @@ class PasswordInput extends Component {
 export default PasswordInput;
 
 function _togglePassword() {
-
-  const { hidePassword, id } = this.state;
-
-  if (hidePassword) {
-    document.getElementById(`password${id}`).setAttribute('type', 'text');
-    this.setState({passwordStatusText:'hide', hidePassword:false})
-  };
-
-  if (!hidePassword) {
-    document.getElementById(`password${id}`).setAttribute('type', 'password');
-    this.setState({passwordStatusText:'show', hidePassword:true})
-  };
-
+  const inputType = (this.state.inputType === 'password') ? 'text' : 'password';
+  const passwordStatusText = (this.state.passwordStatusText === 'show') ? 'hide' : 'show';
+  this.setState({inputType, passwordStatusText})
 };
