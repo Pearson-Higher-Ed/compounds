@@ -2,7 +2,7 @@ import React         from 'react';
 import expect        from 'expect';
 import { shallow }   from 'enzyme';
 import { TextInput } from '../../Compounds';
-import propagateToGlobal from '../utils/dom';
+// import propagateToGlobal from '../utils/dom';
 
 describe('TextInput', () => {
 
