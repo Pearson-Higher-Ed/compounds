@@ -67,6 +67,22 @@ elements into formatted strings.
 
     npm test
 
+### QA Testing
+
+QA may use the event harness to instantiate a component for testing using this format:
+
+  document.body.dispatchEvent(new CustomEvent('o.InitCompounds', {
+    detail: {
+      elementId     : 'app',
+      componentName : 'Button',
+      props         : {
+                       btnType :'primary',        
+                       btnSize :'xlarge',           
+                       children:'hi there'
+                      }
+    }
+  }));
+
 ## Local Linking to Elements SDK
 
 When you need to work with a local version of Elements SDK that has not been published, you can utilize **npm link**.
@@ -92,6 +108,12 @@ Note that re-installing node_modules will remove all symlinks.
 
 The static demo site is located at:
 http://localhost:8081/demo
+
+## CodeCoverage site
+
+After running npm test, you may view the code coverage site at:
+http://localhost:8081/coverage/lcov-report
+
 
 ## Guidelines
 

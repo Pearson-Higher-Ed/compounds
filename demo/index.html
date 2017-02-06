@@ -8,7 +8,7 @@
 <body>
     <div id="app"></div>
 
-
+    <!-- Icons -->
     <script>
       if (document.body.children[0].nodeName != 'svg') {
         var pe_ajax = new XMLHttpRequest();
@@ -23,13 +23,11 @@
         pe_ajax.send();
       }
     </script>
-
-
     <!-- External dependencies for React -->
     <script src="../node_modules/react/dist/react.js"></script>
     <script src="../node_modules/react-dom/dist/react-dom.js"></script>
     <!-- CustomEvent polyfill is for IE, Intl.js polyfill is for Safari -->
-    <!-- <script src="https://cdn.polyfill.io/v2/polyfill.js?features=CustomEvent,Intl.~locale.en,Intl.~locale.fr"></script> -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.js?features=CustomEvent,Intl.~locale.en,Intl.~locale.fr"></script>
     <!-- Locally hosted demo server -->
     <script src="http://localhost:8081/webpack-dev-server.js"></script>
     <!-- Demo build of component -->
