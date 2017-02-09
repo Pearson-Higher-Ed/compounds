@@ -37,7 +37,7 @@ Be sure to include the above script (a version of it that makes sense for your p
 
 1. Install [Git](https://git-scm.com/downloads).
 2. Install [Node 4.0.0 or greater](https://nodejs.org) - Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm).
-3. On a Mac? You're all set. If you're on Windows, complete the steps for your OS below.  
+3. On a Mac? You're all set. If you're on Windows, complete the steps for your OS below.
 
 **On Windows:**
 
@@ -70,19 +70,19 @@ elements into formatted strings.
 ### QA Testing
 
 QA may use the event harness to instantiate a component for testing using this format:
-
+```
   document.body.dispatchEvent(new CustomEvent('o.InitCompounds', {
     detail: {
       elementId     : 'app',
       componentName : 'Button',
       props         : {
-                       btnType :'primary',        
-                       btnSize :'xlarge',           
+                       btnType :'primary',
+                       btnSize :'xlarge',
                        children:'hi there'
                       }
     }
   }));
-
+```
 ## Local Linking to Elements SDK
 
 When you need to work with a local version of Elements SDK that has not been published, you can utilize **npm link**.

@@ -13,7 +13,7 @@ const Icon = (props) => {
            xmlns = "http://www.w3.org/2000/svg"
            xmlnsXlink = "http://www.w3.org/1999/xlink"
            role = "img"
-           focusable = "no"
+           focusable = "false"
            aria-labelledby = {i_id}
            className = {icon_class}>
         <title id = {i_id}>{props.children}</title>
@@ -27,7 +27,7 @@ const Icon = (props) => {
            xmlns = "http://www.w3.org/2000/svg"
            xmlnsXlink = "http://www.w3.org/1999/xlink"
            aria-hidden = "true"
-           focusable = "no"
+           focusable = "false"
            className = {icon_class}>
         <use xlinkHref = {'#' + props.name}></use>
       </svg>

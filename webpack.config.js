@@ -1,7 +1,7 @@
 module.exports = {
   entry: {
    dev  : ['webpack/hot/dev-server', './demo/demo.js', './demo/main.js'],
-   dist : ['./Compounds.js']
+   dist : ['./Compounds.js','./demo/main.js']
   },
   output: {
     path          : './',
