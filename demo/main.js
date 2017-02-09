@@ -15,9 +15,7 @@ export default class Compounds {
 
   init(config) {
 
-    const component = config.componentName
-
-    const reactElement = React.createElement(CompoundsSDK[component], config.props, config.props.children)
+    const reactElement = React.createElement(CompoundsSDK[config.componentName], config.props, config.props.children)
 
     ReactDOM.render( reactElement, document.getElementById(config.elementId) );
   }
