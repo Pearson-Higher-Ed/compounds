@@ -3,12 +3,12 @@
 node_modules
 fonts
 icons
+build
 demo/elements.css
 npm-debug.log
 *.iml
-build/dev*
-build/dist*
 npm_scripts/*.js
 coverage
 *.log
+*.swp
 yarn.lock

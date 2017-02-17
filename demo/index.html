@@ -1,9 +1,9 @@
-<!-- <!doctype html> -->
+<!doctype html>
 <html lang="en">
 <head>
     <title>Compounds Demo</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="elements.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/pearson-elements/dist/elements.css" />
 </head>
 <body>
     <div id="app"></div>
@@ -23,14 +23,7 @@
         pe_ajax.send();
       }
     </script>
-    <!-- External dependencies for React -->
-    <script src="../node_modules/react/dist/react.js"></script>
-    <script src="../node_modules/react-dom/dist/react-dom.js"></script>
-    <!-- CustomEvent polyfill is for IE, Intl.js polyfill is for Safari -->
     <script src="https://cdn.polyfill.io/v2/polyfill.js?features=CustomEvent,Intl.~locale.en,Intl.~locale.fr"></script>
-    <!-- Locally hosted demo server -->
-    <script src="http://localhost:8081/webpack-dev-server.js"></script>
-    <!-- Demo build of component -->
-    <script src="../build/dev.compounds.js"></script>
+
 </body>
 </html>
