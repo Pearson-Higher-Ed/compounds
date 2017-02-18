@@ -24,7 +24,7 @@ module.exports = {
   output: {
     path          : path.resolve(__dirname, 'build'),
     filename      : '[name].compounds.[hash].js',
-    publicPath    : '/build',
+    publicPath    : '/',
     libraryTarget : 'umd'
   },
   devtool: "cheap-eval-source-map",
