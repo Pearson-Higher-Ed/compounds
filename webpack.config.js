@@ -48,16 +48,16 @@ module.exports = {
             presets: ['es2015']
           }
         },
-        {
-          test: /\.(svg)$/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: { limit:40000 }
-            },
-            'image-webpack-loader'
-          ]
-        },
+        // {
+        //   test: /\.(svg)$/,
+        //   use: [
+        //     {
+        //       loader: 'url-loader',
+        //       options: { limit:40000 }
+        //     },
+        //     'image-webpack-loader'
+        //   ]
+        // },
 //         {
 //           loader: ExtractTextPlugin.extract({
 //             loader: 'sass-loader'
@@ -76,6 +76,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
-//     new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('styles.css')
   ]
 };
