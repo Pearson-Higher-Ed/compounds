@@ -3,7 +3,6 @@
 node_modules
 fonts
 icons
-build
 demo/elements.css
 npm-debug.log
 *.iml
