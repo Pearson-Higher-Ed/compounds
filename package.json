@@ -15,7 +15,7 @@
     "serve": "webpack-dev-server --port 8081 --devtool source-map --hot --host 0.0.0.0 --progress --colors",
     "clean": "rimraf build",
     "dev": "node ./npm_scripts/dev.js",
-    "deploy": "npm run build && git subtree push --prefix build origin gh-pages",
+    "deploy": "git subtree push --prefix build origin gh-pages",
     "pretest": "node ./npm_scripts/pretest.js",
     "test": "jest --coverage",
     "build": "NODE_ENV=prd npm run clean && webpack -p",
