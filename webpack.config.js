@@ -9,7 +9,7 @@ const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
 const icons                 = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const fonts                 = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
-const elements              = `${__dirname}/node_modules/pearson-elements/scss/elements.scss`;
+const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 
 
 const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ];
