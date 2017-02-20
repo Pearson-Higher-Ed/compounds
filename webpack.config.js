@@ -1,4 +1,5 @@
 const path                  = require('path');
+const fs                    = require('fs');
 const webpack               = require('webpack');
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
 const ExtractTextPlugin     = require('extract-text-webpack-plugin');
@@ -8,7 +9,7 @@ const demo                  = `${__dirname}/demo/demo.js`;
 const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
 const icons                 = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
-const fonts                 = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
+const fontsDir              = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 
 
@@ -60,7 +61,7 @@ module.exports = {
           ]
         },
         {
-          test: /\.(png|jpg|gif|svg|ttf)$/,
+          test: /\.(png|jpg|gif|svg|ttf|woff|woff2)$/,
           loader: 'file-loader',
           options: {
               name: '[name].[ext]?[hash]'
@@ -74,6 +75,11 @@ module.exports = {
         // }
       ]
   },
+  devServer: {
+    port: 8081,
+    historyApiFallback: true
+  },
+
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
