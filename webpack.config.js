@@ -7,19 +7,20 @@ const index                 = `${__dirname}/demo/index.html`;
 const demo                  = `${__dirname}/demo/demo.js`;
 const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
-const icons                 = `${__dirname}/node_modules/pearson-elements/assets/icons/`;
+const icons                 = `${__dirname}/node_modules/pearson-elements/assets/icons/p-icons-sprite-1.1.svg`;
 const fonts                 = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 const elements              = `${__dirname}/node_modules/pearson-elements/scss/elements.scss`;
 
 
-const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ]
+const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ];
 
 module.exports = {
   entry: {
     dist   : [ compounds ],
     qa     : [ compounds, main,  ],
     dev    : [ demo, compounds, elements ],
-    vendor : VENDOR_LIBS
+    vendor : VENDOR_LIBS,
+    icons  : icons
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
@@ -48,16 +49,16 @@ module.exports = {
             presets: ['es2015']
           }
         },
-        // {
-        //   test: /\.(svg)$/,
-        //   use: [
-        //     {
-        //       loader: 'url-loader',
-        //       options: { limit:40000 }
-        //     },
-        //     'image-webpack-loader'
-        //   ]
-        // },
+        {
+          test: /\.(svg)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: { limit:40000 }
+            },
+            'image-webpack-loader'
+          ]
+        },
         // {
         //   loader: ExtractTextPlugin.extract({
         //     loader: 'sass-loader'
