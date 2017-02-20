@@ -23,7 +23,7 @@ module.exports = {
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
-    filename      : '[name].compounds.[hash].js',
+    filename      : '[name].compounds.js',
     publicPath    : '/',
     libraryTarget : 'umd'
   },
@@ -71,7 +71,12 @@ module.exports = {
       names: ['vendor', 'manifest']
     }),
     new HtmlWebpackPlugin({
-      template: 'demo/index.html'
+      template: 'demo/index.html',
+      excludeChunks: [ 'qa.compounds.js', 'dist.compounds.[hash].js' ],
+      "files": {
+        "css": [ "main.css" ],
+        "js": [ "build/dev.compounds.js", "build/vendor.js"]
+      }
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
