@@ -59,6 +59,13 @@ module.exports = {
             'image-webpack-loader'
           ]
         },
+        {
+          test: /\.(png|jpg|gif|svg|ttf)$/,
+          loader: 'file-loader',
+          options: {
+              name: '[name].[ext]?[hash]'
+          }
+        },
         // {
         //   loader: ExtractTextPlugin.extract({
         //     loader: 'sass-loader'
@@ -77,12 +84,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
-    new ExtractTextPlugin('styles.css'),
-    new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-              warnings: false,
-            },
-          })
+    new ExtractTextPlugin('styles.css')
   ]
 };
