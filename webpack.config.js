@@ -7,7 +7,7 @@ const index                 = `${__dirname}/demo/index.html`;
 const demo                  = `${__dirname}/demo/demo.js`;
 const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
-const icons                 = `${__dirname}/node_modules/pearson-elements/assets/icons/p-icons-sprite-1.1.svg`;
+const icons                 = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const fonts                 = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 const elements              = `${__dirname}/node_modules/pearson-elements/scss/elements.scss`;
 
@@ -25,7 +25,7 @@ module.exports = {
   output: {
     path          : path.resolve(__dirname, 'build'),
     filename      : '[name].compounds.js',
-    publicPath    : 'http://pearson-higher-ed.github.io/compounds',
+    publicPath    : '/compounds',
     libraryTarget : 'umd'
   },
   devtool: "cheap-eval-source-map",
