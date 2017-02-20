@@ -18,7 +18,7 @@ module.exports = {
   entry: {
     dist   : [ compounds ],
     qa     : [ compounds, main,  ],
-    dev    : [ demo, compounds, elements ],
+    dev    : [ demo, compounds, elements, icons ],
     vendor : VENDOR_LIBS,
     icons  : icons
   },
