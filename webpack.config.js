@@ -1,15 +1,15 @@
-const path              = require('path');
-const webpack           = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const react             = require('react');
-const index             = `${__dirname}/demo/index.html`;
-const demo              = `${__dirname}/demo/demo.js`;
-const main              = `${__dirname}/demo/main.js`;
-const compounds         = `${__dirname}/Compounds.js`;
-const icons             = `${__dirname}/node_modules/pearson-elements/assets/icons/`;
-const fonts             = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
-const elements          = `${__dirname}/node_modules/pearson-elements/scss/elements.scss`;
+const path                  = require('path');
+const webpack               = require('webpack');
+const HtmlWebpackPlugin     = require('html-webpack-plugin');
+const ExtractTextPlugin     = require('extract-text-webpack-plugin');
+const react                 = require('react');
+const index                 = `${__dirname}/demo/index.html`;
+const demo                  = `${__dirname}/demo/demo.js`;
+const main                  = `${__dirname}/demo/main.js`;
+const compounds             = `${__dirname}/Compounds.js`;
+const icons                 = `${__dirname}/node_modules/pearson-elements/assets/icons/`;
+const fonts                 = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
+const elements              = `${__dirname}/node_modules/pearson-elements/scss/elements.scss`;
 
 
 const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ]
@@ -24,7 +24,7 @@ module.exports = {
   output: {
     path          : path.resolve(__dirname, 'build'),
     filename      : '[name].compounds.js',
-    publicPath    : '/compounds',
+    publicPath    : 'http://pearson-higher-ed.github.io/compounds',
     libraryTarget : 'umd'
   },
   devtool: "cheap-eval-source-map",
@@ -76,6 +76,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
-    new ExtractTextPlugin('styles.css')
+    new ExtractTextPlugin('styles.css'),
+    // new webpack.optimize.UglifyJsPlugin()
   ]
 };

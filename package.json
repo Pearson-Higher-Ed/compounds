@@ -77,9 +77,10 @@
     "jest": "16.0.2",
     "node-sass": "^4.5.0",
     "pearson-elements": "^1.4.2",
-    "react": "^15.0.0",
+    "react": "^15.3.0",
     "react-addons-test-utils": "^15.0.0",
-    "react-dom": "^15.0.0",
+    "react-dom": "^15.3.0",
+    "react-hot-loader": "^1.3.1",
     "react-intl": "~2.0.1",
     "react-router": "^3.0.0",
     "rimraf": "^2.5.4",
@@ -89,7 +90,8 @@
     "url-loader": "^0.5.7",
     "uuid": "2.0.2",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0"
+    "webpack-dev-server": "^2.3.0",
+    "webpack-uglify-js-plugin": "^1.1.9"
   },
   "keywords": [
     "pearson-components"
