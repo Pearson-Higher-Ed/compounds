@@ -14,9 +14,9 @@ import './demo.scss';
 const Routes = (
     <Route path="/compounds" component={Header} >
       <IndexRoute component={HomePage} />
-        <Route path="/button" component={ButtonPage} />
-        <Route path="/icon"   component={IconPage}   />
-        <Route path="/inputs" component={InputsPage} />
+        <Route path="/compounds/button" component={ButtonPage} />
+        <Route path="/compounds/icon"   component={IconPage}   />
+        <Route path="/compounds/inputs" component={InputsPage} />
     </Route>
   );
 

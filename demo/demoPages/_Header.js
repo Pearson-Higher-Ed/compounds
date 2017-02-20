@@ -13,9 +13,9 @@ export const Header = (props) => (
     </div>
     <ul className="buttonList">
       <li><Link className="link" to={`/compounds`}>Home</Link></li>
-      <li><Link className="link" to={`/button`}>Button</Link></li>
-      <li><Link className="link" to={`/icon`}>Icon</Link></li>
-      <li><Link className="link" to={`/inputs`}>Inputs</Link></li>
+      <li><Link className="link" to={`/compounds/button`}>Button</Link></li>
+      <li><Link className="link" to={`/compounds/icon`}>Icon</Link></li>
+      <li><Link className="link" to={`/compounds/inputs`}>Inputs</Link></li>
     </ul>
     {props.children}
   </div>
