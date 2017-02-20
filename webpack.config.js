@@ -9,7 +9,7 @@ const main              = `${__dirname}/demo/main.js`;
 const compounds         = `${__dirname}/Compounds.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/assets/icons/`;
 const fonts             = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
-const elements          = `${__dirname}node_modules/pearson-elements/scss/elements.scss`;
+const elements          = `${__dirname}/node_modules/pearson-elements/scss/elements.scss`;
 
 
 const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ]
@@ -18,13 +18,13 @@ module.exports = {
   entry: {
     dist   : [ compounds ],
     qa     : [ compounds, main ],
-    dev    : [ demo, compounds ],
+    dev    : [ demo, compounds, elements ],
     vendor : VENDOR_LIBS
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
     filename      : '[name].compounds.js',
-    publicPath    : '/',
+    publicPath    : '/build',
     libraryTarget : 'umd'
   },
   devtool: "cheap-eval-source-map",
@@ -58,12 +58,12 @@ module.exports = {
         //     'image-webpack-loader'
         //   ]
         // },
-//         {
-//           loader: ExtractTextPlugin.extract({
-//             loader: 'sass-loader'
-//           }),
-//           test: /\.scss$/
-//         }
+        // {
+        //   loader: ExtractTextPlugin.extract({
+        //     loader: 'sass-loader'
+        //   }),
+        //   test: /\.scss$/
+        // }
       ]
   },
   plugins: [
@@ -71,12 +71,7 @@ module.exports = {
       names: ['vendor', 'manifest']
     }),
     new HtmlWebpackPlugin({
-      template: 'demo/index.html',
-      excludeChunks: [ 'qa.compounds.js', 'dist.compounds.[hash].js' ],
-      "files": {
-        "css": [ "main.css" ],
-        "js": [ "build/dev.compounds.js", "build/vendor.js"]
-      }
+      template: 'demo/index.html'
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)

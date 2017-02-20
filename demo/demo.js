@@ -12,7 +12,7 @@ import './demo.scss';
 
 
 const Routes = (
-    <Route path="/" component={Header} >
+    <Route path="/build" component={Header} >
       <IndexRoute component={HomePage} />
         <Route path="/button" component={ButtonPage} />
         <Route path="/icon"   component={IconPage}   />
