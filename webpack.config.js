@@ -1,15 +1,15 @@
 const path                  = require('path');
-const fs                    = require('fs');
 const webpack               = require('webpack');
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
 const ExtractTextPlugin     = require('extract-text-webpack-plugin');
 const react                 = require('react');
 const index                 = `${__dirname}/demo/index.html`;
 const demo                  = `${__dirname}/demo/demo.js`;
+const demoScss              = `${__dirname}/demo/demo.scss`;
 const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
 const icons                 = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
-const fontsDir              = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
+const fonts                 = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 
 
@@ -18,8 +18,8 @@ const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ];
 module.exports = {
   entry: {
     dist   : [ compounds ],
-    qa     : [ compounds, main,  ],
-    dev    : [ demo, compounds, elements ],
+    qa     : [ compounds, main ],
+    dev    : [ demo, compounds, elements, demoScss ],
     vendor : VENDOR_LIBS,
     icons  : icons
   },
@@ -46,7 +46,7 @@ module.exports = {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-          query: {
+          options: {
             presets: ['es2015']
           }
         },
@@ -66,20 +66,9 @@ module.exports = {
           options: {
               name: '[name].[ext]?[hash]'
           }
-        },
-        // {
-        //   loader: ExtractTextPlugin.extract({
-        //     loader: 'sass-loader'
-        //   }),
-        //   test: /\.scss$/
-        // }
+        }
       ]
   },
-  devServer: {
-    port: 8081,
-    historyApiFallback: true
-  },
-
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
