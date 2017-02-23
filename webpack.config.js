@@ -19,13 +19,13 @@ module.exports = {
     dist   : [ compounds ],
     qa     : [ compounds, main ],
     dev    : [ demo, compounds, elements, demoScss ],
-    vendor : [ VENDOR_LIBS ],
+    vendor : VENDOR_LIBS,
     icons  : [ icons ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
     filename      : '[name].compounds.js',
-    publicPath    : '/',
+    publicPath    : '/compounds',
     libraryTarget : 'umd'
   },
   devtool: "cheap-eval-source-map",
