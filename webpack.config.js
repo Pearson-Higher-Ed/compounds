@@ -28,7 +28,7 @@ module.exports = {
     publicPath    : '/compounds',
     libraryTarget : 'umd'
   },
-  devtool: "cheap-eval-source-map",
+  devtool: "cheap-source-map",
   module: {
     rules: [
         {
