@@ -13,13 +13,13 @@ import './demo.scss';
 
 
 ReactDOM.render(
-    <Router>
+    <Router basename="/compounds">
       <div>
         <Header />
-        <Route exact path="/compounds"  component={HomePage}   />
-        <Route path="/icons"   component={IconPage}   />
-        <Route path="/inputs"  component={InputsPage} />
-        <Route path="/buttons" component={ButtonPage} />
+          <Route exact path="/"  component={HomePage}   />
+          <Route path="/icons"   component={IconPage}   />
+          <Route path="/inputs"  component={InputsPage} />
+          <Route path="/buttons" component={ButtonPage} />
       </div>
     </Router>, document.getElementById('app')
 );
