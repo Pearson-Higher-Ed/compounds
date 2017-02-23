@@ -41,13 +41,13 @@ module.exports = {
               loader: "sass-loader" // compiles Sass to CSS
           }]
         },
-        {
-          test: /\.(scss|css)$/,
-          use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: ['css-loader', 'sass-loader']
-          })
-        },
+        // {
+        //   test: /\.(scss|css)$/,
+        //   use: ExtractTextPlugin.extract({
+        //     fallback: "style-loader",
+        //     use: ['css-loader', 'sass-loader']
+        //   })
+        // },
         {
           test: /\.js$/,
           exclude: /node_modules/,
