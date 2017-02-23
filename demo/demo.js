@@ -4,24 +4,22 @@ import { ButtonPage } from './demoPages/ButtonPage';
 import { IconPage }   from './demoPages/IconPage';
 import { HomePage }   from './demoPages/_HomePage';
 import { Header }     from './demoPages/_Header';
-import { NotFound }   from './demoPages/_NotFound';
 import { InputsPage } from './demoPages/InputsPage';
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 import './demo.scss';
 
 
-const Routes = (
-    <Route path="/compounds" component={Header} >
-      <IndexRoute component={HomePage} />
-        <Route path="/compounds/button" component={ButtonPage} />
-        <Route path="/compounds/icon"   component={IconPage}   />
-        <Route path="/compounds/inputs" component={InputsPage} />
-        <Route path="*" component={NotFound} />
-    </Route>
-  );
-
-
-ReactDOM.render(<Router history={browserHistory} routes={Routes} />, document.getElementById('app'));
+ReactDOM.render(
+    <Router>
+      <div>
+        <Header />
+        <Route exact path="/compounds"  component={HomePage}   />
+        <Route path="/icons"   component={IconPage}   />
+        <Route path="/inputs"  component={InputsPage} />
+        <Route path="/buttons" component={ButtonPage} />
+      </div>
+    </Router>, document.getElementById('app')
+);

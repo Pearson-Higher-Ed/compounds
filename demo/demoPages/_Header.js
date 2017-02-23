@@ -1,6 +1,7 @@
 import React            from 'react';
-import { Link }         from 'react-router';
+import { Link }         from 'react-router-dom';
 import { Icon, Button } from '../../Compounds';
+
 
 export const Header = (props) => (
   <div className="container">
@@ -13,9 +14,9 @@ export const Header = (props) => (
     </div>
     <ul className="buttonList">
       <li><Link className="link" to={`/compounds`}>Home</Link></li>
-      <li><Link className="link" to={`/compounds/button`}>Button</Link></li>
-      <li><Link className="link" to={`/compounds/icon`}>Icon</Link></li>
-      <li><Link className="link" to={`/compounds/inputs`}>Inputs</Link></li>
+      <li><Link className="link" to={`/buttons`}>Button</Link></li>
+      <li><Link className="link" to={`/icons`}>Icon</Link></li>
+      <li><Link className="link" to={`/inputs`}>Inputs</Link></li>
     </ul>
     {props.children}
   </div>

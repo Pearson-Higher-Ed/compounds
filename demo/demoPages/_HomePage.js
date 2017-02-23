@@ -14,9 +14,9 @@ export const HomePage = (props) => (
       <p>React Components:</p>
 
       <ul className="homepageList">
-        <li><Link className="link_homepage" to={`/compounds/button`}>Button</Link></li>
-        <li><Link className="link_homepage" to={`/compounds/icon`}>Icon</Link></li>
-        <li><Link className="link_homepage" to={`/compounds/inputs`}>Inputs</Link></li>
+        <li><Link className="link_homepage" to={`/buttons`}>Button</Link></li>
+        <li><Link className="link_homepage" to={`/icons`}>Icon</Link></li>
+        <li><Link className="link_homepage" to={`/inputs`}>Inputs</Link></li>
       </ul>
 
       <p>Contributions: <a href="https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md">FAQ</a></p>

@@ -1,6 +1,4 @@
 import React            from 'react';
-import { Link }         from 'react-router';
-import { Icon, Button } from '../../Compounds';
 
 export const NotFound = ({location}) => (
   <div>
