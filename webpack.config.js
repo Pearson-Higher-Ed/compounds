@@ -32,14 +32,21 @@ module.exports = {
   module: {
     rules: [
         {
-            test: /\.(css|scss$)/,
-            use: [{
-                loader: "style-loader" // creates style nodes from JS strings
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS
-            }, {
-                loader: "sass-loader" // compiles Sass to CSS
-            }]
+          test: /\.(css|scss$)/,
+          use: [{
+              loader: "style-loader" // creates style nodes from JS strings
+          }, {
+              loader: "css-loader" // translates CSS into CommonJS
+          }, {
+              loader: "sass-loader" // compiles Sass to CSS
+          }]
+        },
+        {
+          test: /\.(scss|css)$/,
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: ['css-loader', 'sass-loader']
+          })
         },
         {
           test: /\.js$/,
