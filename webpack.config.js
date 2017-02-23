@@ -24,7 +24,7 @@ module.exports = {
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
-    filename      : '[name].compounds.js',
+    filename      : '[name].compounds[hash].js',
     publicPath    : '/compounds',
     libraryTarget : 'umd'
   },
