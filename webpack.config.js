@@ -9,7 +9,6 @@ const demoScss              = `${__dirname}/demo/demo.scss`;
 const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
 const icons                 = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
-const fonts                 = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 
 
@@ -20,8 +19,8 @@ module.exports = {
     dist   : [ compounds ],
     qa     : [ compounds, main ],
     dev    : [ demo, compounds, elements, demoScss ],
-    vendor : VENDOR_LIBS,
-    icons  : icons
+    vendor : [ VENDOR_LIBS ],
+    icons  : [ icons ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
@@ -49,16 +48,6 @@ module.exports = {
           options: {
             presets: ['es2015']
           }
-        },
-        {
-          test: /\.(svg)$/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: { limit:40000 }
-            },
-            'image-webpack-loader'
-          ]
         },
         {
           test: /\.(png|jpg|gif|svg|ttf|woff|woff2)$/,
