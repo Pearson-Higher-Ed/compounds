@@ -9,6 +9,7 @@ const demoScss              = `${__dirname}/demo/demo.scss`;
 const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
 const icons                 = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
+const fonts                 = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 
 
@@ -20,26 +21,26 @@ module.exports = {
     qa     : [ compounds, main ],
     dev    : [ demo, compounds, elements, demoScss ],
     vendor : VENDOR_LIBS,
-    icons  : [ icons ]
+    icons  : icons
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
-    filename      : '[name].compounds[hash].js',
-    publicPath    : '/compounds',
+    filename      : '[name].compounds.js',
+    publicPath    : '/',
     libraryTarget : 'umd'
   },
-  devtool: "cheap-source-map",
+  devtool: "cheap-eval-source-map",
   module: {
     rules: [
         {
-          test: /\.(css|scss$)/,
-          use: [{
-              loader: "style-loader" // creates style nodes from JS strings
-          }, {
-              loader: "css-loader" // translates CSS into CommonJS
-          }, {
-              loader: "sass-loader" // compiles Sass to CSS
-          }]
+            test: /\.(css|scss$)/,
+            use: [{
+                loader: "style-loader" // creates style nodes from JS strings
+            }, {
+                loader: "css-loader" // translates CSS into CommonJS
+            }, {
+                loader: "sass-loader" // compiles Sass to CSS
+            }]
         },
         {
           test: /\.js$/,
@@ -48,6 +49,16 @@ module.exports = {
           options: {
             presets: ['es2015']
           }
+        },
+        {
+          test: /\.(svg)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: { limit:40000 }
+            },
+            'image-webpack-loader'
+          ]
         },
         {
           test: /\.(png|jpg|gif|svg|ttf|woff|woff2)$/,
