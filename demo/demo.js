@@ -13,7 +13,7 @@ import './demo.scss';
 
 
 ReactDOM.render(
-    <Router basename="/compounds">
+    <Router>
       <div>
         <Header />
           <Route exact path="/"  component={HomePage}   />
