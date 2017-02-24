@@ -9,7 +9,6 @@ const demoScss              = `${__dirname}/demo/demo.scss`;
 const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
 const icons                 = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
-const fonts                 = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 
 
@@ -18,13 +17,14 @@ const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ];
 module.exports = {
   entry: {
     dist   : [ compounds ],
-    dev    : [ demo, compounds, elements, demoScss, icons, main ],
-    vendor : VENDOR_LIBS,
-    icons  : icons
+    qa     : [ compounds, main ],
+    dev    : [ demo, compounds, elements, demoScss ],
+    vendor :  VENDOR_LIBS ,
+    icons  : icons 
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
-    filename      : '[name].compounds.[hash].js',
+    filename      : '[name].compounds.js',
     publicPath    : '/',
     libraryTarget : 'umd'
   },
