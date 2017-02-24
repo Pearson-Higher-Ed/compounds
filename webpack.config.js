@@ -18,15 +18,14 @@ const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ];
 module.exports = {
   entry: {
     dist   : [ compounds ],
-    qa     : [ compounds, main ],
-    dev    : [ demo, compounds, elements, demoScss ],
+    dev    : [ demo, compounds, elements, demoScss, icons, main ],
     vendor : VENDOR_LIBS,
     icons  : icons
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
     filename      : '[name].compounds.[hash].js',
-    publicPath    : '/compounds',
+    publicPath    : '/',
     libraryTarget : 'umd'
   },
   devtool: "cheap-eval-source-map",
