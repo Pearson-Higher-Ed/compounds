@@ -17,14 +17,12 @@ const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ];
 module.exports = {
   entry: {
     dist   : [ compounds ],
-    qa     : [ compounds, main ],
-    dev    : [ demo, compounds, elements, demoScss ],
-    vendor :  VENDOR_LIBS ,
-    icons  : icons 
+    dev    : [ demo, compounds, elements, demoScss, icons, main ],
+    vendor :  VENDOR_LIBS
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
-    filename      : '[name].compounds.js',
+    filename      : '[name].compounds.[hash].js',
     publicPath    : '/',
     libraryTarget : 'umd'
   },
@@ -46,7 +44,7 @@ module.exports = {
           exclude: /node_modules/,
           loader: 'babel-loader',
           options: {
-            presets: ['es2015']
+            presets: ["es2015", "stage-0", "react"]
           }
         },
         {
