@@ -12,32 +12,48 @@ const icons                 = `${__dirname}/node_modules/pearson-elements/dist/i
 const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 
 
+const buttonpage = `${__dirname}/demo/demoPages/ButtonPage.js`;
+const headerpage = `${__dirname}/demo/demoPages/HeaderPage.js`;
+const homepage   = `${__dirname}/demo/demoPages/HomePage.js`;
+const iconpage   = `${__dirname}/demo/demoPages/IconPage.js`;
+const inputspage = `${__dirname}/demo/demoPages/inputsPage.js`;
+
+
+
+const WebpackRoutesToPagesPlugin = require('./webpack-routes-to-pages');
+
 const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ];
 
 module.exports = {
   entry: {
+    vendor :  VENDOR_LIBS,
+    demo   : [ demo, demoScss ],
+    dev    : [ elements, icons, main ],
     dist   : [ compounds ],
-    dev    : [ demo, compounds, elements, demoScss, icons, main ],
-    vendor :  VENDOR_LIBS
+    // buttonpage,
+    // headerpage,
+    // homepage,
+    // iconpage,
+    // inputspage
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
-    filename      : '[name].compounds.[hash].js',
+    filename      : '[name].compounds.js',
     publicPath    : '/compounds',
     libraryTarget : 'umd'
   },
-  devtool: "cheap-eval-source-map",
+  devtool: "cheap-module-source-map",
   module: {
     rules: [
         {
-            test: /\.(css|scss$)/,
-            use: [{
-                loader: "style-loader" // creates style nodes from JS strings
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS
-            }, {
-                loader: "sass-loader" // compiles Sass to CSS
-            }]
+          test: /\.(css|scss$)/,
+          use: [{
+              loader: "style-loader" // creates style nodes from JS strings
+          }, {
+              loader: "css-loader" // translates CSS into CommonJS
+          }, {
+              loader: "sass-loader" // compiles Sass to CSS
+          }]
         },
         {
           test: /\.js$/,
@@ -58,8 +74,8 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
-    }),
+      names: ['vendor', 'manifest'],
+    Infinity}),
     new HtmlWebpackPlugin({
       template: 'demo/index.html'
     }),
@@ -67,6 +83,7 @@ module.exports = {
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
     new ExtractTextPlugin('styles.css'),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    // new WebpackRoutesToPagesPlugin()
   ]
 };

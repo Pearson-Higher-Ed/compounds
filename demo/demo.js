@@ -1,25 +1,22 @@
-import React          from 'react';
-import ReactDOM       from 'react-dom';
-import { ButtonPage } from './demoPages/ButtonPage';
-import { IconPage }   from './demoPages/IconPage';
-import { HomePage }   from './demoPages/_HomePage';
-import { Header }     from './demoPages/_Header';
-import { InputsPage } from './demoPages/InputsPage';
+import React           from 'react';
+import ReactDOM        from 'react-dom';
+import { ButtonPage }  from './demoPages/ButtonPage';
+import { IconPage }    from './demoPages/IconPage';
+import { HomePage }    from './demoPages/HomePage';
+import { HeaderPage }  from './demoPages/HeaderPage';
+import { InputsPage }  from './demoPages/InputsPage';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-
-import './demo.scss';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 
 ReactDOM.render(
     <Router basename="/compounds">
       <div>
-        <Header />
+        <HeaderPage />
           <Route exact path="/"  component={HomePage}   />
           <Route path="/icons"   component={IconPage}   />
           <Route path="/inputs"  component={InputsPage} />
-          <Route path="/buttons" component={ButtonPage} />
+          <Route path="/button"  component={ButtonPage} />
       </div>
     </Router>, document.getElementById('app')
 );
