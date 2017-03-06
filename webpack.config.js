@@ -39,7 +39,7 @@ module.exports = {
   output: {
     path          : path.resolve(__dirname, 'build'),
     filename      : '[name].compounds.js',
-    publicPath    : '/',
+    publicPath    : '/compounds',
     libraryTarget : 'umd'
   },
   devtool: "cheap-module-source-map",
@@ -47,7 +47,7 @@ module.exports = {
     contentBase: path.join(__dirname),
     host: "0.0.0.0",
     port: 8081,
-    publicPath: "/",
+    publicPath: "/compounds",
     hot                : true,
     https              : false,
     inline             : false,
