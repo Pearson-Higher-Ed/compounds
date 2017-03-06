@@ -12,17 +12,17 @@ const icons                 = `${__dirname}/node_modules/pearson-elements/dist/i
 const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 
 
-const buttonpage = `${__dirname}/demo/demoPages/ButtonPage.js`;
-const headerpage = `${__dirname}/demo/demoPages/HeaderPage.js`;
-const homepage   = `${__dirname}/demo/demoPages/HomePage.js`;
-const iconpage   = `${__dirname}/demo/demoPages/IconPage.js`;
-const inputspage = `${__dirname}/demo/demoPages/inputsPage.js`;
+// const buttonpage = `${__dirname}/demo/demoPages/ButtonPage.js`;
+// const headerpage = `${__dirname}/demo/demoPages/HeaderPage.js`;
+// const homepage   = `${__dirname}/demo/demoPages/HomePage.js`;
+// const iconpage   = `${__dirname}/demo/demoPages/IconPage.js`;
+// const inputspage = `${__dirname}/demo/demoPages/inputsPage.js`;
+//
+//
+//
+// const WebpackRoutesToPagesPlugin = require('./webpack-routes-to-pages');
 
-
-
-const WebpackRoutesToPagesPlugin = require('./webpack-routes-to-pages');
-
-const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl', 'react-router' ];
+const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl' ];
 
 module.exports = {
   entry: {
@@ -39,10 +39,23 @@ module.exports = {
   output: {
     path          : path.resolve(__dirname, 'build'),
     filename      : '[name].compounds.js',
-    publicPath    : '/compounds',
+    publicPath    : '/',
     libraryTarget : 'umd'
   },
   devtool: "cheap-module-source-map",
+  devServer: {
+    contentBase: path.join(__dirname),
+    host: "0.0.0.0",
+    port: 8081,
+    publicPath: "/",
+    hot                : true,
+    https              : false,
+    inline             : false,
+    overlay            : true,
+    watchContentBase   : true,
+    historyApiFallback : true,
+    watchOptions       : { poll: true }
+  },
   module: {
     rules: [
         {

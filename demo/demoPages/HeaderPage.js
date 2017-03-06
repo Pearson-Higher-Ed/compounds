@@ -27,7 +27,7 @@ import { Icon, Button }      from '../../Compounds';
           <li><Link className="link" to={`/icons`}>Icon</Link></li>
           <li><Link className="link" to={`/inputs`}>Inputs</Link></li>
         </ul>
-        {props.children}
+        {this.props.children}
       </div>
     )
   }

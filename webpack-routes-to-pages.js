@@ -61,6 +61,12 @@ WebpackRoutesToPagesPlugin.prototype.apply = function(compiler) {
             src: 'vendor.compounds.js'
           }),
           React.DOM.script({
+            src: 'manifest.compounds.js'
+          }),
+          React.DOM.script({
+            src: 'demo.compounds.js'
+          }),
+          React.DOM.script({
             src: 'dev.compounds.js'
           }),
           React.DOM.script({

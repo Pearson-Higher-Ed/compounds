@@ -8,7 +8,7 @@ import {
 
 
 
-class InputsPage extends Component{
+class InputsPage extends Component {
 
   constructor (props) {
     super(props);
