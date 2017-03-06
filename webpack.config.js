@@ -1,3 +1,4 @@
+const fs                    = require('fs');
 const path                  = require('path');
 const webpack               = require('webpack');
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
@@ -10,6 +11,11 @@ const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
 const icons                 = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
+const fontsDir              = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
+
+// get fonts from Pearson-elements...
+const fonts = fs.readdirSync(fontsDir)
+const fontsLocation = fonts.map(font => fontsDir.concat(font))
 
 
 // const buttonpage = `${__dirname}/demo/demoPages/ButtonPage.js`;
@@ -29,6 +35,7 @@ module.exports = {
     vendor :  VENDOR_LIBS,
     demo   : [ demo, demoScss ],
     dev    : [ elements, icons, main ],
+    fonts  : fontsLocation,
     dist   : [ compounds ],
     // buttonpage,
     // headerpage,
