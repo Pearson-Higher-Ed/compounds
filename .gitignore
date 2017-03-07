@@ -12,4 +12,6 @@ coverage
 *.swp
 yarn.lock
 coverage
-build
+build/*.js
+build/*.map
+build/*.html

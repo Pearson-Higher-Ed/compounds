@@ -26,15 +26,13 @@ module.exports = {
     publicPath    : '/compounds/',
     libraryTarget : 'umd'
   },
-  devtool: "cheap-module-source-map",
+  devtool: "cheap-source-map",
   devServer: {
-    contentBase: path.join(__dirname),
     host: "0.0.0.0",
     port: 8081,
     publicPath: "/compounds/",
     hot                : true,
     https              : true,
-    inline             : false,
     overlay            : true,
     watchContentBase   : true,
     historyApiFallback : true,
