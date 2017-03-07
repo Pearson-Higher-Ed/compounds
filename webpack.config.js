@@ -11,22 +11,6 @@ const main                  = `${__dirname}/demo/main.js`;
 const compounds             = `${__dirname}/Compounds.js`;
 const icons                 = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements              = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
-const fontsDir              = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
-
-// get fonts from Pearson-elements...
-const fonts = fs.readdirSync(fontsDir)
-const fontsLocation = fonts.map(font => fontsDir.concat(font))
-
-
-// const buttonpage = `${__dirname}/demo/demoPages/ButtonPage.js`;
-// const headerpage = `${__dirname}/demo/demoPages/HeaderPage.js`;
-// const homepage   = `${__dirname}/demo/demoPages/HomePage.js`;
-// const iconpage   = `${__dirname}/demo/demoPages/IconPage.js`;
-// const inputspage = `${__dirname}/demo/demoPages/inputsPage.js`;
-//
-//
-//
-// const WebpackRoutesToPagesPlugin = require('./webpack-routes-to-pages');
 
 const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl' ];
 
@@ -35,13 +19,7 @@ module.exports = {
     vendor :  VENDOR_LIBS,
     demo   : [ demo, demoScss ],
     dev    : [ elements, icons, main ],
-    fonts  : fontsLocation,
-    dist   : [ compounds ],
-    // buttonpage,
-    // headerpage,
-    // homepage,
-    // iconpage,
-    // inputspage
+    dist   : [ compounds ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
@@ -56,7 +34,7 @@ module.exports = {
     port: 8081,
     publicPath: "/compounds",
     hot                : true,
-    https              : false,
+    https              : true,
     inline             : false,
     overlay            : true,
     watchContentBase   : true,
@@ -103,7 +81,6 @@ module.exports = {
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
     new ExtractTextPlugin('styles.css'),
-    new webpack.NamedModulesPlugin(),
-    // new WebpackRoutesToPagesPlugin()
+    new webpack.NamedModulesPlugin()
   ]
 };

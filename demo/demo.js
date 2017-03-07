@@ -5,13 +5,12 @@ import IconPage      from './demoPages/IconPage';
 import HomePage      from './demoPages/HomePage';
 import HeaderPage    from './demoPages/HeaderPage';
 import InputsPage    from './demoPages/InputsPage';
-import NotFoundPage  from './demoPages/NotFoundPage';
 
-import { HashRouter as Router, Route, IndexRoute } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 
 ReactDOM.render(
-    <Router basename="/">
+    <Router>
       <div>
         <HeaderPage />
           <Route exact path="/"  component={HomePage}     />
