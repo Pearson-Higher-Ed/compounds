@@ -33,7 +33,7 @@ module.exports = {
     port: 8081,
     publicPath: "/compounds/",
     hot                : true,
-    https              : false,
+    https              : true,
     inline             : false,
     overlay            : true,
     watchContentBase   : true,
