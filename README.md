@@ -60,6 +60,13 @@ React Router for defining how to render the components.
 
 As you save changes to the source, the changes are automatically reloaded in the browser.
 
+### Github Pages
+
+To deploy this project to Github Pages commit your changes, then run:
+```
+npm run deploy
+```
+
 ### Test
 
 The project is wired to unit test with the Mocha framework, "expect" assertion library, and expect-jsx to turn React
