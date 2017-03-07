@@ -11,5 +11,3 @@ coverage
 *.log
 *.swp
 yarn.lock
-coverage
-build
