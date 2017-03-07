@@ -3,7 +3,6 @@ const path                  = require('path');
 const webpack               = require('webpack');
 const HtmlWebpackPlugin     = require('html-webpack-plugin');
 const ExtractTextPlugin     = require('extract-text-webpack-plugin');
-const react                 = require('react');
 const index                 = `${__dirname}/demo/index.html`;
 const demo                  = `${__dirname}/demo/demo.js`;
 const demoScss              = `${__dirname}/demo/demo.scss`;
@@ -34,7 +33,7 @@ module.exports = {
     port: 8081,
     publicPath: "/compounds/",
     hot                : true,
-    https              : true,
+    https              : false,
     inline             : false,
     overlay            : true,
     watchContentBase   : true,
@@ -54,7 +53,7 @@ module.exports = {
           }]
         },
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
           options: {
