@@ -77,6 +77,7 @@
     "image-webpack-loader": "^3.2.0",
     "intl": "~1.1.0",
     "jest": "16.0.2",
+    "jest-cli": "^19.0.2",
     "node-sass": "^4.5.0",
     "pearson-elements": "^1.4.2",
     "react": "^15.3.0",
