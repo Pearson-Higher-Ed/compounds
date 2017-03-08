@@ -34,7 +34,9 @@ module.exports = {
     hot                : true,
     https              : true,
     overlay            : true,
-    historyApiFallback : true
+    watchContentBase   : true,
+    historyApiFallback : true,
+    watchOptions       : { poll: true }
   },
   module: {
     rules: [
@@ -52,8 +54,8 @@ module.exports = {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-          query: {
-            babelrc: true
+          options: {
+            presets: ["es2015", "stage-0", "react"]
           }
         },
         {
@@ -71,6 +73,9 @@ module.exports = {
     Infinity}),
     new HtmlWebpackPlugin({
       template: 'demo/index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
     new ExtractTextPlugin('styles.css'),
     new webpack.NamedModulesPlugin()

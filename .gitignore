@@ -15,4 +15,3 @@ coverage
 build/*.js
 build/*.map
 build/*.html
-build/*.svg
