@@ -26,7 +26,7 @@ module.exports = {
     publicPath    : '/compounds/',
     libraryTarget : 'umd'
   },
-  devtool: "cheap-module-source-map",
+  devtool: "source-map",
   devServer: {
     host: "0.0.0.0",
     port: 8081,
