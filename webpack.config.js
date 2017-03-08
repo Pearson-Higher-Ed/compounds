@@ -72,9 +72,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'demo/index.html'
     }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
-    }),
     new ExtractTextPlugin('styles.css'),
     new webpack.NamedModulesPlugin()
   ]
