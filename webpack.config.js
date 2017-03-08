@@ -34,9 +34,7 @@ module.exports = {
     hot                : true,
     https              : true,
     overlay            : true,
-    watchContentBase   : true,
-    historyApiFallback : true,
-    watchOptions       : { poll: true }
+    historyApiFallback : true
   },
   module: {
     rules: [
