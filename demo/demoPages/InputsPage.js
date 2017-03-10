@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import {
   PasswordInput,
-  // Checkbox,
   TextInput
 } from '../../Compounds';
 
@@ -94,13 +93,6 @@ class InputsPage extends Component {
           <p className="code">{'<PasswordInput id="h" label="Password" placeholder="Enter Password" error={true} />'}</p>
           <br />
           <br />
-
-
-          {/* <h5>Checkbox:</h5>
-          <Checkbox label="Bacon" size="18" value="1" />
-          <p className="code">{'<Checkbox label="Bacon" size="18" value="1" />'}</p>
-          <br />
-          <br /> */}
 
 
         </div>

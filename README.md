@@ -10,8 +10,10 @@ This project supports [Node v4+](https://nodejs.org) and npm 2+ installed in you
 
 Install and save in your package.json:
 
+    ```
     npm install pearson-compounds --save
-
+    ```
+    
 ### External Dependencies
 
 React and ReactDOM (v0.14 or v15) are external dependencies required to use this component. They are npm-installable or
@@ -69,7 +71,7 @@ npm run deploy
 
 ### Test
 
-The project is wired to unit test with the Mocha framework, "expect" assertion library, and expect-jsx to turn React
+The project is wired to unit test with Jest, "expect" assertion library, and expect-jsx to turn React
 elements into formatted strings.
 
     npm test
@@ -114,7 +116,7 @@ Note that re-installing node_modules will remove all symlinks.
 ## Documentation Site
 
 The static demo site is located at:
-http://localhost:8081/demo
+http://localhost:8081/
 
 ## CodeCoverage site
 
