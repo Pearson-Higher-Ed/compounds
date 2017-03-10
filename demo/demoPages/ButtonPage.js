@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button }           from '../../Compounds';
-import { Icon }             from '../../Compounds';
+import { Button }           from '../../index';
+import { Icon }             from '../../index';
 
 
 class ButtonPage extends Component {

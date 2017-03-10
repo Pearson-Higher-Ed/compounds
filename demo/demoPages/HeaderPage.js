@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link }              from 'react-router-dom';
-import { Icon, Button }      from '../../Compounds';
+import { Link }             from 'react-router-dom';
+import { Icon, Button }     from '../../index';
 
 
  class HeaderPage extends Component{

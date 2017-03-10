@@ -1,10 +1,5 @@
-import React, { Component } from 'react';
-
-import {
-  PasswordInput,
-  TextInput
-} from '../../Compounds';
-
+import React, { Component }         from 'react';
+import { PasswordInput, TextInput } from '../../index';
 
 
 class InputsPage extends Component {
@@ -13,7 +8,6 @@ class InputsPage extends Component {
     super(props);
     this.state ={};
   }
-
 
 
   render() {
