@@ -13,7 +13,17 @@ Install and save in your package.json:
     ```
     npm install pearson-compounds --save
     ```
-    
+
+    Import a single component:
+    ```
+    import { Button } from 'pearson-compounds';
+    ```
+
+    Import a all components:
+    ```
+    import * as Compounds from 'pearson-compounds';
+    ```
+
 ### External Dependencies
 
 React and ReactDOM (v0.14 or v15) are external dependencies required to use this component. They are npm-installable or
