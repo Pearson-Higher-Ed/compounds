@@ -15,7 +15,7 @@ import { Icon, Button }     from '../../index';
     return  (
       <div className="container">
         <div className="header">
-          <Link to="/"><h4 className="headerTitle">Pearson Design Accelerator</h4></Link>
+          <Link to="/"><h1 className="headerTitle">Pearson Design Accelerator</h1></Link>
           <Button btnSize="xlarge" onClick={this.toggleList}>
             Compounds
             <Icon name="dropdown-open-18" />

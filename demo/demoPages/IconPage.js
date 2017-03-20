@@ -12,10 +12,10 @@ class IconPage extends Component {
   render() {
     return  (
       <div className="displaySection">
-        <h2><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icon</a></h2>
+        <h1><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icon</a></h1>
 
         <div className="elementContainer">
-          <h3>Examples</h3>
+          <h2>Examples</h2>
           <p>Basic Icon</p>
           <Icon name="remove-sm-18">close</Icon>
           <p className="code">{"<Icon name='remove-sm-18'>close</Icon>"}</p>
@@ -30,13 +30,13 @@ class IconPage extends Component {
 
           <p>This is "warning-24" inside a heading as a decorative (no alt text) icon.</p>
           <div className="warning">
-            <h2><Icon name="warning-24" /> Alert! Form was not submitted!</h2>
+            <h3><Icon name="warning-24" /> Alert! Form was not submitted!</h3>
           </div>
           <p className="code">{"<h2><Icon name='warning-24'/> Alert! Form was not submitted!</h2>"}</p>
 
           <br/>
 
-          <h3>Available icons</h3>
+          <h2>Available icons</h2>
           <p>These are icons with their names inside as example alternative text.</p>
           <ul>
             <li> archive-18  <Icon name="archive-18">Archive 18</Icon></li>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const TextInput = (props) => {
 
-  const { type, id, label, placeholder } = props;
+  const { inputType, id, label, placeholder } = props;
 
   let labelStyle = '';
   let inputStyle = '';

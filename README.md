@@ -19,7 +19,7 @@ Install and save in your package.json:
     import { Button } from 'pearson-compounds';
     ```
 
-    Import a all components:
+    Import all components:
     ```
     import * as Compounds from 'pearson-compounds';
     ```
