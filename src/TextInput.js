@@ -9,7 +9,7 @@ const TextInput = (props) => {
   let spanStyle  = '';
 
 
-  switch (type) {
+  switch (inputType) {
   case 'default':
     labelStyle = 'pe-textLabelInput__label';
     inputStyle = 'pe-textInput';
@@ -47,8 +47,8 @@ const TextInput = (props) => {
       id          ={id}
       value       =""
       placeholder ={placeholder}
-      disabled    ={type === 'disabled' ? 'disabled' : false}
-      readOnly    ={type === 'readonly' ? 'readOnly' : false}
+      disabled    ={inputType === 'disabled' ? 'disabled' : false}
+      readOnly    ={inputType === 'readonly' ? 'readOnly' : false}
     />
 
     <span className={`${spanStyle}`} />
