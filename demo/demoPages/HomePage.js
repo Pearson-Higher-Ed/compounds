@@ -31,7 +31,9 @@ class HomePage extends Component{
           <p>Contributions: <a href="https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md">FAQ</a></p>
           <p>Pearson Elements SDK: <a href="http://pearson-higher-ed.github.io/elements/">http://pearson-higher-ed.github.io/elements/</a></p>
           <p>Design Site: <a href="http://pearson-higher-ed.github.io/design/">http://pearson-higher-ed.github.io/design/</a></p>
-          <p>Unit Test Coverage: <p>run 'npm test' locally then navigate to </p><a href="http://localhost:8081/coverage/lcov-report/">http://localhost:8081/coverage/lcov-report/</a></p>
+          <p>Unit Test Coverage: </p>
+          <p>run 'npm test' locally then navigate to <a href="http://localhost:8081/coverage/lcov-report/">http://localhost:8081/coverage/lcov-report/</a></p>
+
           <p>HipChat Room: PDA-Help</p>
           <p>Email: pearson-design-accelerator@pearson.com</p>
 
