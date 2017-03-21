@@ -2,7 +2,7 @@
   "name": "Compounds",
   "version": "0.1.1",
   "description": "Atomic React Components",
-  "main": "./build/dist.Compounds.js",
+  "main": "./build/dist.compounds.js",
   "author": "Pearson Design Accelerator",
   "license": "MIT",
   "homepage": "http://pearson-higher-ed.github.io/compounds/",
@@ -11,14 +11,12 @@
     "url": "https://github.com/Pearson-Higher-Ed/compounds"
   },
   "scripts": {
-    "start": "npm run dev",
-    "dev-setup": "node ./npm_scripts/dev-setup.js",
-    "dev": "node ./npm_scripts/dev.js",
-    "gh-pages": "npm run build&&gh-pages -d build",
-    "pretest": "node ./npm_scripts/pretest.js",
+    "start": "npm run serve",
+    "serve": "NODE_ENV=development webpack-dev-server",
+    "clean": "rimraf build",
+    "deploy": "git subtree push --prefix build origin gh-pages",
     "test": "jest --coverage",
-    "build": "node ./npm_scripts/build.js",
-    "lint": "node ./npm_scripts/lint.js",
+    "build": "NODE_ENV=production npm run clean && webpack -p",
     "gen-changelog": "node ./npm_scripts/gen-changelog.js",
     "version": "node ./npm_scripts/version.js",
     "ci": "node ./npm_scripts/ci.js",
@@ -33,73 +31,64 @@
       "json"
     ],
     "collectCoverageFrom": [
-      "**/src/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/test/**",
-      "!webpack.config.js",
-      "!**/demo/**",
-      "!**/build/**",
-      "!**/coverage/**",
-      "!**/npm_scripts/**"
+      "**/src/*.{js,jsx}"
     ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/(build|node_modules|demo|fonts|npm_scripts|coverage)/"
+    ],
+    "testEnvironment": "node",
     "coverageThreshold": {
       "global": {
         "lines": 80
       }
-    },
-    "moduleNameMapper": {
-      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/utils/FileStub.js",
-      "^.+\\.css$": "<rootDir>/test/utils/CSSStub.js"
-    },
-    "testPathIgnorePatterns": [
-      "<rootDir>/(build|docs|node_modules|demo|fonts|npm_scripts|coverage|build|npm_scripts)/"
-    ],
-    "testEnvironment": "node",
-    "verbose": true
-  },
-  "dependencies": {
-    "react-intl": "~2.0.1",
-    "react-router": "^3.0.0"
+    }
   },
   "devDependencies": {
-    "@pearson-components/npm-scripts": "^0.3.11",
-    "babel-core": "^6.18.0",
-    "babel-eslint": "~4.1.6",
-    "babel-jest": "16.0.0",
-    "babel-loader": "~6.2.0",
-    "babel-polyfill": "~6.7.4",
-    "babel-preset-es2015": "~6.3.13",
-    "babel-preset-react": "~6.3.13",
-    "babel-preset-stage-0": "~6.5.0",
-    "babel-register": "~6.7.2",
+    "@pearson-components/npm-scripts": "^0.3.12",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^18.0.0",
+    "babel-loader": "^6.3.2",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.1.8",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.23.0",
     "colors": "~1.1.2",
     "conventional-changelog": "~1.1.0",
-    "css-loader": "~0.23.0",
+    "css-loader": "^0.26.1",
     "enzyme": "^2.5.1",
-    "eslint": "~1.10.3",
-    "eslint-loader": "~1.1.1",
+    "eslint": "^1.10.3",
+    "eslint-loader": "^1.6.1",
     "eslint-plugin-react": "~3.16.1",
     "expect": "~1.18.0",
     "expect-jsx": "~2.5.1",
-    "file-loader": "~0.8.5",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.10.0",
     "fs-extra": "^1.0.0",
-    "gh-pages": "^0.12.0",
+    "history": "^4.5.1",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.28.0",
     "ignore-styles": "~5.0.1",
+    "image-webpack-loader": "^3.2.0",
     "intl": "~1.1.0",
     "jest": "16.0.2",
-    "json-loader": "~0.5.4",
-    "node-sass": "~3.7.0",
-    "pearson-elements": "^1.2.0",
-    "react": "^15.0.0",
+    "node-sass": "^4.5.0",
+    "pearson-elements": "^1.4.2",
+    "react": "^15.3.0",
     "react-addons-test-utils": "^15.0.0",
-    "react-dom": "^15.0.0",
-    "sass-loader": "~3.2.0",
+    "react-dom": "^15.3.0",
+    "react-intl": "~2.0.1",
+    "react-router-dom": "^4.0.0-beta.6",
+    "rimraf": "^2.5.4",
+    "sass-loader": "^6.0.0",
     "semver": "~5.1.0",
-    "style-loader": "~0.13.0",
-    "url-loader": "~0.5.7",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "uuid": "2.0.2",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   },
   "keywords": [
     "pearson-components"

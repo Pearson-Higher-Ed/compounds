@@ -10,7 +10,19 @@ This project supports [Node v4+](https://nodejs.org) and npm 2+ installed in you
 
 Install and save in your package.json:
 
+    ```
     npm install pearson-compounds --save
+    ```
+
+    Import a single component:
+    ```
+    import { Button } from 'pearson-compounds';
+    ```
+
+    Import all components:
+    ```
+    import * as Compounds from 'pearson-compounds';
+    ```
 
 ### External Dependencies
 
@@ -60,9 +72,16 @@ React Router for defining how to render the components.
 
 As you save changes to the source, the changes are automatically reloaded in the browser.
 
+### Github Pages
+
+To deploy this project to Github Pages commit your changes, then run:
+```
+npm run deploy
+```
+
 ### Test
 
-The project is wired to unit test with the Mocha framework, "expect" assertion library, and expect-jsx to turn React
+The project is wired to unit test with Jest, "expect" assertion library, and expect-jsx to turn React
 elements into formatted strings.
 
     npm test
@@ -107,7 +126,7 @@ Note that re-installing node_modules will remove all symlinks.
 ## Documentation Site
 
 The static demo site is located at:
-http://localhost:8081/demo
+http://localhost:8081/
 
 ## CodeCoverage site
 

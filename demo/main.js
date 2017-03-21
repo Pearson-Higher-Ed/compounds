@@ -1,8 +1,6 @@
 import ReactDOM           from 'react-dom';
 import React              from 'react'
-import  * as CompoundsSDK from '../Compounds'
-
-import './demo.scss';
+import  * as CompoundsSDK from '../index'
 
 
 export default class Compounds {
