@@ -8,9 +8,6 @@ const PasswordInputPage = () => (
 
         <div className="elementContainer">
 
-          <h4>PasswordInput:</h4>
-          <br />
-
           <h2>Default:</h2>
           <PasswordInput id="e" placeholder="Enter Password" showText="show" hideText="hide" />
           <p className="code">{'<PasswordInput id="a" placeholder="Enter Password" showText="show" hideText="hide" />'}</p>

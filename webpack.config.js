@@ -52,7 +52,7 @@ module.exports = {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-          options: {
+          query: {
             presets: ["es2015", "stage-0", "react"]
           }
         },

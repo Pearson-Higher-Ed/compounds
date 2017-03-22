@@ -7,10 +7,11 @@
 /coverage
 
 
-#/build/*.js
-#/build/*.map
-#/build/*.html
-#p-icons-sprite-1.1.svg
+/build/*.js
+/build/*.map
+/build/*.html
+p-icons-sprite-1.1.svg
+
 
 .DS_Store
 .idea
