@@ -5,9 +5,9 @@
 /demo/elements.css
 /npm_scripts/*.js
 /coverage
-/build/*.js
-/build/*.map
-/build/*.html
+#/build/*.js
+#/build/*.map
+#/build/*.html
 
 
 .DS_Store

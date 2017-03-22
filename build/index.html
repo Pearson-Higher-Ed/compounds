@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Pearson Compounds</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div id="app"></div>
+
+    <!-- Icons -->
+    <script>
+      if (document.body.children[0].nodeName != 'svg') {
+        var pe_ajax = new XMLHttpRequest();
+        pe_ajax.open("GET", "/compounds/p-icons-sprite-1.1.svg", true);
+        pe_ajax.responseType = "document";
+        pe_ajax.onload = function(e) {
+          document.body.insertBefore(
+            pe_ajax.responseXML.documentElement,
+            document.body.childNodes[0]
+          );
+        }
+        pe_ajax.send();
+      }
+    </script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.js?features=CustomEvent,Intl.~locale.en,Intl.~locale.fr"></script>
+<script type="text/javascript" src="/compounds/manifest.compounds.js"></script><script type="text/javascript" src="/compounds/vendor.compounds.js"></script><script type="text/javascript" src="/compounds/demo.compounds.js"></script><script type="text/javascript" src="/compounds/qa.compounds.js"></script><script type="text/javascript" src="/compounds/dist.compounds.js"></script><script type="text/javascript" src="/compounds/dev.compounds.js"></script></body>
+</html>
