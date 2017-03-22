@@ -2,11 +2,10 @@ const path              = require('path');
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const index             = `${__dirname}/index.html`;
 const demo              = `${__dirname}/demo/demo.js`;
 const demoScss          = `${__dirname}/demo/demo.scss`;
 const main              = `${__dirname}/demo/main.js`;
-const compounds         = `${__dirname}/index.js`;
+const src               = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 
@@ -17,7 +16,7 @@ module.exports = {
     vendor :  VENDOR_LIBS,
     demo   : [ demo, demoScss ],
     dev    : [ elements, icons ],
-    dist   : [ compounds ],
+    dist   : [ src ],
     qa     : [ main ]
   },
   output: {
@@ -68,8 +67,8 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest'],
-    Infinity}),
+      names: ['vendor', 'manifest']
+    }),
     new HtmlWebpackPlugin({
       template: 'demo/index.html'
     }),
