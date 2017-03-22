@@ -16,8 +16,9 @@ module.exports = {
   entry: {
     vendor :  VENDOR_LIBS,
     demo   : [ demo, demoScss ],
-    dev    : [ elements, icons, main ],
-    dist   : [ compounds ]
+    dev    : [ elements, icons ],
+    dist   : [ compounds ],
+    qa     : [ main ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
@@ -30,7 +31,6 @@ module.exports = {
     host: "0.0.0.0",
     port: 8081,
     publicPath: "/compounds/",
-    hot                : true,
     https              : true,
     overlay            : true,
     watchContentBase   : true,

@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "npm run serve",
-    "serve": "NODE_ENV=development webpack-dev-server",
+    "serve": "NODE_ENV=development webpack-dev-server --hot --inline",
     "clean": "rimraf build",
     "deploy": "git subtree push --prefix build origin gh-pages",
     "test": "jest --coverage",
