@@ -1,16 +1,8 @@
-import React, { Component } from 'react';
-import { Icon, Button }     from '../../index';
+import React            from 'react';
+import { Icon, Button } from '../../index';
 
 
-class IconPage extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return  (
+const IconPage = () => (
       <div className="displaySection">
         <h1><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icon</a></h1>
 
@@ -303,7 +295,6 @@ class IconPage extends Component {
         </div>
       </div>
     )
-  }
-}
+
 
 export default IconPage;

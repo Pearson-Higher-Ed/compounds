@@ -1,22 +1,13 @@
-import React, { Component } from 'react';
-import { Link }             from 'react-router-dom';
-import { Icon, Button }     from '../../index';
+import React            from 'react';
+import { Link }         from 'react-router-dom';
+import { Icon, Button } from '../../index';
 
 
- class HeaderPage extends Component{
-  constructor (props) {
-      super(props);
-      this.state = {};
-
-      this.toggleList = _toggleList.bind(this);
-  }
-
-  render() {
-    return  (
+ const HeaderPage = () => (
       <div className="container">
         <div className="header">
           <Link to="/"><h1 className="headerTitle">Pearson Design Accelerator</h1></Link>
-          <Button btnSize="xlarge" onClick={this.toggleList}>
+          <Button btnSize="xlarge" onClick={_toggleList()}>
             Compounds
             <Icon name="dropdown-open-18" />
           </Button>
@@ -31,8 +22,7 @@ import { Icon, Button }     from '../../index';
         {this.props.children}
       </div>
     )
-  }
-}
+
 
 const _toggleList = () => {
   let c = document.querySelector('.buttonList').style.display;

@@ -1,17 +1,8 @@
-import React, { Component } from 'react';
-import { Button }           from '../../index';
-import { Icon }             from '../../index';
+import React            from 'react';
+import { Button, Icon } from '../../index';
 
 
-class ButtonPage extends Component {
-
-    constructor (props) {
-      super(props)
-      this.state = {};
-    }
-
-    render() {
-      return (
+const ButtonPage = () => (
       <div className="displaySection">
         <h1><a href="https://pearson-higher-ed.github.io/design/c/buttons/">Button</a></h1>
 
@@ -58,7 +49,6 @@ class ButtonPage extends Component {
         </div>
       </div>
     )
-  }
-}
+
 
 export default ButtonPage;

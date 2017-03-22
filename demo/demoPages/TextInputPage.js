@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import { TextInput }        from '../../index';
+import React         from 'react';
+import { TextInput } from '../../index';
 
 
-class TextInputPage extends Component {
-
-  render() {
-    return (
+const TextInputPage = () => (
       <div className="displaySection">
-        <h1><a href="https://pearson-higher-ed.github.io/design/c/inputs/beta">Inputs</a></h1>
+        <h1><a href="http://pearson-higher-ed.github.io/design/c/inputs/beta/#single-line-text">Single Line Text Input</a></h1>
 
         <div className="elementContainer">
 
@@ -63,7 +60,6 @@ class TextInputPage extends Component {
         </div>
       </div>
     )
-  }
-}
+
 
 export default TextInputPage;
