@@ -6,7 +6,7 @@ class PasswordInput extends Component {
     super(props)
 
     this.state = {
-      passwordStatusText : 'show',
+      passwordStatusText : props.showText,
       inputType          : 'password',
       defaultLabel       : 'Password'
     };
@@ -37,7 +37,8 @@ class PasswordInput extends Component {
 export default PasswordInput;
 
 function _togglePassword() {
+  const { showText, hideText } = this.props;
   const inputType = (this.state.inputType === 'password') ? 'text' : 'password';
-  const passwordStatusText = (this.state.passwordStatusText === 'show') ? 'hide' : 'show';
+  const passwordStatusText = (this.state.passwordStatusText === showText) ? hideText : showText;
   this.setState({inputType, passwordStatusText})
 };
