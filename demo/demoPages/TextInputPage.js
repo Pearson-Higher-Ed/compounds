@@ -1,14 +1,8 @@
-import React, { Component }         from 'react';
-import { PasswordInput, TextInput } from '../../index';
+import React, { Component } from 'react';
+import { TextInput }        from '../../index';
 
 
-class InputsPage extends Component {
-
-  constructor (props) {
-    super(props);
-    this.state ={};
-  }
-
+class TextInputPage extends Component {
 
   render() {
     return (
@@ -65,29 +59,6 @@ class InputsPage extends Component {
           <br />
           <br />
 
-          <h4>PasswordInput:</h4>
-          <br />
-
-          <h2>Default:</h2>
-          <PasswordInput id="e" placeholder="Enter Password" showText="show" hideText="hide" />
-          <p className="code">{'<PasswordInput id="a" placeholder="Enter Password" />'}</p>
-          <br />
-          <br />
-
-
-          <h2>Custom Label:</h2>
-          <PasswordInput id="f" label="Password" placeholder="Enter Password" showText="show" hideText="hide" />
-          <p className="code">{'<PasswordInput id="a" label="Password" placeholder="Enter Password" />'}</p>
-          <br />
-          <br />
-
-
-          <h2>Error:</h2>
-          <PasswordInput id="h" label="Password" placeholder="Enter Password" error={true} showText="show" hideText="hide" />
-          <p className="code">{'<PasswordInput id="h" label="Password" placeholder="Enter Password" error={true} />'}</p>
-          <br />
-          <br />
-
 
         </div>
       </div>
@@ -95,4 +66,4 @@ class InputsPage extends Component {
   }
 }
 
-export default InputsPage;
+export default TextInputPage;
