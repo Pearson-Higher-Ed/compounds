@@ -21,7 +21,7 @@ module.exports = {
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
-    filename      : '[name].compounds.[chunkhash].js',
+    filename      : '[name].compounds.js',
     publicPath    : '/compounds/',
     libraryTarget : 'umd'
   },
@@ -36,6 +36,22 @@ module.exports = {
     historyApiFallback : true,
     watchOptions       : { poll: true }
   },
+  externals: [
+      {
+        react: {
+          root: 'React',
+          commonjs2: 'react',
+          commonjs: 'react',
+          amd: 'react'
+        },
+        'react-dom': {
+          root: 'ReactDOM',
+          commonjs2: 'react-dom',
+          commonjs: 'react-dom',
+          amd: 'react-dom'
+        }
+      }
+  ],
   module: {
     rules: [
         {
