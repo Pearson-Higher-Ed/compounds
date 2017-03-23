@@ -9,16 +9,12 @@ const main              = `${__dirname}/demo/main.js`;
 const src               = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
-const fontsBaseLocation = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
-const fontFileNames     = fs.readdirSync(fontsBaseLocation, 'utf-8');
-const fonts             = fontFileNames.map(filename => fontsBaseLocation+filename);
 const VENDOR_LIBS       = [ 'react', 'react-dom', 'react-intl' ];
 
 
 module.exports = {
   entry: {
     vendor :  VENDOR_LIBS,
-    fonts  : fonts,
     demo   : [ demo, demoScss ],
     dev    : [ elements, icons ],
     dist   : [ src ],
@@ -81,7 +77,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
-    new ExtractTextPlugin('styles.css'),
+    // new ExtractTextPlugin('styles.css'),
     new webpack.NamedModulesPlugin()
   ]
 };
