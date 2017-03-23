@@ -16,9 +16,8 @@ module.exports = {
   entry: {
     vendor :  VENDOR_LIBS,
     demo   : [ demo, demoScss ],
-    dev    : [ elements, icons ],
-    dist   : [ src ],
-    qa     : [ main ]
+    dev    : [ elements, icons, main ],
+    dist   : [ src ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
