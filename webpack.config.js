@@ -9,12 +9,10 @@ const main              = `${__dirname}/demo/main.js`;
 const compounds         = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
-const VENDOR_LIBS       = [ 'react', 'react-dom', 'react-intl' ];
 
 
 module.exports = {
   entry: {
-    vendor :  VENDOR_LIBS,
     demo   : [ demo, demoScss ],
     dev    : [ elements, icons, main ],
     dist   : [ compounds ]
@@ -83,16 +81,12 @@ module.exports = {
       ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
-    }),
     new HtmlWebpackPlugin({
       template: 'demo/index.html'
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
-    // new ExtractTextPlugin('styles.css'),
     new webpack.NamedModulesPlugin()
   ]
 };
