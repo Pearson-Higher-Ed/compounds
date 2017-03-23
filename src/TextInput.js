@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const TextInput = (props) => {
 
@@ -55,3 +55,11 @@ const TextInput = (props) => {
 )}
 
 export default TextInput;
+
+
+TextInput.propTypes = {
+  inputType   : PropTypes.string,
+  id          : PropTypes.string,
+  label       : PropTypes.string,
+  placeholder : PropTypes.string
+};

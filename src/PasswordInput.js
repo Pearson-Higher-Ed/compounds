@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class PasswordInput extends Component {
 
@@ -34,7 +34,19 @@ class PasswordInput extends Component {
   };
 };
 
+
 export default PasswordInput;
+
+
+PasswordInput.propTypes = {
+  error       : PropTypes.string,
+  id          : PropTypes.string,
+  label       : PropTypes.string,
+  placeholder : PropTypes.string,
+  showText    : PropTypes.string,
+  hideText    : PropTypes.string
+};
+
 
 function _togglePassword() {
   const { showText, hideText } = this.props;
