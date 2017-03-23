@@ -8,19 +8,11 @@ const Button = (props) => {
   let classes;
 
   if (!btnType) {
-    if (!btnSize) {
-      classes = `pe-btn`;
-    } else {
-      classes = `pe-btn--btn_${btnSize}`;
-    }
+    classes = (!btnSize) ? `pe-btn` : `pe-btn--btn_${btnSize}`;
   };
 
   if (btnType) {
-    if (!btnSize) {
-      classes = `pe-btn__${btnType}`;
-    } else {
-      classes = `pe-btn__${btnType}--btn_${btnSize}`;
-    }
+    classes = (!btnSize) ? `pe-btn__${btnType}` : `pe-btn__${btnType}--btn_${btnSize}`;
   };
 
   return <button className={classes} {...rest}>{props.children}</button>;
