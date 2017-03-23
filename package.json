@@ -75,6 +75,7 @@
     "node-sass": "^4.5.0",
     "pearson-elements": "^1.4.2",
     "react": "^15.3.0",
+    "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.0",
     "react-intl": "~2.0.1",
     "react-router-dom": "^4.0.0-beta.6",

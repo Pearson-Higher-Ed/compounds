@@ -22,7 +22,7 @@ module.exports = {
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
-    filename      : '[name].compounds.js',
+    filename      : '[name].compounds.[chunkhash].js',
     publicPath    : '/compounds/',
     libraryTarget : 'umd'
   },
