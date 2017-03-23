@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const demo              = `${__dirname}/demo/demo.js`;
 const demoScss          = `${__dirname}/demo/demo.scss`;
 const main              = `${__dirname}/demo/main.js`;
-const src               = `${__dirname}/index.js`;
+const compounds               = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 const VENDOR_LIBS       = [ 'react', 'react-dom', 'react-intl' ];
@@ -17,7 +17,7 @@ module.exports = {
     vendor :  VENDOR_LIBS,
     demo   : [ demo, demoScss ],
     dev    : [ elements, icons, main ],
-    dist   : [ src ]
+    dist   : [ compounds ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
