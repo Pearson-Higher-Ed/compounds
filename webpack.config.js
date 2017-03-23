@@ -1,3 +1,4 @@
+const fs                = require('fs');
 const path              = require('path');
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,14 +9,20 @@ const main              = `${__dirname}/demo/main.js`;
 const src               = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
+const fontsBaseLocation = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 
+const fontFileNames = fs.readdirSync(fontsBaseLocation, 'utf-8');
+let fontLocation  = fontFileNames.map(filename => `./~/pearson-elements/dist/fonts/${filename}`);
+const fonts = fontLocation.toString();
+
+console.log(fontLocation)
 const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl' ];
 
 module.exports = {
   entry: {
     vendor :  VENDOR_LIBS,
     demo   : [ demo, demoScss ],
-    dev    : [ elements, icons ],
+    dev    : [ elements, icons, fonts ],
     dist   : [ src ],
     qa     : [ main ]
   },
@@ -27,9 +34,9 @@ module.exports = {
   },
   devtool: "source-map",
   devServer: {
-    host: "0.0.0.0",
-    port: 8081,
-    publicPath: "/compounds/",
+    host               : "0.0.0.0",
+    port               : 8081,
+    publicPath         : "/compounds/",
     https              : true,
     overlay            : true,
     watchContentBase   : true,

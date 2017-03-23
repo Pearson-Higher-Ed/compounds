@@ -10,19 +10,17 @@ This project supports [Node v4+](https://nodejs.org) and npm 2+ installed in you
 
 Install and save in your package.json:
 
-    ```
     npm install pearson-compounds --save
-    ```
 
-    Import a single component:
-    ```
+Import a single component:
+
     import { Button } from 'pearson-compounds';
-    ```
 
-    Import all components:
-    ```
+
+Import all components:
+
     import * as Compounds from 'pearson-compounds';
-    ```
+
 
 ### External Dependencies
 

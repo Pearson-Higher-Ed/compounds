@@ -6,7 +6,7 @@
 /npm_scripts/*.js
 /coverage
 
-
+# comment out for gh_pages...
 /build/*.js
 /build/*.map
 /build/*.html
