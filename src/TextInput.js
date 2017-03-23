@@ -45,7 +45,6 @@ const TextInput = (props) => {
       type        ="text"
       className   ={`${inputStyle}`}
       id          ={id}
-      value       =""
       placeholder ={placeholder}
       disabled    ={inputType === 'disabled' ? 'disabled' : false}
       readOnly    ={inputType === 'readonly' ? 'readOnly' : false}
