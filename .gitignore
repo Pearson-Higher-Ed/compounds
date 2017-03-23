@@ -6,13 +6,6 @@
 /npm_scripts/*.js
 /coverage
 
-# comment out for gh_pages...
-/build/*.js
-/build/*.map
-/build/*.html
-p-icons-sprite-1.1.svg
-
-
 .DS_Store
 .idea
 *.iml
@@ -20,3 +13,12 @@ p-icons-sprite-1.1.svg
 *.swp
 yarn.lock
 npm-debug.log
+
+
+#====-Build Section-=========
+# comment out for gh_pages...
+/build/*.js
+/build/*.map
+/build/*.html
+p-icons-sprite-1.1.svg
+#============================

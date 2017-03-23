@@ -72,10 +72,10 @@ As you save changes to the source, the changes are automatically reloaded in the
 
 ### Github Pages
 
-To deploy this project to Github Pages commit your changes, then run:
-```
-npm run deploy
-```
+To deploy this project to Github Pages comment out build section in .gitignore then commit your changes, and run:
+
+    npm run deploy
+
 
 ### Test
 

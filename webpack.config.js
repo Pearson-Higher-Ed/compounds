@@ -12,17 +12,17 @@ const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/e
 const fontsBaseLocation = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 
 const fontFileNames = fs.readdirSync(fontsBaseLocation, 'utf-8');
-let fontLocation  = fontFileNames.map(filename => `./~/pearson-elements/dist/fonts/${filename}`);
-const fonts = fontLocation.toString();
+const fonts         = fontFileNames.map(filename => fontsBaseLocation+filename);
 
-console.log(fontLocation)
+// console.log(fontLocation)
 const VENDOR_LIBS = [ 'react', 'react-dom', 'react-intl' ];
 
 module.exports = {
   entry: {
-    vendor :  VENDOR_LIBS,
+    vendor : VENDOR_LIBS,
+    fonts  : fonts,
     demo   : [ demo, demoScss ],
-    dev    : [ elements, icons, fonts ],
+    dev    : [ elements, icons ],
     dist   : [ src ],
     qa     : [ main ]
   },
@@ -47,13 +47,11 @@ module.exports = {
     rules: [
         {
           test: /\.(css|scss)$/,
-          use: [{
-              loader: "style-loader" // creates style nodes from JS strings
-          }, {
-              loader: "css-loader" // translates CSS into CommonJS
-          }, {
-              loader: "sass-loader" // compiles Sass to CSS
-          }]
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            //resolve-url-loader may be chained before sass-loader if necessary
+            use: ['css-loader', 'sass-loader']
+          })
         },
         {
           test: /\.(js|jsx)$/,
