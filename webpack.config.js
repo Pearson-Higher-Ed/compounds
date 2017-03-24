@@ -13,8 +13,8 @@ const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/e
 module.exports = {
   entry: {
     demo   : [ demo, demoScss ],
-    dev    : [ elements, icons, main ],
-    dist   : [ compounds ]
+    dev    : [ main ],
+    dist   : [ compounds, elements, icons, ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),

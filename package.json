@@ -2,7 +2,7 @@
   "name": "pearson-compounds",
   "version": "0.2.1",
   "description": "Atomic React Components",
-  "main": "./build/dist.compounds.js",
+  "main": "./index.js",
   "author": "Pearson Design Accelerator",
   "license": "MIT",
   "homepage": "http://pearson-higher-ed.github.io/compounds/",
