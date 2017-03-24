@@ -7,8 +7,7 @@ class PasswordInput extends Component {
 
     this.state = {
       passwordStatusText : props.showText,
-      inputType          : 'password',
-      defaultLabel       : 'Password'
+      inputType          : 'password'
     };
 
     this.togglePassword = _togglePassword.bind(this);
@@ -21,11 +20,10 @@ class PasswordInput extends Component {
     const appliedLabelStyle = (error) ? 'pe-textLabelInput__label--label_error' : 'pe-textLabelInput__label';
     const appliedStyleLine  = (error) ? 'pe-inputError_underline' : 'pe-input_underline';
     const appliedInputStyle = (error) ? 'pe-textInput--input_error' : 'pe-textInput';
-    const appliedLabel      = (label) ? label : defaultLabel;
 
     return(
       <div>
-        <label className={appliedLabelStyle} htmlFor={`password-${id}`}>{appliedLabel}</label>
+        <label className={appliedLabelStyle} htmlFor={`password-${id}`}>{label}</label>
         <input type={inputType} className={appliedInputStyle} id={`password-${id}`} placeholder={placeholder} />
         <span className={appliedStyleLine}></span>
         <button id="showbutton" className="pe-textInput__showButton" onClick={this.togglePassword}>{passwordStatusText}</button>
