@@ -3,12 +3,11 @@ import { Link }             from 'react-router-dom';
 import { Icon, Button }     from '../../index';
 
 
- class HeaderPage extends Component{
-  constructor (props) {
-      super(props);
-      this.state = {};
+ class HeaderPage extends Component {
 
-      this.toggleList = _toggleList.bind(this);
+  constructor () {
+    super();
+    this.toggleList = _toggleList.bind(this);
   }
 
   render() {
@@ -22,11 +21,10 @@ import { Icon, Button }     from '../../index';
           </Button>
         </div>
         <ul className="buttonList">
-          <li><Link className="link" to={`/`}>Home</Link></li>
-          <li><Link className="link" to={`/buttons`}>Button</Link></li>
-          <li><Link className="link" to={`/icons`}>Icon</Link></li>
-          <li><Link className="link" to={`/textinputs`}>TextInput</Link></li>
-          <li><Link className="link" to={`/passwordinputs`}>PasswordInput</Link></li>
+          <li><Link className="link" to={`/`} >Home</Link></li>
+          <li><Link className="link" to={`/buttons`} >Button</Link></li>
+          <li><Link className="link" to={`/icons`} >Icon</Link></li>
+          <li><Link className="link" to={`/inputs`} >Inputs</Link></li>
         </ul>
         {this.props.children}
       </div>

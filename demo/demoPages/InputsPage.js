@@ -2,7 +2,7 @@ import React         from 'react';
 import { TextInput } from '../../index';
 
 
-const TextInputPage = () => (
+const InputsPage = () => (
       <div className="displaySection">
         <h1><a href="http://pearson-higher-ed.github.io/design/c/inputs/beta/#single-line-text">Single Line Text Input</a></h1>
 
@@ -17,6 +17,8 @@ const TextInputPage = () => (
             placeholder="First Name"
           />
           <p className="code">{'<TextInput id="a" label="First Name" inputType="default" placeholder="First Name" />'}</p>
+
+
           <br />
           <br />
 
@@ -29,6 +31,8 @@ const TextInputPage = () => (
             placeholder="First Name"
           />
           <p className="code">{'<TextInput id="b" label="First Name" inputType="error" placeholder="First Name" />'}</p>
+
+
           <br />
           <br />
 
@@ -41,6 +45,8 @@ const TextInputPage = () => (
             placeholder="First Name"
           />
           <p className="code">{'<PasswordInput id="a" label="Password" />'}</p>
+
+
           <br />
           <br />
 
@@ -53,6 +59,8 @@ const TextInputPage = () => (
             placeholder="First Name"
           />
           <p className="code">{'<PasswordInput id="a" label="Password" />'}</p>
+
+
           <br />
           <br />
 
@@ -62,4 +70,4 @@ const TextInputPage = () => (
     )
 
 
-export default TextInputPage;
+export default InputsPage;

@@ -1,4 +1,5 @@
 {
-  "buttonText": "dis bonjour",
-  "placeholder": "espace réservé"
+  "showText"            : "montrer",
+  "hideText"            : "cacher",
+  "passwordPlaceholder" : "Entrer le mot de passe"
 }

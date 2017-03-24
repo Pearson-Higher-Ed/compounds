@@ -1,24 +1,44 @@
-import React             from 'react';
-import ReactDOM          from 'react-dom';
-import ButtonPage        from './demoPages/ButtonPage';
-import IconPage          from './demoPages/IconPage';
-import HomePage          from './demoPages/HomePage';
-import HeaderPage        from './demoPages/HeaderPage';
-import PasswordInputPage from './demoPages/PasswordInputPage';
-import TextInputPage     from './demoPages/TextInputPage';
-
-import { HashRouter as Router, Route } from 'react-router-dom';
+import React            from 'react';
+import ReactDOM         from 'react-dom';
+import IntlInjection    from './IntlInjection';
+import { IntlProvider } from 'react-intl';
 
 
-ReactDOM.render(
-    <Router>
-      <div>
-        <HeaderPage />
-          <Route exact path="/"         component={HomePage}          />
-          <Route path="/icons"          component={IconPage}          />
-          <Route path="/textinputs"     component={TextInputPage}     />
-          <Route path="/passwordinputs" component={PasswordInputPage} />
-          <Route path="/buttons"        component={ButtonPage}        />
-      </div>
-    </Router>, document.getElementById('app')
-);
+class CompoundsWrapper {
+
+  constructor(config) {
+    this.init(config);
+  }
+
+  init(config) {
+
+    const locale = config.locale ? config.locale : 'en';
+
+    ReactDOM.render(
+      <IntlProvider locale={locale}>
+        <IntlInjection data={config} />
+      </IntlProvider>,
+      document.getElementById(config.elementId)
+    )
+  }
+
+}
+
+
+/**********************Entry Point**********************/
+// This Function runs when file is loaded...
+// Pass any overriding parameters in the config Object...
+function init() {
+
+  new CompoundsWrapper({
+    elementId           : 'app',
+    showText            : 'show',
+    hideText            : 'hide',
+    passwordPlaceholder : 'Enter Password',
+  });
+
+}
+
+
+window.onload = init;
+/*******************************************************/

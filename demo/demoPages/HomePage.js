@@ -14,10 +14,9 @@ const HomePage = () => (
           <p>React Components:</p>
 
           <ul className="homepageList">
-            <li><Link className="link_homepage" to={`buttons`}>Button</Link></li>
-            <li><Link className="link_homepage" to={`icons`}>Icon</Link></li>
-            <li><Link className="link_homepage" to={`textinputs`}>TextInput</Link></li>
-            <li><Link className="link_homepage" to={`passwordinputs`}>PasswordInput</Link></li>
+            <li><Link className="link_homepage" to={`buttons`}>Buttons</Link></li>
+            <li><Link className="link_homepage" to={`icons`}>Icons</Link></li>
+            <li><Link className="link_homepage" to={`inputs`}>Inputs</Link></li>
           </ul>
 
           <p>Contributions: <a href="https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md">FAQ</a></p>

@@ -38,8 +38,8 @@ const Icon = (props) => {
 
 
 Icon.propTypes = {
-  name: PropTypes.string.isRequired,
-  children: React.PropTypes.string
+  name     : PropTypes.string.isRequired,
+  children : PropTypes.string
 };
 
 
