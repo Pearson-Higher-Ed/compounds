@@ -39,7 +39,7 @@ export default PasswordInput;
 
 
 PasswordInput.propTypes = {
-  error       : PropTypes.string,
+  error       : PropTypes.bool,
   id          : PropTypes.string,
   label       : PropTypes.string,
   placeholder : PropTypes.string,
