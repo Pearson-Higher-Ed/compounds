@@ -8,6 +8,14 @@ const IconPage = () => (
         <h1><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icons</a></h1>
 
         <div className="elementContainer">
+
+          <div className="code">
+            <h2>Props:</h2>
+            <ul>
+              <li>name:String === "remove-sm-18"</li>
+            </ul>
+          </div>
+
           <h2>Examples</h2>
           <p>Basic Icon</p>
           <Icon name="remove-sm-18">close</Icon>

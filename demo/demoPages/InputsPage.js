@@ -24,13 +24,34 @@ const InputsPage = (props) => {
 
         <div className="elementContainer">
 
+          <div className="code">
+            <h2>Props:</h2>
+            <p>TextInput:</p>
+            <ul>
+              <li>id:String === "a unique name"</li>
+              <li>label:String === "a desciptive label"</li>
+              <li>inputType:String === "default", "error", "disabled", "readOnly"</li>
+              <li>placeholder:String === "a unique name"</li>
+            </ul>
+            <p>PasswordInput:</p>
+            <ul>
+              <li>id:String === "a unique name"</li>
+              <li>label:String === "a desciptive label"</li>
+              <li>placeholder:String === "a placeholder text"</li>
+              <li>inputType:String === "default", "error", "disabled", "readOnly"</li>
+              <li>showText:String === "show/hide text"</li>
+              <li>hideText:String === "show/hide text"</li>
+              <li>error:Boolean === true, false</li>
+            </ul>
+          </div>
+
 
           <h2>Single Line</h2>
           <TextInput
-            id="a"
-            label={intlDefaultText.textLabel}
-            inputType="default"
-            placeholder={intlDefaultText.textPlaceholder}
+            id          = "a"
+            inputType   = "default"
+            label       = {intlDefaultText.textLabel}
+            placeholder = {intlDefaultText.textPlaceholder}
           />
         <p className="code">{'<TextInput id="a" label={intlDefaultText.textLabel} inputType="default" placeholder={intlDefaultText.textPlaceholder} />'}</p>
 
@@ -41,10 +62,10 @@ const InputsPage = (props) => {
 
           <h2>Single Line - Error</h2>
           <TextInput
-            id="b"
-            label={intlDefaultText.textLabel}
-            inputType="error"
-            placeholder={intlDefaultText.textPlaceholder}
+            id          = "b"
+            inputType   = "error"
+            label       = {intlDefaultText.textLabel}
+            placeholder = {intlDefaultText.textPlaceholder}
           />
         <p className="code">{'<TextInput id="b" label={intlDefaultText.textLabel} inputType="error" placeholder={intlDefaultText.textPlaceholder} />'}</p>
 
@@ -55,10 +76,10 @@ const InputsPage = (props) => {
 
           <h2>Single Line - Disabled</h2>
           <TextInput
-            id="c"
-            label={intlDefaultText.textLabel}
-            inputType="disabled"
-            placeholder={intlDefaultText.textPlaceholder}
+            id          = "c"
+            inputType   = "disabled"
+            label       = {intlDefaultText.textLabel}
+            placeholder = {intlDefaultText.textPlaceholder}
           />
         <p className="code">{'<TextInput id="c" label={intlDefaultText.textLabel} inputType="disabled" placeholder={intlDefaultText.textPlaceholder} />'}</p>
 
@@ -69,10 +90,10 @@ const InputsPage = (props) => {
 
           <h2>Single Line - Read Only</h2>
           <TextInput
-            id="d"
-            label={intlDefaultText.textLabel}
-            inputType="readOnly"
-            placeholder={intlDefaultText.textPlaceholder}
+            id          = "d"
+            inputType   = "readOnly"
+            label       = {intlDefaultText.textLabel}
+            placeholder = {intlDefaultText.textPlaceholder}
           />
         <p className="code">{'<TextInput id="d" label={intlDefaultText.textLabel} inputType="readOnly" placeholder="First Name" />'}</p>
 
@@ -83,7 +104,12 @@ const InputsPage = (props) => {
             <h1><a href="http://pearson-higher-ed.github.io/design/c/inputs/beta/#specialized-inputs">Password Input</a></h1>
 
               <h2>Default:</h2>
-              <PasswordInput id="e" placeholder={intlDefaultText.passwordPlaceholder} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} />
+              <PasswordInput
+                id          = "e"
+                placeholder = {intlDefaultText.passwordPlaceholder}
+                showText    = {intlDefaultText.showText}
+                hideText    = {intlDefaultText.hideText}
+                />
               <p className="code">{'<PasswordInput id="a" placeholder={intlDefaultText.passwordPlaceholder} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} />'}</p>
 
 
@@ -92,7 +118,13 @@ const InputsPage = (props) => {
 
 
               <h2>Custom Label:</h2>
-              <PasswordInput id="f" label={intlDefaultText.passwordLabel} placeholder={intlDefaultText.passwordPlaceholder} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} />
+              <PasswordInput
+                id          = "f"
+                label       = {intlDefaultText.passwordLabel}
+                placeholder = {intlDefaultText.passwordPlaceholder}
+                showText    = {intlDefaultText.showText}
+                hideText    = {intlDefaultText.hideText}
+                />
               <p className="code">{'<PasswordInput id="a" label={intlDefaultText.passwordLabel} placeholder={intlDefaultText.passwordPlaceholder} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} />'}</p>
 
 
@@ -101,7 +133,14 @@ const InputsPage = (props) => {
 
 
               <h2>Error:</h2>
-              <PasswordInput id="h" label={intlDefaultText.passwordLabel} placeholder={intlDefaultText.passwordPlaceholder} error={true} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} />
+              <PasswordInput
+                id          = "h"
+                error       = {true}
+                label       = {intlDefaultText.passwordLabel}
+                placeholder = {intlDefaultText.passwordPlaceholder}
+                showText    = {intlDefaultText.showText}
+                hideText    = {intlDefaultText.hideText}
+                />
               <p className="code">{'<PasswordInput id="h" label={intlDefaultText.passwordLabel} placeholder={intlDefaultText.passwordPlaceholder} error={true} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} />'}</p>
 
 

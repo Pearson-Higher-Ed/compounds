@@ -9,6 +9,15 @@ const ButtonPage = () => (
 
         <div className="elementContainer">
 
+          <div className="code">
+            <h2>Props:</h2>
+            <ul>
+              <li>btnType:String === "primary", "cta", "default"</li>
+              <li>btnSize:String === "small", "large", "xlarge"</li>
+              <li>disabled</li>
+            </ul>
+          </div>
+
           <h2>Icon Button:</h2>
           <Button className="close-dialog"><Icon name="item-remove-24">close dialog</Icon></Button>
           <p className="code">{'<Button className="close-dialog"><Icon name="item-remove-24">close dialog</Icon></Button>'}</p>
