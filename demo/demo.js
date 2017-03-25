@@ -17,6 +17,8 @@ addLocaleData(frLocaleData);
 // Determining the User's Locale
 const locale = (navigator.language) ? navigator.language : navigator.browserLanguage;
 
+
+
 /*********---Application Entry Point---************************/
 ReactDOM.render(
   <IntlProvider locale={locale}  messages={translations[locale]}>
