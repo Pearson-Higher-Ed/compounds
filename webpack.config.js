@@ -13,8 +13,8 @@ const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/e
 module.exports = {
   entry: {
     demo   : [ demo, demoScss ],
-    dev    : [ main ],
-    dist   : [ compounds, elements, icons, ]
+    dev    : [ elements, icons, main ],
+    dist   : [ compounds ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
@@ -66,7 +66,7 @@ module.exports = {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
-          query: {
+          options: {
             presets: ["es2015", "stage-0", "react"]
           }
         },

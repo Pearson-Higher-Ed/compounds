@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 
+
 const TextInput = (props) => {
 
   const { inputType, id, label, placeholder } = props;

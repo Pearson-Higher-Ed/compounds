@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
+
 class PasswordInput extends Component {
 
   constructor(props) {
@@ -24,9 +25,9 @@ class PasswordInput extends Component {
     return(
       <div>
         <label className={appliedLabelStyle} htmlFor={`password-${id}`}>{label}</label>
-        <input type={inputType} className={appliedInputStyle} id={`password-${id}`} placeholder={placeholder} />
+        <input className={appliedInputStyle} type={inputType} id={`password-${id}`} placeholder={placeholder} />
         <span className={appliedStyleLine}></span>
-        <button id="showbutton" className="pe-textInput__showButton" onClick={this.togglePassword}>{passwordStatusText}</button>
+        <button className="pe-textInput__showButton" id="showbutton" onClick={this.togglePassword}>{passwordStatusText}</button>
       </div>
     )
   };

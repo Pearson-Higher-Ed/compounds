@@ -1,13 +1,14 @@
 import React            from 'react';
+import { injectIntl }   from 'react-intl';
 import { Button, Icon } from '../../index';
 
 
 const ButtonPage = () => (
       <div className="displaySection">
-        <h1><a href="https://pearson-higher-ed.github.io/design/c/buttons/">Button</a></h1>
+        <h1><a href="https://pearson-higher-ed.github.io/design/c/buttons/">Buttons</a></h1>
 
         <div className="elementContainer">
-          
+
           <h2>Icon Button:</h2>
           <Button className="close-dialog"><Icon name="item-remove-24">close dialog</Icon></Button>
           <p className="code">{'<Button className="close-dialog"><Icon name="item-remove-24">close dialog</Icon></Button>'}</p>

@@ -1,10 +1,11 @@
 import React            from 'react';
+import { injectIntl }   from 'react-intl';
 import { Icon, Button } from '../../index';
 
 
 const IconPage = () => (
       <div className="displaySection">
-        <h1><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icon</a></h1>
+        <h1><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icons</a></h1>
 
         <div className="elementContainer">
           <h2>Examples</h2>

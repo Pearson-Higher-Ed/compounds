@@ -18,5 +18,20 @@ export const messages = defineMessages({
     id             : 'passwordPlaceholder',
     description    : 'PasswordInput placeholder',
     defaultMessage : 'Enter Password'
+  },
+  passwordLabel: {
+    id             : 'passwordLabel',
+    description    : 'PasswordInput Label',
+    defaultMessage : 'Password'
+  },
+  textLabel: {
+    id             : 'textLabel',
+    description    : 'TextInput Label',
+    defaultMessage : 'First Name'
+  },
+  textPlaceholder: {
+    id             : 'textPlaceholder',
+    description    : 'TextInput Placeholder',
+    defaultMessage : 'First Name'
   }
 });

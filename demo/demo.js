@@ -1,44 +1,27 @@
-import React            from 'react';
-import ReactDOM         from 'react-dom';
-import IntlInjection    from './IntlInjection';
-import { IntlProvider } from 'react-intl';
+import React        from 'react';
+import ReactDOM     from 'react-dom';
+import DemoRouter   from './DemoRouter';
+import frJson       from './translations/fr.json';
+import frLocaleData from 'react-intl/locale-data/fr';
 
+import { addLocaleData, IntlProvider } from 'react-intl';
 
-class CompoundsWrapper {
+// Associate Language Abbreviation with json filename...
+const translations = {
+  'fr' : frJson
+};
 
-  constructor(config) {
-    this.init(config);
-  }
+// Add Language
+addLocaleData(frLocaleData);
 
-  init(config) {
+// Determining the User's Locale
+const locale = (navigator.language) ? navigator.language : navigator.browserLanguage;
 
-    const locale = config.locale ? config.locale : 'en';
-
-    ReactDOM.render(
-      <IntlProvider locale={locale}>
-        <IntlInjection data={config} />
-      </IntlProvider>,
-      document.getElementById(config.elementId)
-    )
-  }
-
-}
-
-
-/**********************Entry Point**********************/
-// This Function runs when file is loaded...
-// Pass any overriding parameters in the config Object...
-function init() {
-
-  new CompoundsWrapper({
-    elementId           : 'app',
-    showText            : 'show',
-    hideText            : 'hide',
-    passwordPlaceholder : 'Enter Password',
-  });
-
-}
-
-
-window.onload = init;
-/*******************************************************/
+/*********---Application Entry Point---************************/
+ReactDOM.render(
+  <IntlProvider locale={locale}  messages={translations[locale]}>
+    <DemoRouter />
+  </IntlProvider>,
+  document.getElementById('app')
+);
+/**************************************************************/

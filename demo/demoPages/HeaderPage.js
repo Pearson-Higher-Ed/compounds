@@ -22,8 +22,8 @@ import { Icon, Button }     from '../../index';
         </div>
         <ul className="buttonList">
           <li><Link className="link" to={`/`} >Home</Link></li>
-          <li><Link className="link" to={`/buttons`} >Button</Link></li>
-          <li><Link className="link" to={`/icons`} >Icon</Link></li>
+          <li><Link className="link" to={`/buttons`} >Buttons</Link></li>
+          <li><Link className="link" to={`/icons`} >Icons</Link></li>
           <li><Link className="link" to={`/inputs`} >Inputs</Link></li>
         </ul>
         {this.props.children}

@@ -15,7 +15,7 @@ const DemoRouter = (props) => (
       <HeaderPage />
         <Route path="/" exact  component={HomePage}   />
         <Route path="/icons"   component={IconPage}   />
-        <Route path="/inputs"  component={InputsPage} />
+        <Route path="/inputs"  component={InputsPage} data={props.data}/>
         <Route path="/buttons" component={ButtonPage} />
     </div>
   </Router>
