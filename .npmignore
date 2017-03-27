@@ -4,9 +4,7 @@
 .travis.yml
 webpack.config.js
 
-/build/dev*
-/build/*.html
-/build/*.svg
 /test
 /demo
 /coverage
+/node_modules
