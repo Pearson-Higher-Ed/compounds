@@ -2,12 +2,11 @@
 .eslintrc
 .idea
 .travis.yml
-/solano.yml
-/build/.gitkeep
-/build/dev*
-/npm_scripts
 webpack.config.js
+
+/build/dev*
+/build/*.html
+/build/*.svg
 /test
 /demo
-/fonts
 /coverage

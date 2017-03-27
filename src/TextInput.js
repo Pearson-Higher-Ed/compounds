@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 
 const TextInput = (props) => {
 
-  const { inputType, id, label, placeholder } = props;
+  const { inputType, basic, id, labelText, placeholder, infoMessage, errorMessage } = props;
 
   let labelStyle = '';
   let inputStyle = '';
@@ -11,56 +11,59 @@ const TextInput = (props) => {
 
 
   switch (inputType) {
-  case 'default':
-    labelStyle = 'pe-textLabelInput__label';
-    inputStyle = 'pe-textInput';
-    spanStyle  = 'pe-input_underline';
-    break;
-  case 'error':
-    labelStyle = 'pe-textLabelInput__label--label_error';
-    inputStyle = 'pe-textInput--input_error';
-    spanStyle  = 'pe-inputError_underline';
-    break;
-  case 'disabled':
-    labelStyle = 'pe-textLabelInput__label--label-disabled';
-    inputStyle = 'pe-textInput';
-    spanStyle  = '';
-    break;
-  case 'readOnly':
-    labelStyle = 'pe-textLabelInput__label';
-    inputStyle = 'pe-textInput--input_readonly';
-    spanStyle  = '';
-    break;
-  default:
-    labelStyle = 'pe-textLabelInput__label';
-    inputStyle = 'pe-textInput';
-    spanStyle  = '';
-  }
+    case 'error':
+      labelStyle = 'pe-textLabelInput__label--label_error';
+      inputStyle = (!basic) ? 'pe-textInput--input_error' : 'pe-textInput--basic_error';
+      spanStyle  = (!basic) ? 'pe-inputError_underline'   : '';
+      break;
+    case 'disabled':
+      labelStyle = 'pe-textLabelInput__label--label-disabled';
+      inputStyle = (!basic) ?'pe-textInput' : 'pe-textInput--basic';
+      spanStyle  = (!basic) ? ''            : '';
+      break;
+    case 'readOnly':
+      labelStyle = 'pe-textLabelInput__label';
+      inputStyle = (!basic) ? 'pe-textInput--input_readonly' : '';
+      spanStyle  = (!basic) ? ''                             : '';
+      break;
+    default:
+      labelStyle = 'pe-textLabelInput__label';
+      inputStyle = (!basic) ? 'pe-textInput'       : 'pe-textInput--basic';
+      spanStyle  = (!basic) ? 'pe-input_underline' : '';
+  };
 
 
-  return(
-  <div>
-    <label className={`${labelStyle}`} htmlFor={id}>{label}</label>
+  return (
+    <div>
+      <label className={`${labelStyle}`} htmlFor={id}>{labelText}</label>
 
-    <input
-      type        ="text"
-      className   ={`${inputStyle}`}
-      id          ={id}
-      placeholder ={placeholder}
-      disabled    ={inputType === 'disabled' ? 'disabled' : false}
-      readOnly    ={inputType === 'readonly' ? 'readOnly' : false}
-    />
+      <input
+        id          = {id}
+        type        = "text"
+        placeholder = {placeholder}
+        className   = {`${inputStyle}`}
+        disabled    = {inputType === 'disabled' ? 'disabled' : false}
+        readOnly    = {inputType === 'readonly' ? 'readOnly' : false}
+        />
 
-    <span className={`${spanStyle}`} />
-  </div>
-)}
+      <span className={`${spanStyle}`} />
+      {infoMessage && <span className="pe-input--error_message">{infoMessage}</span>}
+      <br />
+      {errorMessage && <span className="pe-input--error_message">{errorMessage}</span>}
+    </div>
+  )
+
+}
 
 export default TextInput;
 
 
 TextInput.propTypes = {
-  inputType   : PropTypes.string,
-  id          : PropTypes.string,
-  label       : PropTypes.string,
-  placeholder : PropTypes.string
+  inputType    : PropTypes.string,
+  id           : PropTypes.string,
+  label        : PropTypes.string,
+  placeholder  : PropTypes.string,
+  infoMessage  : PropTypes.string,
+  errorMessage : PropTypes.string,
+  basic        : PropTypes.bool
 };

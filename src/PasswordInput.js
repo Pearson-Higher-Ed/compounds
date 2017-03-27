@@ -16,15 +16,15 @@ class PasswordInput extends Component {
 
   render() {
     const { passwordStatusText, inputType, defaultLabel } = this.state;
-    const { id, label, placeholder, error } = this.props;
+    const { id, labelText, placeholder, error }           = this.props;
 
     const appliedLabelStyle = (error) ? 'pe-textLabelInput__label--label_error' : 'pe-textLabelInput__label';
-    const appliedStyleLine  = (error) ? 'pe-inputError_underline' : 'pe-input_underline';
-    const appliedInputStyle = (error) ? 'pe-textInput--input_error' : 'pe-textInput';
+    const appliedStyleLine  = (error) ? 'pe-inputError_underline'               : 'pe-input_underline';
+    const appliedInputStyle = (error) ? 'pe-textInput--input_error'             : 'pe-textInput';
 
     return(
       <div>
-        <label className={appliedLabelStyle} htmlFor={`password-${id}`}>{label}</label>
+        <label className={appliedLabelStyle} htmlFor={`password-${id}`}>{labelText}</label>
         <input className={appliedInputStyle} type={inputType} id={`password-${id}`} placeholder={placeholder} />
         <span className={appliedStyleLine}></span>
         <button className="pe-textInput__showButton" id="showbutton" onClick={this.togglePassword}>{passwordStatusText}</button>

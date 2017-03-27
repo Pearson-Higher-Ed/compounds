@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 
 const Button = (props) => {
 
-  const { btnType, btnSize, ...rest } = props;
+  const { btnType, btnSize, className, ...rest } = props;
 
   let classes;
 
@@ -15,7 +15,13 @@ const Button = (props) => {
     classes = (!btnSize) ? `pe-btn__${btnType}` : `pe-btn__${btnType}--btn_${btnSize}`;
   };
 
+  if (className) {
+     classes = classes.concat(` ${className} `);
+  };
+
+
   return <button className={classes} {...rest}>{props.children}</button>;
+
 };
 
 

@@ -33,5 +33,15 @@ export const messages = defineMessages({
     id             : 'textPlaceholder',
     description    : 'TextInput Placeholder',
     defaultMessage : 'First Name'
+  },
+  textInputInfoMessage: {
+    id             : 'textInputInfoMessage',
+    description    : 'an optional info message displayed below input',
+    defaultMessage : 'This is an info message'
+  },
+  textInputErrorMessage: {
+    id             : 'textInputErrorMessage',
+    description    : 'an optional error message displayed below input',
+    defaultMessage : 'This is an error message'
   }
 });
