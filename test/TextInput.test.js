@@ -1,7 +1,7 @@
 import React         from 'react';
 import expect        from 'expect';
 import { shallow }   from 'enzyme';
-import { TextInput } from '../../index';
+import { TextInput } from '../index';
 
 describe('TextInput', () => {
 

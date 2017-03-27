@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import { Icon, Button }     from '../../index';
+import React            from 'react';
+import { injectIntl }   from 'react-intl';
+import { Icon, Button } from '../../index';
 
 
-class IconPage extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return  (
+const IconPage = () => (
       <div className="displaySection">
-        <h1><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icon</a></h1>
+        <h1><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icons</a></h1>
 
         <div className="elementContainer">
+
+          <div className="code">
+            <h2>Props:</h2>
+            <ul>
+              <li>name:String === "remove-sm-18"</li>
+            </ul>
+          </div>
+
           <h2>Examples</h2>
           <p>Basic Icon</p>
           <Icon name="remove-sm-18">close</Icon>
@@ -303,7 +304,6 @@ class IconPage extends Component {
         </div>
       </div>
     )
-  }
-}
+
 
 export default IconPage;

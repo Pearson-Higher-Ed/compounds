@@ -10,19 +10,17 @@ This project supports [Node v4+](https://nodejs.org) and npm 2+ installed in you
 
 Install and save in your package.json:
 
-    ```
     npm install pearson-compounds --save
-    ```
 
-    Import a single component:
-    ```
+Import a single component:
+
     import { Button } from 'pearson-compounds';
-    ```
 
-    Import all components:
-    ```
+
+Import all components:
+
     import * as Compounds from 'pearson-compounds';
-    ```
+
 
 ### External Dependencies
 
@@ -74,10 +72,10 @@ As you save changes to the source, the changes are automatically reloaded in the
 
 ### Github Pages
 
-To deploy this project to Github Pages commit your changes, then run:
-```
-npm run deploy
-```
+To deploy this project to Github Pages comment out build section in .gitignore then commit your changes, and run:
+
+    npm run deploy
+
 
 ### Test
 

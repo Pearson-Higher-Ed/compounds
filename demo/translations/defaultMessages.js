@@ -1,17 +1,37 @@
-import {defineMessages} from 'react-intl';
+import { defineMessages } from 'react-intl';
 
 //
 // Default messages are 'en-US'
 //
 export const messages = defineMessages({
-  buttonText: {
-    id: 'buttonText',
-    description : 'this is demo button text',
-    defaultMessage: 'say hello'
+  showText: {
+    id             : 'showText',
+    description    : 'PasswordInput show/hide',
+    defaultMessage : 'show'
   },
-  placeholder: {
-    id: 'placeholder',
-    description : 'this is a demo placeholder',
-    defaultMessage: 'placeholder'
+  hideText: {
+    id             : 'hideText',
+    description    : 'PasswordInput show/hide',
+    defaultMessage : 'hide'
+  },
+  passwordPlaceholder: {
+    id             : 'passwordPlaceholder',
+    description    : 'PasswordInput placeholder',
+    defaultMessage : 'Enter Password'
+  },
+  passwordLabel: {
+    id             : 'passwordLabel',
+    description    : 'PasswordInput Label',
+    defaultMessage : 'Password'
+  },
+  textLabel: {
+    id             : 'textLabel',
+    description    : 'TextInput Label',
+    defaultMessage : 'First Name'
+  },
+  textPlaceholder: {
+    id             : 'textPlaceholder',
+    description    : 'TextInput Placeholder',
+    defaultMessage : 'First Name'
   }
 });

@@ -1,0 +1,8 @@
+{
+  "showText"            : "show",
+  "hideText"            : "hide",
+  "passwordPlaceholder" : "Enter Password",
+  "passwordLabel"       : "Password",
+  "textLabel"           : "First Name",
+  "textPlaceholder"     : "First Name"
+}

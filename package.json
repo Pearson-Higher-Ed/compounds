@@ -2,27 +2,25 @@
   "name": "pearson-compounds",
   "version": "0.2.1",
   "description": "Atomic React Components",
-  "main": "./build/dist.compounds.js",
+  "main": "./index.js",
   "author": "Pearson Design Accelerator",
   "license": "MIT",
   "homepage": "http://pearson-higher-ed.github.io/compounds/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pearson-Higher-Ed/compounds"
+    "url": "https://github.com/Pearson-Higher-Ed/compounds/"
   },
   "scripts": {
     "start": "npm run serve",
-    "serve": "NODE_ENV=development webpack-dev-server",
-    "clean": "rimraf build",
+    "serve": "NODE_ENV=development webpack-dev-server --inline --hot",
     "deploy": "git subtree push --prefix build origin gh-pages",
     "test": "jest --coverage",
-    "build": "NODE_ENV=production npm run clean && webpack -p",
-    "gen-changelog": "node ./npm_scripts/gen-changelog.js",
-    "version": "node ./npm_scripts/version.js",
-    "ci": "node ./npm_scripts/ci.js",
-    "release": "node ./npm_scripts/release.js",
-    "verify": "node ./npm_scripts/verify.js",
-    "copy-utils": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/cross-platform.js"
+    "build": "NODE_ENV=production webpack -p",
+    "gen-changelog": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gen-changelog.js",
+    "version": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/version.js",
+    "ci": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/ci.js",
+    "release": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/release.js",
+    "verify": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/verify.js"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -67,7 +65,6 @@
     "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.10.0",
     "fs-extra": "^1.0.0",
-    "history": "^4.5.1",
     "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.28.0",
     "ignore-styles": "~5.0.1",
@@ -77,11 +74,10 @@
     "node-sass": "^4.5.0",
     "pearson-elements": "^1.4.2",
     "react": "^15.3.0",
-    "react-addons-test-utils": "^15.0.0",
+    "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.0",
     "react-intl": "~2.0.1",
     "react-router-dom": "^4.0.0-beta.6",
-    "rimraf": "^2.5.4",
     "sass-loader": "^6.0.0",
     "semver": "~5.1.0",
     "style-loader": "^0.13.1",

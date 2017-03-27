@@ -1,17 +1,8 @@
-import React, { Component } from 'react';
-import { Link }             from 'react-router-dom';
+import React    from 'react';
+import { Link } from 'react-router-dom';
 
 
-class HomePage extends Component{
-
-  constructor (props) {
-    super(props);
-    this.state = {};
-  }
-
-
-  render() {
-    return (
+const HomePage = () => (
         <div className="homepage">
 
           <h1>Atomic React Components</h1>
@@ -23,8 +14,8 @@ class HomePage extends Component{
           <p>React Components:</p>
 
           <ul className="homepageList">
-            <li><Link className="link_homepage" to={`buttons`}>Button</Link></li>
-            <li><Link className="link_homepage" to={`icons`}>Icon</Link></li>
+            <li><Link className="link_homepage" to={`buttons`}>Buttons</Link></li>
+            <li><Link className="link_homepage" to={`icons`}>Icons</Link></li>
             <li><Link className="link_homepage" to={`inputs`}>Inputs</Link></li>
           </ul>
 
@@ -39,8 +30,6 @@ class HomePage extends Component{
 
         </div>
       )
-  }
-}
 
 
 export default HomePage;

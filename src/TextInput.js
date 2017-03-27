@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+
 
 const TextInput = (props) => {
 
@@ -45,7 +46,6 @@ const TextInput = (props) => {
       type        ="text"
       className   ={`${inputStyle}`}
       id          ={id}
-      value       =""
       placeholder ={placeholder}
       disabled    ={inputType === 'disabled' ? 'disabled' : false}
       readOnly    ={inputType === 'readonly' ? 'readOnly' : false}
@@ -56,3 +56,11 @@ const TextInput = (props) => {
 )}
 
 export default TextInput;
+
+
+TextInput.propTypes = {
+  inputType   : PropTypes.string,
+  id          : PropTypes.string,
+  label       : PropTypes.string,
+  placeholder : PropTypes.string
+};
