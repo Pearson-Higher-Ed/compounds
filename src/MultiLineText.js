@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 
 
 const MultiLineText = (props) => {
 
-    const { id, value, labelText, placeholder } = props;
+    const { id, labelText, placeholder } = props;
 
     return (
       <div>
@@ -12,7 +12,7 @@ const MultiLineText = (props) => {
       </div>
     )
 
-}
+};
 
 
 export default MultiLineText;
@@ -20,6 +20,6 @@ export default MultiLineText;
 
 MultiLineText.propTypes = {
   id          : PropTypes.string,
-  label       : PropTypes.string,
+  labelText   : PropTypes.string,
   placeholder : PropTypes.string
 };

@@ -35,25 +35,25 @@ const TextInput = (props) => {
 
   return (
     <div>
-      <label className={`${labelStyle}`} htmlFor={id}>{labelText}</label>
+      <label className={labelStyle} htmlFor={id}>{labelText}</label>
 
       <input
         id          = {id}
         type        = "text"
         placeholder = {placeholder}
-        className   = {`${inputStyle}`}
+        className   = {inputStyle}
         disabled    = {inputType === 'disabled' ? 'disabled' : false}
         readOnly    = {inputType === 'readonly' ? 'readOnly' : false}
         />
 
-      <span className={`${spanStyle}`} />
+      <span className={spanStyle} />
       {infoMessage && <span className="pe-input--error_message">{infoMessage}</span>}
       <br />
       {errorMessage && <span className="pe-input--error_message">{errorMessage}</span>}
     </div>
-  )
+  );
 
-}
+};
 
 export default TextInput;
 
@@ -61,7 +61,7 @@ export default TextInput;
 TextInput.propTypes = {
   inputType    : PropTypes.string,
   id           : PropTypes.string,
-  label        : PropTypes.string,
+  labelText    : PropTypes.string,
   placeholder  : PropTypes.string,
   infoMessage  : PropTypes.string,
   errorMessage : PropTypes.string,

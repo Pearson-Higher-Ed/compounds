@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 class PasswordInput extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       passwordStatusText : props.showText,
@@ -40,7 +40,7 @@ export default PasswordInput;
 PasswordInput.propTypes = {
   error       : PropTypes.bool,
   id          : PropTypes.string,
-  label       : PropTypes.string,
+  labelText   : PropTypes.string,
   placeholder : PropTypes.string,
   showText    : PropTypes.string,
   hideText    : PropTypes.string

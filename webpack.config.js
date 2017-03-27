@@ -1,7 +1,6 @@
 const path              = require('path');
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const demo              = `${__dirname}/demo/demo.js`;
 const demoScss          = `${__dirname}/demo/demo.scss`;
 const main              = `${__dirname}/demo/main.js`;
@@ -27,7 +26,7 @@ module.exports = {
     host               : "0.0.0.0",
     port               : 8081,
     publicPath         : "/compounds/",
-    https              : true,
+    https              : false,
     overlay            : true,
     watchContentBase   : true,
     historyApiFallback : true,

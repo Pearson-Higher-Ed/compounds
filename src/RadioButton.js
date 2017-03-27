@@ -1,18 +1,38 @@
 import React, { Component, PropTypes } from 'react';
-import { Icon }                        from '../index.js'
 
 
-const RadioButton = (props) =>  (
-      <div>
-        <div className="pe-radio">
-          <input type="radio" name={props.name} id={props.id} />
-          <label htmlFor={props.id}>{props.labelText}</label>
-          <span>
-            <Icon name="new-notification-9" />
-          </span>
+class RadioButton extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      checked : false
+    };
+  }
+
+  render() {
+
+    const { id, name, labelText } = this.props;
+    const { checked }             = this.state;
+
+    return (
+        <div onClick={() => this.setState({checked:!checked})}>
+          <div className="pe-radio">
+            <input type="radio" name={name} id={id} />
+            <label htmlFor={id}>{labelText}</label>
+            <span>
+              {checked && <svg
+                aria-hidden = "true"
+                focusable   = "false"
+                className   = "pe-icon--radio-dot">
+                <use xlinkHref="#new-notification-9"></use>
+              </svg>}
+            </span>
+          </div>
         </div>
-      </div>
-  )
+    )
+  }
+}
 
 
 export default RadioButton;

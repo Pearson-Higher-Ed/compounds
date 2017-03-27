@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import { Icon }                        from '../index.js'
+import React, { PropTypes } from 'react';
+import { Icon }             from '../index.js';
 
 
 const Select = (props) => {
@@ -23,16 +23,16 @@ const Select = (props) => {
           <Icon name="dropdown-open-18" />
         </div>
       </div>
-    )
+    );
 
-}
+};
 
 
 export default Select;
 
 
 Select.propTypes = {
-  id       : PropTypes.string,
-  label    : PropTypes.string,
-  options  : PropTypes.object
+  id        : PropTypes.string,
+  labelText : PropTypes.string,
+  options   : PropTypes.object
 };
