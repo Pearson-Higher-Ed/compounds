@@ -14,17 +14,74 @@ const MultiLineTextSection = (props) => (
         <li>id:String === "a unique name"</li>
         <li>labelText:String === "a desciptive label"</li>
         <li>placeholder:String === "multi-line text</li>
+        <li>infoMessage:String === "an optional info message displayed below the input"</li>
+        <li>errorMessage:String === "an optional error message displayed below the input"</li>
       </ul>
 
     </div>
 
+
+    <h2>MultiLine</h2>
     <MultiLineText
-      id          = "Multi"
-      labelText   = "Multi-line label"
-      placeholder = "Many words displayed over multiple lines."
+      id           = "Multi"
+      labelText    = "Multi-line label"
+      placeholder  = "Many words displayed over multiple lines."
+      infoMessage  = {props.intlDefaultText.textInputInfoMessage}
+      errorMessage = {props.intlDefaultText.textInputErrorMessage}
       />
 
-    <p className="code">{'<MultiLineText id="Multi" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." />'}</p>
+    <p className="code">{'<MultiLineText id="Multi" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage />'}</p>
+
+    <br />
+    <br />
+
+
+    <h2>MultiLine - error</h2>
+    <MultiLineText
+      id           = "Multi"
+      inputType    = 'error'
+      labelText    = "Multi-line label"
+      placeholder  = "Many words displayed over multiple lines."
+      infoMessage  = {props.intlDefaultText.textInputInfoMessage}
+      errorMessage = {props.intlDefaultText.textInputErrorMessage}
+      />
+
+    <p className="code">{'<MultiLineText id="Multi" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage />'}</p>
+
+
+    <br />
+    <br />
+
+    <h2>MultiLine - readOnly</h2>
+    <MultiLineText
+      id           = "Multi"
+      inputType    = 'readOnly'
+      labelText    = "Multi-line label"
+      placeholder  = "Many words displayed over multiple lines."
+      infoMessage  = {props.intlDefaultText.textInputInfoMessage}
+      errorMessage = {props.intlDefaultText.textInputErrorMessage}
+      readOnly     = {true}
+      />
+
+    <p className="code">{'<MultiLineText id="Multi" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage />'}</p>
+
+
+    <br />
+    <br />
+
+    <h2>MultiLine - disabled</h2>
+    <MultiLineText
+      id           = "Multi"
+      inputType    = 'disabled'
+      labelText    = "Multi-line label"
+      placeholder  = "Many words displayed over multiple lines."
+      infoMessage  = {props.intlDefaultText.textInputInfoMessage}
+      errorMessage = {props.intlDefaultText.textInputErrorMessage}
+      disabled     = {true}
+      />
+
+    <p className="code">{'<MultiLineText id="Multi" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage />'}</p>
+
 
   </div>
 )

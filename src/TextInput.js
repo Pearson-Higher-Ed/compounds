@@ -1,59 +1,51 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 
-const TextInput = (props) => {
+class TextInput extends Component {
 
-  const { inputType, basic, id, labelText, placeholder, infoMessage, errorMessage } = props;
+  constructor(props) {
+    super(props);
+    this.state = {
+      passwordStatusText : this.props.showText || '',
+      typeSelector       : this.props.password ? 'password' : 'text'
+    };
 
-  let labelStyle = '';
-  let inputStyle = '';
-  let spanStyle  = '';
+    this.togglePassword = _togglePassword.bind(this);
+    this.applyStyles    = _applyStyles.bind(this);
 
+  }
 
-  switch (inputType) {
-    case 'error':
-      labelStyle = 'pe-textLabelInput__label--label_error';
-      inputStyle = (!basic) ? 'pe-textInput--input_error' : 'pe-textInput--basic_error';
-      spanStyle  = (!basic) ? 'pe-inputError_underline'   : '';
-      break;
-    case 'disabled':
-      labelStyle = 'pe-textLabelInput__label--label-disabled';
-      inputStyle = (!basic) ?'pe-textInput' : 'pe-textInput--basic';
-      spanStyle  = (!basic) ? ''            : '';
-      break;
-    case 'readOnly':
-      labelStyle = 'pe-textLabelInput__label';
-      inputStyle = (!basic) ? 'pe-textInput--input_readonly' : '';
-      spanStyle  = (!basic) ? ''                             : '';
-      break;
-    default:
-      labelStyle = 'pe-textLabelInput__label';
-      inputStyle = (!basic) ? 'pe-textInput'       : 'pe-textInput--basic';
-      spanStyle  = (!basic) ? 'pe-input_underline' : '';
-  };
+  componentWillMount() {
+    this.applyStyles();
+  }
 
+  render() {
+   
+    const { inputType, fancy, id, labelText, password, placeholder, infoMessage, errorMessage } = this.props;
+    const { labelStyle, inputStyle, spanStyle, passwordStatusText, typeSelector } = this.state;
 
-  return (
-    <div>
-      <label className={labelStyle} htmlFor={id}>{labelText}</label>
+    return (
+      <div>
+        <label className={labelStyle} htmlFor={id}>{labelText}</label>
 
-      <input
-        id          = {id}
-        type        = "text"
-        placeholder = {placeholder}
-        className   = {inputStyle}
-        disabled    = {inputType === 'disabled' ? 'disabled' : false}
-        readOnly    = {inputType === 'readonly' ? 'readOnly' : false}
-        />
+        <input
+          id          = {id}
+          type        = {typeSelector}
+          placeholder = {placeholder}
+          className   = {inputStyle}
+          disabled    = {(inputType === 'disabled' || inputType === 'readOnly') ? 'disabled' : false}
+          readOnly    = {inputType === 'readonly' ? 'readOnly' : false}
+          />
 
-      <span className={spanStyle} />
-      {infoMessage && <span className="pe-input--error_message">{infoMessage}</span>}
-      <br />
-      {errorMessage && <span className="pe-input--error_message">{errorMessage}</span>}
-    </div>
-  );
+        <span className={spanStyle} />
+        {password && <button className={fancy ? "pe-textInput__showButton":'pe-textInput__showButton-basic'} id={`showbutton-${id}`} onClick={this.togglePassword} >{passwordStatusText}</button>}
+        {infoMessage  && <span className="pe-input--info_message">{infoMessage}</span>}
+        {errorMessage && <span className="pe-input--error_message">{errorMessage}</span>}
+      </div>
+    );
 
-};
+  }
+}
 
 export default TextInput;
 
@@ -65,5 +57,47 @@ TextInput.propTypes = {
   placeholder  : PropTypes.string,
   infoMessage  : PropTypes.string,
   errorMessage : PropTypes.string,
-  basic        : PropTypes.bool
+  fancy        : PropTypes.bool
+};
+
+
+function _togglePassword() {
+  const { showText, hideText }               = this.props;
+  const { typeSelector, passwordStatusText } = this.state;
+
+  const typeSelectorTmp       = (typeSelector === 'password')     ? 'text'   : 'password';
+  const passwordStatusTextTmp = (passwordStatusText === showText) ? hideText : showText;
+
+  this.setState({typeSelector:typeSelectorTmp, passwordStatusText:passwordStatusTextTmp});
+
+};
+
+function _applyStyles() {
+  let { labelStyle, inputStyle, spanStyle } = this.state;
+  const { fancy, inputType } = this.props;
+
+  switch (inputType) {
+    case 'error':
+      labelStyle = 'pe-textLabelInput__label--label_error';
+      inputStyle = (fancy) ? 'pe-textInput--input_error' : 'pe-textInput--basic_error';
+      spanStyle  = (fancy) ? 'pe-inputError_underline'   : '';
+      break;
+    case 'disabled':
+      labelStyle = 'pe-textLabelInput__label--label-disabled';
+      inputStyle = (fancy) ? 'pe-textInput' : 'pe-textInput--basic';
+      spanStyle  = '';
+      break;
+    case 'readOnly':
+      labelStyle = 'pe-textLabelInput__label';
+      inputStyle = 'pe-textInput--input_readonly';
+      spanStyle  = '';
+      break;
+    default:
+      labelStyle = 'pe-textLabelInput__label';
+      inputStyle = (fancy) ? 'pe-textInput'       : 'pe-textInput--basic';
+      spanStyle  = (fancy) ? 'pe-input_underline' : '';
+  };
+
+  this.setState({labelStyle, inputStyle, spanStyle});
+
 };

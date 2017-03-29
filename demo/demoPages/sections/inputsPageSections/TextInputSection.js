@@ -13,6 +13,7 @@ const TextInputSection = (props) => (
         <ul>
           <li>id:String === "a unique name"</li>
           <li>labelText:String === "a desciptive label"</li>
+          <li>fancy:Boolean === true/false</li>
           <li>inputType:String === "default", "error", "disabled", "readOnly"</li>
           <li>placeholder:String === "a unique name"</li>
           <li>infoMessage:String === "an optional info message displayed below the input"</li>
@@ -22,7 +23,7 @@ const TextInputSection = (props) => (
       </div>
 
 
-      <h2>Single Line</h2>
+      <h2>Single Line - Basic</h2>
       <TextInput
         id           = "a"
         inputType    = "default"
@@ -37,24 +38,24 @@ const TextInputSection = (props) => (
       <br />
       <br />
 
-      <h2>Single Line - Basic</h2>
+      <h2>Single Line</h2>
       <TextInput
         id           = "a"
-        basic        = {true}
+        fancy        = {true}
         inputType    = "default"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="a" basic={true} labelText={intlDefaultText.textLabel} inputType="default" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="a" fancy={true} labelText={intlDefaultText.textLabel} inputType="default" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
 
 
       <br />
       <br />
 
 
-      <h2>Single Line - Error</h2>
+      <h2>Single Line -  Basic Error</h2>
       <TextInput
         id           = "b"
         inputType    = "error"
@@ -70,24 +71,24 @@ const TextInputSection = (props) => (
       <br />
 
 
-      <h2>Single Line - Basic Error</h2>
+      <h2>Single Line - Error</h2>
       <TextInput
         id           = "b"
-        basic        = {true}
+        fancy        = {true}
         inputType    = "error"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="b" basic={true} labelText={intlDefaultText.textLabel} inputType="error" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="b" fancy={true} labelText={intlDefaultText.textLabel} inputType="error" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
 
 
       <br />
       <br />
 
 
-      <h2>Single Line - Disabled</h2>
+      <h2>Single Line -  Basic Disabled</h2>
       <TextInput
         id           = "c"
         inputType    = "disabled"
@@ -103,17 +104,17 @@ const TextInputSection = (props) => (
       <br />
 
 
-      <h2>Single Line - Basic Disabled</h2>
+      <h2>Single Line - Disabled</h2>
       <TextInput
         id           = "c"
-        basic        = {true}
+        fancy        = {true}
         inputType    = "disabled"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="c" label={intlDefaultText.textLabel} inputType="disabled" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="c" fancy={true} label={intlDefaultText.textLabel} inputType="disabled" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
 
 
       <br />
@@ -124,12 +125,31 @@ const TextInputSection = (props) => (
       <TextInput
         id           = "d"
         inputType    = "readOnly"
+        fancy        = {true}
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="d" labelText={intlDefaultText.textLabel} inputType="readOnly" placeholder="First Name"  infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<TextInput id="d" fancy={true} labelText={intlDefaultText.textLabel} inputType="readOnly" placeholder="First Name" infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+
+
+
+      <br />
+      <br />
+
+
+      <h2>Single Line - Basic Read Only</h2>
+      <TextInput
+        id           = "d"
+        inputType    = "readOnly"
+        labelText    = {props.intlDefaultText.textLabel}
+        placeholder  = {props.intlDefaultText.textPlaceholder}
+        infoMessage  = {props.intlDefaultText.textInputInfoMessage}
+        errorMessage = {props.intlDefaultText.textInputErrorMessage}
+        />
+      <p className="code">{'<TextInput id="d" labelText={intlDefaultText.textLabel} inputType="readOnly" placeholder="First Name" infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+
 
 </div>
 )

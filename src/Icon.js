@@ -30,11 +30,10 @@ const Icon = (props) => {
 };
 
 
+export default Icon;
+
+
 Icon.propTypes = {
   name     : PropTypes.string.isRequired,
   children : PropTypes.string
 };
-
-
-
-export default Icon;

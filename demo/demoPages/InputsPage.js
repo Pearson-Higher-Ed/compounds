@@ -2,12 +2,11 @@ import React          from 'react';
 import { injectIntl } from 'react-intl';
 import { messages }   from '../translations/defaultMessages';
 
-import CheckboxSection      from './sections/inputsPageSections/CheckboxSection';
-import MultiLineTextSection from './sections/inputsPageSections/MultiLineTextSection';
-import PasswordInputSection from './sections/inputsPageSections/PasswordInputSection';
-import TextInputSection     from './sections/inputsPageSections/TextInputSection';
-import RadioButtonSection   from './sections/inputsPageSections/RadioButtonSection';
-import SelectSection        from './sections/inputsPageSections/SelectSection';
+import MultiLineTextSection   from './sections/inputsPageSections/MultiLineTextSection';
+import PasswordInputSection   from './sections/inputsPageSections/PasswordInputSection';
+import TextInputSection       from './sections/inputsPageSections/TextInputSection';
+import RadioCheckGroupSection from './sections/inputsPageSections/RadioCheckGroupSection';
+import SelectSection          from './sections/inputsPageSections/SelectSection';
 
 
 const InputsPage = (props) => {
@@ -33,22 +32,11 @@ const InputsPage = (props) => {
   return (
       <div className="displaySection">
         <div className="elementContainer">
-          <TextInputSection intlDefaultText={intlDefaultText} />
-          <br />
-          <br />
-          <PasswordInputSection intlDefaultText={intlDefaultText} />
-          <br />
-          <br />
-          <SelectSection intlDefaultText={intlDefaultText} />
-          <br />
-          <br />
-          <MultiLineTextSection intlDefaultText={intlDefaultText} />
-          <br />
-          <br />
-          <CheckboxSection intlDefaultText={intlDefaultText} />
-          <br />
-          <br />
-          <RadioButtonSection intlDefaultText={intlDefaultText} />
+          <TextInputSection       intlDefaultText={intlDefaultText} />
+          <PasswordInputSection   intlDefaultText={intlDefaultText} />
+          <SelectSection          intlDefaultText={intlDefaultText} />
+          <MultiLineTextSection   intlDefaultText={intlDefaultText} />
+          <RadioCheckGroupSection intlDefaultText={intlDefaultText} />
         </div>
       </div>
     )

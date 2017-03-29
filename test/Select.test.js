@@ -8,7 +8,7 @@ describe('Select', () => {
   describe('Basic Select Test', function() {
 
     it('should render the Select as div element', function() {
-      this.wrapper = shallow(<Select >Test Select</Select>);
+      this.wrapper = shallow(<Select options={["coffee", "tea"]} >Test Select</Select>);
       expect(this.wrapper.node.type).toEqual('div');
     });
 
