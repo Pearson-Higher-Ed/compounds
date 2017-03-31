@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
+import Icon from './Icon';
+
 import './Dropdown.scss';
 
 class Dropdown extends Component {
@@ -10,7 +12,6 @@ class Dropdown extends Component {
     this.state = {
       open: false
     }
-
   }
 
   _handleDropDown() {
@@ -19,19 +20,25 @@ class Dropdown extends Component {
     })
   }
 
+  _renderListItems() {
+    let items = [];
+    for (let i = 0; i < this.props.list.length; i++) {
+      let item = this.props.list[i];
+      items.push(<li className="pe-label" key={i}>{item.listItem}</li>)
+    }
+    return items;
+  }
+
   render() {
     return(
       <div>
-        <div onClick={this._handleDropDown.bind(this)}>
-          <button>Toggle</button>
+        <div onClick={this._handleDropDown.bind(this)} className="dropdown-container">
+          <button className="dropdown-btn"><Icon name='dropdown-open-18'>Open</Icon></button>
           { this.state.open
             ?
             <ul className="li-wrapper">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
+              {this._renderListItems()}
             </ul>
-
             : null
           }
         </div>

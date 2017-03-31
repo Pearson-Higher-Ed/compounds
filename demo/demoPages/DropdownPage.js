@@ -1,9 +1,18 @@
 import React from 'react';
 import { Dropdown } from '../../index';
 
-const DropdownPage = () => (
+const testData = [{
+  listItem: 'Pearson'
+}, {
+  listItem: 'Design'
+}, {
+  listItem: 'Accelerator'
+}];
+
+const DropdownPage = (props) => (
     <div>
-      <Dropdown />
+      <h2>First</h2>
+      <Dropdown list={testData} />
     </div>
 
 )
