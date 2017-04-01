@@ -14,7 +14,7 @@ const TextInputSection = (props) => (
           <li>id:String === "a unique name"</li>
           <li>labelText:String === "a desciptive label"</li>
           <li>fancy:Boolean === true/false</li>
-          <li>inputType:String === "default", "error", "disabled", "readOnly"</li>
+          <li>inputState:String === "default", "error", "disabled", "readOnly"</li>
           <li>placeholder:String === "a unique name"</li>
           <li>infoMessage:String === "an optional info message displayed below the input"</li>
           <li>errorMessage:String === "an optional error message displayed below the input"</li>
@@ -26,13 +26,13 @@ const TextInputSection = (props) => (
       <h2>Single Line - Basic</h2>
       <TextInput
         id           = "a"
-        inputType    = "default"
+        inputState   = "default"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="a" labelText={intlDefaultText.textLabel} inputType="default" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<TextInput id="a" labelText={intlDefaultText.textLabel} inputState="default" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
 
 
       <br />
@@ -41,14 +41,14 @@ const TextInputSection = (props) => (
       <h2>Single Line</h2>
       <TextInput
         id           = "a"
-        fancy        = {true}
-        inputType    = "default"
+        fancy       = {true}
+        inputState    = "default"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="a" fancy={true} labelText={intlDefaultText.textLabel} inputType="default" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="a" fancy={true} labelText={intlDefaultText.textLabel} inputState="default" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
 
 
       <br />
@@ -58,13 +58,13 @@ const TextInputSection = (props) => (
       <h2>Single Line -  Basic Error</h2>
       <TextInput
         id           = "b"
-        inputType    = "error"
+        inputState   = "error"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="b" labelText={intlDefaultText.textLabel} inputType="error" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="b" labelText={intlDefaultText.textLabel} inputState="error" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
 
 
       <br />
@@ -75,13 +75,13 @@ const TextInputSection = (props) => (
       <TextInput
         id           = "b"
         fancy        = {true}
-        inputType    = "error"
+        inputState   = "error"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="b" fancy={true} labelText={intlDefaultText.textLabel} inputType="error" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="b" fancy={true} labelText={intlDefaultText.textLabel} inputState="error" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
 
 
       <br />
@@ -91,13 +91,13 @@ const TextInputSection = (props) => (
       <h2>Single Line -  Basic Disabled</h2>
       <TextInput
         id           = "c"
-        inputType    = "disabled"
+        inputState   = "disabled"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="c" labelText={intlDefaultText.textLabel} inputType="disabled" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="c" labelText={intlDefaultText.textLabel} inputState="disabled" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
 
 
       <br />
@@ -108,13 +108,13 @@ const TextInputSection = (props) => (
       <TextInput
         id           = "c"
         fancy        = {true}
-        inputType    = "disabled"
+        inputState   = "disabled"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="c" fancy={true} label={intlDefaultText.textLabel} inputType="disabled" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="c" fancy={true} label={intlDefaultText.textLabel} inputState="disabled" placeholder={intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
 
 
       <br />
@@ -124,14 +124,14 @@ const TextInputSection = (props) => (
       <h2>Single Line - Read Only</h2>
       <TextInput
         id           = "d"
-        inputType    = "readOnly"
+        inputState   = "readOnly"
         fancy        = {true}
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="d" fancy={true} labelText={intlDefaultText.textLabel} inputType="readOnly" placeholder="First Name" infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<TextInput id="d" fancy={true} labelText={intlDefaultText.textLabel} inputState="readOnly" placeholder="First Name" infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
 
 
 
@@ -142,13 +142,13 @@ const TextInputSection = (props) => (
       <h2>Single Line - Basic Read Only</h2>
       <TextInput
         id           = "d"
-        inputType    = "readOnly"
+        inputState   = "readOnly"
         labelText    = {props.intlDefaultText.textLabel}
         placeholder  = {props.intlDefaultText.textPlaceholder}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="d" labelText={intlDefaultText.textLabel} inputType="readOnly" placeholder="First Name" infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<TextInput id="d" labelText={intlDefaultText.textLabel} inputState="readOnly" placeholder="First Name" infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
 
 
 </div>

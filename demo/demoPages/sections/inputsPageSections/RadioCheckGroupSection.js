@@ -26,7 +26,7 @@ const RadioCheckGroupSection = (props) => {
           id              = "radiobutton1"
           name            = "radiobutton1"
           legendText      = "These are radio buttons"
-          options         = {["tea","coffee"]}
+          options         = {["tea","coffee","soda","water"]}
           selectedOptions = {["tea"]}
           changeHandler   = {() => {}}
           />
@@ -40,7 +40,7 @@ const RadioCheckGroupSection = (props) => {
           id              = "checkbox1"
           name            = "checkbox1"
           legendText      = "These are checkboxes"
-          options         = {["tea","coffee"]}
+          options         = {["tea","coffee","soda","water"]}
           selectedOptions = {["coffee"]}
           changeHandler   = {() => {}}
           />

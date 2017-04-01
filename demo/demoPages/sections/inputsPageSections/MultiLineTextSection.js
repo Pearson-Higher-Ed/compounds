@@ -39,7 +39,7 @@ const MultiLineTextSection = (props) => (
     <h2>MultiLine - error</h2>
     <MultiLineText
       id           = "Multi"
-      inputType    = 'error'
+      inputState   = 'error'
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
       infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -55,7 +55,7 @@ const MultiLineTextSection = (props) => (
     <h2>MultiLine - readOnly</h2>
     <MultiLineText
       id           = "Multi"
-      inputType    = 'readOnly'
+      inputState   = 'readOnly'
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
       infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -72,7 +72,7 @@ const MultiLineTextSection = (props) => (
     <h2>MultiLine - disabled</h2>
     <MultiLineText
       id           = "Multi"
-      inputType    = 'disabled'
+      inputState   = 'disabled'
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
       infoMessage  = {props.intlDefaultText.textInputInfoMessage}

@@ -16,7 +16,7 @@ const PasswordInputSection = (props) => (
           <li>fancy:Boolean       === true/false</li>
           <li>labelText:String    === "a desciptive label"</li>
           <li>placeholder:String  === "a placeholder text"</li>
-          <li>inputType:String    === "default", "error", "disabled", "readOnly"</li>
+          <li>inputState:String    === "default", "error", "disabled", "readOnly"</li>
           <li>showText:String     === "show/hide text"</li>
           <li>hideText:String     === "show/hide text"</li>
           <li>infoMessage:String  === "an optional info message displayed below the input"</li>
@@ -28,7 +28,7 @@ const PasswordInputSection = (props) => (
         <TextInput
           password     = {true}
           fancy        = {true}
-          id           = "fancyPassword"
+          id           = "PasswordInputFancy"
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -36,7 +36,7 @@ const PasswordInputSection = (props) => (
           showText     = {props.intlDefaultText.showText}
           hideText     = {props.intlDefaultText.hideText}
           />
-        <p className="code">{'<TextInput password={true} fancy={true} id="fancyPassword" inputType="error" labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText} />'}</p>
+        <p className="code">{'<TextInput password={true} fancy={true} id="fancyPassword" inputState="error" labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText} />'}</p>
       <br />
       <br />
 
@@ -44,7 +44,7 @@ const PasswordInputSection = (props) => (
       <h2>PasswordInput - Basic:</h2>
         <TextInput
           password     = {true}
-          id           = "basicPassword"
+          id           = "PasswordInputBasic"
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -60,8 +60,8 @@ const PasswordInputSection = (props) => (
       <h2>PasswordInput - Basic Error:</h2>
         <TextInput
           password     = {true}
-          id           = "d"
-          inputType    = "error"
+          id           = "PasswordInputBasicError"
+          inputState   = "error"
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -69,7 +69,9 @@ const PasswordInputSection = (props) => (
           showText     = {props.intlDefaultText.showText}
           hideText     = {props.intlDefaultText.hideText}
           />
-      <p className="code">{'<TextInput password={true} id="d" inputType="error" labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText}/>'}</p>
+      <p className="code">{'<TextInput password={true} id="d" inputState="error" labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText}/>'}</p>
+
+
       <br />
       <br />
 
@@ -77,9 +79,87 @@ const PasswordInputSection = (props) => (
       <h2>PasswordInput - Fancy Error:</h2>
         <TextInput
           password     = {true}
-          id           = "passwordError"
+          id           = "PasswordInputFancyError"
           fancy        = {true}
-          inputType    = "error"
+          inputState   = "error"
+          labelText    = {props.intlDefaultText.textLabel}
+          placeholder  = {props.intlDefaultText.textPlaceholder}
+          infoMessage  = {props.intlDefaultText.textInputInfoMessage}
+          errorMessage = {props.intlDefaultText.textInputErrorMessage}
+          showText     = {props.intlDefaultText.showText}
+          hideText     = {props.intlDefaultText.hideText}
+          />
+      <p className="code">{'<PasswordInput id="password4" fancy={true} labelText={intlDefaultText.passwordLabel} placeholder={intlDefaultText.passwordPlaceholder} error={true} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText} />'}</p>
+
+
+      <br />
+      <br />
+
+
+      <h2>PasswordInput - Basic Disabled:</h2>
+        <TextInput
+          password     = {true}
+          id           = "PasswordInputBasicDisabled"
+          inputState   = "disabled"
+          labelText    = {props.intlDefaultText.textLabel}
+          placeholder  = {props.intlDefaultText.textPlaceholder}
+          infoMessage  = {props.intlDefaultText.textInputInfoMessage}
+          errorMessage = {props.intlDefaultText.textInputErrorMessage}
+          showText     = {props.intlDefaultText.showText}
+          hideText     = {props.intlDefaultText.hideText}
+          />
+      <p className="code">{'<TextInput password={true} id="d" inputState="error" labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText}/>'}</p>
+
+
+      <br />
+      <br />
+
+
+      <h2>PasswordInput - Fancy Disabled:</h2>
+        <TextInput
+          password     = {true}
+          id           = "PasswordInputFancyDisabled"
+          fancy        = {true}
+          inputState   = "disabled"
+          labelText    = {props.intlDefaultText.textLabel}
+          placeholder  = {props.intlDefaultText.textPlaceholder}
+          infoMessage  = {props.intlDefaultText.textInputInfoMessage}
+          errorMessage = {props.intlDefaultText.textInputErrorMessage}
+          showText     = {props.intlDefaultText.showText}
+          hideText     = {props.intlDefaultText.hideText}
+          />
+      <p className="code">{'<PasswordInput id="password4" fancy={true} labelText={intlDefaultText.passwordLabel} placeholder={intlDefaultText.passwordPlaceholder} error={true} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText} />'}</p>
+
+
+      <br />
+      <br />
+
+
+      <h2>PasswordInput - Basic readOnly:</h2>
+        <TextInput
+          password     = {true}
+          id           = "PasswordInputBasicReadOnly"
+          inputState   = "readOnly"
+          labelText    = {props.intlDefaultText.textLabel}
+          placeholder  = {props.intlDefaultText.textPlaceholder}
+          infoMessage  = {props.intlDefaultText.textInputInfoMessage}
+          errorMessage = {props.intlDefaultText.textInputErrorMessage}
+          showText     = {props.intlDefaultText.showText}
+          hideText     = {props.intlDefaultText.hideText}
+          />
+      <p className="code">{'<TextInput password={true} id="d" inputState="error" labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText}/>'}</p>
+
+
+      <br />
+      <br />
+
+
+      <h2>PasswordInput - Fancy readOnly:</h2>
+        <TextInput
+          password     = {true}
+          id           = "PasswordInputFancyReadOnly"
+          fancy        = {true}
+          inputState   = "readOnly"
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}

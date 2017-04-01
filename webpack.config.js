@@ -28,8 +28,8 @@ module.exports = {
     publicPath         : "/compounds/",
     https              : false,
     overlay            : true,
-    watchContentBase   : true,
     historyApiFallback : true,
+    watchContentBase   : true,
     watchOptions       : { poll: true }
   },
   externals: [

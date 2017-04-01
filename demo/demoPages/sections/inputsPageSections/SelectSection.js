@@ -39,7 +39,7 @@ const SelectSection = (props) => (
       <Select
         id           = "select"
         labelText    = "Select Label:"
-        inputType    = "error"
+        inputState   = "error"
         options      = { ["ipad", "mac", "iphone"] }
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
@@ -55,7 +55,7 @@ const SelectSection = (props) => (
       <Select
         id           = "select"
         labelText    = "Select Label:"
-        inputType    = "disabled"
+        inputState   = "disabled"
         options      = { ["ipad", "mac", "iphone"] }
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
@@ -72,7 +72,7 @@ const SelectSection = (props) => (
       <Select
         id           = "select"
         labelText    = "Select Label:"
-        inputType    = "readOnly"
+        inputState   = "readOnly"
         options      = { ["ipad", "mac", "iphone"] }
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
         errorMessage = {props.intlDefaultText.textInputErrorMessage}
@@ -104,7 +104,7 @@ const SelectSection = (props) => (
       <Select
         id           = "select"
         fancy        = {true}
-        inputType    = "error"
+        inputState   = "error"
         labelText    = "Select Label:"
         options      = {["ipad", "mac", "iphone"]}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -121,7 +121,7 @@ const SelectSection = (props) => (
       <Select
         id           = "select"
         fancy        = {true}
-        inputType    = "disabled"
+        inputState   = "disabled"
         labelText    = "Select Label:"
         options      = {["ipad", "mac", "iphone"]}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -138,7 +138,7 @@ const SelectSection = (props) => (
       <Select
         id           = "select"
         fancy        = {true}
-        inputType    = "readOnly"
+        inputState   = "readOnly"
         labelText    = "Select Label:"
         options      = {["ipad", "mac", "iphone"]}
         infoMessage  = {props.intlDefaultText.textInputInfoMessage}

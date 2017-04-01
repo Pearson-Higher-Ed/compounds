@@ -7,10 +7,9 @@ const Icon = (props) => {
   const { name, children } = props;
 
   const icon_class = 'pe-icon--' + name;
-
-  const hidden   = (children) ? false         : true;
-  const roleAttr = (children) ? "img"         : null;
-  const i_id     = (children) ? '_'+uuid.v1() : null;
+  const hidden     = (children) ? false         : true;
+  const roleAttr   = (children) ? "img"         : null;
+  const i_id       = (children) ? '_'+uuid.v1() : null;
 
 
   return(

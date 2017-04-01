@@ -1,32 +1,29 @@
 import React, { PropTypes } from 'react';
 
 
-const RadioCheckGroup = (props) => {
-
-    const { id, inputType, name, legendText, options, checked, changeHandler, selectedOptions } = props;
-
-    return (
+const RadioCheckGroup = (props) =>  (
         <fieldset className="pe-fieldset">
-          <legend className="pe-legend">{legendText}</legend>
-          {options.map((b, i) => {
-            return (<div key={i} className="pe-radio">
-              <input type={inputType} name={name} id={`${name}-${b}-${i}`} checked={selectedOptions.indexOf(b) > -1} onChange={changeHandler}/>
-              <label htmlFor={b}>{b}</label>
-              <span>
-                <svg
-                  aria-hidden = "true"
-                  focusable   = "false"
-                  className   = {inputType==='radio'?"pe-icon--radio-dot":"pe-icon--sm-check-18"}
-                  >
-                  <use xlinkHref={inputType==='radio'?"#new-notification-9":"#sm-check-18"}></use>
-                </svg>
-              </span>
-            </div>)
+          <legend className="pe-legend">{props.legendText}</legend>
+          {props.options.map((b, i) => {
+            return (
+                  <div key={i} className="pe-radio">
+                    <input type={props.inputType} name={props.name} id={`${props.name}-${b}-${i}`} checked={props.selectedOptions.indexOf(b) > -1} onChange={props.changeHandler}/>
+                    <label htmlFor={b}>{b}</label>
+                    <span>
+                      <svg
+                        aria-hidden = "true"
+                        focusable   = "false"
+                        className   = {props.inputType==='radio'?"pe-icon--radio-dot":"pe-icon--sm-check-18"}
+                        >
+                        <use xlinkHref={props.inputType==='radio'?"#new-notification-9":"#sm-check-18" }></use>
+                      </svg>
+                    </span>
+                  </div>
+                )
             })
           }
         </fieldset>
     )
-}
 
 
 export default RadioCheckGroup;
