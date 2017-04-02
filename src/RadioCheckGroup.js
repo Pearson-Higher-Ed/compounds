@@ -6,7 +6,7 @@ const RadioCheckGroup = (props) =>  (
           <legend className="pe-legend">{props.legendText}</legend>
           {props.options.map((b, i) => {
             return (
-                  <div key={i} className="pe-radio">
+                  <div key={`${props.name}-${b}-${i}`} className="pe-radio">
                     <input type={props.inputType} name={props.name} id={`${props.name}-${b}-${i}`} checked={props.selectedOptions.indexOf(b) > -1} onChange={props.changeHandler}/>
                     <label htmlFor={b}>{b}</label>
                     <span>

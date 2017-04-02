@@ -13,6 +13,7 @@ const SelectSection = (props) => (
         <ul>
           <li>id:String === "a unique name"</li>
           <li>labelText:String === "a desciptive label"</li>
+          <li>inputType:String === "error","disabled","readOnly" leave off for default</li>
           <li>fancy:Boolean === true/false</li>
           <li>options:Object === js Object</li>
           <li>infoMessage:String === "an optional info message displayed below the input"</li>
@@ -26,11 +27,11 @@ const SelectSection = (props) => (
         id           = "select"
         labelText    = "Select Label:"
         options      = { ["ipad", "mac", "iphone"] }
-        infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-        errorMessage = {props.intlDefaultText.textInputErrorMessage}
+        infoMessage  = "This is an info message"
+        errorMessage = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" labelText="Select Label:" options={ {"ipad":"1", "mac":"4", "iphone":"6"} } showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<Select id="select" labelText="Select Label:" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
       <br/>
       <br/>
@@ -41,11 +42,11 @@ const SelectSection = (props) => (
         labelText    = "Select Label:"
         inputState   = "error"
         options      = { ["ipad", "mac", "iphone"] }
-        infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-        errorMessage = {props.intlDefaultText.textInputErrorMessage}
+        infoMessage  = "This is an info message"
+        errorMessage = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" labelText="Select Label:" options={ {"ipad":"1", "mac":"4", "iphone":"6"} } showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<Select id="select" labelText="Select Label:" inputState="error" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -57,11 +58,11 @@ const SelectSection = (props) => (
         labelText    = "Select Label:"
         inputState   = "disabled"
         options      = { ["ipad", "mac", "iphone"] }
-        infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-        errorMessage = {props.intlDefaultText.textInputErrorMessage}
+        infoMessage  = "This is an info message"
+        errorMessage = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" labelText="Select Label:" options={ {"ipad":"1", "mac":"4", "iphone":"6"} } showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<Select id="select" labelText="Select Label:" inputState="disabled" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -74,11 +75,11 @@ const SelectSection = (props) => (
         labelText    = "Select Label:"
         inputState   = "readOnly"
         options      = { ["ipad", "mac", "iphone"] }
-        infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-        errorMessage = {props.intlDefaultText.textInputErrorMessage}
+        infoMessage  = "This is an info message"
+        errorMessage = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" labelText="Select Label:" options={ {"ipad":"1", "mac":"4", "iphone":"6"} } showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<Select id="select" labelText="Select Label:" inputState="readOnly" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -91,11 +92,11 @@ const SelectSection = (props) => (
         fancy        = {true}
         labelText    = "Select Label:"
         options      = {["ipad", "mac", "iphone"]}
-        infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-        errorMessage = {props.intlDefaultText.textInputErrorMessage}
+        infoMessage  = "This is an info message"
+        errorMessage = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" fancy={true} labelText="Select Label:" options={ {"ipad":"1", "mac":"4", "iphone":"6"} } showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<Select id="select" fancy={true} labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
       <br/>
       <br/>
@@ -107,11 +108,11 @@ const SelectSection = (props) => (
         inputState   = "error"
         labelText    = "Select Label:"
         options      = {["ipad", "mac", "iphone"]}
-        infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-        errorMessage = {props.intlDefaultText.textInputErrorMessage}
+        infoMessage  = "This is an info message"
+        errorMessage = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" fancy={true} labelText="Select Label:" options={ {"ipad":"1", "mac":"4", "iphone":"6"} } showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<Select id="select" fancy={true} inputState="error" labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -124,11 +125,11 @@ const SelectSection = (props) => (
         inputState   = "disabled"
         labelText    = "Select Label:"
         options      = {["ipad", "mac", "iphone"]}
-        infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-        errorMessage = {props.intlDefaultText.textInputErrorMessage}
+        infoMessage  = "This is an info message"
+        errorMessage = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" fancy={true} labelText="Select Label:" options={ {"ipad":"1", "mac":"4", "iphone":"6"} } showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<Select id="select" fancy={true} inputState="disabled" labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -141,14 +142,15 @@ const SelectSection = (props) => (
         inputState   = "readOnly"
         labelText    = "Select Label:"
         options      = {["ipad", "mac", "iphone"]}
-        infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-        errorMessage = {props.intlDefaultText.textInputErrorMessage}
+        infoMessage  = "This is an info message"
+        errorMessage = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" fancy={true} labelText="Select Label:" options={ {"ipad":"1", "mac":"4", "iphone":"6"} } showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<Select id="select" fancy={true} inputState="readOnly" labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
   </div>
 )
+
 
 export default SelectSection;
