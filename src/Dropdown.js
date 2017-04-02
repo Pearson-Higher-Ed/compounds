@@ -6,6 +6,11 @@ import './Dropdown.scss';
 
 class Dropdown extends Component {
 
+  static propTypes = {
+    list: React.PropTypes.array.isRequired,
+    lineBreak: React.PropTypes.bool
+  };
+
   constructor(props) {
     super(props)
 
@@ -14,30 +19,36 @@ class Dropdown extends Component {
     }
   }
 
-  _handleDropDown() {
+  handleDropDown() {
     this.setState({
       open: !this.state.open
     })
   }
 
-  _renderListItems() {
+  renderListItems() {
     let items = [];
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
-      items.push(<li className="pe-label" key={i}>{item.listItem}</li>)
+      items.push(<li key={i}>
+                  <button type="button" className="pe-label">
+                    <Icon name='check-sm-18'>Selected</Icon>
+                    <span>{item}</span>
+                  </button>
+                </li>);
     }
     return items;
   }
 
   render() {
+
     return(
       <div>
-        <div onClick={this._handleDropDown.bind(this)} className="dropdown-container">
-          <button className="dropdown-btn"><Icon name='dropdown-open-18'>Open</Icon></button>
+        <div onClick={this.handleDropDown.bind(this)} className="dropdown-container">
+          <button className="icon-btn"><Icon name='dropdown-open-18'>Open</Icon></button>
           { this.state.open
             ?
             <ul className="li-wrapper">
-              {this._renderListItems()}
+              {this.renderListItems()}
             </ul>
             : null
           }
