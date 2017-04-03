@@ -20,23 +20,24 @@ class Select extends Component {
   render() {
 
     const { labelStyle, inputStyle, spanStyle, selectStyle, containerStyle, containerFocusStyle, disabledStyle, containerStyleTmp, labelFocusStyle, labelStyleTmp } = this.state;
-    const { id, fancy, labelText, inputState, options, infoMessage, errorMessage, changeHandler } = this.props;
+    const { id, fancy, labelText, inputState, options, infoMessage, errorMessage, changeHandler, selectedOption } = this.props;
 
       return (
         <div>
           <label className={labelStyleTmp} htmlFor={id}>{labelText}</label>
           <div className={containerStyleTmp}>
-            <select id        = {id}
-                    className = {selectStyle}
-                    disabled  = {inputState === 'disabled' || inputState === 'readOnly'}
-                    onFocus   = { () => this.setState({labelStyleTmp:labelFocusStyle, containerStyleTmp:containerFocusStyle}) }
-                    onBlur    = { () => this.setState({labelStyleTmp:labelStyle, containerStyleTmp:containerStyle}) }
-                    onChange  = { changeHandler }
+            <select id           = {id}
+                    defaultValue = {selectedOption}
+                    className    = {selectStyle}
+                    disabled     = {inputState === 'disabled' || inputState === 'readOnly'}
+                    onFocus      = { () => this.setState({labelStyleTmp:labelFocusStyle, containerStyleTmp:containerFocusStyle}) }
+                    onBlur       = { () => this.setState({labelStyleTmp:labelStyle, containerStyleTmp:containerStyle}) }
+                    onChange     = { changeHandler }
                     >
               {options.map((o, i) => <option key={`select-${id}-${i}`}>{o}</option>)}
             </select>
             {fancy && <span className={spanStyle} />}
-            <Icon name="dropdown-open-18" />
+            <Icon name='dropdown-open-18' />
           </div>
           {infoMessage  && <span className='pe-input--info_message'>{infoMessage}</span>}
           {errorMessage && <span className='pe-input--error_message'>{errorMessage}</span>}
@@ -95,11 +96,11 @@ function _applySelectStyles() {
             labelFocusStyle = 'pe-textLabelInput__label';
             break;
           default:
-            labelStyle          = 'pe-textLabelInput__label';
-            selectStyle         = fancy ? 'pe-selectInput--fancy'      : 'pe-selectInput--basic';
-            spanStyle           = fancy ? 'pe-input_underline'         : '';
-            containerStyle      = fancy ? 'pe-select-container--fancy' : 'pe-select-container';
-            labelFocusStyle     = 'pe-textLabelInput__label--label_focus';
+            labelStyle      = 'pe-textLabelInput__label';
+            selectStyle     = fancy ? 'pe-selectInput--fancy'      : 'pe-selectInput--basic';
+            spanStyle       = fancy ? 'pe-input_underline'         : '';
+            containerStyle  = fancy ? 'pe-select-container--fancy' : 'pe-select-container';
+            labelFocusStyle = 'pe-textLabelInput__label--label_focus';
 
             containerFocusStyle = fancy ? 'pe-select-container-fancy-focus' : 'pe-select-container-focus';
         };

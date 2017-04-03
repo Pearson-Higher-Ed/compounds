@@ -39,6 +39,8 @@ const PasswordInputSection = (props) => (
           hideText     = {props.intlDefaultText.hideText}
           />
         <p className="code">{'<TextInput password={true} fancy={true} id="PasswordInputFancy" controlFunc={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText} />'}</p>
+
+
       <br />
       <br />
 
@@ -56,8 +58,10 @@ const PasswordInputSection = (props) => (
           hideText     = {props.intlDefaultText.hideText}
           />
         <p className="code">{'<TextInput password={true} id="PasswordInputBasic" controlFunc={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} showText={props.intlDefaultText.showText} hideText={props.intlDefaultText.hideText} />'}</p>
-      <br />
-      <br />
+
+
+        <br />
+        <br />
 
 
       <h2>PasswordInput - Basic Error:</h2>
@@ -180,4 +184,6 @@ const PasswordInputSection = (props) => (
 
   </div>
 )
+
+
 export default PasswordInputSection;

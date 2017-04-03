@@ -1,12 +1,14 @@
 const path              = require('path');
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const demo              = `${__dirname}/demo/demo.js`;
 const demoScss          = `${__dirname}/demo/demo.scss`;
 const main              = `${__dirname}/demo/main.js`;
 const compounds         = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
+const fonts             = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 
 
 module.exports = {
@@ -85,6 +87,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new CopyWebpackPlugin([ { from: fonts, to: 'fonts' } ])
   ]
 };

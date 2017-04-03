@@ -55,6 +55,7 @@
     "babel-register": "^6.23.0",
     "colors": "~1.1.2",
     "conventional-changelog": "~1.1.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "enzyme": "^2.5.1",
     "eslint": "^1.10.3",

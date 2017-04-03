@@ -159,7 +159,8 @@ const TextInputSection = (props) => (
       <p className="code">{'<TextInput id="h" inputState="readOnly" controlFunc={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
 
 
-</div>
+  </div>
 )
+
 
 export default TextInputSection;
