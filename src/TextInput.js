@@ -25,7 +25,7 @@ class TextInput extends Component {
   render() {
 
     const { labelStyle, inputStyle, spanStyle, passwordStatusText, passwordTypeSelector, butttonStyle, labelFocusStyle, labelStyleTmp  }  = this.state;
-    const { inputState, fancy, id, labelText, password, placeholder, infoMessage, errorMessage } = this.props;
+    const { inputState, fancy, id, labelText, password, placeholder, infoMessage, errorMessage, changeHandler } = this.props;
 
     return (
       <div>
@@ -40,6 +40,7 @@ class TextInput extends Component {
           readOnly    = {inputState === 'readOnly'}
           onFocus     = {() => this.setState({labelStyleTmp:labelFocusStyle})}
           onBlur      = {() => this.setState({labelStyleTmp:labelStyle})}
+          onChange    = { changeHandler }
           />
 
         {inputState  !== 'readOnly' && <span className={spanStyle} />}
@@ -56,13 +57,15 @@ export default TextInput;
 
 
 TextInput.propTypes = {
-  inputState   : PropTypes.string,
-  id           : PropTypes.string,
-  labelText    : PropTypes.string,
-  placeholder  : PropTypes.string,
-  infoMessage  : PropTypes.string,
-  errorMessage : PropTypes.string,
-  fancy        : PropTypes.bool
+  inputState    : PropTypes.string,
+  id            : PropTypes.string,
+  labelText     : PropTypes.string,
+  placeholder   : PropTypes.string,
+  infoMessage   : PropTypes.string,
+  errorMessage  : PropTypes.string,
+  changeHandler : PropTypes.func,
+  fancy         : PropTypes.bool,
+  password      : PropTypes.bool
 };
 
 
@@ -79,14 +82,14 @@ function _togglePassword() {
 
 function _applyTextInputStyles() {
   let { labelStyle, inputStyle, spanStyle, butttonStyle, labelFocusStyle, labelStyleTmp } = this.state;
-  const { fancy, inputState, id } = this.props;
+  const { fancy, inputState } = this.props;
 
   switch (inputState) {
     case 'error':
       labelStyle      = 'pe-textLabelInput__label--label_error';
       inputStyle      = fancy ? 'pe-textInput--input_error' : 'pe-textInput--basic_error';
       spanStyle       = fancy ? 'pe-inputError_underline'   : '';
-      butttonStyle    = fancy ? 'pe-textInput__showButton'  : 'pe-textInput__showButton-basic'
+      butttonStyle    = fancy ? 'pe-textInput__showButton--error'  : 'pe-textInput__showButton-basic'
       labelFocusStyle = 'pe-textLabelInput__label--label_error';
       break;
     case 'disabled':

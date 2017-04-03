@@ -20,7 +20,7 @@ class Select extends Component {
   render() {
 
     const { labelStyle, inputStyle, spanStyle, selectStyle, containerStyle, containerFocusStyle, disabledStyle, containerStyleTmp, labelFocusStyle, labelStyleTmp } = this.state;
-    const { id, fancy, labelText, inputState, options, infoMessage, errorMessage } = this.props;
+    const { id, fancy, labelText, inputState, options, infoMessage, errorMessage, changeHandler } = this.props;
 
       return (
         <div>
@@ -31,8 +31,9 @@ class Select extends Component {
                     disabled  = {inputState === 'disabled' || inputState === 'readOnly'}
                     onFocus   = { () => this.setState({labelStyleTmp:labelFocusStyle, containerStyleTmp:containerFocusStyle}) }
                     onBlur    = { () => this.setState({labelStyleTmp:labelStyle, containerStyleTmp:containerStyle}) }
+                    onChange  = { changeHandler }
                     >
-              {options.map((o, i) => <option key={i}>{o}</option>)}
+              {options.map((o, i) => <option key={`select-${id}-${i}`}>{o}</option>)}
             </select>
             {fancy && <span className={spanStyle} />}
             <Icon name="dropdown-open-18" />
@@ -51,12 +52,15 @@ export default Select;
 
 
 Select.propTypes = {
-  id           : PropTypes.string,
-  labelText    : PropTypes.string,
-  infoMessage  : PropTypes.string,
-  errorMessage : PropTypes.string,
-  options      : PropTypes.array,
-  fancy        : PropTypes.bool
+  id            : PropTypes.string,
+  labelText     : PropTypes.string,
+  infoMessage   : PropTypes.string,
+  errorMessage  : PropTypes.string,
+  options       : PropTypes.array,
+  fancy         : PropTypes.bool,
+  inputState    : PropTypes.string,
+  options       : PropTypes.array,
+  changeHandler : PropTypes.func
 };
 
 
@@ -84,10 +88,10 @@ function _applySelectStyles() {
             break;
           case 'readOnly':
             labelStyle      = 'pe-textLabelInput__label';
-            selectStyle     = fancy ? 'pe-selectInput-fancy-disabled' : 'pe-selectInput-fancy-disabled';
+            selectStyle     = fancy ? 'pe-selectInput-fancy-readonly' : 'pe-select-container-readonly';
             spanStyle       = '';
             disabledStyle   = 'disabled';
-            containerStyle  = fancy ? 'pe-select-container-fancy-disabled' : 'pe-select-container-fancy-disabled';
+            containerStyle  = fancy ? 'pe-select-container-fancy-readonly' : 'pe-select-container-readonly';
             labelFocusStyle = 'pe-textLabelInput__label';
             break;
           default:

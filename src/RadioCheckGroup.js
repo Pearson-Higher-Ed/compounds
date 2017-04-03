@@ -30,8 +30,10 @@ export default RadioCheckGroup;
 
 
 RadioCheckGroup.propTypes = {
-  id         : PropTypes.string,
-  legendText : PropTypes.string,
-  options    : PropTypes.array,
-  inputType  : PropTypes.oneOf(['checkbox', 'radio'])
+  id            : PropTypes.string,
+  legendText    : PropTypes.string,
+  options       : PropTypes.array,
+  inputType     : PropTypes.oneOf(['checkbox', 'radio']),
+  changeHandler : PropTypes.func,
+  selectedOptions : PropTypes.array
 };

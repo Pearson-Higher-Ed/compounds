@@ -16,8 +16,8 @@ class MultiLineText extends Component {
 
 
   render() {
-      const { id, labelText, placeholder, infoMessage, errorMessage, inputState } = this.props;
-      const { labelStyle, inputStyle, labelFocusStyle, labelFocusStyleTmp }       = this.state;
+      const { id, labelText, placeholder, infoMessage, errorMessage, inputState, changeHandler } = this.props;
+      const { labelStyle, inputStyle, labelFocusStyle, labelFocusStyleTmp } = this.state;
 
       return (
         <div>
@@ -30,6 +30,7 @@ class MultiLineText extends Component {
                     disabled    = {inputState === 'disabled' || inputState === 'readOnly'}
                     onFocus     = {() => this.setState({labelFocusStyleTmp:labelFocusStyle})}
                     onBlur      = {() => this.setState({labelFocusStyleTmp:labelStyle})}
+                    onChange    = {changeHandler}
                     >
           </textarea>
           {infoMessage  && <span className="pe-input--info_message">{infoMessage}</span>}
