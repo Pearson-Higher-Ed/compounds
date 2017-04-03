@@ -2,6 +2,19 @@ body {
   padding-left: 1px;
 }
 
+.dropdown-divider {
+  border-bottom: 1px solid #d9d9d9;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin: 0;
+}
+
+.divider-container {
+  margin: 8px 0;
+  padding: 0 24px 0 32px;
+}
+
 .icon-btn {
   background: transparent;
   border: 0;

@@ -7,8 +7,7 @@ import './Dropdown.scss';
 class Dropdown extends Component {
 
   static propTypes = {
-    list: React.PropTypes.array.isRequired,
-    lineBreak: React.PropTypes.bool
+    list: React.PropTypes.array.isRequired
   };
 
   constructor(props) {
@@ -27,14 +26,21 @@ class Dropdown extends Component {
 
   renderListItems() {
     let items = [];
+    const hr = <div className="divider-container">
+                 <hr className="dropdown-divider" />
+               </div>
+
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
-      items.push(<li key={i}>
-                  <button type="button" className="pe-label">
-                    <Icon name='check-sm-18'>Selected</Icon>
-                    <span>{item}</span>
-                  </button>
-                </li>);
+
+      item === 'divider'
+        ? items.push(hr)
+        : items.push(<li key={i}>
+                       <button type="button" className="pe-label">
+                         <Icon name='check-sm-18'>Selected</Icon>
+                         <span>{item}</span>
+                       </button>
+                    </li>);
     }
     return items;
   }
