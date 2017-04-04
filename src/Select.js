@@ -53,15 +53,14 @@ export default Select;
 
 
 Select.propTypes = {
-  id            : PropTypes.string,
-  labelText     : PropTypes.string,
+  id            : PropTypes.string.isRequired,
+  labelText     : PropTypes.string.isRequired,
+  options       : PropTypes.array.isRequired,
+  changeHandler : PropTypes.func.isRequired,
   infoMessage   : PropTypes.string,
   errorMessage  : PropTypes.string,
-  options       : PropTypes.array,
   fancy         : PropTypes.bool,
-  inputState    : PropTypes.string,
-  options       : PropTypes.array,
-  changeHandler : PropTypes.func
+  inputState    : PropTypes.string
 };
 
 

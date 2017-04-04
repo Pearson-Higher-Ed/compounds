@@ -17,7 +17,7 @@ const SelectSection = (props) => (
           <li>fancy:Boolean === true/false</li>
           <li>options:Arrat === list of options</li>
           <li>selectedOption:String === the option selected</li>
-          <li>controlFunc:Function === handles selection</li>
+          <li>changeHandler:Function === handles selection</li>
           <li>infoMessage:String === "an optional info message displayed below the input"</li>
           <li>errorMessage:String === "an optional error message displayed below the input"</li>
         </ul>
@@ -30,12 +30,12 @@ const SelectSection = (props) => (
         labelText      = "Select Label:"
         options        = { ["ipad", "mac", "iphone"] }
         selectedOption = "mac"
-        controlFunc    = {() => {}}
+        changeHandler  = {() => {}}
         infoMessage    = "This is an info message"
         errorMessage   = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" controlFunc={() => {}} selectedOption="mac" labelText="Select Label:" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+      <p className="code">{'<Select id="select" changeHandler={() => {}} selectedOption="mac" labelText="Select Label:" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
       <br/>
       <br/>
@@ -47,12 +47,12 @@ const SelectSection = (props) => (
         inputState     = "error"
         options        = { ["ipad", "mac", "iphone"] }
         selectedOption = "iphone"
-        controlFunc    = {() => {}}
+        changeHandler  = {() => {}}
         infoMessage    = "This is an info message"
         errorMessage   = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" controlFunc={() => {}} selectedOption="iphone" labelText="Select Label:" inputState="error" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+      <p className="code">{'<Select id="select" changeHandler={() => {}} selectedOption="iphone" labelText="Select Label:" inputState="error" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -65,12 +65,12 @@ const SelectSection = (props) => (
         inputState     = "disabled"
         options        = { ["ipad", "mac", "iphone"] }
         selectedOption = "ipad"
-        controlFunc    = {() => {}}
+        changeHandler  = {() => {}}
         infoMessage    = "This is an info message"
         errorMessage   = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" controlFunc={() => {}} selectedOption="ipad" labelText="Select Label:" inputState="disabled" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+      <p className="code">{'<Select id="select" changeHandler={() => {}} selectedOption="ipad" labelText="Select Label:" inputState="disabled" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -84,12 +84,12 @@ const SelectSection = (props) => (
         inputState     = "readOnly"
         options        = { ["ipad", "mac", "iphone"] }
         selectedOption = "mac"
-        controlFunc    = {() => {}}
+        changeHandler  = {() => {}}
         infoMessage    = "This is an info message"
         errorMessage   = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" controlFunc={() => {}} selectedOption="mac" labelText="Select Label:" inputState="readOnly" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+      <p className="code">{'<Select id="select" changeHandler={() => {}} selectedOption="mac" labelText="Select Label:" inputState="readOnly" options={ ["ipad", "mac", "iphone"] } infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -103,12 +103,12 @@ const SelectSection = (props) => (
         labelText      = "Select Label:"
         options        = {["ipad", "mac", "iphone"]}
         selectedOption = "iphone"
-        controlFunc    = {() => {}}
+        changeHandler  = {() => {}}
         infoMessage    = "This is an info message"
         errorMessage   = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" fancy={true} controlFunc={() => {}} selectedOption="iphone" labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+      <p className="code">{'<Select id="select" fancy={true} changeHandler={() => {}} selectedOption="iphone" labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
       <br/>
       <br/>
@@ -121,12 +121,12 @@ const SelectSection = (props) => (
         labelText      = "Select Label:"
         options        = {["ipad", "mac", "iphone"]}
         selectedOption = "iphone"
-        controlFunc    = {() => {}}
+        changeHandler  = {() => {}}
         infoMessage    = "This is an info message"
         errorMessage   = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" fancy={true} selectedOption="iphone" inputState="error" controlFunc={() => {}} labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+      <p className="code">{'<Select id="select" fancy={true} selectedOption="iphone" inputState="error" changeHandler={() => {}} labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -140,12 +140,12 @@ const SelectSection = (props) => (
         labelText      = "Select Label:"
         options        = {["ipad", "mac", "iphone"]}
         selectedOption = "iphone"
-        controlFunc    = {() => {}}
+        changeHandler  = {() => {}}
         infoMessage    = "This is an info message"
         errorMessage   = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" fancy={true} selectedOption="iphone" inputState="disabled" controlFunc={() => {}} labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+      <p className="code">{'<Select id="select" fancy={true} selectedOption="iphone" inputState="disabled" changeHandler={() => {}} labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br/>
@@ -159,12 +159,12 @@ const SelectSection = (props) => (
         labelText      = "Select Label:"
         options        = {["ipad", "mac", "iphone"]}
         selectedOption = "ipad"
-        controlFunc    = {() => {}}
+        changeHandler  = {() => {}}
         infoMessage    = "This is an info message"
         errorMessage   = "This is an error message"
         />
 
-      <p className="code">{'<Select id="select" selectedOption="iphone" fancy={true} inputState="readOnly" controlFunc={() => {}} labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+      <p className="code">{'<Select id="select" selectedOption="iphone" fancy={true} inputState="readOnly" changeHandler={() => {}} labelText="Select Label:" options={["ipad", "mac", "iphone"]} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
   </div>

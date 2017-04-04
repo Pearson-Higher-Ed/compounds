@@ -16,6 +16,7 @@ class MultiLineText extends Component {
 
 
   render() {
+
       const { id, labelText, placeholder, infoMessage, errorMessage, inputState, changeHandler } = this.props;
       const { labelStyle, inputStyle, labelFocusStyle, labelFocusStyleTmp } = this.state;
 
@@ -47,9 +48,9 @@ export default MultiLineText;
 
 
 MultiLineText.propTypes = {
-  id           : PropTypes.string,
-  labelText    : PropTypes.string,
-  placeholder  : PropTypes.string,
+  id           : PropTypes.string.isRequired,
+  labelText    : PropTypes.string.isRequired,
+  placeholder  : PropTypes.string.isRequired,
   infoMessage  : PropTypes.string,
   errorMessage : PropTypes.string
 };

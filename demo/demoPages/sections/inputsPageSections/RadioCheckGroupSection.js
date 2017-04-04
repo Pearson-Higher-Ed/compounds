@@ -16,8 +16,8 @@ const RadioCheckGroupSection = (props) => {
             <li>legendText:String     === "a desciptive label"</li>
             <li>options:Object        === {'{<option>:<inputState>,<option>:<inputState>, ... }'} where inputState is one of 'default','disabled','readonly','default-checked','disabled-checked','readonly-checked'. </li>
             <li>name:String           === "a desciptive name"</li>
-            <li>SelectedOptions:Array === "the checked options"</li>
-            <li>controlFunc:Function  === "handles populating the selected options from the options"</li>
+            <li>SelectedOptions:Array === "the checked options (radio only supports a single selected option by definition)"</li>
+            <li>changeHandler:Function  === "handles populating the selected options from the options"</li>
           </ul>
 
         </div>
@@ -30,11 +30,11 @@ const RadioCheckGroupSection = (props) => {
           name            = "radiobutton1"
           legendText      = "These are radio buttons"
           options         = {{"tea":"default","coffee":"disabled","soda":"readonly","water":"disabled-checked"}}
-          selectedOptions = {["tea"]}
-          controlFunc     = {() => {}}
+          selectedOptions = {["coffee"]}
+          changeHandler   = {() => {}}
           />
         <br />
-        <p className="code">{'<RadioCheckGroup inputType="radio" id="radiobutton1" legendText="radiobutton1" options={{"tea":"default","coffee":"disabled","soda":"readonly","water":"disabled-checked"}} selectedOptions={["tea"]} controlFunc={() => {}} />'}</p>
+        <p className="code">{'<RadioCheckGroup inputType="radio" id="radiobutton1" legendText="radiobutton1" options={{"tea":"default","coffee":"disabled","soda":"readonly","water":"disabled-checked"}} selectedOptions={["tea"]} changeHandler={() => {}} />'}</p>
 
         <h2>Checkbox Group:</h2>
 
@@ -44,11 +44,11 @@ const RadioCheckGroupSection = (props) => {
           name            = "checkbox1"
           legendText      = "These are checkboxes"
           options         = {{"tea":"default","coffee":"disabled","soda":"readonly","water":"disabled-checked"}}
-          selectedOptions = {["coffee","soda"]}
-          controlFunc     = {() => {}}
+          selectedOptions = {["coffee","water","tea"]}
+          changeHandler   = {() => {}}
           />
         <br />
-        <p className="code">{'<RadioCheckGroup inputType="checkbox" id="checkbox1" legendText="checkbox1" options={{"tea":"default","coffee":"disabled","soda":"readonly","water":"disabled-checked"}} selectedOptions={["tea"]} controlFunc={() => {}} />'}</p>
+        <p className="code">{'<RadioCheckGroup inputType="checkbox" id="checkbox1" legendText="checkbox1" options={{"tea":"default","coffee":"disabled","soda":"readonly","water":"disabled-checked"}} selectedOptions={["tea"]} changeHandler={() => {}} />'}</p>
 
     </div>
   )

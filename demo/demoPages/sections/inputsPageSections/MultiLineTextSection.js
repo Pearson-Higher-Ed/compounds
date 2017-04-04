@@ -14,7 +14,7 @@ const MultiLineTextSection = (props) => (
         <li>id:String === "a unique name"</li>
         <li>labelText:String === "a desciptive label"</li>
         <li>placeholder:String === "multi-line text</li>
-        <li>controlFunc:Function === handles selection</li>
+        <li>changeHandler:Function === handles selection</li>
         <li>infoMessage:String === "an optional info message displayed below the input"</li>
         <li>errorMessage:String === "an optional error message displayed below the input"</li>
       </ul>
@@ -27,12 +27,12 @@ const MultiLineTextSection = (props) => (
       id           = "Multi"
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
-      controlFunc  = {() => {}}
+      changeHandler  = {() => {}}
       infoMessage  = {props.intlDefaultText.textInputInfoMessage}
       errorMessage = {props.intlDefaultText.textInputErrorMessage}
       />
 
-    <p className="code">{'<MultiLineText id="Multi" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." controlFunc={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+    <p className="code">{'<MultiLineText id="Multi" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
     <br />
     <br />
@@ -44,12 +44,12 @@ const MultiLineTextSection = (props) => (
       inputState   = 'error'
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
-      controlFunc  = {() => {}}
+      changeHandler  = {() => {}}
       infoMessage  = {props.intlDefaultText.textInputInfoMessage}
       errorMessage = {props.intlDefaultText.textInputErrorMessage}
       />
 
-    <p className="code">{'<MultiLineText id="Multi" inputState="error" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." controlFunc={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+    <p className="code">{'<MultiLineText id="Multi" inputState="error" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
     <br />
@@ -61,13 +61,13 @@ const MultiLineTextSection = (props) => (
       inputState   = 'readOnly'
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
-      controlFunc  = {() => {}}
+      changeHandler  = {() => {}}
       infoMessage  = {props.intlDefaultText.textInputInfoMessage}
       errorMessage = {props.intlDefaultText.textInputErrorMessage}
       readOnly     = {true}
       />
 
-    <p className="code">{'<MultiLineText id="Multi" inputState="readOnly" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." controlFunc={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" readOnly={true} />'}</p>
+    <p className="code">{'<MultiLineText id="Multi" inputState="readOnly" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" readOnly={true} />'}</p>
 
 
     <br />
@@ -79,13 +79,13 @@ const MultiLineTextSection = (props) => (
       inputState   = 'disabled'
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
-      controlFunc  = {() => {}}
+      changeHandler  = {() => {}}
       infoMessage  = {props.intlDefaultText.textInputInfoMessage}
       errorMessage = {props.intlDefaultText.textInputErrorMessage}
       disabled     = {true}
       />
 
-    <p className="code">{'<MultiLineText id="Multi" inputState="disabled" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." controlFunc={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" disabled={true} />'}</p>
+    <p className="code">{'<MultiLineText id="Multi" inputState="disabled" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" disabled={true} />'}</p>
 
 
   </div>

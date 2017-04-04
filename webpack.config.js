@@ -1,7 +1,6 @@
 const path              = require('path');
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const demo              = `${__dirname}/demo/demo.js`;
 const demoScss          = `${__dirname}/demo/demo.scss`;
 const main              = `${__dirname}/demo/main.js`;
@@ -87,7 +86,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV' : JSON.stringify(process.env.NODE_ENV)
     }),
-    new webpack.NamedModulesPlugin(),
-    new CopyWebpackPlugin([ { from: fonts, to: 'fonts' } ])
+    new webpack.NamedModulesPlugin()
   ]
 };

@@ -44,7 +44,7 @@ class TextInput extends Component {
           />
 
         {inputState  !== 'readOnly' && <span className={spanStyle} />}
-        {password && <button className={butttonStyle} id={`showbutton-${id}`} onClick={this.togglePassword} disabled={inputState === 'disabled'}>{passwordStatusText}</button>}
+        {password     && <button className={butttonStyle} id={`showbutton-${id}`} onClick={this.togglePassword} disabled={inputState === 'disabled'}>{passwordStatusText}</button>}
         {infoMessage  && <span className="pe-input--info_message">{infoMessage}</span>}
         {errorMessage && <span className="pe-input--error_message">{errorMessage}</span>}
       </div>
@@ -57,13 +57,13 @@ export default TextInput;
 
 
 TextInput.propTypes = {
+  id            : PropTypes.string.isRequired,
+  labelText     : PropTypes.string.isRequired,
+  placeholder   : PropTypes.string.isRequired,
+  changeHandler : PropTypes.func.isRequired,
   inputState    : PropTypes.string,
-  id            : PropTypes.string,
-  labelText     : PropTypes.string,
-  placeholder   : PropTypes.string,
   infoMessage   : PropTypes.string,
   errorMessage  : PropTypes.string,
-  changeHandler : PropTypes.func,
   fancy         : PropTypes.bool,
   password      : PropTypes.bool
 };
