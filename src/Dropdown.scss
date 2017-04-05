@@ -6,6 +6,10 @@
   margin: 0;
 }
 
+svg[id^='svg-id-'] {
+  opacity: 1 !important;
+}
+
 .divider-container {
   margin: 8px 0;
   padding: 0 24px 0 32px;

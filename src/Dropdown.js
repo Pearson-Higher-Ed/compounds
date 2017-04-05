@@ -28,6 +28,7 @@ class Dropdown extends Component {
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
+      console.log(this.state.selectedItem, 'test');
 
       const dividerLine = <div className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
@@ -38,17 +39,17 @@ class Dropdown extends Component {
                                           onClick={this.selectedItem}>
                                         <button type="button" className="pe-label">
                                           <svg
+                                            id={"svg-id" + (this.state.selectedItem !== ''
+                                              ? `-${this.state.selectedItem}` : '')}
                                             aria-hidden="true"
                                             focusable="false"
-                                            className="pe-icon--check-sm-18"
-                                            style={opacity}>
-                                            <use xlinkHref="#check-sm-18"></use>
+                                            style={opacity}
+                                            className="pe-icon--check-sm-18">
+                                            <use xlinkHref="#check-sm-18">Selected</use>
                                           </svg>
                                             <span className="dropdown-item">{item}</span>
                                         </button>
                                       </li>);
-
-      item === this.state.selectedItem ? opacity = {opacity: 1} : opacity = {opacity: 0};
     }
     return items;
   }
@@ -81,7 +82,5 @@ function _toggleDropDown() {
 };
 
 function _selectedItem(e) {
-  const textTarget = e.target.innerText;
-  this.setState({ selectedItem: textTarget });
-  console.log(textTarget, 'state item');
+  this.setState({ selectedItem: e.target.innerText });
 };
