@@ -6,8 +6,12 @@
   margin: 0;
 }
 
+.li-wrapper svg {
+  opacity: 0;
+}
+
 svg[id^='svg-id-'] {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 .divider-container {

@@ -24,7 +24,6 @@ class Dropdown extends Component {
 
   renderListItems() {
     let items = [];
-    let opacity = {opacity: 0};
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
@@ -39,11 +38,11 @@ class Dropdown extends Component {
                                           onClick={this.selectedItem}>
                                         <button type="button" className="pe-label">
                                           <svg
-                                            id={"svg-id" + (this.state.selectedItem !== ''
-                                              ? `-${this.state.selectedItem}` : '')}
+                                            id={"svg-id" + (this.state.selectedItem === item
+                                              ? `-${this.state.selectedItem}`
+                                              : '' )}
                                             aria-hidden="true"
                                             focusable="false"
-                                            style={opacity}
                                             className="pe-icon--check-sm-18">
                                             <use xlinkHref="#check-sm-18">Selected</use>
                                           </svg>
@@ -60,12 +59,10 @@ class Dropdown extends Component {
       <div>
         <div onClick={this.toggleDropDown} className="dropdown-container">
           <button className="icon-btn"><Icon name='dropdown-open-18'>Open</Icon></button>
-          { this.state.open
-            ?
+          { this.state.open &&
             <ul className="li-wrapper">
               {this.renderListItems()}
             </ul>
-            : null
           }
         </div>
 
