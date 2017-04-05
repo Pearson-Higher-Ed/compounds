@@ -14,33 +14,41 @@ class Dropdown extends Component {
     super(props)
 
     this.state = {
-      open: false
+      open: false,
+      selectedItem: ''
     }
-  }
 
-  handleDropDown() {
-    this.setState({
-      open: !this.state.open
-    })
+    this.toggleDropDown = _toggleDropDown.bind(this);
+    this.selectedItem = _selectedItem.bind(this);
   }
 
   renderListItems() {
     let items = [];
-    const hr = <div className="divider-container">
-                 <hr className="dropdown-divider" />
-               </div>
+    let opacity = {opacity: 0};
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
 
-      item === 'divider'
-        ? items.push(hr)
-        : items.push(<li key={i}>
-                       <button type="button" className="pe-label">
-                         <Icon name='check-sm-18'>Selected</Icon>
-                         <span>{item}</span>
-                       </button>
-                    </li>);
+      const dividerLine = <div className="divider-container" key={i}>
+                            <hr className="dropdown-divider" />
+                          </div>;
+
+      item === 'divider' ? items.push(dividerLine)
+                         : items.push(<li key={i}
+                                          onClick={this.selectedItem}>
+                                        <button type="button" className="pe-label">
+                                          <svg
+                                            aria-hidden="true"
+                                            focusable="false"
+                                            className="pe-icon--check-sm-18"
+                                            style={opacity}>
+                                            <use xlinkHref="#check-sm-18"></use>
+                                          </svg>
+                                            <span className="dropdown-item">{item}</span>
+                                        </button>
+                                      </li>);
+
+      item === this.state.selectedItem ? opacity = {opacity: 1} : opacity = {opacity: 0};
     }
     return items;
   }
@@ -49,7 +57,7 @@ class Dropdown extends Component {
 
     return(
       <div>
-        <div onClick={this.handleDropDown.bind(this)} className="dropdown-container">
+        <div onClick={this.toggleDropDown} className="dropdown-container">
           <button className="icon-btn"><Icon name='dropdown-open-18'>Open</Icon></button>
           { this.state.open
             ?
@@ -67,3 +75,13 @@ class Dropdown extends Component {
 };
 
 export default Dropdown;
+
+function _toggleDropDown() {
+  this.setState({ open: !this.state.open })
+};
+
+function _selectedItem(e) {
+  const textTarget = e.target.innerText;
+  this.setState({ selectedItem: textTarget });
+  console.log(textTarget, 'state item');
+};
