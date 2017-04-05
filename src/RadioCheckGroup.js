@@ -5,7 +5,6 @@ const RadioCheckGroup = (props) => {
 
   const { legendText, options, name, inputType, selectedOptions, changeHandler } = props;
 
-
   return (
         <fieldset className="pe-fieldset">
           <legend className="pe-legend">{legendText}</legend>
@@ -17,7 +16,7 @@ const RadioCheckGroup = (props) => {
                            name     = {name}
                            value    = {opt}
                            checked  = {selectedOptions.indexOf(opt) > -1}
-                           disabled = {(inputType === 'checkbox') ? options[opt].toLowerCase().indexOf('disabled') > -1 : Object.keys(options).filter(o => { options[o] === 'disabled'}).length > -1}
+                           disabled = {(inputType === 'checkbox') ? options[opt].toLowerCase().indexOf('disabled') > -1 : (Object.keys(options).filter(o => options[o] === 'disabled').length > 0) }
                            onChange = {changeHandler}
                            />
                     <label htmlFor={`radiocheck-${name}-${opt}-${i}`}>{opt}</label>
