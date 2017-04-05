@@ -17,8 +17,7 @@ const RadioCheckGroup = (props) => {
                            name     = {name}
                            value    = {opt}
                            checked  = {selectedOptions.indexOf(opt) > -1}
-                           disabled = {options[opt].includes('disabled')}
-                           readOnly = {options[opt].includes('readonly')}
+                           disabled = {(inputType === 'checkbox') ? options[opt].toLowerCase().indexOf('disabled') > -1 : Object.keys(options).filter(o => { options[o] === 'disabled'}).length > -1}
                            onChange = {changeHandler}
                            />
                     <label htmlFor={`radiocheck-${name}-${opt}-${i}`}>{opt}</label>

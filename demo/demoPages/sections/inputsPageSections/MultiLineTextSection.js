@@ -11,10 +11,10 @@ const MultiLineTextSection = (props) => (
       <h2>Props:</h2>
       <p>Multiple Line Text:</p>
       <ul>
-        <li>id:String === "a unique name"</li>
-        <li>labelText:String === "a desciptive label"</li>
-        <li>placeholder:String === "multi-line text</li>
-        <li>changeHandler:Function === handles selection</li>
+        <li>id:String(required) === "a unique name"</li>
+        <li>labelText:String(required) === "a desciptive label"</li>
+        <li>placeholder:String(required) === "multi-line text</li>
+        <li>changeHandler:Function(required) === handles selection</li>
         <li>infoMessage:String === "an optional info message displayed below the input"</li>
         <li>errorMessage:String === "an optional error message displayed below the input"</li>
       </ul>

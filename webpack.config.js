@@ -7,7 +7,6 @@ const main              = `${__dirname}/demo/main.js`;
 const compounds         = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
-const fonts             = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 
 
 module.exports = {
@@ -29,8 +28,8 @@ module.exports = {
     publicPath         : "/compounds/",
     https              : false,
     overlay            : true,
-    historyApiFallback : true,
     watchContentBase   : true,
+    historyApiFallback : true,
     watchOptions       : { poll: true }
   },
   externals: [
@@ -65,10 +64,7 @@ module.exports = {
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
-          options: {
-            presets: ["es2015", "stage-0", "react"]
-          }
+          loader: 'babel-loader'
         },
         {
           test: /\.(png|jpg|gif|svg|ttf|woff|woff2)$/,

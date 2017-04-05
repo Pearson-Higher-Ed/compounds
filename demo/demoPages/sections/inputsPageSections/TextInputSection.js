@@ -33,7 +33,7 @@ const TextInputSection = (props) => (
         infoMessage   = {props.intlDefaultText.textInputInfoMessage}
         errorMessage  = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="a" inputState="default" changeHandler={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<TextInput id="a" inputState="default" changeHandler={() => {}} labelText="First Name" placeholder="First Name" infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
       <br />
@@ -50,7 +50,7 @@ const TextInputSection = (props) => (
         infoMessage   = {props.intlDefaultText.textInputInfoMessage}
         errorMessage  = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="b" fancy={true} inputState="default" changeHandler={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="b" fancy={true} inputState="default" changeHandler={() => {}} labelText="First Name" placeholder="First Name" infoMessage="This is an info message" errorMessage="This is an error message"  />'}</p>
 
 
       <br />
@@ -67,7 +67,7 @@ const TextInputSection = (props) => (
         infoMessage   = {props.intlDefaultText.textInputInfoMessage}
         errorMessage  = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="c" inputState="error" changeHandler={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="c" inputState="error" changeHandler={() => {}} labelText="First Name" placeholder="First Name" infoMessage="This is an info message" errorMessage="This is an error message"  />'}</p>
 
 
       <br />
@@ -85,7 +85,7 @@ const TextInputSection = (props) => (
         infoMessage   = {props.intlDefaultText.textInputInfoMessage}
         errorMessage  = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="d" fancy={true} inputState="error" changeHandler={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="d" fancy={true} inputState="error" changeHandler={() => {}} labelText="First Name" placeholder="First Name" infoMessage="This is an info message" errorMessage="This is an error message"  />'}</p>
 
 
       <br />
@@ -102,7 +102,7 @@ const TextInputSection = (props) => (
         infoMessage   = {props.intlDefaultText.textInputInfoMessage}
         errorMessage  = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="e" inputState="disabled" changeHandler={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="e" inputState="disabled" changeHandler={() => {}} labelText="First Name" placeholder="First Name" infoMessage="This is an info message" errorMessage="This is an error message"  />'}</p>
 
 
       <br />
@@ -120,7 +120,7 @@ const TextInputSection = (props) => (
         infoMessage   = {props.intlDefaultText.textInputInfoMessage}
         errorMessage  = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="f" fancy={true} inputState="disabled" changeHandler={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage}  />'}</p>
+      <p className="code">{'<TextInput id="f" fancy={true} inputState="disabled" changeHandler={() => {}} labelText="First Name" placeholder="First Name" infoMessage="This is an info message" errorMessage="This is an error message"  />'}</p>
 
 
       <br />
@@ -138,7 +138,7 @@ const TextInputSection = (props) => (
         infoMessage   = {props.intlDefaultText.textInputInfoMessage}
         errorMessage  = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="g" inputState="readOnly" fancy={true} changeHandler={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<TextInput id="g" inputState="readOnly" fancy={true} changeHandler={() => {}} labelText="First Name" placeholder="First Name" infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
 
@@ -156,7 +156,7 @@ const TextInputSection = (props) => (
         infoMessage   = {props.intlDefaultText.textInputInfoMessage}
         errorMessage  = {props.intlDefaultText.textInputErrorMessage}
         />
-      <p className="code">{'<TextInput id="h" inputState="readOnly" changeHandler={() => {}} labelText={props.intlDefaultText.textLabel} placeholder={props.intlDefaultText.textPlaceholder} infoMessage={props.intlDefaultText.textInputInfoMessage} errorMessage={props.intlDefaultText.textInputErrorMessage} />'}</p>
+      <p className="code">{'<TextInput id="h" inputState="readOnly" changeHandler={() => {}} labelText="First Name" placeholder="First Name" infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
   </div>

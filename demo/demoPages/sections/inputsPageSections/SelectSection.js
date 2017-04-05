@@ -11,13 +11,13 @@ const SelectSection = (props) => (
         <h2>Props:</h2>
         <p>Select:</p>
         <ul>
-          <li>id:String === "a unique name"</li>
-          <li>labelText:String === "a desciptive label"</li>
+          <li>id:String(required) === "a unique name"</li>
+          <li>labelText:String(required) === "a desciptive label"</li>
           <li>inputType:String === "error","disabled","readOnly" leave off for default</li>
           <li>fancy:Boolean === true/false</li>
-          <li>options:Arrat === list of options</li>
+          <li>options:Array(required) === list of options</li>
           <li>selectedOption:String === the option selected</li>
-          <li>changeHandler:Function === handles selection</li>
+          <li>changeHandler:Function(required) === handles selection</li>
           <li>infoMessage:String === "an optional info message displayed below the input"</li>
           <li>errorMessage:String === "an optional error message displayed below the input"</li>
         </ul>
