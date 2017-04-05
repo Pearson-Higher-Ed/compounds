@@ -21,6 +21,15 @@ Import all components:
 
     import * as Compounds from 'pearson-compounds';
 
+or destructure as needed:
+
+    import {
+      Button,
+      Icon,
+      TextInput,
+      Select
+    } from 'pearson-compounds';
+
 
 ### External Dependencies
 
@@ -124,11 +133,11 @@ Note that re-installing node_modules will remove all symlinks.
 ## Documentation Site
 
 The static demo site is located at:
-http://localhost:8081/
+http://localhost:8081/compounds/
 
 ## CodeCoverage site
 
-After running npm test, you may view the code coverage site at:
+After running npm test && npm start, you may view the code coverage site at:
 http://localhost:8081/coverage/lcov-report
 
 
