@@ -109,7 +109,7 @@ function _applyTextInputStyles() {
     default:
       labelStyle      = 'pe-textLabelInput__label';
       inputStyle      = fancy ? 'pe-textInput'             : 'pe-textInput--basic';
-      spanStyle       = fancy ? 'pe-input_underline'       : 'pe-textLabelInput__label--label_focus';
+      spanStyle       = fancy ? 'pe-input_underline'       : '';
       butttonStyle    = fancy ? 'pe-textInput__showButton' : 'pe-textInput__showButton-basic';
       labelFocusStyle = 'pe-textLabelInput__label--label_focus';
   };
