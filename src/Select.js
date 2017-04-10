@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import { Icon }                        from '../index.js';
+import React, { Component } from 'react';
+import PropTypes            from 'prop-types';
+import { Icon }             from '../index.js';
 
 
 class Select extends Component {
