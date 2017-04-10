@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Icon from './Icon';
 
 import './Dropdown.scss';
@@ -7,7 +7,7 @@ import './Dropdown.scss';
 class Dropdown extends Component {
 
   static propTypes = {
-    list: React.PropTypes.array.isRequired
+    list: PropTypes.array.isRequired
   };
 
   constructor(props) {
@@ -27,7 +27,6 @@ class Dropdown extends Component {
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
-      console.log(this.state.selectedItem, 'test');
 
       const dividerLine = <div className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
@@ -56,17 +55,14 @@ class Dropdown extends Component {
   render() {
 
     return(
-      <div>
         <div onClick={this.toggleDropDown} className="dropdown-container">
           <button className="icon-btn"><Icon name='dropdown-open-18'>Open</Icon></button>
           { this.state.open &&
             <ul className="li-wrapper">
               {this.renderListItems()}
-            </ul>
-          }
+            </ul> }
         </div>
 
-      </div>
     )
   }
 
@@ -74,8 +70,17 @@ class Dropdown extends Component {
 
 export default Dropdown;
 
-function _toggleDropDown() {
+function _toggleDropDown(el) {
   this.setState({ open: !this.state.open })
+
+  let viewWidth = document.body.clientWidth;
+  let rightPoint = el.target.getBoundingClientRect().right + 10;
+
+  if (rightPoint >= viewWidth) {
+    console.log('Align right');
+  }
+
+
 };
 
 function _selectedItem(e) {
