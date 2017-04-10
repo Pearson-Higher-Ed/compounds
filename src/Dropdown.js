@@ -4,6 +4,10 @@ import Icon from './Icon';
 
 import './Dropdown.scss';
 
+let containerMargin = {
+  marginRight: 0
+}
+
 class Dropdown extends Component {
 
   static propTypes = {
@@ -27,6 +31,8 @@ class Dropdown extends Component {
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
+      let noGoodVarName = this.state.selectedItem === item
+                          ? '-this.state.selectedItem' : null;
 
       const dividerLine = <div className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
@@ -37,9 +43,7 @@ class Dropdown extends Component {
                                           onClick={this.selectedItem}>
                                         <button type="button" className="pe-label">
                                           <svg
-                                            id={"svg-id" + (this.state.selectedItem === item
-                                              ? `-${this.state.selectedItem}`
-                                              : '' )}
+                                            id={`svg-id${noGoodVarName}`}
                                             aria-hidden="true"
                                             focusable="false"
                                             className="pe-icon--check-sm-18">
@@ -54,9 +58,13 @@ class Dropdown extends Component {
 
   render() {
 
+    const v = containerMargin.marginRight > 0 ? '-right' : '';
+
     return(
-        <div onClick={this.toggleDropDown} className="dropdown-container">
-          <button className="icon-btn"><Icon name='dropdown-open-18'>Open</Icon></button>
+        <div onClick={this.toggleDropDown} className="dropdown-container" style={containerMargin}>
+          <button className={`icon-btn${v}`}>
+            <Icon name='dropdown-open-18'>Open</Icon>
+          </button>
           { this.state.open &&
             <ul className="li-wrapper">
               {this.renderListItems()}
@@ -70,16 +78,21 @@ class Dropdown extends Component {
 
 export default Dropdown;
 
-function _toggleDropDown(el) {
-  this.setState({ open: !this.state.open })
+function _toggleDropDown(e) {
 
   let viewWidth = document.body.clientWidth;
-  let rightPoint = el.target.getBoundingClientRect().right + 10;
+  let rightPoint = e.target.getBoundingClientRect().right + 20;
+  let difference = viewWidth - rightPoint;
+  console.log(rightPoint, 'rightPoint');
+  console.log(difference, 'difference');
+  console.log(e.target, 'TARGET');
 
-  if (rightPoint >= viewWidth) {
-    console.log('Align right');
+  if (difference < 0) {
+    containerMargin = { marginRight: Math.round(difference *= -1)}
+    console.log('Add a margin-right of ' + Math.round(difference));
   }
 
+  this.setState({ open: !this.state.open })
 
 };
 
