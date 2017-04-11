@@ -1,0 +1,23 @@
+@media only screen and (max-device-width: 479px) {
+  .dropdown-divider {
+    border-bottom: 1px solid #c7c7c7;
+  }
+
+  .dropdown-container {
+    width: 100%;
+  }
+
+  .li-wrapper button {
+    padding: 12px 24px;
+  }
+
+  .divider-container {
+    margin: 12px 0;
+    padding: 0 24px 0 40px;
+  }
+
+  #mobile-font {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}

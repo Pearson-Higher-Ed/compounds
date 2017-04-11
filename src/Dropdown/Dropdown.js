@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Icon from './Icon';
+import Icon from '../Icon';
 
 import './Dropdown.scss';
 
@@ -41,7 +41,7 @@ class Dropdown extends Component {
       item === 'divider' ? items.push(dividerLine)
                          : items.push(<li key={i}
                                           onClick={this.selectedItem}>
-                                        <button type="button" className="pe-label">
+                                        <button type="button" id="mobile-font" className="pe-label">
                                           <svg
                                             id={`svg-id${noGoodVarName}`}
                                             aria-hidden="true"
