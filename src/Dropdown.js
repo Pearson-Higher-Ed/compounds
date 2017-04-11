@@ -79,17 +79,12 @@ class Dropdown extends Component {
 export default Dropdown;
 
 function _toggleDropDown(e) {
-
+  const containerRight = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect().right;
   let viewWidth = document.body.clientWidth;
-  let rightPoint = e.target.getBoundingClientRect().right + 20;
-  let difference = viewWidth - rightPoint;
-  console.log(rightPoint, 'rightPoint');
-  console.log(difference, 'difference');
-  console.log(e.target, 'TARGET');
+  let difference = viewWidth - containerRight;
 
   if (difference < 0) {
-    containerMargin = { marginRight: Math.round(difference *= -1)}
-    console.log('Add a margin-right of ' + Math.round(difference));
+    containerMargin = { marginRight: 20, marginLeft: 'auto', left: 'auto'}
   }
 
   this.setState({ open: !this.state.open })
