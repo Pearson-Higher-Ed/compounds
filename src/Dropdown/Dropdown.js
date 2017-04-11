@@ -31,7 +31,7 @@ class Dropdown extends Component {
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
-      let noGoodVarName = this.state.selectedItem === item
+      const appendId = this.state.selectedItem === item
                           ? '-this.state.selectedItem' : null;
 
       const dividerLine = <div className="divider-container" key={i}>
@@ -43,7 +43,7 @@ class Dropdown extends Component {
                                           onClick={this.selectedItem}>
                                         <button type="button" id="mobile-font" className="pe-label">
                                           <svg
-                                            id={`svg-id${noGoodVarName}`}
+                                            id={`svg-id${appendId}`}
                                             aria-hidden="true"
                                             focusable="false"
                                             className="pe-icon--check-sm-18">
@@ -58,11 +58,11 @@ class Dropdown extends Component {
 
   render() {
 
-    const v = containerMargin.marginRight > 0 ? '-right' : '';
+    const appendButtonClass = containerMargin.marginRight > 0 ? '-right' : '';
 
     return(
         <div onClick={this.toggleDropDown} className="dropdown-container" style={containerMargin}>
-          <button className={`icon-btn${v}`}>
+          <button className={`icon-btn${appendButtonClass}`}>
             <Icon name='dropdown-open-18'>Open</Icon>
           </button>
           { this.state.open &&
@@ -78,7 +78,7 @@ class Dropdown extends Component {
 
 export default Dropdown;
 
-function _toggleDropDown(e) {
+function _toggleDropDown() {
   let container = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect();
   let viewWidth = document.body.clientWidth;
   let differenceRight = viewWidth - container.right;
