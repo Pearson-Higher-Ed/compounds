@@ -80,11 +80,13 @@ export default Dropdown;
 
 function _toggleDropDown(e) {
   const containerRight = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect().right;
+  const containerLeft = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect().left;
   let viewWidth = document.body.clientWidth;
-  let difference = viewWidth - containerRight;
+  let differenceRight = viewWidth - containerRight;
+  let differenceLeft = Math.round(viewWidth - containerLeft);
 
-  if (difference < 0) {
-    containerMargin = { marginRight: 20, marginLeft: 'auto', left: 'auto'}
+  if (differenceRight < 0) {
+    containerMargin = { marginRight: differenceLeft, marginLeft: 'auto', left: 'auto'}
   }
 
   this.setState({ open: !this.state.open })
