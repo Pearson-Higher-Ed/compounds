@@ -79,11 +79,10 @@ class Dropdown extends Component {
 export default Dropdown;
 
 function _toggleDropDown(e) {
-  const containerRight = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect().right;
-  const containerLeft = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect().left;
+  let container = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect();
   let viewWidth = document.body.clientWidth;
-  let differenceRight = viewWidth - containerRight;
-  let differenceLeft = Math.round(viewWidth - containerLeft);
+  let differenceRight = viewWidth - container.right;
+  let differenceLeft = Math.round(viewWidth - container.left) - 18;
 
   if (differenceRight < 0) {
     containerMargin = { marginRight: differenceLeft, marginLeft: 'auto', left: 'auto'}
