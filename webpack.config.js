@@ -32,7 +32,7 @@ module.exports = {
     historyApiFallback : true,
     watchOptions       : { poll: true },
     staticOptions      : { redirect: false },
-    contentBase: path.join(__dirname, "build")
+    contentBase        : path.join(__dirname, "build")
   },
   externals: [
       {
