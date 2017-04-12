@@ -72,7 +72,8 @@ svg[id^='svg-id-'] {
   margin: 0;
 }
 
-.li-wrapper li:hover {
+.li-wrapper li:hover,
+.li-wrapper li button:focus {
   background-color: #e9e9e9;
 }
 
