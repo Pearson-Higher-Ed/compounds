@@ -5,7 +5,7 @@
   "main": "./build/dist.compounds.js",
   "author": "Pearson Design Accelerator",
   "license": "MIT",
-  "homepage": "http://pearson-higher-ed.github.io/compounds/",
+  "homepage": "https://pearson-higher-ed.github.io/compounds/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Pearson-Higher-Ed/compounds/"
