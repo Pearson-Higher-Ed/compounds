@@ -4,14 +4,13 @@ import Icon from '../Icon';
 
 import './Dropdown.scss';
 
-let containerMargin = {
-  marginRight: 0
-}
+let containerMargin = { marginRight: 0 };
 
 class Dropdown extends Component {
 
   static propTypes = {
-    list: PropTypes.array.isRequired
+    list: PropTypes.array.isRequired,
+    mobileTitle: PropTypes.string
   };
 
   constructor(props) {
@@ -29,19 +28,35 @@ class Dropdown extends Component {
   renderListItems() {
     let items = [];
 
+    const mobileHeader = <li className="mobile-header" key="header">
+                            {this.props.mobileTitle}
+                           <button className="mobile-close-button">
+                             <svg
+                               id="header-close"
+                               aria-hidden="true"
+                               focusable="false"
+                               className="pe-icon--remove-lg-18">
+                               <use xlinkHref="#remove-lg-18">Selected</use>
+                             </svg>
+                           </button>
+                         </li>;
+
+     items.push(mobileHeader);
+
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
       const appendId = this.state.selectedItem === item
-                          ? '-this.state.selectedItem' : null;
+                       ? '-this.state.selectedItem' : '';
 
-      const dividerLine = <div className="divider-container" key={i}>
+      const dividerLine = <li className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
-                          </div>;
+                          </li>;
 
       item === 'divider' ? items.push(dividerLine)
                          : items.push(<li key={i}
-                                          onClick={this.selectedItem}>
-                                        <button type="button" id="mobile-font" className="pe-label">
+                                          onClick={this.selectedItem}
+                                          className="li-props">
+                                        <button type="button" id="mobile-font" className="li-button">
                                           <svg
                                             id={`svg-id${appendId}`}
                                             aria-hidden="true"
@@ -70,7 +85,6 @@ class Dropdown extends Component {
               {this.renderListItems()}
             </ul> }
         </div>
-
     )
   }
 
@@ -79,10 +93,10 @@ class Dropdown extends Component {
 export default Dropdown;
 
 function _toggleDropDown() {
-  let container = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect();
-  let viewWidth = document.body.clientWidth;
-  let differenceRight = viewWidth - container.right;
-  let differenceLeft = Math.round(viewWidth - container.left) - 18;
+  const container = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect();
+  const viewWidth = document.body.clientWidth;
+  const differenceRight = viewWidth - container.right;
+  const differenceLeft = Math.round(viewWidth - container.left) - 18;
 
   if (differenceRight < 0) {
     containerMargin = { marginRight: differenceLeft, marginLeft: 'auto', left: 'auto'}
