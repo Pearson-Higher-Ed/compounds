@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1492098769564" clover="3.2.0">
-  <project timestamp="1492098769565" name="All files">
+<coverage generated="1492100098955" clover="3.2.0">
+  <project timestamp="1492100098956" name="All files">
     <metrics statements="141" coveredstatements="135" conditionals="108" coveredconditionals="75" methods="25" coveredmethods="19" elements="274" coveredelements="229" complexity="0" loc="141" ncloc="141" packages="1" files="6" classes="6">
       <file name="Button.js" path="/Users/ulantja/Workspace/compounds/src/Button.js">
         <metrics statements="8" coveredstatements="8" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
