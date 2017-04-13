@@ -6,7 +6,7 @@ import HomePage   from './demoPages/HomePage';
 import HeaderPage from './demoPages/HeaderPage';
 import InputsPage from './demoPages/InputsPage';
 
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 const DemoRouter = (props) => (
