@@ -50,7 +50,8 @@ class Dropdown extends Component {
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
-      const appendId = this.state.selectedItem === item ? '-this.state.selectedItem' : '';
+      const appendId = this.state.selectedItem === item
+                       ? '-this.state.selectedItem' : '';
 
       const dividerLine = <li className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
