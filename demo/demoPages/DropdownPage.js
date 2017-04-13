@@ -7,6 +7,8 @@ const DropdownPage = () => (
     <div>
       <h2>Icon only</h2>
         <Dropdown
+          presentation=""
+          presentationText=""
           list={listItems}
           mobileTitle="This is a test title"
         />

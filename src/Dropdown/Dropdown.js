@@ -86,7 +86,10 @@ class Dropdown extends Component {
     return(
         <div onClick={this.toggleDropDown} className="dropdown-container" style={containerMargin}>
           <button className={`icon-btn${appendButtonClass}`}>
-            <Icon name='dropdown-open-18'>Open</Icon>
+            { this.props.presentation === 'label' || this.props.presentation === 'button'
+              ? <Icon name='dropdown-open-18'>Open</Icon>
+              : <Icon name='dropdown-open-24'>Open</Icon>
+            }
           </button>
           { this.state.open &&
           <CSSTransitionGroup
