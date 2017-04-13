@@ -30,9 +30,8 @@ class Dropdown extends Component {
 
   renderListItems() {
     let items = [];
-
     const mobileHeader = <li className="mobile-header" key="header">
-                           <span className="truncate-text">
+                           <span>
                              {this.props.mobileTitle}
                            </span>
                            <button className="mobile-close-button">
@@ -53,12 +52,12 @@ class Dropdown extends Component {
       const appendId = this.state.selectedItem === item
                        ? '-this.state.selectedItem' : '';
 
-      const dividerLine = <li className="divider-container" key={i}>
+      const dividerLine = <li className="divider-container" key={'key'+i}>
                             <hr className="dropdown-divider" />
                           </li>;
 
       item === 'divider' ? items.push(dividerLine)
-                         : items.push(<li key={i}
+                         : items.push(<li key={'key'+i}
                                           onClick={this.selectedItem}
                                           className="li-props">
                                         <button type="button" id="mobile-font" className="li-button">
@@ -96,7 +95,7 @@ class Dropdown extends Component {
                         </button>
                       </div>
                     : null }
-                    
+
           { ddButton ? <div>
                          <button className="pe-btn__primary">
                          {this.props.presentationText}
@@ -122,9 +121,9 @@ class Dropdown extends Component {
           <CSSTransitionGroup
             className="li-wrapper"
             component="ul"
-            transitionName="dropdown"
-            transitionEnterTimeout={300}
-            transitionLeaveTimeout={300}>
+            transitionName="transition"
+            transitionEnterTimeout={1000}
+            transitionLeaveTimeout={1000}>
            {this.renderListItems()}
           </CSSTransitionGroup> }
         </div>

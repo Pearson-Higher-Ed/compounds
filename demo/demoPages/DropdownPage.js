@@ -17,15 +17,6 @@ const DropdownPage = () => (
 
         <br/>
 
-      <h3>Icon</h3>
-        <Dropdown
-          presentationType="icon"
-          list={listItems}
-          mobileTitle={mobileTitle}
-        />
-
-        <br/>
-
         <h3>Icon /w button</h3>
         <Dropdown
           presentationType="button"
@@ -33,6 +24,16 @@ const DropdownPage = () => (
           list={simpleList}
           mobileTitle={mobileTitle}
         />
+
+        <br/>
+
+        <h3>Icon</h3>
+          <Dropdown
+            presentationType="icon"
+            list={listItems}
+            mobileTitle={mobileTitle}
+          />
+
     </div>
 
 )

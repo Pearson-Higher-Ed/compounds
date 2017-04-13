@@ -55,28 +55,28 @@
     border-bottom: 1px solid #e9e9e9;
   }
 
-  .dropdown-enter {
+  .transition-enter {
     transform: translate(0, 1%);
     transform: translate3d(0, 1%, 0);
   }
 
-  .dropdown-enter.dropdown-enter-active {
+  .transition-enter.transition-enter-active {
     transform: translate(0, 100%);
     transform: translate3d(0, 100%, 0);
     transition-property: transform;
-    transition-duration: 300ms;
+    transition-duration: 1000ms;
     transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1), ease;
   }
 
-  .dropdown-leave {
+  .transition-leave {
     transform: translate(0, 100%);
     transform: translate3d(0, 100%, 0);
     transition-property: transform;
-    transition-duration: 300ms;
+    transition-duration: 1000ms;
     transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1), ease;
   }
 
-  .dropdown-leave.dropdown-leave-active {
+  .transition-leave.transition-leave-active {
     transform: translate(0, 1%);
     transform: translate3d(0, 1%, 0);
   }
