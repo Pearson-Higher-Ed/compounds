@@ -26,16 +26,18 @@ svg[id^='svg-id-'] {
   margin-right: 4px;
 }
 
-.icon-btn {
+%icon-btn-extend {
   background: transparent;
   border: 0;
   padding: 0;
 }
 
+.icon-btn {
+  @extend %icon-btn-extend;
+}
+
 .icon-btn-right {
-  background: transparent;
-  border: 0;
-  padding: 0;
+  @extend %icon-btn-extend;
   float: right;
 }
 

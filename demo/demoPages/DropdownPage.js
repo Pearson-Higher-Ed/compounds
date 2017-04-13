@@ -7,9 +7,9 @@ const mobileTitle = "This is a test title";
 
 const DropdownPage = () => (
     <div>
-      <h3>Label & Icon</h3>
+      <h3>Label & Icon (not selectable)</h3>
         <Dropdown
-          presentation="label"
+          presentationType="label"
           presentationText="Test label"
           list={simpleList}
           mobileTitle={mobileTitle}
@@ -19,7 +19,7 @@ const DropdownPage = () => (
 
       <h3>Icon</h3>
         <Dropdown
-          presentation="icon"
+          presentationType="icon"
           list={listItems}
           mobileTitle={mobileTitle}
         />
@@ -28,7 +28,7 @@ const DropdownPage = () => (
 
         <h3>Icon /w button</h3>
         <Dropdown
-          presentation="button"
+          presentationType="button"
           presentationText="List"
           list={simpleList}
           mobileTitle={mobileTitle}

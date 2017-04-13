@@ -12,7 +12,7 @@ class Dropdown extends Component {
   static propTypes = {
     list: PropTypes.array.isRequired,
     mobileTitle: PropTypes.string.isRequired,
-    presentation: PropTypes.string.isRequired,
+    presentationType: PropTypes.string.isRequired,
     presentationText: PropTypes.string
   };
 
@@ -83,9 +83,9 @@ class Dropdown extends Component {
 
     const appendButtonClass = containerMargin.marginRight > 0 ? '-right' : '';
 
-    const ddLabel = this.props.presentation === 'label';
-    const ddButton = this.props.presentation === 'button';
-    const ddIcon = this.props.presentation === 'icon';
+    const ddLabel = this.props.presentationType === 'label';
+    const ddButton = this.props.presentationType === 'button';
+    const ddIcon = this.props.presentationType === 'icon';
 
     return(
         <div onClick={this.toggleDropDown} className="dropdown-container" style={containerMargin}>
@@ -95,8 +95,8 @@ class Dropdown extends Component {
                           <Icon name='dropdown-open-sm-18'>Open</Icon>
                         </button>
                       </div>
-                    : null
-          }
+                    : null }
+                    
           { ddButton ? <div>
                          <button className="pe-btn__primary">
                          {this.props.presentationText}
@@ -111,13 +111,12 @@ class Dropdown extends Component {
                          </button>
                          </button>
                        </div>
-                     : null
-          }
+                     : null }
+
           { ddIcon ? <button className={`icon-btn${appendButtonClass}`}>
                        <Icon name='dropdown-open-sm-24'>Open</Icon>
                      </button>
-                   : null
-          }
+                   : null }
 
           { this.state.open &&
           <CSSTransitionGroup
@@ -125,11 +124,9 @@ class Dropdown extends Component {
             component="ul"
             transitionName="dropdown"
             transitionEnterTimeout={300}
-            transitionLeaveTimeout={300}
-          >
+            transitionLeaveTimeout={300}>
            {this.renderListItems()}
-          </CSSTransitionGroup>
-          }
+          </CSSTransitionGroup> }
         </div>
     )
   }

@@ -3,14 +3,6 @@
     border-bottom: 1px solid #c7c7c7;
   }
 
-  html {
-    height: 100%;
-  }
-
-  body {
-    min-height: 100%;
-  }
-
   .dropdown-container {
     width: 100%;
     height: 100%;
@@ -61,10 +53,6 @@
     line-height: 22px;
     text-align: center;
     border-bottom: 1px solid #e9e9e9;
-  }
-
-  .truncate-text {
-    text-overflow: ellipsis;
   }
 
   .dropdown-enter {
