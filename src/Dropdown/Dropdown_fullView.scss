@@ -34,6 +34,7 @@ svg[id^='svg-id-'] {
 
 .dropdown-container {
   width: 220px;
+  position: relative;
 }
 
 .li-wrapper {
@@ -59,7 +60,7 @@ svg[id^='svg-id-'] {
   line-height: 18px;
 }
 
-.li-wrapper span {
+.li-wrapper .dropdown-item {
   display: inline-block;
   vertical-align: middle;
   padding-left: 8px;

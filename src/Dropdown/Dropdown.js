@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Icon from '../Icon';
 
 import './Dropdown.scss';
@@ -10,7 +11,9 @@ class Dropdown extends Component {
 
   static propTypes = {
     list: PropTypes.array.isRequired,
-    mobileTitle: PropTypes.string
+    mobileTitle: PropTypes.string.isRequired,
+    presentation: PropTypes.string,
+    presentationText: PropTypes.string
   };
 
   constructor(props) {
@@ -29,7 +32,9 @@ class Dropdown extends Component {
     let items = [];
 
     const mobileHeader = <li className="mobile-header" key="header">
-                            {this.props.mobileTitle}
+                           <span className="truncate-text">
+                             {this.props.mobileTitle}
+                           </span>
                            <button className="mobile-close-button">
                              <svg
                                id="header-close"
@@ -57,13 +62,16 @@ class Dropdown extends Component {
                                           onClick={this.selectedItem}
                                           className="li-props">
                                         <button type="button" id="mobile-font" className="li-button">
-                                          <svg
-                                            id={`svg-id${appendId}`}
-                                            aria-hidden="true"
-                                            focusable="false"
-                                            className="pe-icon--check-sm-18">
-                                            <use xlinkHref="#check-sm-18">Selected</use>
-                                          </svg>
+                                        { this.props.presentation !== 'label'
+                                          ?
+                                           <svg
+                                             id={`svg-id${appendId}`}
+                                             aria-hidden="true"
+                                             focusable="false"
+                                             className="pe-icon--check-sm-18">
+                                             <use xlinkHref="#check-sm-18">Selected</use>
+                                           </svg>
+                                          : null }
                                             <span className="dropdown-item">{item}</span>
                                         </button>
                                       </li>);
@@ -81,9 +89,16 @@ class Dropdown extends Component {
             <Icon name='dropdown-open-18'>Open</Icon>
           </button>
           { this.state.open &&
-            <ul className="li-wrapper">
-              {this.renderListItems()}
-            </ul> }
+          <CSSTransitionGroup
+            className="li-wrapper"
+            component="ul"
+            transitionName="dropdown"
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={300}
+          >
+           {this.renderListItems()}
+          </CSSTransitionGroup>
+          }
         </div>
     )
   }
