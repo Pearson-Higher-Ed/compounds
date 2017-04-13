@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 const DemoRouter = (props) => (
-  <Router>
+  <Router basename="/compounds" >
     <div>
       <HeaderPage />
         <Route path="/" exact  component={HomePage}   />
