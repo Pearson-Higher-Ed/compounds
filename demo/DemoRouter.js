@@ -6,11 +6,11 @@ import HomePage   from './demoPages/HomePage';
 import HeaderPage from './demoPages/HeaderPage';
 import InputsPage from './demoPages/InputsPage';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 
 const DemoRouter = (props) => (
-  <Router basename="/compounds" >
+  <Router>
     <div>
       <HeaderPage />
         <Route path="/" exact  component={HomePage}   />
