@@ -52,16 +52,16 @@ class Dropdown extends Component {
       const appendId = this.state.selectedItem === item
                        ? '-this.state.selectedItem' : '';
 
-      const dividerLine = <li className="divider-container" key={'key'+i}>
+      const dividerLine = <li className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
                           </li>;
 
       item === 'divider' ? items.push(dividerLine)
-                         : items.push(<li key={'key'+i}
+                         : items.push(<li key={i}
                                           onClick={this.selectedItem}
                                           className="li-props">
                                         <button type="button" id="mobile-font" className="li-button">
-                                        { this.props.presentation !== 'label'
+                                        { this.props.presentationType !== 'label'
                                           ?
                                            <svg
                                              id={`svg-id${appendId}`}
@@ -96,10 +96,9 @@ class Dropdown extends Component {
                       </div>
                     : null }
 
-          { ddButton ? <div>
-                         <button className="pe-btn__primary">
+          { ddButton ? <div className="pe-btn__primary">
                          {this.props.presentationText}
-                         <button className={`icon-btn${appendButtonClass}`} tabIndex="-1">
+                         <button className={`icon-btn${appendButtonClass}`}>
                            <svg
                              id="icon-in-button"
                              aria-hidden="true"
@@ -108,8 +107,7 @@ class Dropdown extends Component {
                              <use xlinkHref="#dropdown-open-sm-18">Selected</use>
                            </svg>
                          </button>
-                         </button>
-                       </div>
+                      </div>
                      : null }
 
           { ddIcon ? <button className={`icon-btn${appendButtonClass}`}>
@@ -122,8 +120,8 @@ class Dropdown extends Component {
             className="li-wrapper"
             component="ul"
             transitionName="transition"
-            transitionEnterTimeout={1000}
-            transitionLeaveTimeout={1000}>
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={300}>
            {this.renderListItems()}
           </CSSTransitionGroup> }
         </div>
