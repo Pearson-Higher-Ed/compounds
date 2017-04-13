@@ -1,16 +1,37 @@
 import React from 'react';
 import { Dropdown } from '../../index';
 
+const simpleList = ['Thing one', 'Thing two'];
 const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', 'WOOOOOO'];
+const mobileTitle = "This is a test title";
 
 const DropdownPage = () => (
     <div>
-      <h2>Icon only</h2>
+      <h3>Label & Icon</h3>
         <Dropdown
-          presentation=""
-          presentationText=""
+          presentation="label"
+          presentationText="Test label"
+          list={simpleList}
+          mobileTitle={mobileTitle}
+        />
+
+        <br/>
+
+      <h3>Icon</h3>
+        <Dropdown
+          presentation="icon"
           list={listItems}
-          mobileTitle="This is a test title"
+          mobileTitle={mobileTitle}
+        />
+
+        <br/>
+
+        <h3>Icon /w button</h3>
+        <Dropdown
+          presentation="button"
+          presentationText="List"
+          list={simpleList}
+          mobileTitle={mobileTitle}
         />
     </div>
 

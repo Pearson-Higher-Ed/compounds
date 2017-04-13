@@ -19,6 +19,13 @@ svg[id^='svg-id-'] {
   padding: 0 24px 0 32px;
 }
 
+.label-text {
+  font-size: 14px;
+  line-height: 18px;
+  display: inline;
+  margin-right: 4px;
+}
+
 .icon-btn {
   background: transparent;
   border: 0;
@@ -30,6 +37,11 @@ svg[id^='svg-id-'] {
   border: 0;
   padding: 0;
   float: right;
+}
+
+#icon-in-button {
+  margin-left: 8px;
+  color: #FFFFFF;
 }
 
 .dropdown-container {

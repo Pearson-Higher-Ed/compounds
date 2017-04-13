@@ -12,7 +12,7 @@ class Dropdown extends Component {
   static propTypes = {
     list: PropTypes.array.isRequired,
     mobileTitle: PropTypes.string.isRequired,
-    presentation: PropTypes.string,
+    presentation: PropTypes.string.isRequired,
     presentationText: PropTypes.string
   };
 
@@ -50,8 +50,7 @@ class Dropdown extends Component {
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
-      const appendId = this.state.selectedItem === item
-                       ? '-this.state.selectedItem' : '';
+      const appendId = this.state.selectedItem === item ? '-this.state.selectedItem' : '';
 
       const dividerLine = <li className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
@@ -83,14 +82,42 @@ class Dropdown extends Component {
 
     const appendButtonClass = containerMargin.marginRight > 0 ? '-right' : '';
 
+    const ddLabel = this.props.presentation === 'label';
+    const ddButton = this.props.presentation === 'button';
+    const ddIcon = this.props.presentation === 'icon';
+
     return(
         <div onClick={this.toggleDropDown} className="dropdown-container" style={containerMargin}>
-          <button className={`icon-btn${appendButtonClass}`}>
-            { this.props.presentation === 'label' || this.props.presentation === 'button'
-              ? <Icon name='dropdown-open-18'>Open</Icon>
-              : <Icon name='dropdown-open-24'>Open</Icon>
-            }
-          </button>
+          { ddLabel ? <div>
+                        <p className="label-text">{this.props.presentationText}</p>
+                        <button className={`icon-btn${appendButtonClass}`}>
+                          <Icon name='dropdown-open-sm-18'>Open</Icon>
+                        </button>
+                      </div>
+                    : null
+          }
+          { ddButton ? <div>
+                         <button className="pe-btn__primary">
+                         {this.props.presentationText}
+                         <button className={`icon-btn${appendButtonClass}`} tabIndex="-1">
+                           <svg
+                             id="icon-in-button"
+                             aria-hidden="true"
+                             focusable="false"
+                             className="pe-icon--dropdown-open-sm-18">
+                             <use xlinkHref="#dropdown-open-sm-18">Selected</use>
+                           </svg>
+                         </button>
+                         </button>
+                       </div>
+                     : null
+          }
+          { ddIcon ? <button className={`icon-btn${appendButtonClass}`}>
+                       <Icon name='dropdown-open-sm-24'>Open</Icon>
+                     </button>
+                   : null
+          }
+
           { this.state.open &&
           <CSSTransitionGroup
             className="li-wrapper"
