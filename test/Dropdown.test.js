@@ -4,5 +4,9 @@ import { shallow } from 'enzyme';
 import { Dropdown } from '../index';
 
 describe('Dropdown', () => {
-  
+
+  describe('', function () {
+
+  })
+
 })
