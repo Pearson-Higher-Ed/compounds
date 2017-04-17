@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import Icon from '../Icon';
+import Icon from './Icon';
 
 let containerMargin = { marginRight: 0 };
 
@@ -87,7 +87,7 @@ class Dropdown extends Component {
     return(
         <div onClick={this.toggleDropDown} className="dropdown-container" style={containerMargin}>
           { ddLabel ? <div>
-                        <p className="label-text">{this.props.presentationText}</p>
+                        <p className="dropdown-label-text">{this.props.presentationText}</p>
                         <button className={`icon-btn${appendButtonClass}`}>
                           <Icon name='dropdown-open-sm-18'>Open</Icon>
                         </button>

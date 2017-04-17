@@ -8,7 +8,7 @@ const main              = `${__dirname}/demo/main.js`;
 const compounds         = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
-const dropdown          = `${__dirname}/src/Dropdown/scss/Dropdown.scss`;
+const dropdown          = `${__dirname}/src/Dropdown_scss/Dropdown.scss`;
 
 
 module.exports = {
