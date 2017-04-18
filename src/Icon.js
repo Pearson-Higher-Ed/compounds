@@ -5,9 +5,10 @@ import uuid                 from 'uuid';
 const Icon = (props) => {
 
   const icon_class = 'pe-icon--' + props.name;
+  let i_id;
 
   if (props.children) {
-    const i_id = '_'+uuid.v1();
+    i_id = '_'+uuid.v1();
 
     return(
       <svg role = "img"
