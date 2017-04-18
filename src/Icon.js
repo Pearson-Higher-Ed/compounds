@@ -10,10 +10,7 @@ const Icon = (props) => {
     const i_id = '_'+uuid.v1();
 
     return(
-      <svg version = "1.1"
-           xmlns = "http://www.w3.org/2000/svg"
-           xmlnsXlink = "http://www.w3.org/1999/xlink"
-           role = "img"
+      <svg role = "img"
            focusable = "false"
            aria-labelledby = {i_id}
            className = {icon_class}>
@@ -24,10 +21,7 @@ const Icon = (props) => {
   }
   else {
     return(
-      <svg version = "1.1"
-           xmlns = "http://www.w3.org/2000/svg"
-           xmlnsXlink = "http://www.w3.org/1999/xlink"
-           aria-hidden = "true"
+      <svg aria-hidden = "true"
            focusable = "false"
            className = {icon_class}>
         <use xlinkHref = {'#' + props.name}></use>
