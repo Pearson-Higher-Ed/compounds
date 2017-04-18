@@ -71,6 +71,7 @@
     "image-webpack-loader": "^3.2.0",
     "intl": "~1.1.0",
     "jest": "16.0.2",
+    "jsdom": "^9.12.0",
     "node-sass": "^4.5.0",
     "pearson-elements": "^1.8.2",
     "prop-types": "^15.5.6",

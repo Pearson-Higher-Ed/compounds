@@ -29,7 +29,7 @@ class Dropdown extends Component {
   renderListItems() {
     let items = [];
     const mobileHeader = <li className="mobile-header" key="header">
-                           <span>
+                           <span className="mobile-title-text">
                              {this.props.mobileTitle}
                            </span>
                            <button className="mobile-close-button">
@@ -131,6 +131,8 @@ class Dropdown extends Component {
 export default Dropdown;
 
 function _toggleDropDown() {
+  this.setState({ open: !this.state.open })
+
   const container = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect();
   const viewWidth = document.body.clientWidth;
   const differenceRight = viewWidth - container.right;
@@ -139,9 +141,6 @@ function _toggleDropDown() {
   if (differenceRight < 0) {
     containerMargin = { marginRight: differenceLeft, marginLeft: 'auto', left: 'auto'}
   }
-
-  this.setState({ open: !this.state.open })
-
 };
 
 function _selectedItem(e) {
