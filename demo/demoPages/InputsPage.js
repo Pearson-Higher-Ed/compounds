@@ -29,14 +29,14 @@ const InputsPage = (props) => {
             <p>TextInput:</p>
             <ul>
               <li>id:String === "a unique name"</li>
-              <li>label:String === "a desciptive label"</li>
+              <li>label:String === "a descriptive label"</li>
               <li>inputType:String === "default", "error", "disabled", "readOnly"</li>
               <li>placeholder:String === "a unique name"</li>
             </ul>
             <p>PasswordInput:</p>
             <ul>
               <li>id:String === "a unique name"</li>
-              <li>label:String === "a desciptive label"</li>
+              <li>label:String === "a descriptive label"</li>
               <li>placeholder:String === "a placeholder text"</li>
               <li>inputType:String === "default", "error", "disabled", "readOnly"</li>
               <li>showText:String === "show/hide text"</li>
