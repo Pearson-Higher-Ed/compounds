@@ -6,6 +6,7 @@ import HomePage     from './demoPages/HomePage';
 import HeaderPage   from './demoPages/HeaderPage';
 import InputsPage   from './demoPages/InputsPage';
 import DropdownPage from './demoPages/DropdownPage';
+import TabsPage     from './demoPages/TabsPage';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ const DemoRouter = (props) => (
         <Route path="/inputs"  component={InputsPage} />
         <Route path="/buttons" component={ButtonPage} />
         <Route path="/dropdown" component={DropdownPage} />
+        <Route path="/tabs" component={TabsPage} />
     </div>
   </Router>
 )

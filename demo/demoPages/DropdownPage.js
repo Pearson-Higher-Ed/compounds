@@ -73,7 +73,8 @@ const DropdownPage = () => (
             mobileTitle={mobileTitle}
           />
           <p className="code">
-            {`const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', '!!'];`} <br/>
+            {`const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', '!!'];`}
+            <br/>
             {`<Dropdown
               presentationType="icon"
               list={listItems}
