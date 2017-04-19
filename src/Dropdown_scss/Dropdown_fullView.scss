@@ -6,10 +6,6 @@
   margin: 0;
 }
 
-li {
-  list-style: none;
-}
-
 .li-wrapper #svg-id {
   opacity: 0;
 }
@@ -86,6 +82,10 @@ svg[id^='svg-id-'] {
   display: inline-block;
   vertical-align: middle;
   padding-left: 8px;
+}
+
+.li-wrapper li {
+  list-style: none;
 }
 
 .li-wrapper .li-props {
