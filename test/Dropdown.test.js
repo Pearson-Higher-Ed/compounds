@@ -71,7 +71,6 @@ describe('Dropdown', () => {
       const wrap = mount(<Dropdown presentationType="icon"
                                    list={items}
                                    mobileTitle="Title" />);
-                                   console.log(wrap.find('div'));
       wrap.find('div').simulate('click');
       wrap.update();
       expect(wrap.find('.li-wrapper')).toExist(true);

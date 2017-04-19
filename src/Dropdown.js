@@ -85,7 +85,8 @@ class Dropdown extends Component {
     const ddIcon = this.props.presentationType === 'icon';
 
     return(
-        <div onClick={this.toggleDropDown} ref={(div) => { this.dropdown = div; }} className="dropdown-container" style={containerMargin}>
+        <div onClick={this.toggleDropDown} ref={(div) => { this.dropdown = div; }}
+             className="dropdown-container" style={containerMargin}>
           { ddLabel ? <div>
                         <p className="dropdown-label-text">{this.props.presentationText}</p>
                         <button className={`icon-btn${appendButtonClass}`}>
