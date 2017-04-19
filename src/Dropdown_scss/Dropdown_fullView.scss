@@ -41,6 +41,10 @@ svg[id^='svg-id-'] {
   float: right;
 }
 
+.pe-btn-container-right {
+  float: right;
+}
+
 #icon-in-button {
   margin-left: 8px;
   color: #FFFFFF;
@@ -49,6 +53,7 @@ svg[id^='svg-id-'] {
 .dropdown-container {
   width: 220px;
   position: relative;
+  left: 90%;
 }
 
 .li-wrapper {

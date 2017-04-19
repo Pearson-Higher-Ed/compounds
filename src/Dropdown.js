@@ -85,7 +85,7 @@ class Dropdown extends Component {
     const ddIcon = this.props.presentationType === 'icon';
 
     return(
-        <div onClick={this.toggleDropDown} className="dropdown-container" style={containerMargin}>
+        <div onClick={this.toggleDropDown} ref={(div) => { this.dropdown = div; }} className="dropdown-container" style={containerMargin}>
           { ddLabel ? <div>
                         <p className="dropdown-label-text">{this.props.presentationText}</p>
                         <button className={`icon-btn${appendButtonClass}`}>
@@ -94,18 +94,20 @@ class Dropdown extends Component {
                       </div>
                     : null }
 
-          { ddButton ? <div className="pe-btn__primary">
-                         {this.props.presentationText}
-                         <button className={`icon-btn${appendButtonClass}`}>
-                           <svg
-                             id="icon-in-button"
-                             aria-hidden="true"
-                             focusable="false"
-                             className="pe-icon--dropdown-open-sm-18">
-                             <use xlinkHref="#dropdown-open-sm-18">Selected</use>
-                           </svg>
-                         </button>
-                      </div>
+          { ddButton ? <div className={`pe-btn-container${appendButtonClass}`}>
+                         <div className="pe-btn__primary">
+                           {this.props.presentationText}
+                           <button className={`icon-btn${appendButtonClass}`}>
+                             <svg
+                               id="icon-in-button"
+                               aria-hidden="true"
+                               focusable="false"
+                               className="pe-icon--dropdown-open-sm-18">
+                               <use xlinkHref="#dropdown-open-sm-18">Selected</use>
+                             </svg>
+                           </button>
+                         </div>
+                       </div>
                      : null }
 
           { ddIcon ? <button className={`icon-btn${appendButtonClass}`}>
@@ -133,10 +135,10 @@ export default Dropdown;
 function _toggleDropDown() {
   this.setState({ open: !this.state.open })
 
-  const container = document.getElementsByClassName('dropdown-container')[0].getBoundingClientRect();
+  const container = this.dropdown.getBoundingClientRect();
   const viewWidth = document.body.clientWidth;
   const differenceRight = viewWidth - container.right;
-  const differenceLeft = Math.round(viewWidth - container.left) - 18;
+  const differenceLeft = Math.round(viewWidth - container.left) - 25;
 
   if (differenceRight < 0) {
     containerMargin = { marginRight: differenceLeft, marginLeft: 'auto', left: 'auto'}

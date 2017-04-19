@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import {jsdom} from 'jsdom';
+import { jsdom } from 'jsdom';
 import { Dropdown } from '../index';
 
 describe('Dropdown', () => {
@@ -60,29 +60,21 @@ describe('Dropdown', () => {
     });
 
     it('has correct state', function () {
-
-          const document = jsdom('');
-
-          const window = document.defaultView;
-          Object.keys(document.defaultView).forEach((property) => {
-            if (typeof global[property] === 'undefined') {
-              global[property] = document.defaultView[property];
-            }
-          });
-
-          // global.navigator = {
-          //   userAgent: 'node.js'
-          // };
+      const document = jsdom('');
+      const window = document.defaultView;
+      Object.keys(document.defaultView).forEach((property) => {
+        if (typeof global[property] === 'undefined') {
+          global[property] = document.defaultView[property];
+        }
+      });
 
       const wrap = mount(<Dropdown presentationType="icon"
                                    list={items}
                                    mobileTitle="Title" />);
-      wrap.find('.dropdown-container').root.node.toggleDropDown();
-      // console.log(wrap.find('.dropdown-container').root.node, 'k');
-      // console.log(this.wrapper.find('div'), 'div');
-      // this.wrapper.find('div').simulate('click');
-      // this.wrapper.update();
-      expect(wrap.find('.dropdown-container').root.node.state.open).toEqual(true);
+                                   console.log(wrap.find('div'));
+      wrap.find('div').simulate('click');
+      wrap.update();
+      expect(wrap.find('.li-wrapper')).toExist(true);
     });
 
   });

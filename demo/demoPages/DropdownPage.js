@@ -17,7 +17,7 @@ const DropdownPage = () => (
 
         <br/>
 
-        <h3>Icon /w button</h3>
+        <h3>Icon /w button (selectable)</h3>
         <Dropdown
           presentationType="button"
           presentationText="List"
@@ -27,7 +27,7 @@ const DropdownPage = () => (
 
         <br/>
 
-        <h3>Icon only</h3>
+        <h3>Icon only (selectable)</h3>
           <Dropdown
             presentationType="icon"
             list={listItems}
