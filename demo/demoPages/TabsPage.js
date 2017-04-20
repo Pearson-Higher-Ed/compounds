@@ -1,17 +1,17 @@
 import React from 'react';
-import { Tabs } from '../../index';
+import { Tabs, Pane } from '../../index';
 
 const TabsPage = () => (
   <div>
     <Tabs>
-      <Pane label="Tab 1">
-        <div>Tab 1 contents</div>
+      <Pane label="Tabby">
+        <div>Tab 1</div>
       </Pane>
-      <Pane label="Tab 2">
-        <div>Tab 2 contents</div>
+      <Pane label="Tabetha">
+        <div>Tab 2</div>
       </Pane>
-      <Pane label="Tab 3">
-        <div>Tab 3 contents</div>
+      <Pane label="Tabberino">
+        <div>Tab 3</div>
       </Pane>
     </Tabs>
   </div>

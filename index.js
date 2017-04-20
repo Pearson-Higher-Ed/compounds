@@ -4,3 +4,4 @@ export PasswordInput from './src/PasswordInput';
 export TextInput     from './src/TextInput';
 export Dropdown      from './src/Dropdown';
 export Tabs          from './src/Tabs';
+export Pane          from './src/Pane';

@@ -1,0 +1,33 @@
+.tabs {
+  margin: 20px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+}
+
+.tabs__labels {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs__labels li {
+  display: inline-block;
+}
+
+.tabs__labels li a {
+  padding: 8px 8px;
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  color: #252525;
+  text-decoration: none;
+  border-bottom: 3px solid #fff;
+}
+
+.tabs__labels li a.active {
+  border-bottom-color: #19A5A3;
+}
+
+.tabs__content {
+  padding: 12px;
+}

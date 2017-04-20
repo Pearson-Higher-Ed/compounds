@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import './Tabs.scss';
 
 class Tabs extends Component {
+
+  static propTypes = {
+    selected: PropTypes.number,
+    children: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.element
+    ]).isRequired
+  }
 
   static defaultProps = {
     selected: 0
@@ -14,20 +25,22 @@ class Tabs extends Component {
     }
   };
 
-  _renderContent() {
-    return (
-      <div className="tabs__content">
-        {this.props.children[this.state.selected]}
-      </div>
-    );
+  handleClick(i, e) {
+    e.preventDefault();
+    this.setState({
+      selected: i
+    });
   }
 
-  _renderTitles() {
-    function labels(child, index) {
+  renderLabels() {
+    function labels(child, i) {
+      let activeClass = (this.state.selected === i ? 'active' : '');
       return (
-        <li key={index}>
-          <a href="#">
-            {child.props.label}
+        <li key={i}>
+          <a href="#"
+             className={activeClass}
+             onClick={this.handleClick.bind(this, i)}>
+               {child.props.label}
           </a>
         </li>
       );
@@ -39,12 +52,20 @@ class Tabs extends Component {
     );
   }
 
+  renderContent() {
+    return (
+      <div className="tabs__content">
+        {this.props.children[this.state.selected]}
+      </div>
+    );
+  }
+
   render() {
 
     return (
       <div className="tabs">
-        {this._renderTitles()}
-        {this._renderContent()}
+        {this.renderLabels()}
+        {this.renderContent()}
       </div>
     )
   };
