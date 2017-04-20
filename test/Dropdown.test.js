@@ -59,7 +59,7 @@ describe('Dropdown', () => {
       expect(this.wrapper.find('button').node.props.children.props.name).toEqual('dropdown-open-sm-24');
     });
 
-    it('has correct state', function () {
+    it('toggles dropdown', function () {
       const document = jsdom('');
       Object.keys(document.defaultView).forEach((property) => {
         if (typeof global[property] === 'undefined') {

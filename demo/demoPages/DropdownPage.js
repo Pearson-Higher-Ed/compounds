@@ -45,8 +45,6 @@ const DropdownPage = () => (
           />`}
         </p>
 
-        <br/>
-
         <h3>button /w Icon (selectable options)</h3>
           <Dropdown
             presentationType="button"
@@ -63,8 +61,6 @@ const DropdownPage = () => (
               mobileTitle="Mobile title"
             />`}
           </p>
-
-        <br/>
 
         <h3>Icon only (selectable options)</h3>
           <Dropdown
