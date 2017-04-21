@@ -35,10 +35,10 @@ class Dropdown extends Component {
                            <button className="mobile-close-button">
                              <svg
                                id="header-close"
-                               aria-hidden="true"
                                focusable="false"
                                className="pe-icon--remove-lg-18">
-                               <use xlinkHref="#remove-lg-18">Selected</use>
+                               <title>Close button</title>
+                               <use xlinkHref="#remove-lg-18"></use>
                              </svg>
                            </button>
                          </li>;
@@ -66,7 +66,7 @@ class Dropdown extends Component {
                                              aria-hidden="true"
                                              focusable="false"
                                              className="pe-icon--check-sm-18">
-                                             <use xlinkHref="#check-sm-18">Selected</use>
+                                             <use xlinkHref="#check-sm-18"></use>
                                            </svg>
                                           : null }
                                             <span className="dropdown-item">{item}</span>
@@ -90,7 +90,7 @@ class Dropdown extends Component {
           { ddLabel ? <div>
                         <p className="dropdown-label-text">{this.props.presentationText}</p>
                         <button className={`icon-btn${appendButtonClass}`}>
-                          <Icon name='dropdown-open-sm-18'>Open</Icon>
+                          <Icon name='dropdown-open-sm-18'></Icon>
                         </button>
                       </div>
                     : null }
@@ -104,7 +104,7 @@ class Dropdown extends Component {
                                aria-hidden="true"
                                focusable="false"
                                className="pe-icon--dropdown-open-sm-18">
-                               <use xlinkHref="#dropdown-open-sm-18">Selected</use>
+                               <use xlinkHref="#dropdown-open-sm-18"></use>
                              </svg>
                            </button>
                          </div>
@@ -112,7 +112,7 @@ class Dropdown extends Component {
                      : null }
 
           { ddIcon ? <button className={`icon-btn${appendButtonClass}`}>
-                       <Icon name='dropdown-open-sm-24'>Open</Icon>
+                       <Icon name='dropdown-open-sm-24'></Icon>
                      </button>
                    : null }
 

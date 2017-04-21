@@ -4,9 +4,9 @@ node_js:
 - 4
 - 6
 script:
-# - npm run ci
-# - chmod 777 ./test/shell_scripts/run_tests.sh
-# - ./test/shell_scripts/run_tests.sh
+- npm run ci
+- chmod 777 ./test/shell_scripts/run_tests.sh
+- ./test/shell_scripts/run_tests.sh
 
 deploy:
   provider: npm
