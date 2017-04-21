@@ -22,10 +22,15 @@
   color: #252525;
   text-decoration: none;
   border-bottom: 3px solid #fff;
+
+  &:hover {
+    border-bottom: 3px solid #E9E9E9;
+  }
 }
 
 .tabs__labels li a.active {
   border-bottom-color: #19A5A3;
+  font-weight: bold;
 }
 
 .tabs__content {
