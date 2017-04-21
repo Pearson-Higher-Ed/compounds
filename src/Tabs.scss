@@ -1,6 +1,6 @@
 .tabs {
   margin: 20px;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
 }
@@ -21,7 +21,7 @@
   line-height: 18px;
   color: #252525;
   text-decoration: none;
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid transparent;
 
   &:hover {
     border-bottom: 3px solid #E9E9E9;
