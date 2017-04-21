@@ -2,7 +2,6 @@
   margin: 20px;
   background-color: #fff;
   border: 1px solid #e5e5e5;
-  border-radius: 3px;
 }
 
 .tabs__labels {
@@ -11,15 +10,22 @@
 }
 
 .tabs__labels li {
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
   display: inline-block;
+  padding: 0 16px;
 }
 
 .tabs__labels li a {
-  padding: 8px 8px;
-  display: block;
   font-size: 14px;
   line-height: 18px;
   color: #252525;
+  padding: 8px 0;
+  display: block;
   text-decoration: none;
   border-bottom: 3px solid transparent;
 
@@ -35,4 +41,10 @@
 
 .tabs__content {
   padding: 12px;
+}
+
+.content-text {
+  font-size: 14px;
+  line-height: 18px;
+  color: #252525;
 }
