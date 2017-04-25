@@ -5,5 +5,5 @@ export TextInput     from './src/TextInput';
 export Dropdown      from './src/Dropdown';
 
 // Tabs
-export Tabs          from './src/Tabs';
-export Pane          from './src/Pane';
+export Tabs from './src/Tabs';
+export Pane from './src/Pane';
