@@ -57,7 +57,8 @@ class Dropdown extends Component {
       item === 'divider' ? items.push(dividerLine)
                          : items.push(<li key={i}
                                           onClick={this.selectedItem}
-                                          className="li-props">
+                                          className="li-props"
+                                          role="presentation">
                                         <button type="button" id="mobile-font" className="li-button">
                                         { this.props.presentationType !== 'label'
                                           ?
@@ -69,7 +70,7 @@ class Dropdown extends Component {
                                              <use xlinkHref="#check-sm-18"></use>
                                            </svg>
                                           : null }
-                                            <span className="dropdown-item">{item}</span>
+                                            <span className="dropdown-item" role="menuitem">{item}</span>
                                         </button>
                                       </li>);
     }
@@ -120,6 +121,7 @@ class Dropdown extends Component {
           <CSSTransitionGroup
             className="li-wrapper"
             component="ul"
+            role="menu"
             transitionName="transition"
             transitionEnterTimeout={300}
             transitionLeaveTimeout={300}>
