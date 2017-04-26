@@ -59,7 +59,10 @@ class Dropdown extends Component {
                                           onClick={this.selectedItem}
                                           className="li-props"
                                           role="presentation">
-                                        <button type="button" id="mobile-font" className="li-button">
+                                        <button type="button"
+                                                role="menuitem"
+                                                id="mobile-font"
+                                                className="li-button">
                                         { this.props.presentationType !== 'label'
                                           ?
                                            <svg
@@ -70,7 +73,7 @@ class Dropdown extends Component {
                                              <use xlinkHref="#check-sm-18"></use>
                                            </svg>
                                           : null }
-                                            <span className="dropdown-item" role="menuitem">{item}</span>
+                                            <span className="dropdown-item">{item}</span>
                                         </button>
                                       </li>);
     }
