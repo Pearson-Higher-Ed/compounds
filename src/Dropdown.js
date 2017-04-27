@@ -94,7 +94,7 @@ class Dropdown extends Component {
           { ddLabel ? <div>
                         <p className="dropdown-label-text">{this.props.presentationText}</p>
                         <button className={`icon-btn${appendButtonClass}`}>
-                          <Icon name='dropdown-open-sm-18'></Icon>
+                          <Icon name='dropdown-open-sm-18'>Dropdown open</Icon>
                         </button>
                       </div>
                     : null }
@@ -106,8 +106,10 @@ class Dropdown extends Component {
                              <svg
                                id="icon-in-button"
                                aria-hidden="true"
+                               aria-labelledby="dropdown-title"
                                focusable="false"
                                className="pe-icon--dropdown-open-sm-18">
+                               <title id="dropdown-title">Dropdown open</title>
                                <use xlinkHref="#dropdown-open-sm-18"></use>
                              </svg>
                            </button>
@@ -116,7 +118,7 @@ class Dropdown extends Component {
                      : null }
 
           { ddIcon ? <button className={`icon-btn${appendButtonClass}`}>
-                       <Icon name='dropdown-open-sm-24'></Icon>
+                       <Icon name='dropdown-open-sm-24'>Dropdown open</Icon>
                      </button>
                    : null }
 
