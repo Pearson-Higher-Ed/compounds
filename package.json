@@ -72,7 +72,7 @@
     "intl": "~1.1.0",
     "jest": "16.0.2",
     "node-sass": "^4.5.0",
-    "pearson-elements": "^1.4.2",
+    "pearson-elements": "^1.9.1",
     "react": "^15.3.0",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.0",
