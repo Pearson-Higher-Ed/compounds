@@ -5,6 +5,7 @@ import IconPage   from './demoPages/IconPage';
 import HomePage   from './demoPages/HomePage';
 import HeaderPage from './demoPages/HeaderPage';
 import InputsPage from './demoPages/InputsPage';
+import FooterPage from './demoPages/FooterPage';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ const DemoRouter = (props) => (
         <Route path="/icons"   component={IconPage}   />
         <Route path="/inputs"  component={InputsPage} />
         <Route path="/buttons" component={ButtonPage} />
+        <Route path="/footer" component={FooterPage} />
     </div>
   </Router>
 )
