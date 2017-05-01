@@ -27,7 +27,7 @@ module.exports = {
     host               : "0.0.0.0",
     port               : 8081,
     publicPath         : "/compounds/",
-    https              : true,
+    https              : false,
     overlay            : true,
     watchContentBase   : true,
     historyApiFallback : true,
