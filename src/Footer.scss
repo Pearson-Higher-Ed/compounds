@@ -1,0 +1,25 @@
+%font-abstract {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+a {
+  @extend %font-abstract;
+  padding: 4px;
+}
+
+p {
+  @extend %font-abstract;
+  display: inline;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  p {
+    display: block;
+    padding-top: 12px;
+    padding-bottom: 24px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
