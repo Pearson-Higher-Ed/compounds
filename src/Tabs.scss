@@ -21,21 +21,34 @@
   margin: 0;
 }
 
-.tabs__labels li a {
+%tab-abstract {
   font-size: 14px;
   line-height: 18px;
-  color: #252525;
   padding: 8px 0;
   display: block;
   text-decoration: none;
   border-bottom: 3px solid transparent;
+}
+
+.tabs__labels li .light {
+  @extend %tab-abstract;
+  color: #FFF;
+
+  &:hover {
+    border-bottom: 3px solid rgba(233, 233, 233, 0.8);
+  }
+}
+
+.tabs__labels li .dark {
+  @extend %tab-abstract;
+  color: #252525;
 
   &:hover {
     border-bottom: 3px solid #E9E9E9;
   }
 }
 
-.tabs__labels li a.active {
+.tabs__labels li a.activeTab {
   border-bottom-color: #19A5A3;
   font-weight: bold;
 }

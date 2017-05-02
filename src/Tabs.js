@@ -10,11 +10,13 @@ class Tabs extends Component {
     children: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.element
-    ]).isRequired
+    ]).isRequired,
+    light: PropTypes.bool
   }
 
   static defaultProps = {
-    selected: 0
+    selected: 0,
+    light: false
   }
 
   constructor(props) {
@@ -34,11 +36,12 @@ class Tabs extends Component {
 
   renderLabels() {
     function labels(child, i) {
-      let activeClass = (this.state.selected === i ? 'active' : '');
+      let activeClass = (this.state.selected === i ? 'activeTab' : '');
+      let themeCheck = (this.props.light ? 'light' : 'dark');
       return (
         <li key={i}>
           <a href="#"
-             className={activeClass}
+             className={`${themeCheck} ${activeClass}`}
              onClick={this.handleClick.bind(this, i)}>
                {child.props.label}
           </a>
