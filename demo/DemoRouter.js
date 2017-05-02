@@ -19,11 +19,8 @@ const DemoRouter = (props) => (
         <Route path="/icons"   component={IconPage}   />
         <Route path="/inputs"  component={InputsPage} />
         <Route path="/buttons" component={ButtonPage} />
-<<<<<<< HEAD
-        <Route path="/footer" component={FooterPage} />
-=======
         <Route path="/dropdown" component={DropdownPage} />
->>>>>>> 36037cee733dfaaa52d7754716d5fa448325fc9a
+        <Route path="/footer" component={FooterPage} />
     </div>
   </Router>
 )
