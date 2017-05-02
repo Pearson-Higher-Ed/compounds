@@ -5,13 +5,10 @@ const Button = (props) => {
 
   const { btnType, btnSize, btnIcon, ...rest } = props;
 
-  let classes;
+  let classes = (!btnSize) ? `pe-btn` : `pe-btn--btn_${btnSize}`;
 
   if (btnIcon) {
     classes = `pe-icon--btn`;
-  }
-  else if (!btnType) {
-    classes = (!btnSize) ? `pe-btn` : `pe-btn--btn_${btnSize}`;
   }
   if (btnType) {
     classes = (!btnSize) ? `pe-btn__${btnType}` : `pe-btn__${btnType}--btn_${btnSize}`;
