@@ -3,4 +3,3 @@ export Icon             from './src/Icon';
 export PasswordInput    from './src/PasswordInput';
 export TextInput        from './src/TextInput';
 export LoadingSpinner   from './src/loadingSpinner/loadingSpinner';
-export LoadingIndicator from './src/loadingIndicator/loadingIndicator';
