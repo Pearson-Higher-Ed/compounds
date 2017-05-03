@@ -17,6 +17,7 @@ const HomePage = () => (
             <li><Link className="link_homepage" to={`buttons`}>Buttons</Link></li>
             <li><Link className="link_homepage" to={`icons`}>Icons</Link></li>
             <li><Link className="link_homepage" to={`inputs`}>Inputs</Link></li>
+            <li><Link className="link_homepage" to={`dropdown`}>Dropdown</Link></li>
           </ul>
 
           <p>Contributions: <a href="https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md">FAQ</a></p>
