@@ -14,7 +14,7 @@ module.exports = {
   entry: {
     demo   : [ demo, demoScss ],
     dev    : [ elements, icons, main, loadingSpinner ],
-    dist   : [ compounds ]
+    dist   : [ compounds, loadingSpinner ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
@@ -26,14 +26,14 @@ module.exports = {
   devServer: {
     host               : '0.0.0.0',
     port               : 8081,
-    publicPath         : "/compounds/",
+    publicPath         : '/compounds/',
     https              : false,
     overlay            : true,
     watchContentBase   : true,
     historyApiFallback : true,
     watchOptions       : { poll: true },
     staticOptions      : { redirect: false },
-    contentBase        : path.join(__dirname, "build")
+    contentBase        : path.join(__dirname, 'build')
   },
   externals: [
     {
@@ -63,32 +63,24 @@ module.exports = {
           loader: 'sass-loader' // compiles Sass to CSS
         }]
 
-        },
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        },
-        {
-          test: /\.(ttf|woff|woff2)$/,
-          loader: 'file-loader',
-          options: {
-              name: '/fonts/[name].[ext]?[hash]'
-          }
-        },
-        {
-          test: /\.(png|jpg|gif|svg)$/,
-          loader: 'file-loader',
-          options: {
-              name: '/images/[name].[ext]?[hash]'
-          }
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.(ttf|woff|woff2)$/,
+        loader: 'file-loader',
+        options: {
+          name: '/fonts/[name].[ext]?[hash]'
         }
       },
       {
-        test: /\.(png|jpg|gif|svg|ttf|woff|woff2)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: '/images/[name].[ext]?[hash]'
         }
       }
     ]
