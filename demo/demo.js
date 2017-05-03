@@ -1,6 +1,6 @@
-import React        from 'react';
-import ReactDOM     from 'react-dom';
-import DemoRouter   from './DemoRouter';
+import React      from 'react';
+import ReactDOM   from 'react-dom';
+import DemoRouter from './DemoRouter';
 
 import { addLocaleData, IntlProvider } from 'react-intl';
 
@@ -27,7 +27,7 @@ const locale = (navigator.language) ? navigator.language : navigator.browserLang
 
 /*********---Application Entry Point---************************/
 ReactDOM.render(
-  <IntlProvider locale={locale}  messages={translations[locale]}>
+  <IntlProvider locale={locale} messages={translations[locale]}>
     <DemoRouter />
   </IntlProvider>,
   document.getElementById('app')

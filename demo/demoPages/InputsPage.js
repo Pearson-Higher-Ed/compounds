@@ -1,153 +1,42 @@
-import React                        from 'react';
-import { injectIntl }               from 'react-intl';
-import { messages }                 from '../translations/defaultMessages';
-import { TextInput, PasswordInput } from '../../index';
+import React          from 'react';
+import { injectIntl } from 'react-intl';
+import { messages }   from '../translations/defaultMessages';
+
+import MultiLineTextSection   from './sections/inputsPageSections/MultiLineTextSection';
+import PasswordInputSection   from './sections/inputsPageSections/PasswordInputSection';
+import TextInputSection       from './sections/inputsPageSections/TextInputSection';
+import RadioCheckGroupSection from './sections/inputsPageSections/RadioCheckGroupSection';
+import SelectSection          from './sections/inputsPageSections/SelectSection';
 
 
 const InputsPage = (props) => {
 
   const { intl } = props;
 
+  // ======================Internationalization Example=========================
+  // intl prop is injected by the injectIntl() at the bottom of the page...
+  // Provider Context wraps the root element in demo.js.
+
   // do the intl string replacement...
   const intlDefaultText =  {
-    showText            : intl.formatMessage(messages.showText),
-    hideText            : intl.formatMessage(messages.hideText),
-    passwordPlaceholder : intl.formatMessage(messages.passwordPlaceholder),
-    passwordLabel       : intl.formatMessage(messages.passwordLabel),
-    textLabel           : intl.formatMessage(messages.textLabel),
-    textPlaceholder     : intl.formatMessage(messages.textPlaceholder)
+    showText              : intl.formatMessage(messages.showText),
+    hideText              : intl.formatMessage(messages.hideText),
+    passwordPlaceholder   : intl.formatMessage(messages.passwordPlaceholder),
+    passwordLabel         : intl.formatMessage(messages.passwordLabel),
+    textLabel             : intl.formatMessage(messages.textLabel),
+    textPlaceholder       : intl.formatMessage(messages.textPlaceholder),
+    textInputInfoMessage  : intl.formatMessage(messages.textInputInfoMessage),
+    textInputErrorMessage : intl.formatMessage(messages.textInputErrorMessage)
   };
 
   return (
       <div className="displaySection">
-        <h1><a href="http://pearson-higher-ed.github.io/design/c/inputs/beta/#single-line-text">Single Line Text Input</a></h1>
-
         <div className="elementContainer">
-
-          <div className="code">
-            <h2>Props:</h2>
-            <p>TextInput:</p>
-            <ul>
-              <li>id:String === "a unique name"</li>
-              <li>label:String === "a descriptive label"</li>
-              <li>inputType:String === "default", "error", "disabled", "readOnly"</li>
-              <li>placeholder:String === "a unique name"</li>
-            </ul>
-            <p>PasswordInput:</p>
-            <ul>
-              <li>id:String === "a unique name"</li>
-              <li>label:String === "a descriptive label"</li>
-              <li>placeholder:String === "a placeholder text"</li>
-              <li>inputType:String === "default", "error", "disabled", "readOnly"</li>
-              <li>showText:String === "show/hide text"</li>
-              <li>hideText:String === "show/hide text"</li>
-              <li>error:Boolean === true, false</li>
-            </ul>
-          </div>
-
-
-          <h2>Single Line</h2>
-          <TextInput
-            id          = "a"
-            inputType   = "default"
-            label       = {intlDefaultText.textLabel}
-            placeholder = {intlDefaultText.textPlaceholder}
-          />
-        <p className="code">{'<TextInput id="a" label={intlDefaultText.textLabel} inputType="default" placeholder={intlDefaultText.textPlaceholder} />'}</p>
-
-
-          <br />
-          <br />
-
-
-          <h2>Single Line - Error</h2>
-          <TextInput
-            id          = "b"
-            inputType   = "error"
-            label       = {intlDefaultText.textLabel}
-            placeholder = {intlDefaultText.textPlaceholder}
-          />
-        <p className="code">{'<TextInput id="b" label={intlDefaultText.textLabel} inputType="error" placeholder={intlDefaultText.textPlaceholder} />'}</p>
-
-
-          <br />
-          <br />
-
-
-          <h2>Single Line - Disabled</h2>
-          <TextInput
-            id          = "c"
-            inputType   = "disabled"
-            label       = {intlDefaultText.textLabel}
-            placeholder = {intlDefaultText.textPlaceholder}
-          />
-        <p className="code">{'<TextInput id="c" label={intlDefaultText.textLabel} inputType="disabled" placeholder={intlDefaultText.textPlaceholder} />'}</p>
-
-
-          <br />
-          <br />
-
-
-          <h2>Single Line - Read Only</h2>
-          <TextInput
-            id          = "d"
-            inputType   = "readOnly"
-            label       = {intlDefaultText.textLabel}
-            placeholder = {intlDefaultText.textPlaceholder}
-          />
-        <p className="code">{'<TextInput id="d" label={intlDefaultText.textLabel} inputType="readOnly" placeholder="First Name" />'}</p>
-
-
-          <br />
-          <br />
-
-            <h1><a href="http://pearson-higher-ed.github.io/design/c/inputs/beta/#specialized-inputs">Password Input</a></h1>
-
-              <h2>Default:</h2>
-              <PasswordInput
-                id          = "e"
-                placeholder = {intlDefaultText.passwordPlaceholder}
-                showText    = {intlDefaultText.showText}
-                hideText    = {intlDefaultText.hideText}
-                />
-              <p className="code">{'<PasswordInput id="a" placeholder={intlDefaultText.passwordPlaceholder} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} />'}</p>
-
-
-              <br />
-              <br />
-
-
-              <h2>Custom Label:</h2>
-              <PasswordInput
-                id          = "f"
-                label       = {intlDefaultText.passwordLabel}
-                placeholder = {intlDefaultText.passwordPlaceholder}
-                showText    = {intlDefaultText.showText}
-                hideText    = {intlDefaultText.hideText}
-                />
-              <p className="code">{'<PasswordInput id="a" label={intlDefaultText.passwordLabel} placeholder={intlDefaultText.passwordPlaceholder} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} />'}</p>
-
-
-              <br />
-              <br />
-
-
-              <h2>Error:</h2>
-              <PasswordInput
-                id          = "h"
-                error       = {true}
-                label       = {intlDefaultText.passwordLabel}
-                placeholder = {intlDefaultText.passwordPlaceholder}
-                showText    = {intlDefaultText.showText}
-                hideText    = {intlDefaultText.hideText}
-                />
-              <p className="code">{'<PasswordInput id="h" label={intlDefaultText.passwordLabel} placeholder={intlDefaultText.passwordPlaceholder} error={true} showText={intlDefaultText.showText} hideText={intlDefaultText.hideText} />'}</p>
-
-
-              <br />
-              <br />
-
-
+          <TextInputSection       intlDefaultText={intlDefaultText} />
+          <PasswordInputSection   intlDefaultText={intlDefaultText} />
+          <SelectSection          intlDefaultText={intlDefaultText} />
+          <MultiLineTextSection   intlDefaultText={intlDefaultText} />
+          <RadioCheckGroupSection intlDefaultText={intlDefaultText} />
         </div>
       </div>
     )
