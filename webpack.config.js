@@ -26,12 +26,14 @@ module.exports = {
   devServer: {
     host               : '0.0.0.0',
     port               : 8081,
-    publicPath         : '/compounds/',
-    https              : true,
+    publicPath         : "/compounds/",
+    https              : false,
     overlay            : true,
     watchContentBase   : true,
     historyApiFallback : true,
-    watchOptions       : { poll: true }
+    watchOptions       : { poll: true },
+    staticOptions      : { redirect: false },
+    contentBase        : path.join(__dirname, "build")
   },
   externals: [
     {
@@ -61,13 +63,25 @@ module.exports = {
           loader: 'sass-loader' // compiles Sass to CSS
         }]
 
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['es2015', 'stage-0', 'react']
+        },
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader'
+        },
+        {
+          test: /\.(ttf|woff|woff2)$/,
+          loader: 'file-loader',
+          options: {
+              name: '/fonts/[name].[ext]?[hash]'
+          }
+        },
+        {
+          test: /\.(png|jpg|gif|svg)$/,
+          loader: 'file-loader',
+          options: {
+              name: '/images/[name].[ext]?[hash]'
+          }
         }
       },
       {

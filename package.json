@@ -1,19 +1,19 @@
 {
   "name": "pearson-compounds",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "description": "Atomic React Components",
-  "main": "./index.js",
+  "main": "./build/dist.compounds.js",
   "author": "Pearson Design Accelerator",
   "license": "MIT",
-  "homepage": "http://pearson-higher-ed.github.io/compounds/",
+  "homepage": "https://pearson-higher-ed.github.io/compounds/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Pearson-Higher-Ed/compounds/"
   },
   "scripts": {
     "start": "npm run serve",
-    "serve": "NODE_ENV=development webpack-dev-server --inline --hot",
-    "deploy": "git subtree push --prefix build origin gh-pages",
+    "serve": "NODE_ENV=development webpack-dev-server --hot",
+    "deploy": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
     "test": "jest --coverage",
     "build": "NODE_ENV=production webpack -p",
     "gen-changelog": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gen-changelog.js",
@@ -32,7 +32,7 @@
       "**/src/*.{js,jsx}"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/(build|node_modules|demo|fonts|npm_scripts|coverage)/"
+      "<rootDir>/(build|node_modules|demo|coverage)/"
     ],
     "testEnvironment": "node",
     "coverageThreshold": {
@@ -62,22 +62,23 @@
     "eslint-plugin-react": "~3.16.1",
     "expect": "~1.18.0",
     "expect-jsx": "~2.5.1",
-    "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "^0.10.0",
-    "fs-extra": "^1.0.0",
     "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.28.0",
     "ignore-styles": "~5.0.1",
     "image-webpack-loader": "^3.2.0",
     "intl": "~1.1.0",
     "jest": "16.0.2",
+    "jsdom": "^9.12.0",
     "node-sass": "^4.5.0",
-    "pearson-elements": "^1.4.2",
+    "pearson-elements": "^1.8.2",
+    "prop-types": "^15.5.6",
     "react": "^15.3.0",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.3.0",
     "react-intl": "~2.0.1",
     "react-router-dom": "^4.0.0-beta.6",
+    "react-transition-group": "^1.1.3",
     "sass-loader": "^6.0.0",
     "semver": "~5.1.0",
     "style-loader": "^0.13.1",
