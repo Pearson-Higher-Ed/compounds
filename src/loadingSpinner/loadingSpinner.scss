@@ -1,3 +1,5 @@
+@import '../../node_modules/pearson-elements/scss/elements/color/variables';
+
 .pe-loadingSpinner {
   width: 25px;
   height: 25px;
@@ -7,7 +9,7 @@
 .pe-loadingSpinner-container1 > div, .pe-loadingSpinner-container2 > div {
   width: 4px;
   height: 4px;
-  background-color: #19A5A3;
+  background-color: $pe-color-digital-marine-turquoise;
 
   border-radius: 100%;
   position: absolute;

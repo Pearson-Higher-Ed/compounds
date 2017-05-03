@@ -1,0 +1,32 @@
+@import '../../node_modules/pearson-elements/scss/elements/color/variables';
+
+.pe-loadingIndicator {
+  // display: block;
+  // margin-left: 50%;
+  // margin-right: 50%;
+
+  .pe-loadingIndicator-chip {
+    width: 200px;
+    height: 70px;
+    color: $pe-color-white;
+    background-color: $pe-color-charcoal;
+    padding: 0 20px 0 25px;
+    border-radius: 5px;
+
+    .pe-loadingIndicator-contents {
+      // display: block;
+      // margin-left: 50%;
+      // margin-right: 50%;
+
+      .pe-loadingIndicator-spinner {
+        padding-top: 22px;
+        float: left;
+      }
+
+      .pe-loadingIndicator-text {
+        padding-top: 26px;
+        margin-left: 41px;
+      }
+    }
+  }
+}
