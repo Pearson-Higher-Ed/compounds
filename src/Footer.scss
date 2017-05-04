@@ -4,11 +4,11 @@
 }
 
 body {
-  height: 100%;
   // background-color: #005a70;
 }
 
 %footer-abstract {
+  margin-top: 24px;
   margin-bottom: 24px;
   text-align: center;
   width: 100%;
@@ -24,7 +24,7 @@ body {
   position: absolute;
 }
 
-.pda-footer-noAbsolute{
+.pda-footer-noAbsolute {
   @extend %footer-abstract;
 }
 

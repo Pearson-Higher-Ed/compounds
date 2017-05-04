@@ -13,7 +13,7 @@ const links = [{
 }];
 
 const style = {
-  height: 350,
+  height: 200,
   border: '1px solid black'
 }
 
@@ -21,6 +21,9 @@ const FooterPage = () => (
   <div>
     <div style={style}></div>
     <div style={style}></div>
+    <div style={style}></div>
+    <div style={style}></div>
+    <div style={{ height: 72, border: '1px solid black' }}></div>
     <Footer links={links} />
   </div>
 );

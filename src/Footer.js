@@ -14,6 +14,14 @@ export default class Footer extends Component {
     light: false
   }
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      position: ''
+    }
+  }
+
   renderLinks() {
     let items = [];
     let themeCheck = this.props.light ? '-light' : '';
@@ -34,21 +42,19 @@ export default class Footer extends Component {
     return items;
   }
 
+  componentDidMount() {
+    const screenCheck = document.body.scrollHeight > window.innerHeight + 442 ?
+                        this.setState({ position: 'pda-footer-noAbsolute' })  :
+                        this.setState({ position: 'pda-footer' });
+  }
+
   render() {
-    const body = document.body;
-    const html = document.documentElement;
 
     return (
         <footer>
-          <div className="pda-footer">
+          <div className={this.state.position}>
             <ul className="li-container">
               {this.renderLinks()}
-              {console.log(body.scrollHeight, 'scrollHeight')}
-              {console.log(body.offsetHeight, 'offsetHeight')}
-              {console.log(html.clientHeight, 'clientHeight')}
-              {console.log(html.scrollHeight, 'html scrollHeight')}
-              {console.log(html.offsetHeight, 'html offsetHeight')}
-              {console.log(window.innerHeight, 'window.innerHeight')}
             </ul>
           </div>
         </footer>
