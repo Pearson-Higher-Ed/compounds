@@ -13,7 +13,7 @@ const links = [{
 }];
 
 const style = {
-  height: 300,
+  height: 350,
   border: '1px solid black'
 }
 

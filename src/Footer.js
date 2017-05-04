@@ -28,7 +28,7 @@ export default class Footer extends Component {
       items.push(<li key={i} className="li-a">
                    <a className={`footer-link${themeCheck}`} href={item.href}>{item.text}</a>
                    <span className={`separator${themeCheck}`} aria-hidden={true}>|</span>
-                   {i === (this.props.links.length - 1) ? copyrightText : null}
+                   {i === this.props.links.length - 1 ? copyrightText : null}
                  </li>);
     }
     return items;
@@ -48,6 +48,7 @@ export default class Footer extends Component {
               {console.log(html.clientHeight, 'clientHeight')}
               {console.log(html.scrollHeight, 'html scrollHeight')}
               {console.log(html.offsetHeight, 'html offsetHeight')}
+              {console.log(window.innerHeight, 'window.innerHeight')}
             </ul>
           </div>
         </footer>
