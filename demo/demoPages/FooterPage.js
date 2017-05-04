@@ -1,19 +1,28 @@
 import React from 'react';
 import { Footer } from '../../index';
 
-const test = [{
-  text: 'one',
-  href: 'test'
+const links = [{
+  text: 'First link',
+  href: 'first'
 }, {
-  text: 'two',
-  href: 'another test'
+  text: 'Second link',
+  href: 'second'
 }, {
-  text: 'three',
-  href: 'final'
+  text: 'Last link',
+  href: 'last'
 }];
 
+const style = {
+  height: 300,
+  border: '1px solid black'
+}
+
 const FooterPage = () => (
-  <Footer links={test} />
+  <div>
+    <div style={style}></div>
+    <div style={style}></div>
+    <Footer links={links} />
+  </div>
 );
 
 export default FooterPage;

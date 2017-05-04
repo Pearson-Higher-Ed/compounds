@@ -3,23 +3,98 @@
   line-height: 18px;
 }
 
-a {
-  @extend %font-abstract;
-  padding: 4px;
+body {
+  height: 100%;
+  // background-color: #005a70;
 }
 
-p {
+%footer-abstract {
+  margin-bottom: 24px;
+  text-align: center;
+  width: 100%;
+  background-color: transparent;
+}
+
+.pda-footer {
+  @extend %footer-abstract;
+  display: inline;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+.pda-footer-noAbsolute{
+  @extend %footer-abstract;
+}
+
+.li-container {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-link {
   @extend %font-abstract;
+  color: #047a9c;
+
+  &:hover,
+  &:focus {
+    color: #005a70;
+  }
+}
+
+.footer-link-light {
+  @extend %font-abstract;
+  color: #FFF;
+
+  &:hover,
+  &:focus {
+    color: #FFF;
+  }
+}
+
+.li-a {
+  display: inline;
+}
+
+.separator {
+  @extend %font-abstract;
+  color: #252525;
+}
+
+.separator-light {
+  @extend %font-abstract;
+  color: #FFF;
+}
+
+%copyright-abstract {
   display: inline;
   margin: 0;
 }
 
+.footer-copyright-text {
+  @extend %font-abstract;
+  @extend %copyright-abstract;
+  color: #252525;
+}
+
+.footer-copyright-text-light {
+  @extend %font-abstract;
+  @extend %copyright-abstract;
+  color: #FFF;
+}
+
 @media (max-width: 768px) {
-  p {
+  p[class^='footer-copyright-text'] {
     display: block;
     padding-top: 12px;
-    padding-bottom: 24px;
     font-size: 12px;
     line-height: 16px;
   }
+
+  .li-a:nth-child(3) span {
+    display: none;
+  }
+
 }
