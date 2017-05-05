@@ -2,13 +2,13 @@ import React from 'react';
 import { Footer } from '../../index';
 
 const links = [{
-  text: 'First link',
+  text: 'Terms and Conditions',
   href: 'first'
 }, {
-  text: 'Second link',
+  text: 'Privacy Policy',
   href: 'second'
 }, {
-  text: 'Last link',
+  text: 'Accessibility',
   href: 'last'
 }];
 
@@ -19,9 +19,9 @@ const style = {
 
 const FooterPage = () => (
   <div>
-    <div style={style}></div>
-    <div style={style}></div>
-    <Footer links={links} />
+    <div style={style}>foo</div>
+    <div style={style}>bar</div>
+    <Footer links={links} light />
   </div>
 );
 

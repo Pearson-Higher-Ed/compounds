@@ -14,21 +14,22 @@ export default class Footer extends Component {
     light: false
   }
 
+  renderCopy() {
+    const year = new Date().getFullYear();
+    return (<p>
+                Copyright &#169; {year} Pearson Education Inc.
+                All rights reserved.
+            </p>);
+  }
+
   renderLinks() {
     let items = [];
-    let themeCheck = this.props.light ? '-light' : '';
-    const year = new Date().getFullYear();
-    const copyrightText = <p className={`footer-copyright-text${themeCheck}`}>
-                            Copyright &copy; {year} Pearson Education Inc.
-                            All rights reserved.
-                          </p>;
 
     for (let i = 0; i < this.props.links.length; i++) {
       let item = this.props.links[i];
-      items.push(<li key={i} className="li-a">
-                   <a className={`footer-link${themeCheck}`} href={item.href}>{item.text}</a>
-                   <span className={`separator${themeCheck}`} aria-hidden={true}>|</span>
-                   {i === (this.props.links.length - 1) ? copyrightText : null}
+      items.push(<li key={i}>
+                   <a href={item.href}>{item.text}</a>
+                   <span aria-hidden={true}>|</span>
                  </li>);
     }
     return items;
@@ -36,21 +37,18 @@ export default class Footer extends Component {
 
   render() {
     const body = document.body;
-    const html = document.documentElement;
-
     return (
-        <footer>
-          <div className="pda-footer">
-            <ul className="li-container">
+        <div>
+        {console.log(body.offsetHeight, 'body offsetHeight')}
+        {console.log(window.innerHeight, 'window innerHeight')}
+        {console.log((body.offsetHeight>window.innerHeight))}
+        <footer className={'pe-footer pe-label'+((this.props.light)?' pe-footer--light':'')+((body.offsetHeight<window.innerHeight)?' pe-footer--stick':'')}>
+            <ul>
               {this.renderLinks()}
-              {console.log(body.scrollHeight, 'scrollHeight')}
-              {console.log(body.offsetHeight, 'offsetHeight')}
-              {console.log(html.clientHeight, 'clientHeight')}
-              {console.log(html.scrollHeight, 'html scrollHeight')}
-              {console.log(html.offsetHeight, 'html offsetHeight')}
             </ul>
-          </div>
+            {this.renderCopy()}
         </footer>
+        </div>
     )
   }
 }
