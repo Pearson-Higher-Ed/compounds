@@ -8,13 +8,14 @@ const main              = `${__dirname}/demo/main.js`;
 const compounds         = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
+const Footer            = `${__dirname}/src/Footer/Footer.scss`;
 
 
 module.exports = {
   entry: {
     demo   : [ demo, demoScss ],
-    dev    : [ elements, icons, main ],
-    dist   : [ compounds ]
+    dev    : [ elements, icons, main, Footer ],
+    dist   : [ compounds, Footer ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
@@ -22,9 +23,9 @@ module.exports = {
     publicPath    : '/compounds/',
     libraryTarget : 'umd'
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   devServer: {
-    host               : "0.0.0.0",
+    host               : '0.0.0.0',
     port               : 8081,
     publicPath         : "/compounds/",
     https              : false,
@@ -54,11 +55,11 @@ module.exports = {
         {
           test: /\.(css|scss)$/,
           use: [{
-              loader: "style-loader" // creates style nodes from JS strings
+              loader: 'style-loader' // creates style nodes from JS strings
           }, {
-              loader: "css-loader" // translates CSS into CommonJS
+              loader: 'css-loader' // translates CSS into CommonJS
           }, {
-              loader: "sass-loader" // compiles Sass to CSS
+              loader: 'sass-loader' // compiles Sass to CSS
           }]
 
         },
