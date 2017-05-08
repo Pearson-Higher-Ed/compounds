@@ -1,7 +1,6 @@
 const path              = require('path');
 const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const demo              = `${__dirname}/demo/demo.js`;
 const demoScss          = `${__dirname}/demo/demo.scss`;
 const main              = `${__dirname}/demo/main.js`;
@@ -32,7 +31,9 @@ module.exports = {
     overlay            : true,
     watchContentBase   : true,
     historyApiFallback : true,
-    watchOptions       : { poll: true }
+    watchOptions       : { poll: true },
+    staticOptions      : { redirect: false },
+    contentBase        : path.join(__dirname, "build")
   },
   externals: [
       {
@@ -66,16 +67,20 @@ module.exports = {
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
+          loader: 'babel-loader'
+        },
+        {
+          test: /\.(ttf|woff|woff2)$/,
+          loader: 'file-loader',
           options: {
-            presets: ["es2015", "stage-0", "react"]
+              name: '/fonts/[name].[ext]?[hash]'
           }
         },
         {
-          test: /\.(png|jpg|gif|svg|ttf|woff|woff2)$/,
+          test: /\.(png|jpg|gif|svg)$/,
           loader: 'file-loader',
           options: {
-              name: '[name].[ext]?[hash]'
+              name: '/images/[name].[ext]?[hash]'
           }
         }
       ]
