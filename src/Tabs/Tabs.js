@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './Tabs.scss';
-
 class Tabs extends Component {
 
   static propTypes = {
@@ -27,8 +25,8 @@ class Tabs extends Component {
     }
   };
 
-  handleClick(i, e) {
-    e.preventDefault();
+  handleClick(i, event) {
+    event.preventDefault();
     this.setState({
       selected: i
     });
@@ -36,12 +34,12 @@ class Tabs extends Component {
 
   renderLabels() {
     function labels(child, i) {
-      let activeClass = (this.state.selected === i ? 'activeTab' : '');
-      let themeCheck = (this.props.light ? 'light' : 'dark');
+      let activeClass = this.state.selected === i ? 'activeTab' : '';
+      let themeCheck = this.props.light ? 'light' : '';
       return (
         <li key={i}>
           <a href="#"
-             className={`${themeCheck} ${activeClass}`}
+             className={`pe-label ${themeCheck} ${activeClass}`}
              onClick={this.handleClick.bind(this, i)}>
                {child.props.label}
           </a>
@@ -57,7 +55,7 @@ class Tabs extends Component {
 
   renderContent() {
     return (
-      <div className="tabs__content">
+      <div>
         {this.props.children[this.state.selected]}
       </div>
     );
@@ -66,7 +64,7 @@ class Tabs extends Component {
   render() {
 
     return (
-      <div className="tabs">
+      <div className="tabs-willRemoveBeforePR">
         {this.renderLabels()}
         {this.renderContent()}
       </div>

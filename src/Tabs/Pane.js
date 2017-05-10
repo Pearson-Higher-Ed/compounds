@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './Tabs.scss';
-
 class Pane extends Component {
 
   static propTypes = {
@@ -12,7 +10,7 @@ class Pane extends Component {
 
   render() {
     return (
-      <div className="content-text">
+      <div>
         {this.props.children}
       </div>
     )

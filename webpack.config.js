@@ -8,13 +8,14 @@ const compounds         = `${__dirname}/index.js`;
 const icons             = `${__dirname}/node_modules/pearson-elements/dist/icons/p-icons-sprite-1.1.svg`;
 const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/elements.css`;
 const Footer            = `${__dirname}/src/Footer/Footer.scss`;
+const Tabs              = `${__dirname}/src/Tabs/Tabs.scss`;
 
 
 module.exports = {
   entry: {
     demo   : [ demo, demoScss ],
-    dev    : [ elements, icons, main, Footer ],
-    dist   : [ compounds, Footer ]
+    dev    : [ elements, icons, main, Footer, Tabs ],
+    dist   : [ compounds, Footer, Tabs ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
