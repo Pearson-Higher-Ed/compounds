@@ -34,7 +34,8 @@
 }
 
 @media (max-width: 768px) {
-  .pe-footer ul {
+  .pe-footer ul,
+  .pe-footer--stick ul {
     margin-bottom: 12px;
   }
 

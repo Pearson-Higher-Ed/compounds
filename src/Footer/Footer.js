@@ -44,7 +44,7 @@ export default class Footer extends Component {
   componentDidMount() {
     const that = this;
     (document.body.scrollHeight > (window.innerHeight * 1.5))
-    ? this.setState({ position: ''}) : this.setState({ position: '--stick' });
+    ? this.setState({position: ''}) : this.setState({position: '--stick'});
 
     ((() => {
       window.addEventListener("resize", resizeThrottler, false);
@@ -61,10 +61,8 @@ export default class Footer extends Component {
       }
 
       function actualResizeHandler() {
-        (document.body.scrollHeight > (window.innerHeight * 1.5)
-        || (document.body.scrollHeight + 10) > window.innerHeight)
-        ? that.setState({ position: '' })
-        : that.setState({ position: '--stick' });
+        (document.body.scrollHeight > (window.innerHeight * 1.5))
+        ? that.setState({position: ''}) : that.setState({position: '--stick'});
       }
 
     })());
@@ -73,7 +71,7 @@ export default class Footer extends Component {
   render() {
 
     return (
-        <footer className={`pe-footer${this.state.position} pe-label ${(this.props.light)?' pe-footer--light':''}`}>
+        <footer className={`pe-footer${this.state.position} pe-label ${(this.props.light)? 'pe-footer--light':''}`}>
           <ul>
             {this.renderLinks()}
           </ul>
