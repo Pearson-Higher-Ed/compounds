@@ -64,7 +64,7 @@ class Tabs extends Component {
   render() {
 
     return (
-      <div className="tabs-willRemoveBeforePR">
+      <div>
         {this.renderLabels()}
         {this.renderContent()}
       </div>
