@@ -3,7 +3,7 @@ import { Tabs, Pane } from '../../index';
 
 const pad = {padding: 12};
 const eight = {paddingLeft : 8};
-const sixtn = {paddingLeft : 16};
+const sixteen = {paddingLeft : 16};
 
 const TabsPage = () => (
   <div className="displaySection">
@@ -21,18 +21,18 @@ const TabsPage = () => (
           <div style={pad}>Tab 3</div>
         </Pane>
       </Tabs>
-      
+
       <h3>Example usage</h3>
         <p className="code">
           {`<Tabs>`} <br/>
           <div style={eight}>{`<Pane label="Tabby">`} <br/> </div>
-          <div style={sixtn}>{`<div>Tab 1</div>`} <br/> </div>
+          <div style={sixteen}>{`<div>Tab 1</div>`} <br/> </div>
           <div style={eight}>{`</Pane>`} <br/> </div>
           <div style={eight}>{`<Pane label="Tabetha">`} <br/> </div>
-          <div style={sixtn}>{`<div>Tab 2</div>`} <br/> </div>
+          <div style={sixteen}>{`<div>Tab 2</div>`} <br/> </div>
           <div style={eight}>{`</Pane>`} <br/> </div>
           <div style={eight}>{`<Pane label="Tabberino">`} <br/> </div>
-          <div style={sixtn}>{`<div>Tab 3</div>`} <br/> </div>
+          <div style={sixteen}>{`<div>Tab 3</div>`} <br/> </div>
           <div style={eight}>{`</Pane>`} <br/> </div>
           {`</Tabs>`}
         </p>

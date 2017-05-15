@@ -35,10 +35,13 @@ class Tabs extends Component {
   renderLabels() {
     function labels(child, i) {
       let activeClass = this.state.selected === i ? 'activeTab' : '';
-      let themeCheck = this.props.light ? 'light' : '';
+      let ariaHide = activeClass ? true : false;
+      const themeCheck = this.props.light ? 'light' : '';
+
       return (
         <li key={i}>
           <a href="#"
+             aria-hidden={ariaHide}
              className={`pe-label ${themeCheck} ${activeClass}`}
              onClick={this.handleClick.bind(this, i)}>
                {child.props.label}

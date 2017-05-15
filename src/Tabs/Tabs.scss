@@ -24,9 +24,10 @@
 
 .tabs__labels li a {
   @extend %tab-abstract;
-  color: #252525;
+  color: rgba(37, 37, 37, 0.7);
 
-  &:hover {
+  &:hover,
+  &:focus {
     border-bottom: 3px solid #C7C7C7;
   }
 }
@@ -40,10 +41,9 @@
   }
 }
 
-
 .tabs__labels li a.activeTab {
   border-bottom-color: #19A5A3;
-  font-weight: 600;
+  color: #252525;
 
   &:hover {
     border-bottom: 3px solid #19A5A3;
