@@ -15,8 +15,10 @@
   padding: 0;
 }
 
-.pe-footer span {
+.pe-footer span,
+.pe-footer--stick span {
   display: inline-block;
+  padding: 0 2px;
 }
 
 .pe-footer--stick {
@@ -39,7 +41,8 @@
     margin-bottom: 12px;
   }
 
-  .pe-footer li:last-child span {
+  .pe-footer li:last-child span,
+  .pe-footer--stick li:last-child span {
     display: none;
   }
 
