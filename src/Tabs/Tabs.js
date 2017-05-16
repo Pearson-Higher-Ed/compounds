@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Tabs extends Component {
+export default class Tabs extends Component {
 
   static propTypes = {
     selected: PropTypes.number,
@@ -41,7 +41,7 @@ class Tabs extends Component {
       return (
         <li key={i}>
           <a href="#"
-             aria-hidden={ariaHide}
+             aria-current={ariaHide}
              className={`pe-label ${themeCheck} ${activeClass}`}
              onClick={this.handleClick.bind(this, i)}>
                {child.props.label}
@@ -74,5 +74,3 @@ class Tabs extends Component {
     )
   };
 };
-
-export default Tabs;

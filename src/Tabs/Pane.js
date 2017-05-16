@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Pane extends Component {
+export default class Pane extends Component {
 
   static propTypes = {
     label: PropTypes.string.isRequired,
@@ -10,11 +10,9 @@ class Pane extends Component {
 
   render() {
     return (
-      <div>
+      <div aria-live="polite">
         {this.props.children}
       </div>
     )
   }
 }
-
-export default Pane;
