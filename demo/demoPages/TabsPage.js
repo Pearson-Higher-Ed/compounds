@@ -12,10 +12,10 @@ const TabsPage = () => (
     <div className="elementContainer">
       <Tabs>
         <Pane label="Tabby">
-          <div style={pad}>Tab 1</div>
+          <div style={pad}>A bunch of words in Tab 1</div>
         </Pane>
         <Pane label="Tabetha">
-          <div style={pad}>Tab 2</div>
+          <div style={pad}>More words in Tab 2</div>
         </Pane>
         <Pane label="Tabberino">
           <div style={pad}>Tab 3</div>

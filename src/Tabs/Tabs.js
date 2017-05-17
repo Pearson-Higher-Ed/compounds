@@ -35,13 +35,16 @@ export default class Tabs extends Component {
   renderLabels() {
     function labels(child, i) {
       let activeClass = this.state.selected === i ? 'activeTab' : '';
-      let ariaHide = activeClass ? true : false;
+      let tabI = activeClass ? "0" : "-1";
+      let ariaSelected = activeClass ? true : false;
       const themeCheck = this.props.light ? 'light' : '';
 
       return (
-        <li key={i}>
+        <li key={i} role="presentation">
           <a href="#"
-             aria-current={ariaHide}
+             role="tab"
+             tabIndex={tabI}
+             aria-selected={ariaSelected}
              className={`pe-label ${themeCheck} ${activeClass}`}
              onClick={this.handleClick.bind(this, i)}>
                {child.props.label}
@@ -50,7 +53,7 @@ export default class Tabs extends Component {
       );
     }
     return (
-      <ul className="tabs__labels">
+      <ul className="tabs__labels" role="tablist">
         {this.props.children.map(labels.bind(this))}
       </ul>
     );
