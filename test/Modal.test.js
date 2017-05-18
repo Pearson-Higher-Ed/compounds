@@ -33,22 +33,24 @@ const text =  {
 };
 
 // create a spy for the success button...
-const onButtonClick = sinon.spy();
+const onButtonClick  = sinon.spy();
+const onButtonClick2 = sinon.spy();
 
 
 describe('Modal Suite', () => {
 
  // mount the component...
- const wrapper = shallow( <Modal.default text={text} footerVisible={true} successBtnHandler={onButtonClick} ><p>{text.bodyText}</p></Modal.default> );
+ const wrapper = shallow( <Modal.default isShown={true} text={text} footerVisible={true} cancelBtnHandler={onButtonClick} successBtnHandler={onButtonClick2} ><p>{text.bodyText}</p></Modal.default> );
 
  it('should render footer conditionally', () => {
-   const footerVisible         = true;
-   const text                  = {modalCancelButtonText:"hi", modalSaveButtonText:"there"};
-   const successBtnHandler    = () => { console.log('¡¡success button pressed!!') }
-   expect(Modal._renderFooter(footerVisible, text, successBtnHandler)).toEqualJSX(
+   const footerVisible      = true;
+   const text               = {modalCancelButtonText:"hi", modalSaveButtonText:"there"};
+   const successBtnHandler  = () => { console.log('¡¡success button pressed!!') }
+   const cancelBtnHandler    = () => { console.log('¡¡cancel button pressed!!') }
+   expect(Modal._renderFooter(footerVisible, text, successBtnHandler, cancelBtnHandler)).toEqualJSX(
      <div className="modalFooter" >
-       <button onClick={undefined} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-       <button onClick={() => successBtnHandler()} className="modalSave pe-btn__cta_t--btn_large">{text.modalSaveButtonText}</button>
+       <button onClick={cancelBtnHandler.bind(this)} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
+       <button onClick={successBtnHandler.bind(this)} className="modalSave pe-btn__cta_t--btn_large">{text.modalSaveButtonText}</button>
      </div>
    );
  });

@@ -40,16 +40,13 @@ class Modal extends Component {
 
   render() {
 
-    const { footerVisible, text, children, successBtnHandler, cancelBtnHandler } = this.state;
-
-    let { modalIsOpen } = this.state;
-    // modalIsOpen = (this.props.isShown) ? true : false;
+    const { modalIsOpen, footerVisible, text, children, successBtnHandler, cancelBtnHandler } = this.state;
 
     return (
         <BaseModal
           className        = "pe-template__static-medium modalContent"
           overlayClassName = "modalOverlay"
-          isOpen           = {modalIsOpen}
+          isOpen           = {modalIsOpen || this.props.isShown}
           onAfterOpen      = {this.afterOpen}
           onRequestClose   = {this.onClose}
           ariaHideApp      = {false}
@@ -92,6 +89,7 @@ Modal.propTypes = {
 export function _onClose() {
   const modalOverlay = document.getElementsByClassName('modalOverlay')[0];
   !this.state.modalIsOpen ? null : modalOverlay.style = "";
+  this.setState({modalIsOpen:false});
   this.state.cancelBtnHandler();
 };
 
@@ -136,8 +134,8 @@ export function _renderFooter(footerVisible, text, successBtnHandler, cancelBtnH
   if (footerVisible) {
     return(
       <div className="modalFooter" >
-        <button onClick={cancelBtnHandler} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-        <button onClick={successBtnHandler} className="modalSave pe-btn__cta_t--btn_large">{text.modalSaveButtonText}</button>
+        <button onClick={cancelBtnHandler.bind(this)} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
+        <button onClick={successBtnHandler.bind(this)} className="modalSave pe-btn__cta_t--btn_large">{text.modalSaveButtonText}</button>
       </div>
     )
   };
