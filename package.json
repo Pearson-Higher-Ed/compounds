@@ -43,7 +43,8 @@
     }
   },
   "dependencies": {
-    "react-modal": "^1.7.7"
+    "react-modal": "^1.7.7",
+    "sinon": "^2.2.0"
   },
   "devDependencies": {
     "@pearson-components/npm-scripts": "^0.4.1",

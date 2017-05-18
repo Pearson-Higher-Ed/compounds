@@ -43,7 +43,7 @@ class Modal extends Component {
     const { footerVisible, text, children, successBtnHandler, cancelBtnHandler } = this.state;
 
     let { modalIsOpen } = this.state;
-    modalIsOpen = (this.props.isShown) ? true : false;
+    // modalIsOpen = (this.props.isShown) ? true : false;
 
     return (
         <BaseModal
