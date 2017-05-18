@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 
 export default class Pane extends Component {
 
@@ -9,8 +10,10 @@ export default class Pane extends Component {
   }
 
   render() {
+    const i_id = uuid.v1();
+
     return (
-      <div aria-live="polite">
+      <div role="tabpanel" id={i_id}>
         {this.props.children}
       </div>
     )
