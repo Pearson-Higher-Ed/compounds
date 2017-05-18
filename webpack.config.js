@@ -55,7 +55,6 @@ module.exports = {
   ],
   module: {
     rules: [
-<<<<<<< HEAD
         {
           test: /\.(css|scss)$/,
           use: [{
@@ -65,18 +64,6 @@ module.exports = {
           }, {
               loader: 'sass-loader' // compiles Sass to CSS
           }]
-=======
-      {
-        test: /\.(css|scss)$/,
-        use: [{
-          loader: 'style-loader' // creates style nodes from JS strings
-        }, {
-          loader: 'css-loader' // translates CSS into CommonJS
-        }, {
-          loader: 'sass-loader' // compiles Sass to CSS
-        }]
->>>>>>> ce61fcfe64bf0461036210b09f67270e5fbdefbb
-
       },
       {
         test: /\.(js|jsx)$/,
