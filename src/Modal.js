@@ -90,7 +90,7 @@ export function _onClose() {
   const modalOverlay = document.getElementsByClassName('modalOverlay')[0];
   !this.state.modalIsOpen ? null : modalOverlay.style = "";
   this.setState({modalIsOpen:false});
-  this.state.cancelBtnHandler();
+  this.state.cancelBtnHandler.call(this);
 };
 
 export function _afterOpen() {
