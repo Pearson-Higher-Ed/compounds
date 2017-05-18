@@ -18,7 +18,7 @@ const TabsPage = () => (
           <div style={pad}>More words in Tab 2</div>
         </Pane>
         <Pane label="Tabberino">
-          <div style={pad}>Tab 3</div>
+          <div style={pad}>You get the point</div>
         </Pane>
       </Tabs>
 

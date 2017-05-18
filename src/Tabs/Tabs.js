@@ -23,6 +23,9 @@ export default class Tabs extends Component {
     this.state = {
       selected: this.props.selected
     }
+
+    document.addEventListener('mousedown',() => {document.body.classList.add('mouseDetected');},false);
+    document.addEventListener('keydown',() => {document.body.classList.remove('mouseDetected');},false);
   };
 
   handleClick(i, event) {
@@ -30,6 +33,33 @@ export default class Tabs extends Component {
     this.setState({
       selected: i
     });
+  }
+
+  componentDidMount() {
+    const parentUl = document.querySelector('.tabs__labels');
+    const tabArray = parentUl.querySelectorAll('[role=tab]');
+    const lastTabArray = tabArray.length - 1;
+
+    parentUl.addEventListener("keydown", (event) => {
+      const selectedIndex = this.state.selected;
+      if (selectedIndex === 0 && event.keyCode === 37) {
+        tabArray[lastTabArray].focus();
+        this.setState({ selected: lastTabArray });
+      }
+      if (selectedIndex === lastTabArray && event.keyCode === 39) {
+        tabArray[0].focus();
+        this.setState({ selected: 0 });
+      }
+      if (selectedIndex !== 0 && event.keyCode === 37) {
+        tabArray[selectedIndex - 1].focus();
+        this.setState({ selected: selectedIndex - 1 });
+      }
+      if (selectedIndex !== lastTabArray && event.keyCode === 39) {
+        tabArray[selectedIndex + 1].focus();
+        this.setState({ selected: selectedIndex + 1 });
+      }
+    }, true)
+
   }
 
   renderLabels() {
