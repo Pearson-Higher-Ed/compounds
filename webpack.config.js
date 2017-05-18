@@ -13,7 +13,7 @@ const loadingSpinner    = `${__dirname}/src/loadingSpinner/loadingSpinner.scss`;
 module.exports = {
   entry: {
     demo   : [ demo, demoScss ],
-    dev    : [ elements, icons, main, loadingSpinner ],
+    dev    : [ elements, icons, main ],
     dist   : [ compounds, loadingSpinner ]
   },
   output: {
