@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 
 export default class Tabs extends Component {
 
@@ -68,10 +69,12 @@ export default class Tabs extends Component {
       let tabI = activeClass ? "0" : "-1";
       let ariaSelected = activeClass ? true : false;
       const themeCheck = this.props.light ? 'light' : '';
+      let i_id = uuid.v1();
 
       return (
         <li key={i} role="presentation">
           <a href="#"
+             id={i_id}
              role="tab"
              tabIndex={tabI}
              aria-selected={ariaSelected}
