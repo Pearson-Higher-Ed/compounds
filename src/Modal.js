@@ -104,8 +104,8 @@ Modal.propTypes = {
 
 
 export function _onClose() {
-  const modalOverlay = document.getElementsByClassName('modalOverlay')[0];
-  modalOverlay.style = "";
+  this.removeOverlayStyle();
+  this.removeWrapper();
   this.cancelBtnHandler();
 }
 
@@ -115,6 +115,7 @@ export function _successBtnHandler() {
 
 export function _cancelBtnHandler() {
   this.removeOverlayStyle();
+  this.removeWrapper();
   this.state.cancelBtnHandler.call(this);
 }
 
@@ -178,6 +179,7 @@ export function _applyWrapper() {
 
 export function _removeWrapper() {
   const wrapper         = document.getElementById('wrapper');
+  wrapper.setAttribute('aria-hidden', false);
   const excludedElement = document.getElementsByClassName('ReactModalPortal')[0];
 
   while (wrapper.firstChild) {

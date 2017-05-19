@@ -47,10 +47,10 @@ describe('Modal Suite', () => {
    const text               = {modalCancelButtonText:"hi", modalSaveButtonText:"there"};
    const successBtnHandler  = () => { console.log('¡¡success button pressed!!') }
    const cancelBtnHandler    = () => { console.log('¡¡cancel button pressed!!') }
-   expect(Modal._renderFooter(footerVisible, text, successBtnHandler, cancelBtnHandler)).toEqualJSX(
+   expect(Modal._renderFooter(footerVisible, text, onButtonClick2, onButtonClick)).toEqualJSX(
      <div className="modalFooter" >
-       <button onClick={cancelBtnHandler.bind(this)} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-       <button onClick={successBtnHandler.bind(this)} className="modalSave pe-btn__cta_t--btn_large">{text.modalSaveButtonText}</button>
+       <button onClick={undefined} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
+       <button onClick={undefined} className="modalSave pe-btn__cta_t--btn_large">{text.modalSaveButtonText}</button>
      </div>
    );
  });
