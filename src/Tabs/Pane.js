@@ -6,10 +6,18 @@ export default class Pane extends Component {
 
   static propTypes = {
     label: PropTypes.string.isRequired,
-    children: PropTypes.element.isRequired
+    children: PropTypes.element.isRequired,
+    onActive: PropTypes.func
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.onActive) {
+      this.props.onActive();
+    }
   }
 
   render() {
+    const { onActive } = this.props;
     const i_id = uuid.v1();
 
     return (
