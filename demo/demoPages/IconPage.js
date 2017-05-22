@@ -1,5 +1,4 @@
 import React            from 'react';
-import { injectIntl }   from 'react-intl';
 import { Icon, Button } from '../../index';
 
 

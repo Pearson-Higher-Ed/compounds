@@ -1,8 +1,10 @@
 {
-  "showText"            : "montrer",
-  "hideText"            : "cacher",
-  "passwordPlaceholder" : "Entrer le mot de passe",
-  "passwordLabel"       : "Mot de passe",
-  "textLabel"           : "Prénom",
-  "textPlaceholder"     : "Prénom"
+  "showText"              : "montrer",
+  "hideText"              : "cacher",
+  "passwordPlaceholder"   : "Entrer le mot de passe",
+  "passwordLabel"         : "Mot de passe",
+  "textLabel"             : "Prénom",
+  "textPlaceholder"       : "Prénom",
+  "textInputMessage"      : "Ceci est un message d'information",
+  "textInputErrorMessage" : "Ceci est un message d'erreur"
 }
