@@ -14,7 +14,7 @@
     "start": "npm run serve",
     "serve": "NODE_ENV=development webpack-dev-server --hot",
     "deploy": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
-    "test": "jest --coverage",
+    "test": "jest --no-cache --coverage",
     "build": "NODE_ENV=production webpack -p",
     "gen-changelog": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gen-changelog.js",
     "version": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/version.js",
