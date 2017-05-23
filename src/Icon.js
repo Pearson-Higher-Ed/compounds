@@ -7,18 +7,14 @@ const Icon = (props) => {
 
   const { name, children } = props;
 
-  const icon_class = 'pe-icon--' + name;
-  const hidden     = (children) ? false         : true;
-  const roleAttr   = (children) ? 'img'         : null;
-  const i_id       = (children) ? '_'+uuid.v1() : null;
-
+  const i_id = (children) ? '_'+uuid.v1() : null;
 
   return(
       <svg focusable       = "false"
-           role            = {roleAttr}
-           aria-hidden     = {hidden}
+           role            = {children ? "img" : null}
+           aria-hidden     = {children ? false : true}
            aria-labelledby = {i_id}
-           className       = {icon_class}
+           className       = {`pe-icon--${name}`}
            >
            {children && <title id={i_id}>{children}</title>}
         <use xlinkHref={'#' + name}></use>
