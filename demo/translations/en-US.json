@@ -9,7 +9,6 @@
   "textInputErrorMessage" : "This is an error message",
   "initiatingButtonText"  : "Open Modal with Footer",
   "initiatingButtonText2" : "Open Modal without Footer",
-  "initiatingButtonText3" : "Open Modal with Footer by Event",
   "modalSaveButtonText"   : "Standard Button",
   "modalCancelButtonText" : "Standard Button",
   "headerTitle"           : "Basic Title",

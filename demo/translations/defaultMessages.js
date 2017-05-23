@@ -54,11 +54,6 @@ export const messages = defineMessages({
     description    : 'text in initiating button',
     defaultMessage : 'Open Modal without Footer'
   },
-  initiatingButtonText3 : {
-    id             : 'initiatingButtonText3',
-    description    : 'text in initiating button',
-    defaultMessage : 'Open Modal with Footer by Event'
-  },
   modalSaveButtonText : {
     id             : 'modalSaveButtonText',
     description    : 'text in save button',

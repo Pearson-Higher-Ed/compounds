@@ -9,16 +9,6 @@ class Modal extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      modalIsOpen       : false,
-      footerVisible     : this.props.footerVisible,
-      text              : this.props.text,
-      children          : this.props.children,
-      successBtnHandler : this.props.successBtnHandler,
-      cancelBtnHandler  : this.props.cancelBtnHandler
-    };
-
-
     this.onClose            = _onClose.bind(this);
     this.renderFooter       = _renderFooter.bind(this);
     this.afterOpen          = _afterOpen.bind(this);
@@ -28,42 +18,18 @@ class Modal extends Component {
     this.cancelBtnHandler   = _cancelBtnHandler.bind(this);
     this.removeOverlayStyle = _removeOverlayStyle.bind(this);
 
-
-    // expose modal via event...
-    document.body.addEventListener( `toggleModal_${props.id}`,
-      e => this.setState({
-        modalIsOpen       : (e.detail !== null) ? e.detail.isShown           : props.isShown,
-        footerVisible     : (e.detail !== null) ? e.detail.footerVisible     : props.footerVisible,
-        text              : (e.detail !== null) ? e.detail.text              : props.text,
-        successBtnHandler : (e.detail !== null) ? e.detail.successBtnHandler : props.successBtnHandler,
-        cancelBtnHandler  : (e.detail !== null) ? e.detail.cancelBtnHandler  : props.cancelBtnHandler,
-        children          : (e.detail !== null) ? e.detail.children          : props.children
-      })
-    );
-
   };
 
 
-  componentWillReceiveProps(nextProps){
-    this.setState({modalIsOpen:nextProps.isShown});
-    if(!this.state.modalIsOpen && document.getElementsByClassName('modalOverlay')[0]){
-      this.removeOverlayStyle();
-      this.removeWrapper();
-    }
-    if(!this.state.modalIsOpen){
-      this.applyWrapper();
-    }
-  }
-
   render() {
 
-    const { modalIsOpen, footerVisible, text, children, successBtnHandler, cancelBtnHandler } = this.state;
+    const { isShown, footerVisible, text, children } = this.props;
 
     return (
         <BaseModal
           className        = "pe-template__static-medium modalContent"
           overlayClassName = "modalOverlay"
-          isOpen           = {modalIsOpen}
+          isOpen           = {isShown}
           onAfterOpen      = {this.afterOpen}
           onRequestClose   = {this.onClose}
           ariaHideApp      = {true}
@@ -82,7 +48,7 @@ class Modal extends Component {
             {children}
           </div>
 
-          {this.renderFooter(footerVisible, text, successBtnHandler, cancelBtnHandler)}
+          {this.renderFooter(footerVisible, text)}
 
         </BaseModal>
     )
@@ -104,19 +70,17 @@ Modal.propTypes = {
 
 
 export function _onClose() {
-  this.removeOverlayStyle();
-  this.removeWrapper();
   this.cancelBtnHandler();
 }
 
 export function _successBtnHandler() {
-  this.state.successBtnHandler.call(this);
+  this.props.successBtnHandler.call(this);
 }
 
 export function _cancelBtnHandler() {
   this.removeOverlayStyle();
   this.removeWrapper();
-  this.state.cancelBtnHandler.call(this);
+  this.props.cancelBtnHandler.call(this);
 }
 
 export function _removeOverlayStyle(){
@@ -137,6 +101,9 @@ export function _afterOpen() {
   // apply Focus to close button on open...
   headerCloseButton ? headerCloseButton.focus() : footerCloseButton.focus();
 
+  // apply accessibility wrapper...
+  this.applyWrapper();
+
   // apply padding based on clientHeight...
   const windowHeight  = window.innerHeight;
   const contentHeight = modalContent.offsetHeight;
@@ -152,7 +119,7 @@ export function _afterOpen() {
   // conditional borders on modalbody if scrollbar is present...
   modalBody.className = (modalBody.offsetHeight < modalBody.scrollHeight) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
 
-  window.onresize = (e) => {
+  window.onresize = () => {
     modalBody.className = (modalBody.offsetHeight < modalBody.scrollHeight) ? 'modalBody modalBody_border' : 'modalBody modalBody_border_normal';
   }
 
@@ -166,8 +133,9 @@ export function _applyWrapper() {
     wrapper.id    = 'wrapper';
     wrapper.setAttribute('aria-hidden', true);
 
-    const excludedElement = document.getElementsByClassName('ReactModalPortal')[0];
-    while (document.body.firstChild !== excludedElement) {
+    const excludedElement = document.getElementsByClassName('modalOverlay')[0].parentElement;
+
+    while (document.body.firstChild) {
       wrapper.appendChild(document.body.firstChild);
     }
 
@@ -178,9 +146,10 @@ export function _applyWrapper() {
 };
 
 export function _removeWrapper() {
-  const wrapper         = document.getElementById('wrapper');
+  const wrapper = document.getElementById('wrapper');
   wrapper.setAttribute('aria-hidden', false);
-  const excludedElement = document.getElementsByClassName('ReactModalPortal')[0];
+
+  const excludedElement = document.getElementsByClassName('modalOverlay')[0].parentElement;
 
   while (wrapper.firstChild) {
     document.body.appendChild(wrapper.firstChild);
@@ -190,12 +159,12 @@ export function _removeWrapper() {
   document.body.appendChild(excludedElement);
 };
 
-export function _renderFooter(footerVisible, text, successBtnHandler, cancelBtnHandler) {
+export function _renderFooter(footerVisible, text) {
   if (footerVisible) {
     return(
       <div className="modalFooter" >
         <button onClick={this.cancelBtnHandler} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-        <button onClick={this.successBtnHandler} className="modalSave pe-btn__cta_t--btn_large">{text.modalSaveButtonText}</button>
+        <button onClick={this.successBtnHandler} className="modalSave pe-btn__primary--btn_large">{text.modalSaveButtonText}</button>
       </div>
     )
   };

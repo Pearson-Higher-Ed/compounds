@@ -5,7 +5,6 @@ import { Button }           from '../../index';
 
 import { Modal as ModalWithOutFooter } from '../../index';
 import { Modal as ModalWithFooter }    from '../../index';
-import { Modal }                       from '../../index';
 
 
 class ModalPage extends Component {
@@ -16,7 +15,6 @@ class ModalPage extends Component {
     this.state = {
       firstModalIsShown  : false,
       secondModalIsShown : false,
-      thirdModalIsShown  : false
     };
 
     this.firstButtonHandler  = _firstButtonHandler.bind(this);
@@ -24,11 +22,9 @@ class ModalPage extends Component {
 
   }
 
-
   render() {
 
-    const { firstModalIsShown, secondModalIsShown, thirdModalIsShown } = this.state;
-
+    const { firstModalIsShown, secondModalIsShown } = this.state;
 
     // ======================Internationalization Example=======================
     // intl prop is injected by the injectIntl() at the bottom of the page...
@@ -40,7 +36,6 @@ class ModalPage extends Component {
     const text =  {
       initiatingButtonText  : intl.formatMessage(messages.initiatingButtonText),
       initiatingButtonText2 : intl.formatMessage(messages.initiatingButtonText2),
-      initiatingButtonText3 : intl.formatMessage(messages.initiatingButtonText3),
       headerTitle           : intl.formatMessage(messages.headerTitle),
       bodyText              : intl.formatMessage(messages.bodyText),
       closeButtonSRText     : intl.formatMessage(messages.closeButtonSRText),
@@ -65,8 +60,6 @@ class ModalPage extends Component {
               <p>{text.bodyText}</p>
             </ModalWithOutFooter>
 
-            <Modal id="event" isShown={thirdModalIsShown} text={text}></Modal>
-
             <Button
               btnType="primary"
               btnSize="xlarge"
@@ -86,17 +79,6 @@ class ModalPage extends Component {
               {text.initiatingButtonText2}
             </Button>
 
-            <br />
-            <br />
-
-            <Button
-              btnSize="xlarge"
-              onClick={() => document.body.dispatchEvent(new CustomEvent('toggleModal_event', { detail:{ isShown:true, footerVisible:true, text:text, cancelBtnHandler:_cancelBtnHandler, successBtnHandler:_successBtnHandler , children:React.createElement('p',{},'hi there')  }}) )}
-              >
-              {text.initiatingButtonText3}
-            </Button>
-
-
           </div>
 
           <div className="code">
@@ -111,28 +93,15 @@ class ModalPage extends Component {
           </div>
           <br />
           <p className="code">{"import { Modal } from 'pearson-compounds';"}</p>
-          <p className="code">{'<Modal isShown={true} text={text} footerVisible={true} successBtnHandler={() => console.log("Success!!")}/>'}</p>
+          <p className="code">{'<Modal id="modal" isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></Modal>'}</p>
           <br />
           <p>Modal also accepts children for addtional custom configureation:</p>
           <p className="code">{'<Modal isShown={true} text={text} footerVisible={true} successBtnHandler={() => console.log("Success!!")} ><p>hi there</p></Modal>'}</p>
-          <br />
-          <p>Can Be Triggered By A Custom Event:</p>
-          <p className="code">{"document.body.dispatchEvent(new CustomEvent('toggleModal_<id>'))"}</p>
-          <p>Can Be Overriden By A Custom Event with a detail object:</p>
-          <p className="code">{"document.body.dispatchEvent(new CustomEvent('toggleModal_event', { detail:{ isShown:true, footerVisible:true, text:text, cancelBtnHandler:() => this.setState({thirdModalIsShown:false}), successBtnHandler:this.successBtnHandler , children:React.createElement('p',{},'hi there')  }}) )}"}</p>
-          <br />
           <p>Import Multiple Modals:</p>
-          <p className="code">{"import { Modal } from 'pearson-compounds';"}</p>
-          <p className="code">{"import { Modal as OtherModal } from 'pearson-compounds';"}</p>
-          <p className="code">{"import { Modal as ThirdModal } from 'pearson-compounds';"}</p>
-          <p className="code">{'<Modal isShown={true} text={text} footerVisible={true} cancelBtnHandler:() => this.setState({thirdModalIsShown:false}) successBtnHandler={() => console.log("Success!!")}/>'}</p>
-          <p className="code">{'<OtherModal isShown={true} text={text} footerVisible={true} cancelBtnHandler:() => this.setState({thirdModalIsShown:false}) successBtnHandler={() => console.log("Success!!")}><p>Hi</p></OtherModal>'}</p>
-          <p className="code">{'<ThirdModal isShown={true} text={text} footerVisible={true} cancelBtnHandler:() => this.setState({thirdModalIsShown:false}) successBtnHandler={() => console.log("Success!!")}><p>HiThere</p></ThirdModal>'}</p>
-          <br />
-          <br />
-          <p>Example Button dispatching custom event to toggle modal:</p>
-          <p className="code">{"import { Button } from 'pearson-compounds';"}</p>
-          <p className="code">{'<Button btnType="primary" btnSize="xlarge" onClick={() => document.body.dispatchEvent(new CustomEvent("toggleModal"))}>Open Modal</Button>'}</p>
+          <p className="code">{"import { Modal as ModalWithFooter } from 'pearson-compounds';"}</p>
+          <p className="code">{"import { Modal as ModalWithOutFooter } from 'pearson-compounds';"}</p>
+          <p className="code">{'<ModalWithFooter id="modalWithFooter" isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>'}</p>
+          <p className="code">{'<ModalWithOutFooter id="modalWithOutFooter" isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>'}</p>
         </div>
       )
     }
