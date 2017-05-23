@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1495555473874" clover="3.2.0">
-  <project timestamp="1495555473875" name="All files">
+<coverage generated="1495580274101" clover="3.2.0">
+  <project timestamp="1495580274101" name="All files">
     <metrics statements="227" coveredstatements="174" conditionals="144" coveredconditionals="91" methods="44" coveredmethods="29" elements="415" coveredelements="294" complexity="0" loc="227" ncloc="227" packages="2" files="9" classes="9">
       <package name="src">
         <metrics statements="225" coveredstatements="172" conditionals="144" coveredconditionals="91" methods="42" coveredmethods="27"/>
@@ -258,8 +258,8 @@
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <file name="loadingSpinner.js" path="/Users/ulantja/Workspace/compounds/src/loadingSpinner/loadingSpinner.js">
           <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-          <line num="6" count="1" type="stmt"/>
-          <line num="10" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>
