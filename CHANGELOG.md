@@ -1,3 +1,67 @@
+<a name="0.4.2"></a>
+## [0.4.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.2.1...v0.4.2) (2017-05-23)
+
+
+### Bug Fixes
+
+* accessibility wrapper remove event init ([9583e63](https://github.com/Pearson-Higher-Ed/compounds/commit/9583e63))
+* add basename to router ([e23f2c8](https://github.com/Pearson-Higher-Ed/compounds/commit/e23f2c8))
+* add dependency react-addons-test-utils ([cef7dad](https://github.com/Pearson-Higher-Ed/compounds/commit/cef7dad))
+* add proptypes to html ([5e921b3](https://github.com/Pearson-Higher-Ed/compounds/commit/5e921b3))
+* add scss files to webpack ([1865598](https://github.com/Pearson-Higher-Ed/compounds/commit/1865598))
+* add sinon dependency ([f23ff9b](https://github.com/Pearson-Higher-Ed/compounds/commit/f23ff9b))
+* adding no cache to jest ([3ed2ee5](https://github.com/Pearson-Higher-Ed/compounds/commit/3ed2ee5))
+* aria hide app to false ([139f8e3](https://github.com/Pearson-Higher-Ed/compounds/commit/139f8e3))
+* breakout inputs page ([d941001](https://github.com/Pearson-Higher-Ed/compounds/commit/d941001))
+* breakout inputs page ([8ef6fc5](https://github.com/Pearson-Higher-Ed/compounds/commit/8ef6fc5))
+* correction on the homepage ([6519b06](https://github.com/Pearson-Higher-Ed/compounds/commit/6519b06))
+* correctly adding selected check ([6dfece2](https://github.com/Pearson-Higher-Ed/compounds/commit/6dfece2))
+* correctly picking up selected item | svgs not being assigned correctly ([cfb8c09](https://github.com/Pearson-Higher-Ed/compounds/commit/cfb8c09))
+* dropdown button ([0743d9b](https://github.com/Pearson-Higher-Ed/compounds/commit/0743d9b))
+* dropdown window prevents scrolling from body ([2c4ac37](https://github.com/Pearson-Higher-Ed/compounds/commit/2c4ac37))
+* error on ghpages ([bba3414](https://github.com/Pearson-Higher-Ed/compounds/commit/bba3414))
+* forgot punctuation on doc ([f024e6d](https://github.com/Pearson-Higher-Ed/compounds/commit/f024e6d))
+* kill copy utils in travis ([87ebcce](https://github.com/Pearson-Higher-Ed/compounds/commit/87ebcce))
+* kill router param ([9ac3647](https://github.com/Pearson-Higher-Ed/compounds/commit/9ac3647))
+* kill the extra package ([83a14dc](https://github.com/Pearson-Higher-Ed/compounds/commit/83a14dc))
+* make loadingSpinner styles available in the dist file. ([4da29f2](https://github.com/Pearson-Higher-Ed/compounds/commit/4da29f2))
+* make webpack vars more generic, fix header ([ad9a89d](https://github.com/Pearson-Higher-Ed/compounds/commit/ad9a89d))
+* make webpack vars more generic, fix header ([70d452f](https://github.com/Pearson-Higher-Ed/compounds/commit/70d452f))
+* mock styles ([4f9fe6f](https://github.com/Pearson-Higher-Ed/compounds/commit/4f9fe6f))
+* move test files ([c952ede](https://github.com/Pearson-Higher-Ed/compounds/commit/c952ede))
+* moved styles to elements ([029ee5f](https://github.com/Pearson-Higher-Ed/compounds/commit/029ee5f))
+* npm ignore ([3a44e67](https://github.com/Pearson-Higher-Ed/compounds/commit/3a44e67))
+* padding issues ([5b077ed](https://github.com/Pearson-Higher-Ed/compounds/commit/5b077ed))
+* password input error validator ([59e0314](https://github.com/Pearson-Higher-Ed/compounds/commit/59e0314))
+* point main at index.js so consumer gets source, dist to contain fully packaged assets ([c5d0de1](https://github.com/Pearson-Higher-Ed/compounds/commit/c5d0de1))
+* proper edge detection for left / right alignment ([d1bf707](https://github.com/Pearson-Higher-Ed/compounds/commit/d1bf707))
+* qa test errors ([019dfa7](https://github.com/Pearson-Higher-Ed/compounds/commit/019dfa7))
+* qa test errors ([8b92793](https://github.com/Pearson-Higher-Ed/compounds/commit/8b92793))
+* react as external ([1c28086](https://github.com/Pearson-Higher-Ed/compounds/commit/1c28086))
+* remove build dir ([b3a24cc](https://github.com/Pearson-Higher-Ed/compounds/commit/b3a24cc))
+* remove clean command ([c26e737](https://github.com/Pearson-Higher-Ed/compounds/commit/c26e737))
+* remove hard coded string from default password label ([53198bf](https://github.com/Pearson-Higher-Ed/compounds/commit/53198bf))
+* remove hard coded strings for password input ([78fbe03](https://github.com/Pearson-Higher-Ed/compounds/commit/78fbe03))
+* remove id's ([3b542bc](https://github.com/Pearson-Higher-Ed/compounds/commit/3b542bc))
+* remove svg text-top in demo scss ([ccde816](https://github.com/Pearson-Higher-Ed/compounds/commit/ccde816))
+* rollback to approved version ([225a05a](https://github.com/Pearson-Higher-Ed/compounds/commit/225a05a))
+* scss stuff ([6e65335](https://github.com/Pearson-Higher-Ed/compounds/commit/6e65335))
+* simplify docs pages ([a69de8c](https://github.com/Pearson-Higher-Ed/compounds/commit/a69de8c))
+* take out vendor libs ([2496632](https://github.com/Pearson-Higher-Ed/compounds/commit/2496632))
+* test ([08a8c5d](https://github.com/Pearson-Higher-Ed/compounds/commit/08a8c5d))
+* test ([c8f7070](https://github.com/Pearson-Higher-Ed/compounds/commit/c8f7070))
+* test ([c9fe5a6](https://github.com/Pearson-Higher-Ed/compounds/commit/c9fe5a6))
+* tests meet threshold ([0867798](https://github.com/Pearson-Higher-Ed/compounds/commit/0867798))
+* update for react proptypes ([5e63a69](https://github.com/Pearson-Higher-Ed/compounds/commit/5e63a69))
+* wayward style ([02ffd5b](https://github.com/Pearson-Higher-Ed/compounds/commit/02ffd5b))
+
+
+### Features
+
+* add Checkbox, MultiLineText, Select, Basic Inputs, and Radio buttons ([9a9d37b](https://github.com/Pearson-Higher-Ed/compounds/commit/9a9d37b))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.2.0...v0.2.1) (2017-03-21)
 
