@@ -32,7 +32,7 @@ class Modal extends Component {
           isOpen           = {isShown}
           onAfterOpen      = {this.afterOpen}
           onRequestClose   = {this.onClose}
-          ariaHideApp      = {true}
+          ariaHideApp      = {false}
           role             = "dialog"
           contentLabel     = "Modal"
   	      >
