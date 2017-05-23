@@ -102,8 +102,6 @@ class ModalPage extends Component {
           <p className="code">{"import { Modal as ModalWithOutFooter } from 'pearson-compounds';"}</p>
           <p className="code">{'<ModalWithFooter id="modalWithFooter" isShown={firstModalIsShown} text={text} footerVisible={true} cancelBtnHandler={() => this.setState({firstModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithFooter>'}</p>
           <p className="code">{'<ModalWithOutFooter id="modalWithOutFooter" isShown={secondModalIsShown} text={text} footerVisible={false} cancelBtnHandler={() => this.setState({secondModalIsShown:false})} successBtnHandler={() => console.log("Success!!!!!!")} ><p>{text.bodyText}</p></ModalWithOutFooter>'}</p>
-          <br />
-          <p className="code">{'** view source of this page for example of using this component'}</p>
         </div>
       )
     }
