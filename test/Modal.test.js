@@ -50,7 +50,7 @@ describe('Modal Suite', () => {
    expect(Modal._renderFooter(footerVisible, text, onButtonClick2, onButtonClick)).toEqualJSX(
      <div className="modalFooter" >
        <button onClick={undefined} className="modalCancel pe-btn--btn_large">{text.modalCancelButtonText}</button>
-       <button onClick={undefined} className="modalSave pe-btn__cta_t--btn_large">{text.modalSaveButtonText}</button>
+       <button onClick={undefined} className="modalSave pe-btn__primary--btn_large">{text.modalSaveButtonText}</button>
      </div>
    );
  });

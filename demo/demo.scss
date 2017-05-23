@@ -64,10 +64,6 @@ li {
   height:50px;
 }
 
-.header svg{
-  color:white;
-}
-
 .header button {
   float:right;
   margin:2.5px;
@@ -82,9 +78,8 @@ li {
 }
 
 .header button svg {
-  margin-top:15px;
-  margin-left:10px;
-  color:black;
+  vertical-align: text-top;
+  margin-left: 10px;
 }
 
 .buttonList {
