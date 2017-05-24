@@ -24,9 +24,6 @@ export default class Tabs extends Component {
     this.state = {
       selected: this.props.selected
     }
-
-    document.addEventListener('mousedown',() => {document.body.classList.add('mouseDetected');},false);
-    document.addEventListener('keydown',() => {document.body.classList.remove('mouseDetected');},false);
   };
 
   handleClick(i, event) {
@@ -37,7 +34,7 @@ export default class Tabs extends Component {
   }
 
   componentDidMount() {
-    const parentUl = document.querySelector('.tabs__labels');
+    const parentUl = this.doc;
     const tabArray = parentUl.querySelectorAll('[role=tab]');
     const lastTabArray = tabArray.length - 1;
 
@@ -86,7 +83,7 @@ export default class Tabs extends Component {
       );
     }
     return (
-      <ul className="tabs__labels" role="tablist">
+      <ul className="tabs__labels" role="tablist" ref={(ul) => { this.doc = ul; }}>
         {this.props.children.map(labels.bind(this))}
       </ul>
     );

@@ -15,7 +15,6 @@ export default class Pane extends Component {
   }
 
   render() {
-    const { onActive } = this.props;
     const i_id = uuid.v1();
 
     return (

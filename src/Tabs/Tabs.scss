@@ -3,10 +3,6 @@
   padding: 0;
 }
 
-.mouseDetected [role=tab]:focus {
-  outline: 0;
-}
-
 .tabs__labels li {
   &:first-child {
     padding-left: 0;
