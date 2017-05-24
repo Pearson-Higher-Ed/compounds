@@ -6,8 +6,7 @@ export RadioCheckGroup from './src/RadioCheckGroup';
 export Select          from './src/Select';
 export Dropdown        from './src/Dropdown';
 export Footer          from './src/Footer/Footer';
-export LoadingSpinner   from './src/loadingSpinner/loadingSpinner';
-
-// Tabs
-export Tabs from './src/Tabs/Tabs';
-export Pane from './src/Tabs/Pane';
+export Tabs            from './src/Tabs/Tabs';
+export Pane            from './src/Tabs/Pane';
+export LoadingSpinner  from './src/loadingSpinner/loadingSpinner';
+export Modal           from './src/Modal';

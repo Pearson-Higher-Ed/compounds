@@ -16,7 +16,7 @@ module.exports = {
   entry: {
     demo   : [ demo, demoScss ],
     dev    : [ elements, icons, main ],
-    dist   : [ compounds, Footer, Tabs, loadingSpinner ]
+    dist   : [ compounds ]
   },
   output: {
     path          : path.resolve(__dirname, 'build'),
@@ -81,7 +81,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '/images/[name].[ext]?[hash]'
+          name: '/icons/[name].[ext]?[hash]'
         }
       }
     ]
