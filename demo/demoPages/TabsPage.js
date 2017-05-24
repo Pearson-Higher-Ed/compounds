@@ -2,8 +2,8 @@ import React from 'react';
 import { Tabs, Pane } from '../../index';
 
 const pad = {padding: 12};
-const eight = {paddingLeft : 8};
-const sixteen = {paddingLeft : 16};
+const eight = {paddingLeft: 8};
+const sixteen = {paddingLeft: 16};
 
 const TabsPage = () => (
   <div className="displaySection">
@@ -45,13 +45,13 @@ const TabsPage = () => (
         </ul>
         <h4>Optional:</h4>
         <ul>
-          <li className="li-props">selected:Number === {`<Tabs selected={2}`}></li>
+          <li className="li-props">selected:Number === {`<Tabs selected={2}>`}</li>
           <li className="li-props">The selected prop can be passed the index of
           the tab you would like active on page load. <br/>
           Defaults to 0 if nothing is passed.</li>
-          <li className="li-props">light:Boolean</li>
+          <li className="li-props">light:Boolean === {`<Tabs light>`}</li>
           <li className="li-props">The light prop can be used to provide contrast
-          on a darker background.</li>
+          on a darker background. <br/>Defaults to false.</li>
         </ul>
 
         <h2>Pane Props</h2>
@@ -59,6 +59,11 @@ const TabsPage = () => (
         <ul>
           <li className="li-props">label:String === "Your Pane label"</li>
           <li className="li-props">children:Element</li>
+        </ul>
+        <h4>Optional:</h4>
+        <ul>
+          <li className="li-props">onActive:Function</li>
+          <li className="li-props">Callback function that is fired when the Pane is activated</li>
         </ul>
       </div>
     </div>

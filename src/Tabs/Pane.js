@@ -10,10 +10,8 @@ export default class Pane extends Component {
     onActive: PropTypes.func
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.onActive) {
-      this.props.onActive();
-    }
+  componentDidUpdate() {
+    if (this.props.onActive) this.props.onActive();
   }
 
   render() {

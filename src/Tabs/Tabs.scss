@@ -4,7 +4,7 @@
 }
 
 .mouseDetected [role=tab]:focus {
-  outline:0;
+  outline: 0;
 }
 
 .tabs__labels li {
@@ -28,21 +28,27 @@
 
 .tabs__labels li a {
   @extend %tab-abstract;
-  color: rgba(37, 37, 37, 0.7);
+  color: #6A7070;
 
   &:hover,
   &:focus {
+    color: #252525;
     border-bottom: 3px solid #C7C7C7;
   }
 }
 
 .tabs__labels li a.light {
   @extend %tab-abstract;
-  color: #fff;
+  color: #D9D9D9;
 
   &:hover {
-    border-bottom: 3px solid rgba(233, 233, 233, 0.8);
+    color: #FFF;
+    border-bottom: 3px solid #D9D9D9;
   }
+}
+
+.tabs__labels li a.light.activeTab {
+  color: #FFF;
 }
 
 .tabs__labels li a.activeTab {
