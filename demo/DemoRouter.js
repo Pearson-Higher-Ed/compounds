@@ -18,22 +18,14 @@ const DemoRouter = (props) => (
   <Router>
     <div>
       <HeaderPage />
-<<<<<<< HEAD
-        <Route path="/" exact  component={HomePage}   />
-        <Route path="/icons"   component={IconPage}   />
-        <Route path="/inputs"  component={InputsPage} />
-        <Route path="/buttons" component={ButtonPage} />
-        <Route path="/dropdown" component={DropdownPage} />
-        <Route path="/footer" component={FooterPage} />
-        <Route path="/tabs" component={TabsPage} />
-=======
         <Route path="/" exact         component={HomePage}   />
         <Route path="/icons"          component={IconPage}   />
-        <Route path="/modal"          component={ModalPage}   />
         <Route path="/inputs"         component={InputsPage} />
         <Route path="/buttons"        component={ButtonPage} />
         <Route path="/dropdown"       component={DropdownPage} />
->>>>>>> e1ee0294b91e81c29344223164403f55a7ce588d
+        <Route path="/footer"         component={FooterPage} />
+        <Route path="/tabs"           component={TabsPage} />
+        <Route path="/modal"          component={ModalPage}   />
         <Route path="/loadingSpinner" component={LoadingSpinnerPage} />
     </div>
   </Router>
