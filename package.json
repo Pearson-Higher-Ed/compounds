@@ -1,11 +1,11 @@
 {
   "name": "pearson-compounds",
-  "version": "0.3.1",
+  "version": "0.4.3",
   "description": "Atomic React Components",
   "main": "./build/dist.compounds.js",
   "author": "Pearson Design Accelerator",
   "license": "MIT",
-  "homepage": "https://pearson-higher-ed.github.io/compounds/",
+  "homepage": "http://pearson-higher-ed.github.io/compounds/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Pearson-Higher-Ed/compounds/"
@@ -14,7 +14,7 @@
     "start": "npm run serve",
     "serve": "NODE_ENV=development webpack-dev-server --hot",
     "deploy": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
-    "test": "jest --coverage",
+    "test": "jest --no-cache --coverage",
     "build": "NODE_ENV=production webpack -p",
     "gen-changelog": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gen-changelog.js",
     "version": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/version.js",
@@ -28,6 +28,10 @@
       "js",
       "json"
     ],
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "<rootDir>/test/__mocks__/styleMock.js",
+      "^.+\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js"
+    },
     "collectCoverageFrom": [
       "**/src/*.{js,jsx}",
       "**/src/**/*.{js,jsx}"
@@ -42,8 +46,12 @@
       }
     }
   },
+  "dependencies": {
+    "react-modal": "^1.7.7",
+    "sinon": "^2.2.0"
+  },
   "devDependencies": {
-    "@pearson-components/npm-scripts": "^0.3.12",
+    "@pearson-components/npm-scripts": "^0.4.1",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
     "babel-jest": "^18.0.0",
@@ -73,7 +81,7 @@
     "jest": "16.0.2",
     "jsdom": "^9.12.0",
     "node-sass": "^4.5.0",
-    "pearson-elements": "^1.8.2",
+    "pearson-elements": "^1.11.1",
     "prop-types": "^15.5.6",
     "react": "^15.3.0",
     "react-addons-test-utils": "^15.4.2",

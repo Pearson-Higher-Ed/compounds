@@ -14,13 +14,14 @@ const ButtonPage = () => (
             <ul>
               <li>btnType:String === "primary", "cta", "default"</li>
               <li>btnSize:String === "small", "large", "xlarge"</li>
+              <li>btnIcon:Bool === true/false</li>
               <li>disabled</li>
             </ul>
           </div>
 
           <h2>Icon Button:</h2>
-          <Button className="close-dialog"><Icon name="item-remove-24">close dialog</Icon></Button>
-          <p className="code">{'<Button className="close-dialog"><Icon name="item-remove-24">close dialog</Icon></Button>'}</p>
+          <Button btnIcon><Icon name="item-remove-24">close dialog</Icon></Button>
+          <p className="code">{'<Button btnIcon><Icon name="item-remove-24">close dialog</Icon></Button>'}</p>
 
           <br />
 
