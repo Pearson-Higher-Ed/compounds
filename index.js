@@ -6,3 +6,4 @@ export RadioCheckGroup from './src/RadioCheckGroup';
 export Select          from './src/Select';
 export Dropdown        from './src/Dropdown/Dropdown';
 export LoadingSpinner  from './src/loadingSpinner/loadingSpinner';
+export Modal           from './src/Modal';
