@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Icon from '../Icon';
 
+import './_Dropdown.scss';
+
 let containerMargin = { marginRight: 0 };
 
 class Dropdown extends Component {
