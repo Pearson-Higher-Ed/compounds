@@ -17,62 +17,64 @@ export default class StaticAlert extends Component {
 
     this.state = {
       isOpen: true,
-      display: 'block'
+      position: ''
     }
   }
 
   handleClose = () => {
     this.setState({
-      isOpen: false,
-      opacity: 0
+      isOpen: false
     });
+  }
+
+  componentDidMount() {
+    if (document.body.scrollHeight > window.innerHeight * 1.25) {
+      this.setState({ position: '--sticky'})
+    }
   }
 
   render() {
 
+    const { position } = this.state;
     const { type, title, message } = this.props;
     const infoCheck = type === 'Information' ? 'info' :'';
 
     return (
-      <div className="alertList">
-        <div className={`pe-alert alert-${type}`}>
-          {this.state.isOpen &&
-            <div opacity={this.state.opacity}
-                 className="pe-alert">
+      <div>
+        { this.state.isOpen &&
+          <div className={`pe-alert${position} alert-${type}`}>
+            <button className="close-title"
+                    onClick={this.handleClose}
+                    aria-label="Close alert">
+              <Icon name="remove-sm-24" />
+            </button><br/>
 
-              <button className="close-title"
-                      onClick={this.handleClose}
-                      aria-label="Close alert">
-                <Icon name="remove-sm-24" />
-              </button>
-
-              <div className="alert-content-container">
-                {type === 'Error' ? <span className="error-svg">
+            <div className="alert-content-container">
+              {type === 'Error' ? <span className="error-svg">
+                                    <svg focusable="false"
+                                         className="pe-icon--warning-24">
+                                         <use xlinkHref="#warning-24"></use>
+                                    </svg>
+                                  </span>
+                                :null}
+              {type === 'Success' ? <span className="success-svg">
                                       <svg focusable="false"
-                                           className="pe-icon--warning-24">
-                                           <use xlinkHref="#warning-24"></use>
+                                           className="pe-icon--check-24">
+                                           <use xlinkHref="#check-sm-24"></use>
                                       </svg>
                                     </span>
                                   :null}
-                {type === 'Success' ? <span className="success-svg">
-                                        <svg focusable="false"
-                                             className="pe-icon--check-24">
-                                             <use xlinkHref="#check-sm-24"></use>
-                                        </svg>
-                                      </span>
-                                    :null}
-                <div className={`alert-content-${infoCheck}`}>
-                  <h4 className="pe-label alert-title">
-                    <strong>{title}</strong>
-                  </h4>
-                  <p className="pe-paragraph alert-text">
-                    {message}
-                  </p>
-                </div>
+              <div className={`alert-content-${infoCheck}`}>
+                <h4 className="pe-label alert-title">
+                  <strong>{title}</strong>
+                </h4>
+                <p className="pe-paragraph alert-text">
+                  {message}
+                </p>
               </div>
             </div>
-          }
-        </div>
+          </div>
+        }
       </div>
     )
   }

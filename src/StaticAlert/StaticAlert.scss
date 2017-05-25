@@ -1,20 +1,19 @@
-.pe-alert {
-  &:first-child {
-    margin-top: 32px;
-  }
-
-  position: relative;
-  margin-top: 20px;
-  list-style: none;
-  background-color: #FFF;
+.pe-alert,
+.pe-alert--sticky {
+  margin: 32px 0 0 32px;
   padding: 8px 8px 28px 28px;
+  background-color: #FFF;
+  width: 580px;
+  left: 0;
+  top: 0;
 }
 
-.alertList {
-  margin: 0;
-  -webkit-padding-start: 0;
-  padding-left: 32px;
-  width: 580px;
+.pe-alert {
+  position: absolute;
+}
+
+.pe-alert--sticky {
+  position: fixed;
 }
 
 .alert-content- {
@@ -28,17 +27,11 @@
 }
 
 @media (min-width: 320px) and (max-width: 768px) {
-  .alertList {
-    width: 440px;
-    padding: 0 25px;
-  }
-
-  .pe-alert {
-    &:first-child {
-      margin-top: 36px;
-    }
-
-    padding: 4px 4px 18px 24px;
+  .pe-alert,
+  .pe-alert--sticky {
+    margin: 36px 25px 0;
+    padding: 4px 4px 24px 18px;
+    width: 440px
   }
 
   .alert-content-,
@@ -48,7 +41,8 @@
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
-  .alertList {
+  .pe-alert,
+  .pe-alert--sticky {
     width: auto;
   }
 }
@@ -71,20 +65,13 @@
   border-left: 3px solid #19A5A3;
 }
 
-svg {
-  height: 0;
-  width: 0;
-}
-
 .error-svg {
   color: #db0020;
-  display: inline;
   margin-top: 7px;
 }
 
 .success-svg {
   color: #19A5A3;
-  display: inline;
 }
 
 .alert-content-container {
@@ -92,7 +79,7 @@ svg {
 }
 
 .alert-title {
-  margin-right: 4px;
+  margin: 0 4px 0 0;
   display: inline;
 }
 
