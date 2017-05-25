@@ -6,6 +6,7 @@ import './Footer.scss';
 export default class Footer extends Component {
 
   static propTypes = {
+    copyrightText: PropTypes.string,
     links: PropTypes.array.isRequired,
     light: PropTypes.bool
   }
@@ -25,8 +26,7 @@ export default class Footer extends Component {
   renderCopy() {
     const year = new Date().getFullYear();
     return (<p>
-              Copyright &copy; {year} Pearson Education Inc.
-              All Rights Reserved.
+              Copyright &copy; {year} {this.props.copyrightText}
             </p>);
   }
 
