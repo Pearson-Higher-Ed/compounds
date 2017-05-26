@@ -1,5 +1,10 @@
-<a name="0.4.3"></a>
-## [0.4.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.3.1...v0.4.3) (2017-05-24)
+<a name="0.4.4"></a>
+## [0.4.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.2...v0.4.4) (2017-05-26)
+
+
+
+<a name="0.4.2"></a>
+## [0.4.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.2.1...v0.4.2) (2017-05-23)
 
 
 ### Bug Fixes
