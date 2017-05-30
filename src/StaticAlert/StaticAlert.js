@@ -26,8 +26,7 @@ export default class StaticAlert extends Component {
   }
 
   componentDidMount() {
-    if (document.body.scrollHeight > window.innerHeight * 1.25)
-      this.setState({ position: '--sticky'});
+    if (document.body.scrollHeight > window.innerHeight * 1.25) this.setState({ position: '--sticky' });
   }
 
   render() {
