@@ -28,7 +28,7 @@ const FooterPage = (props) => {
 
   return (
     <div className="displaySection">
-      <h1><a href="http://pearson-higher-ed.github.io/design/c/footer/beta/">Footer</a></h1>
+      <h1><a href="http://pearson-higher-ed.github.io/design/c/footer/">Footer</a></h1>
 
       <div className="elementContainer">
         <div className="code">
