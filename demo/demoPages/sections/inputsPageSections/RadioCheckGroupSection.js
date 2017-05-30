@@ -37,7 +37,7 @@ class RadioCheckGroupSection extends Component {
               <li>options:Object(required)          === {'{<option>:<inputState>,<option>:<inputState>, ... }'} where inputState is one of 'default','disabled'. </li>
               <li>name:String(required)             === "a desciptive name"</li>
               <li>selectedOptions:Array             === "the checked options (radio only supports a single selected option by definition)"</li>
-              <li>changeHandler:Function(required)  === "handles populating the selected options from the options (see source for exmple<a href="https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js"> https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js</a> )"</li>
+              <li>changeHandler:Function(required)  === "handles populating the selected options from the options (see source for exmple<a href='https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js'> https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js</a> )"</li>
             </ul>
 
           </div>
