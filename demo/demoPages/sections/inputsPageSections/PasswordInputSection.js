@@ -31,8 +31,6 @@ const PasswordInputSection = (props) => (
           fancy        = {true}
           id           = "PasswordInputFancy"
           changeHandler  = {() => {}}
-          ariaDescribedby = ""
-          value        = ""
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -52,8 +50,6 @@ const PasswordInputSection = (props) => (
           password     = {true}
           id           = "PasswordInputBasic"
           changeHandler  = {() => {}}
-          ariaDescribedby = ""
-          value        = ""
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -74,8 +70,7 @@ const PasswordInputSection = (props) => (
           id           = "PasswordInputBasicError"
           inputState   = "error"
           changeHandler  = {() => {}}
-          ariaDescribedby = ""
-          value        = ""
+          aria-invalid = "true"
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -97,8 +92,7 @@ const PasswordInputSection = (props) => (
           fancy        = {true}
           inputState   = "error"
           changeHandler  = {() => {}}
-          ariaDescribedby = ""
-          value        = ""
+          aria-invalid="true"
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -119,8 +113,6 @@ const PasswordInputSection = (props) => (
           id           = "PasswordInputBasicDisabled"
           inputState   = "disabled"
           changeHandler  = {() => {}}
-          ariaDescribedby = ""
-          value        = ""
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -142,8 +134,6 @@ const PasswordInputSection = (props) => (
           fancy        = {true}
           inputState   = "disabled"
           changeHandler  = {() => {}}
-          ariaDescribedby = ""
-          value        = ""
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -165,8 +155,6 @@ const PasswordInputSection = (props) => (
           id           = "PasswordInputBasicReadOnly"
           inputState   = "readOnly"
           changeHandler  = {() => {}}
-          ariaDescribedby = ""
-          value        = ""
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
@@ -188,8 +176,6 @@ const PasswordInputSection = (props) => (
           fancy        = {true}
           inputState   = "readOnly"
           changeHandler  = {() => {}}
-          ariaDescribedby = ""
-          value        = ""
           labelText    = {props.intlDefaultText.textLabel}
           placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
