@@ -22,15 +22,12 @@ export default class StaticAlert extends Component {
   }
 
   handleClose = () => {
-    this.setState({
-      isOpen: false
-    });
+    this.setState({ isOpen: false });
   }
 
   componentDidMount() {
-    if (document.body.scrollHeight > window.innerHeight * 1.25) {
-      this.setState({ position: '--sticky'})
-    }
+    if (document.body.scrollHeight > window.innerHeight * 1.25)
+      this.setState({ position: '--sticky'});
   }
 
   render() {
@@ -41,7 +38,7 @@ export default class StaticAlert extends Component {
 
     return (
       <div>
-        { this.state.isOpen &&
+        {this.state.isOpen &&
           <div className={`pe-alert${position} alert-${type}`}>
             <button className="close-title"
                     onClick={this.handleClose}
