@@ -1,19 +1,11 @@
-.pe-alert,
-.pe-alert--sticky {
+.pe-alert {
   margin: 32px 0 0 32px;
   padding: 8px 8px 28px 28px;
+  position: fixed;
   background-color: #FFF;
   width: 580px;
   left: 0;
   top: 0;
-}
-
-.pe-alert {
-  position: absolute;
-}
-
-.pe-alert--sticky {
-  position: fixed;
 }
 
 .alert-content- {
@@ -27,8 +19,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  .pe-alert,
-  .pe-alert--sticky {
+  .pe-alert {
     margin: 36px 25px 0;
     padding: 4px 4px 24px 18px;
     width: 440px
@@ -41,8 +32,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
-  .pe-alert,
-  .pe-alert--sticky {
+  .pe-alert {
     width: auto;
   }
 }

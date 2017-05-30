@@ -16,8 +16,7 @@ export default class StaticAlert extends Component {
     super(props)
 
     this.state = {
-      isOpen: true,
-      position: ''
+      isOpen: true
     }
   }
 
@@ -25,20 +24,15 @@ export default class StaticAlert extends Component {
     this.setState({ isOpen: false });
   }
 
-  componentDidMount() {
-    if (document.body.scrollHeight > window.innerHeight * 1.25) this.setState({ position: '--sticky' });
-  }
-
   render() {
 
-    const { position } = this.state;
     const { type, title, message } = this.props;
     const infoCheck = type === 'Information' ? 'info' :'';
 
     return (
       <div>
         {this.state.isOpen &&
-          <div className={`pe-alert${position} alert-${type}`}>
+          <div className={`pe-alert alert-${type}`}>
             <button className="close-title"
                     onClick={this.handleClose}
                     aria-label="Close alert">

@@ -1,8 +1,6 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import { spy } from 'sinon';
-import { assert } from 'chai';
 import { jsdom } from 'jsdom';
 import { StaticAlert } from '../index';
 
@@ -38,15 +36,6 @@ describe('StaticAlert', () => {
       wrapper.find('.close-title').simulate('click');
       wrapper.update();
       expect(wrapper.node.state.isOpen).toEqual(false);
-    });
-
-    it('calls componentDidMount()', function() {
-      const componentDidMountSpy = spy(StaticAlert.prototype, 'componentDidMount');
-      const wrapper = mount(<StaticAlert type="Information" title="Test title" message="Test message" />);
-
-      assert.ok(StaticAlert.prototype.componentDidMount.calledOnce);
-
-      componentDidMountSpy.restore();
     });
 
   });
