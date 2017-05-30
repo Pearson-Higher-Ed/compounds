@@ -15,7 +15,7 @@ const TextInputSection = (props) => (
           <li>labelText:String(required) === "a desciptive label"</li>
           <li>fancy:Boolean === true/false</li>
           <li>inputState:String === "default", "error", "disabled", "readOnly"</li>
-          <li>placeholder:String(required) === "a unique name"</li>
+          <li>placeholder:String  === "a placeholder text (not recommended)"</li>
           <li>changeHandler:Function(required) === "handles changes"</li>
           <li>infoMessage:String === "an optional info message displayed below the input"</li>
           <li>errorMessage:String === "an optional error message displayed below the input"</li>
