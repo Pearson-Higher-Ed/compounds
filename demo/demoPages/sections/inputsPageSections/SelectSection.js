@@ -78,6 +78,7 @@ const SelectSection = (props) => (
 
 
       <h2>Select - Basic ReadOnly</h2>
+      <p>Note that the actual state of the select is "disabled" here. Selects do not actually have a readonly state.</p>
       <Select
         id             = "select"
         labelText      = "Select Label:"
@@ -152,6 +153,7 @@ const SelectSection = (props) => (
       <br/>
 
       <h2>Select - Fancy ReadOnly</h2>
+      <p>Note that the actual state of the select is "disabled" here. Selects do not actually have a readonly state.</p>
       <Select
         id             = "select"
         fancy          = {true}

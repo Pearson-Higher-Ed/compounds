@@ -13,7 +13,7 @@ const MultiLineTextSection = (props) => (
       <ul>
         <li>id:String(required) === "a unique name"</li>
         <li>labelText:String(required) === "a desciptive label"</li>
-        <li>placeholder:String(required) === "multi-line text"</li>
+        <li>placeholder:String  === "a placeholder text (not recommended)"</li>
         <li>changeHandler:Function(required) === handles selection</li>
         <li>infoMessage:String === "an optional info message displayed below the input"</li>
         <li>errorMessage:String === "an optional error message displayed below the input"</li>
