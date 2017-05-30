@@ -46,7 +46,8 @@
     display: none;
   }
 
-  .pe-footer p {
+  .pe-footer p,
+  .pe-footer--stick p {
     display: block;
     font-size: 12px;
     line-height: 16px;

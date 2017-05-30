@@ -25,7 +25,7 @@ export default class Footer extends Component {
 
   renderCopy() {
     const year = new Date().getFullYear();
-    return (<p>
+    return (<p className="pe-label">
               Copyright &copy; {year} {this.props.copyrightText}
             </p>);
   }
@@ -45,7 +45,7 @@ export default class Footer extends Component {
 
   componentDidMount() {
     const that = this;
-    (document.body.scrollHeight > (window.innerHeight * 1.5))
+    (document.body.scrollHeight > (window.innerHeight * 1.48))
     ? this.setState({position: ''}) : this.setState({position: '--stick'});
 
     ((() => {
