@@ -47,8 +47,7 @@
     }
   },
   "dependencies": {
-    "react-modal": "^1.7.7",
-    "sinon": "^2.2.0"
+    "react-modal": "^1.7.7"
   },
   "devDependencies": {
     "@pearson-components/npm-scripts": "^0.4.1",
@@ -62,6 +61,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.23.0",
+    "chai": "^3.5.0",
     "colors": "~1.1.2",
     "conventional-changelog": "~1.1.0",
     "css-loader": "^0.26.1",
@@ -90,6 +90,7 @@
     "react-transition-group": "^1.1.3",
     "sass-loader": "^6.0.0",
     "semver": "~5.1.0",
+    "sinon": "^2.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "uuid": "2.0.2",

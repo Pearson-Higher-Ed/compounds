@@ -5,7 +5,7 @@ import { jsdom } from 'jsdom';
 import { Dropdown } from '../index';
 
 describe('Dropdown', () => {
-  const items=['one', 'two', 'three'];
+  const items = ['one', 'two', 'three'];
 
   describe('Dropdown /w label', function () {
     beforeEach(function () {
