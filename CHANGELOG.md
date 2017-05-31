@@ -1,5 +1,31 @@
-<a name="0.4.3"></a>
-## [0.4.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.3.1...v0.4.3) (2017-05-24)
+<a name="0.4.7"></a>
+## [0.4.7](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.6...v0.4.7) (2017-05-31)
+
+
+
+<a name="0.4.6"></a>
+## [0.4.6](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.5...v0.4.6) (2017-05-31)
+
+
+### Bug Fixes
+
+* focus order for close buttons ([2e6e69c](https://github.com/Pearson-Higher-Ed/compounds/commit/2e6e69c))
+* icons path in index.html ([35383f0](https://github.com/Pearson-Higher-Ed/compounds/commit/35383f0))
+
+
+
+<a name="0.4.5"></a>
+## [0.4.5](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.4...v0.4.5) (2017-05-26)
+
+
+
+<a name="0.4.4"></a>
+## [0.4.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.2...v0.4.4) (2017-05-26)
+
+
+
+<a name="0.4.2"></a>
+## [0.4.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.2.1...v0.4.2) (2017-05-23)
 
 
 ### Bug Fixes
