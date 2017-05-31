@@ -7,3 +7,4 @@ export Select          from './src/Select';
 export Dropdown        from './src/Dropdown';
 export LoadingSpinner  from './src/loadingSpinner/loadingSpinner';
 export Modal           from './src/Modal';
+export Calendar        from './src/Calendar/Calendar';
