@@ -98,11 +98,11 @@ export function _afterOpen() {
   const header            = document.getElementsByClassName('modalHeader')[0];
   const footer            = document.getElementsByClassName('modalFooter')[0];
 
-  // apply Focus to close button on open...
-  headerCloseButton ? headerCloseButton.focus() : footerCloseButton.focus();
-
   // apply accessibility wrapper...
   this.applyWrapper();
+
+  // apply Focus to close button on open...
+  headerCloseButton ? headerCloseButton.focus() : footerCloseButton.focus();
 
   // apply padding based on clientHeight...
   const windowHeight  = window.innerHeight;

@@ -12,7 +12,7 @@ describe('Footer', () => {
   describe('Footer tests', function () {
     beforeEach(function () {
       const testLinks = [{ text: 'First', href: 'first'}, { text: 'Second', href: 'second'}];
-      this.wrapper = shallow(<Footer links={testLinks} />);
+      this.wrapper = shallow(<Footer links={testLinks} copyrightText="CR text"  />);
     });
 
     it('should render the Footer', function () {
@@ -22,7 +22,7 @@ describe('Footer', () => {
     it('has the correct Copyright text + year', function () {
       const year = new Date().getFullYear();
       expect(this.wrapper.node.props.children[1].props.children)
-      .toEqual(['Copyright © ',year,' Pearson Education Inc. All Rights Reserved.']);
+      .toEqual(['Copyright © ',year,' ', 'CR text']);
     });
 
     it('correctly passes the light prop', function () {

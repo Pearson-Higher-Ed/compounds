@@ -1,6 +1,6 @@
 {
   "name": "pearson-compounds",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "Atomic React Components",
   "main": "./build/dist.compounds.js",
   "author": "Pearson Design Accelerator",
@@ -47,8 +47,7 @@
     }
   },
   "dependencies": {
-    "react-modal": "^1.7.7",
-    "sinon": "^2.2.0"
+    "react-modal": "^1.7.7"
   },
   "devDependencies": {
     "@pearson-components/npm-scripts": "^0.4.1",

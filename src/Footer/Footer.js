@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import './Footer.scss';
+
 export default class Footer extends Component {
 
   static propTypes = {
+    copyrightText: PropTypes.string,
     links: PropTypes.array.isRequired,
     light: PropTypes.bool
   }
@@ -22,9 +25,8 @@ export default class Footer extends Component {
 
   renderCopy() {
     const year = new Date().getFullYear();
-    return (<p>
-              Copyright &copy; {year} Pearson Education Inc.
-              All Rights Reserved.
+    return (<p className="pe-label">
+              Copyright &copy; {year} {this.props.copyrightText}
             </p>);
   }
 
@@ -43,7 +45,7 @@ export default class Footer extends Component {
 
   componentDidMount() {
     const that = this;
-    (document.body.scrollHeight > (window.innerHeight * 1.5))
+    (document.body.scrollHeight > (window.innerHeight * 1.48))
     ? this.setState({position: ''}) : this.setState({position: '--stick'});
 
     ((() => {

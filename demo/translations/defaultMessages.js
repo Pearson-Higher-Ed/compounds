@@ -78,5 +78,10 @@ export const messages = defineMessages({
     id             : 'closeButtonSRText',
     description    : 'close button text for screen reader',
     defaultMessage : 'close dialog'
+  },
+  copyrightText: {
+    id              : 'copyrightText',
+    description     : 'Copyright text for footer',
+    defaultMessage  : 'Pearson Education Inc. All Rights Reserved'
   }
 });
