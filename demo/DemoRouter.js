@@ -7,7 +7,7 @@ import HeaderPage         from './demoPages/HeaderPage';
 import InputsPage         from './demoPages/InputsPage';
 import DropdownPage       from './demoPages/DropdownPage';
 import FooterPage         from './demoPages/FooterPage';
-import ModalPage          from './demoPages/ModalPage';
+import DatePickerPage     from './demoPages/DatePickerPage';
 import LoadingSpinnerPage from './demoPages/LoadingSpinnerPage';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
@@ -19,7 +19,7 @@ const DemoRouter = (props) => (
       <HeaderPage />
         <Route path="/" exact         component={HomePage}   />
         <Route path="/icons"          component={IconPage}   />
-        <Route path="/modal"          component={ModalPage}   />
+        <Route path="/datepicker"     component={DatePickerPage}   />
         <Route path="/inputs"         component={InputsPage} />
         <Route path="/buttons"        component={ButtonPage} />
         <Route path="/dropdown"       component={DropdownPage} />

@@ -29,6 +29,7 @@ import { Icon, Button }     from '../../index';
           <li><Link className="link" to={`/dropdown`} >Dropdown</Link></li>
           <li><Link className="link" to={`/footer`} >Footer</Link></li>
           <li><Link className="link" to={`/loadingSpinner`} >Loading Spinner</Link></li>
+          <li><Link className="link" to={`/datepicker`} >DatePicker</Link></li>
         </ul>
         {this.props.children}
       </div>
