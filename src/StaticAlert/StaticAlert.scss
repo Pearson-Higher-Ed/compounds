@@ -22,7 +22,7 @@
   .pe-alert {
     margin: 36px 25px 0;
     padding: 4px 4px 24px 18px;
-    width: 440px
+    width: 440px;
   }
 
   .alert-content-,
@@ -31,7 +31,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 479px) {
+@media (min-width: 320px) and (max-width: 516px) {
   .pe-alert {
     width: auto;
   }
