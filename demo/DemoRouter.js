@@ -9,7 +9,6 @@ import DropdownPage       from './demoPages/DropdownPage';
 import FooterPage         from './demoPages/FooterPage';
 import TabsPage           from './demoPages/TabsPage';
 import LoadingSpinnerPage from './demoPages/LoadingSpinnerPage';
-import ModalPage          from './demoPages/ModalPage';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
 
@@ -25,7 +24,6 @@ const DemoRouter = (props) => (
         <Route path="/dropdown"       component={DropdownPage} />
         <Route path="/footer"         component={FooterPage} />
         <Route path="/tabs"           component={TabsPage} />
-        <Route path="/modal"          component={ModalPage}   />
         <Route path="/loadingSpinner" component={LoadingSpinnerPage} />
         <Route path="/footer"         component={FooterPage} />
     </div>
