@@ -68,13 +68,13 @@ export default class Tabs extends Component {
       let tabI = activeClass ? "0" : "-1";
       let ariaSelected = activeClass ? true : false;
       const themeCheck = this.props.light ? 'light' : '';
-      let i_id = uuid.v1();
+      let i_id = '_'+uuid.v1();
 
       return (
         <li key={i} role="presentation">
           <a href="#"
-             id={i_id}
              role="tab"
+             id={i_id}
              tabIndex={tabI}
              aria-selected={ariaSelected}
              className={`pe-label ${themeCheck} ${activeClass}`}

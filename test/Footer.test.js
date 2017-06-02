@@ -1,8 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow, mount } from 'enzyme';
-import { spy } from 'sinon';
-import { assert } from 'chai';
+import sinon from 'sinon';
 import { jsdom } from 'jsdom';
 import { Footer } from '../index';
 
@@ -38,12 +37,9 @@ describe('Footer', () => {
           global[property] = document.defaultView[property];
         }
       });
-      const componentDidMountSpy = spy(Footer.prototype, 'componentDidMount');
+      sinon.spy(Footer.prototype, 'componentDidMount');
       const wrapper = mount(<Footer links={moreLinks} />);
-
-      assert.ok(Footer.prototype.componentDidMount.calledOnce);
-
-      componentDidMountSpy.restore();
+      expect(Footer.prototype.componentDidMount.calledOnce).toEqual(true);
     });
 
   });

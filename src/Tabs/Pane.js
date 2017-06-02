@@ -15,10 +15,10 @@ export default class Pane extends Component {
   }
 
   render() {
-    const i_id = uuid.v1();
+    const i_id = '_'+uuid.v1();
 
     return (
-      <div role="tabpanel" id={i_id}>
+      <div role="tabpanel" aria-describedby={i_id}>
         {this.props.children}
       </div>
     )

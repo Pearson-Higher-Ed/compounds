@@ -39,11 +39,11 @@ const TabsPage = () => (
 
       <div className="code">
         <h2>Tab Props</h2>
-        <h4>Required:</h4>
+        <h3>Required:</h3>
         <ul>
           <li className="li-props">children:Array || Element</li>
         </ul>
-        <h4>Optional:</h4>
+        <h3>Optional:</h3>
         <ul>
           <li className="li-props">selected:Number === {`<Tabs selected={2}>`}</li>
           <li className="li-props">The selected prop can be passed the index of
@@ -55,12 +55,12 @@ const TabsPage = () => (
         </ul>
 
         <h2>Pane Props</h2>
-        <h4>Required:</h4>
+        <h3>Required:</h3>
         <ul>
           <li className="li-props">label:String === "Your Pane label"</li>
           <li className="li-props">children:Element</li>
         </ul>
-        <h4>Optional:</h4>
+        <h3>Optional:</h3>
         <ul>
           <li className="li-props">onActive:Function</li>
           <li className="li-props">Callback function that is fired when the Pane is activated</li>
