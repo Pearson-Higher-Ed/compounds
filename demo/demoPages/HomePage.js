@@ -17,7 +17,6 @@ const HomePage = () => (
             <li><Link className="link_homepage" to={`buttons`}>Buttons</Link></li>
             <li><Link className="link_homepage" to={`icons`}>Icons</Link></li>
             <li><Link className="link_homepage" to={`inputs`}>Inputs</Link></li>
-            <li><Link className="link_homepage" to={`modal`}>Modal</Link></li>
             <li><Link className="link_homepage" to={`dropdown`}>Dropdown</Link></li>
             <li><Link className="link_homepage" to={`footer`}>Footer</Link></li>
             <li><Link className="link_homepage" to={`loadingSpinner`}>Loading Spinner</Link></li>
