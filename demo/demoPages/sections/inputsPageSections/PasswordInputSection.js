@@ -20,6 +20,8 @@ const PasswordInputSection = (props) => (
           <li>changeHandler:Function(required) === handles selection</li>
           <li>showText:String     === "show/hide text"</li>
           <li>hideText:String     === "show/hide text"</li>
+          <li>shownStateText:String     === "shown/hidden state text"</li>
+          <li>hiddenStateText:String     === "shown/hidden state text"</li>
           <li>infoMessage:String  === "an optional info message displayed below the input"</li>
           <li>errorMessage:String === "an optional error message displayed below the input"</li>
         </ul>
@@ -37,8 +39,10 @@ const PasswordInputSection = (props) => (
           errorMessage = {props.intlDefaultText.textInputErrorMessage}
           showText     = {props.intlDefaultText.showText}
           hideText     = {props.intlDefaultText.hideText}
+          //shownStateText     = {props.intlDefaultText.shownStateText}
+          //hiddenStateText     = {props.intlDefaultText.hiddenStateText}
           />
-        <p className="code">{'<TextInput password={true} fancy={true} id="PasswordInputFancy" changeHandler={() => {}} labelText="Password" placeholder="Your password" infoMessage="This is an info message" errorMessage="This is an error message" showText="show" hideText="hide" />'}</p>
+        <p className="code">{'<TextInput password={true} fancy={true} id="PasswordInputFancy" changeHandler={() => {}} labelText="Password" placeholder="Your password" infoMessage="This is an info message" errorMessage="This is an error message" showText="show" hideText="hide" shownStateText="Password is not visible" hiddenStateText="Password is visible" />'}</p>
 
 
       <br />
@@ -72,7 +76,6 @@ const PasswordInputSection = (props) => (
           changeHandler  = {() => {}}
           aria-invalid = "true"
           labelText    = {props.intlDefaultText.textLabel}
-          placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
           errorMessage = {props.intlDefaultText.textInputErrorMessage}
           showText     = {props.intlDefaultText.showText}
@@ -156,7 +159,6 @@ const PasswordInputSection = (props) => (
           inputState   = "readOnly"
           changeHandler  = {() => {}}
           labelText    = {props.intlDefaultText.textLabel}
-          placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
           errorMessage = {props.intlDefaultText.textInputErrorMessage}
           showText     = {props.intlDefaultText.showText}
@@ -177,7 +179,6 @@ const PasswordInputSection = (props) => (
           inputState   = "readOnly"
           changeHandler  = {() => {}}
           labelText    = {props.intlDefaultText.textLabel}
-          placeholder  = {props.intlDefaultText.textPlaceholder}
           infoMessage  = {props.intlDefaultText.textInputInfoMessage}
           errorMessage = {props.intlDefaultText.textInputErrorMessage}
           showText     = {props.intlDefaultText.showText}

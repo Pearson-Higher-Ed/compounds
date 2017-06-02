@@ -8,10 +8,12 @@ class TextInput extends Component {
     super(props);
 
     const { showText, password } = this.props;
+    //const { showText, shownStateText,  password } = this.props;
 
     this.state = {
       passwordStatusText   : showText || '',
       passwordTypeSelector : password ? 'password' : 'text',
+      // shownStatusText   : shownStatusText || ''
     };
 
     this.togglePassword       = _togglePassword.bind(this);
@@ -26,6 +28,7 @@ class TextInput extends Component {
   render() {
 
     const { labelStyle, inputStyle, spanStyle, passwordStatusText, passwordTypeSelector, butttonStyle, labelFocusStyle, labelStyleTmp  }  = this.state;
+    //const { labelStyle, inputStyle, spanStyle, passwordStatusText, shownStatusText, passwordTypeSelector, butttonStyle, labelFocusStyle, labelStyleTmp  }  = this.state;
     const { inputState, fancy, id, labelText, password, placeholder, infoMessage, errorMessage, changeHandler } = this.props;
 
     const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
@@ -50,7 +53,7 @@ class TextInput extends Component {
           />
 
         {(inputState  !== 'readOnly' || inputState !== 'disabled') && <span className={spanStyle} />}
-        {password     && <button type="button" className={butttonStyle} id={`showbutton-${id}`} onClick={this.togglePassword} disabled={inputState === 'disabled'}>{passwordStatusText}</button>}
+        {password     && <span><button type="button" className={butttonStyle} id={`showbutton-${id}`} onClick={this.togglePassword} disabled={inputState === 'disabled'}>{passwordStatusText}</button> <span aria-live="polite" className="pe-sr-only">shownStatusText variable</span></span>}
         {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
         {inputState === 'error' && errorMessage && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
       </div>
@@ -79,12 +82,16 @@ TextInput.propTypes = {
 
 function _togglePassword() {
   const { passwordTypeSelector, passwordStatusText } = this.state;
+  //const { passwordTypeSelector, passwordStatusText, shownStatusText } = this.state;
   const { showText, hideText, inputState }           = this.props;
+  //const { showText, hideText, shownStatusText, hiddenStatusText inputState } = this.props;
 
   const passwordTypeSelectorTmp = (passwordTypeSelector === 'password') ? 'text' : 'password';
   const passwordStatusTextTmp   = (passwordStatusText === showText) ? hideText : showText;
+ // const shownStatusTextTmp   = (passwordStatusText === showText) ? hiddenText : shownText;
 
   this.setState({passwordTypeSelector:passwordTypeSelectorTmp, passwordStatusText:passwordStatusTextTmp});
+  //this.setState({passwordTypeSelector:passwordTypeSelectorTmp, passwordStatusText:passwordStatusTextTmp, shownStatusText: shownStatusTextTmp});
 
 };
 
@@ -105,7 +112,6 @@ function _applyTextInputStyles() {
       inputStyle      = fancy ? 'pe-textInput' : 'pe-textInput--basic';
       spanStyle       = '';
       butttonStyle    = fancy ? 'pe-textInput__showButton--disabled' : 'pe-textInput__showButton-basic--disabled';
-      labelFocusStyle = 'pe-textLabelInput__label--label-disabled';
       break;
     case 'readOnly':
       labelStyle      = 'pe-textLabelInput__label';
