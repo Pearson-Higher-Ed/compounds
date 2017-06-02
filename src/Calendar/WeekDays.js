@@ -13,7 +13,7 @@ export default class WeekDays extends Component {
         })()}
         {haystack.map((item, i) => {
           return (
-            <div className="r-cell">
+            <div className="r-cell pe-label--small r-cell-dayNames">
               {that.props.dayNames[(that.props.startDay + i) % 7]}
             </div>
           );

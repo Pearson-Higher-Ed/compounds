@@ -5,7 +5,7 @@ export default class Header extends Component {
   render() {
     return (
       <div className="r-row r-head">
-        <div className="r-cell r-title">
+        <div className="r-cell r-title pe-title--small">
           {this.props.monthNames[this.props.month]}
           {this.props.year}
         </div>

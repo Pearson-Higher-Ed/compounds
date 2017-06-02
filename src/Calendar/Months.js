@@ -30,12 +30,13 @@ export default class Months extends Component{
     }
 
     className = rows === 6 ? 'r-dates' : 'r-dates r-fix';
-    haystack = Array.apply(null, { length: rows }).map(Number.call, Number);
+    haystack = Array(...{ length: rows }).map(Number.call, Number);
     day = this.props.startDay + 1 - first;
     while (day > 1) {
       day -= 7;
     }
     day -= 1;
+
     return (
       <div className={className}>
         {haystack.map((item, i) => {
@@ -44,7 +45,7 @@ export default class Months extends Component{
             <div className="r-row">
               {(() => {
                 if (that.props.weekNumbers) {
-                  var wn = Math.ceil(
+                  let wn = Math.ceil(
                     ((new Date(that.props.year, that.props.month, d) - janOne) /
                       86400000 + janOne.getDay() + 1) / 7);
                   return (
@@ -61,8 +62,7 @@ export default class Months extends Component{
                 if (isDate) {
                   current = new Date(that.props.year, that.props.month, d);
                   className = current !== that.constructor.today
-                    ? "r-cell r-date"
-                    : "r-cell r-date r-today";
+                              ? "r-cell r-date" : "r-cell r-date r-today";
                   if (that.props.disablePast && current < that.constructor.today) {
                     className += " r-past";
                   } else if (that.props.minDate !== null && current < that.props.minDate) {
@@ -71,15 +71,14 @@ export default class Months extends Component{
 
                   if (/r-past/.test(className)) {
                     return (
-                      <div className={className} role="button" tabIndex="0">
+                      <div className={`${className} pe-label`} role="button" tabIndex="0">
                         {d}
                       </div>
                     );
                   }
 
                   return (
-                    <div
-                      className={className}
+                    <div className={`${className} pe-label`}
                       role="button"
                       tabIndex="0"
                       onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}

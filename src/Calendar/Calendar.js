@@ -3,7 +3,7 @@ import Header from './Header';
 import WeekDays from './WeekDays';
 import Months from './Months';
 
-import './Calendar.scss'
+import './Calendar.scss';
 
 export default class Calendar extends Component {
   constructor(props) {
