@@ -7,7 +7,7 @@ const HomePage = () => (
 
           <h1>Atomic React Components</h1>
 
-          <p>Welcome to Compounds SDK! This SDK is mean to be an
+          <p>Welcome to Compounds SDK! This SDK is an
             Open Source, Accessible (a11y), Unified Brand that
             is International Ready (i18n, l10n). </p>
 

@@ -23,20 +23,8 @@ export default class Calendar extends Component {
       minDate: this.props.minDate ? this.props.minDate : null,
       disablePast: this.props.disablePast ? this.props.disablePast : false,
       dayNames: ["S", "M", "T", "W", "T", "F", "S"],
-      monthNamesFull: [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ],
+      monthNamesFull: ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"],
       firstOfMonth: null,
       daysInMonth: null
     }
@@ -55,15 +43,19 @@ export default class Calendar extends Component {
       daysInMonth: new Date(year, month + 1, 0).getDate()
     };
   }
+
   componentWillMount() {
     this.setState(this.calc.call(null, this.state.year, this.state.month));
   }
+
   componentDidMount() {}
+
   componentDidUpdate(prevProps, prevState) {
     if (this.props.onSelect && prevState.selectedDt !== this.state.selectedDt) {
       this.props.onSelect.call(this.getDOMNode(), this.state);
     }
   }
+
   getPrev = () => {
     const state = {};
     if (this.state.month > 0) {
@@ -76,6 +68,7 @@ export default class Calendar extends Component {
     Object.assign(state, this.calc.call(null, state.year, state.month));
     this.setState(state);
   }
+
   getNext = () => {
     const state = {};
     if (this.state.month < 11) {
@@ -88,6 +81,7 @@ export default class Calendar extends Component {
     Object.assign(state, this.calc.call(null, state.year, state.month));
     this.setState(state);
   }
+
   selectDate = (year, month, date, element) => {
     if (this.state.selectedElement) {
       this.state.selectedElement.classList.remove('r-selected');
@@ -101,6 +95,7 @@ export default class Calendar extends Component {
       selectedElement: element.target
     });
   }
+
   render() {
     return (
       <div className="r-calendar">
