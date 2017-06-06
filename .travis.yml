@@ -3,10 +3,12 @@ sudo: false
 node_js:
 - 4
 - 6
+- 8
 script:
 - npm run ci
 - chmod 777 ./test/shell_scripts/run_tests.sh
 - "./test/shell_scripts/run_tests.sh"
+- npm run gh-pages
 deploy:
   provider: npm
   email: pearson-design-accelerator@pearson.com
