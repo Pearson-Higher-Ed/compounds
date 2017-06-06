@@ -24,8 +24,8 @@ const DatePickerPage = () => (
 
           <h2>DatePickers</h2>
           <br />
-            <DatePicker id="someGiantId" placeholder="mm/dd/yyyy" inputState="default" labelText="Select date" changeHandler={() => console.log('hi')}/>
-            <DatePicker id="someGiantId" placeholder="mm/dd/yyyy" inputState="default" labelText="Select date" changeHandler={() => console.log('hi')}/>
+            <DatePicker id="someGiantId" placeholder="mm/dd/yyyy" inputState="default" labelText="Select date" changeHandler={() => console.log('hi')} infoMessage="this is an infoMessage" errorMessage="this is an errorMessage" />
+            <DatePicker id="someGiantId" placeholder="mm/dd/yyyy" inputState="default" labelText="Select date" changeHandler={() => console.log('hi')} infoMessage="this is an infoMessage" errorMessage="this is an errorMessage" />
           <br />
           <p className="code">{'<DatePicker />'}</p>
 

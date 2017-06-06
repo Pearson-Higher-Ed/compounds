@@ -33,7 +33,7 @@ class DatePicker extends Component {
   render() {
 
     const { labelStyle, inputStyle, labelFocusStyle, labelStyleTmp, calendarOpen }  = this.state;
-    const { inputState, id, labelText, placeholder, changeHandler } = this.props;
+    const { inputState, id, labelText, placeholder, changeHandler, infoMessage, errorMessage } = this.props;
 
     return (
       <div>
@@ -55,7 +55,10 @@ class DatePicker extends Component {
           <Icon name="calendar-18" />
         </div>
 
-        {calendarOpen && <Calendar /> }
+        {calendarOpen && <Calendar disablePast /> }
+
+        {infoMessage  && <span className="pe-input--info_message">{infoMessage}</span>}
+        {errorMessage && <span className="pe-input--error_message">{errorMessage}</span>}
 
       </div>
     );
