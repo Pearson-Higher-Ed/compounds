@@ -1,49 +1,67 @@
 import React, { Component } from 'react';
 import PropTypes            from 'prop-types';
-import { Icon }             from '../../index.js';
+import { Icon, Calendar }   from '../../index';
+
+import './DatePicker.scss';
 
 
 class DatePicker extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {};
 
-    this.applySelectStyles = _applySelectStyles.bind(this);
+    this.state = {
+
+    };
+
+    this.toggleCalandar        = _toggleCalandar.bind(this);
+    this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
 
   }
 
   componentDidMount() {
-    this.applySelectStyles();
+    this.applyDatePickerStyles();
   }
 
+  shouldComponentUpdate(nextState, nextProps){
+    if (nextProps && !nextProps.calendarOpen && this.props.calendarOpen){
+      this.toggleCalandar();
+    }
+    return true;
+  }
 
   render() {
 
-    const { labelStyle, inputStyle, spanStyle, selectStyle, containerStyle, containerFocusStyle, disabledStyle, containerStyleTmp, labelFocusStyle, labelStyleTmp } = this.state;
-    const { id, labelText, inputState, options, infoMessage, errorMessage, changeHandler, selectedOption } = this.props;
+    const { labelStyle, inputStyle, labelFocusStyle, labelStyleTmp, calendarOpen }  = this.state;
+    const { inputState, id, labelText, placeholder, changeHandler } = this.props;
 
-      return (
-        <div>
-          <label className={labelStyleTmp} htmlFor={id}>{labelText}</label>
-          <div className={containerStyleTmp}>
-            <input id           = {id}
-                    defaultValue = {selectedOption}
-                    className    = {selectStyle}
-                    disabled     = {inputState === 'disabled' || inputState === 'readOnly'}
-                    onFocus      = { () => this.setState({labelStyleTmp:labelFocusStyle, containerStyleTmp:containerFocusStyle}) }
-                    onBlur       = { () => this.setState({labelStyleTmp:labelStyle, containerStyleTmp:containerStyle}) }
-                    onChange     = { changeHandler }
-                  />
-            <Icon name='calendar-18' />
-          </div>
+    return (
+      <div>
+        <label className={labelStyleTmp} htmlFor={id}>{labelText}</label>
+
+        <div className="pe-datepicker-container">
+          <input
+            id          = {id}
+            type        = "text"
+            placeholder = {placeholder}
+            className   = {inputStyle}
+            disabled    = {inputState === 'disabled' || inputState === 'readOnly'}
+            readOnly    = {inputState === 'readOnly'}
+            onFocus     = {() => this.setState({labelStyleTmp:labelFocusStyle, calendarOpen:true})}
+            onBlur      = {() => this.setState({labelStyleTmp:labelStyle, calendarOpen:false})}
+            onChange    = { changeHandler }
+            />
+
+          <Icon name="calendar-18" />
         </div>
-      )
+
+        {calendarOpen && <Calendar /> }
+
+      </div>
+    );
 
   }
-
-};
-
+}
 
 export default DatePicker;
 
@@ -51,58 +69,53 @@ export default DatePicker;
 DatePicker.propTypes = {
   id            : PropTypes.string.isRequired,
   labelText     : PropTypes.string.isRequired,
-  options       : PropTypes.array.isRequired,
+  placeholder   : PropTypes.string.isRequired,
   changeHandler : PropTypes.func.isRequired,
-  infoMessage   : PropTypes.string,
-  errorMessage  : PropTypes.string,
-  fancy         : PropTypes.bool,
   inputState    : PropTypes.string
 };
 
 
-function _applySelectStyles() {
+function _toggleCalandar() {
 
-        let { containerStyle, containerStyleTmp, containerFocusStyle, labelStyle, selectStyle, spanStyle, disabledStyle, labelFocusStyle, labelStyleTmp } = this.state;
-        const { fancy, inputState } = this.props;
+  this.setState({calendarOpen:!this.state.calendarOpen});
+  // const { passwordTypeSelector, passwordStatusText } = this.state;
+  // const { showText, hideText, inputState }           = this.props;
+  //
+  // const passwordTypeSelectorTmp = (passwordTypeSelector === 'password') ? 'text' : 'password';
+  // const passwordStatusTextTmp   = (passwordStatusText === showText) ? hideText : showText;
+  //
+  // this.setState({passwordTypeSelector:passwordTypeSelectorTmp, passwordStatusText:passwordStatusTextTmp});
 
-        switch (inputState) {
-          case 'error':
-            labelStyle          = 'pe-textLabelInput__label--label_error';
-            selectStyle         = fancy ? 'pe-selectInput-fancy-error' : 'pe-select--basic_error';
-            spanStyle           = fancy ? 'pe-inputError_underline'          : '';
-            containerStyle      = fancy ? 'pe-select-container-fancy-error'       : 'pe-select-container-error';
-            labelFocusStyle     = 'pe-textLabelInput__label--label_error';
-            containerFocusStyle = fancy ? 'pe-select-container-fancy-error-focus' : 'pe-select-container-focus-error';
-            break;
-          case 'disabled':
-            labelStyle      = 'pe-textLabelInput__label--label-disabled';
-            selectStyle     = fancy ? 'pe-selectInput-fancy-disabled'      : 'pe-select-container-disabled';
-            spanStyle       = '';
-            disabledStyle   = 'disabled';
-            containerStyle  = fancy ? 'pe-select-container-fancy-disabled' : 'pe-select-container-disabled';
-            labelFocusStyle = 'pe-textLabelInput__label--label-disabled';
-            break;
-          case 'readOnly':
-            labelStyle      = 'pe-textLabelInput__label';
-            selectStyle     = fancy ? 'pe-selectInput-fancy-readonly' : 'pe-select-container-readonly';
-            spanStyle       = '';
-            disabledStyle   = 'disabled';
-            containerStyle  = fancy ? 'pe-select-container-fancy-readonly' : 'pe-select-container-readonly';
-            labelFocusStyle = 'pe-textLabelInput__label';
-            break;
-          default:
-            labelStyle      = 'pe-textLabelInput__label';
-            selectStyle     = fancy ? 'pe-selectInput--fancy'      : 'pe-selectInput--basic';
-            spanStyle       = fancy ? 'pe-input_underline'         : '';
-            containerStyle  = fancy ? 'pe-select-container--fancy' : 'pe-select-container';
-            labelFocusStyle = 'pe-textLabelInput__label--label_focus';
+};
 
-            containerFocusStyle = fancy ? 'pe-select-container-fancy-focus' : 'pe-select-container-focus';
-        };
+function _applyDatePickerStyles() {
+  let { labelStyle, inputStyle, spanStyle, labelFocusStyle, labelStyleTmp } = this.state;
+  const { inputState } = this.props;
 
-        labelStyleTmp     = labelStyle;
-        containerStyleTmp = containerStyle;
+  switch (inputState) {
+    case 'error':
+      labelStyle      = 'pe-textLabelInput__label--label_error';
+      inputStyle      = 'pe-textInput--basic_error';
+      labelFocusStyle = 'pe-textLabelInput__label--label_error';
+      break;
+    case 'disabled':
+      labelStyle      = 'pe-textLabelInput__label--label-disabled';
+      inputStyle      = 'pe-textInput--basic';
+      labelFocusStyle = 'pe-textLabelInput__label--label-disabled';
+      break;
+    case 'readOnly':
+      labelStyle      = 'pe-textLabelInput__label';
+      inputStyle      = 'pe-textInput--input_readonly';
+      labelFocusStyle = 'pe-textLabelInput__label';
+      break;
+    default:
+      labelStyle      = 'pe-textLabelInput__label';
+      inputStyle      = 'pe-textInput--basic';
+      labelFocusStyle = 'pe-textLabelInput__label--label_focus';
+  };
 
-        this.setState({containerStyle, containerFocusStyle, labelStyle, selectStyle, spanStyle, disabledStyle, labelFocusStyle, labelStyleTmp, containerStyleTmp});
+  labelStyleTmp = labelStyle;
+
+  this.setState({labelStyle, labelStyleTmp, inputStyle, labelFocusStyle});
 
 };

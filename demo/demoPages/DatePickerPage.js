@@ -17,9 +17,18 @@ const DatePickerPage = () => (
 
           <h2>DatePicker</h2>
           <br />
-          <DatePicker id="someGiantId" labelText="Select date" changeHandler={() => console.log('hi')}/>
+          <DatePicker id="someGiantId" placeholder="mm/dd/yyyy" inputState="default" labelText="Select date" changeHandler={() => console.log('hi')}/>
           <br />
           <p className="code">{'<DatePicker />'}</p>
+
+
+          <h2>DatePickers</h2>
+          <br />
+            <DatePicker id="someGiantId" placeholder="mm/dd/yyyy" inputState="default" labelText="Select date" changeHandler={() => console.log('hi')}/>
+            <DatePicker id="someGiantId" placeholder="mm/dd/yyyy" inputState="default" labelText="Select date" changeHandler={() => console.log('hi')}/>
+          <br />
+          <p className="code">{'<DatePicker />'}</p>
+
         </div>
 
       </div>

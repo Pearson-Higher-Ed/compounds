@@ -8,3 +8,4 @@ export Dropdown        from './src/Dropdown';
 export Footer          from './src/Footer/Footer';
 export LoadingSpinner  from './src/loadingSpinner/loadingSpinner';
 export DatePicker      from './src/DatePicker/DatePicker';
+export Calendar        from './src/Calendar/Calendar';
