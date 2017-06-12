@@ -1,6 +1,6 @@
 {
   "name": "pearson-compounds",
-  "version": "0.5.2",
+  "version": "0.6.1",
   "description": "Atomic React Components",
   "main": "./build/dist.compounds.js",
   "author": "Pearson Design Accelerator",
@@ -13,7 +13,7 @@
   "scripts": {
     "start": "npm run serve",
     "serve": "NODE_ENV=development webpack-dev-server --hot",
-    "deploy": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
+    "gh-pages": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
     "test": "jest --no-cache --coverage",
     "build": "NODE_ENV=production webpack -p",
     "gen-changelog": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gen-changelog.js",
@@ -48,7 +48,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@pearson-components/npm-scripts": "^0.4.1",
+    "@pearson-components/npm-scripts": "^0.5.1",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
     "babel-jest": "^18.0.0",

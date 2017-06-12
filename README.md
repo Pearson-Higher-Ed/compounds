@@ -83,7 +83,7 @@ As you save changes to the source, the changes are automatically reloaded in the
 
 To deploy this project to Github Pages comment out build section in .gitignore then commit your changes, and run:
 
-    npm run deploy
+    npm run gh-pages
 
 
 ### Test
