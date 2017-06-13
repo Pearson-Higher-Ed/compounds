@@ -24,9 +24,14 @@ export default class Tabs extends Component {
     super(props)
 
     this.state = {
-      selected: this.props.selected
+      selected: this.props.selected,
+      tabId: ''
     }
   };
+
+  getChildContext() {
+    return { id: this.state.tabId };
+  }
 
   handleClick(i, event) {
     event.preventDefault();
@@ -68,13 +73,12 @@ export default class Tabs extends Component {
       let tabI = activeClass ? "0" : "-1";
       let ariaSelected = activeClass ? true : false;
       const themeCheck = this.props.light ? 'light' : '';
-      let i_id = '_'+uuid.v1();
 
       return (
-        <li key={i} role="presentation">
+        <li key={i} role="presentation" onFocus={() => this.setState({ tabId: `_${uuid.v1()}`})}>
           <a href="#"
              role="tab"
-             id={i_id}
+             id={this.state.tabId}
              tabIndex={tabI}
              aria-selected={ariaSelected}
              className={`pe-label ${themeCheck} ${activeClass}`}
@@ -109,3 +113,7 @@ export default class Tabs extends Component {
     )
   };
 };
+
+Tabs.childContextTypes = {
+  id: PropTypes.string
+}

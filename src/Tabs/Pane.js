@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import uuid from 'uuid';
 
 export default class Pane extends Component {
 
@@ -15,12 +14,15 @@ export default class Pane extends Component {
   }
 
   render() {
-    const i_id = '_'+uuid.v1();
 
     return (
-      <div role="tabpanel" aria-describedby={i_id}>
+      <div role="tabpanel" aria-describedby={this.context.id}>
         {this.props.children}
       </div>
     )
   }
+}
+
+Pane.contextTypes = {
+  id: PropTypes.string
 }
