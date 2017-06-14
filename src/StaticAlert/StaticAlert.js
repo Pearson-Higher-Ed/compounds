@@ -42,15 +42,15 @@ export default class StaticAlert extends Component {
             <div className="alert-content-container">
               {type === 'Error' ? <span className="error-svg">
                                     <svg focusable="false"
-                                         className="pe-icon--warning-24">
-                                         <use xlinkHref="#warning-24"></use>
+                                         className="pe-icon--warning-18">
+                                         <use xlinkHref="#warning-18"></use>
                                     </svg>
                                   </span>
                                 :null}
               {type === 'Success' ? <span className="success-svg">
                                       <svg focusable="false"
-                                           className="pe-icon--check-24">
-                                           <use xlinkHref="#check-sm-24"></use>
+                                           className="pe-icon--check-18">
+                                           <use xlinkHref="#check-sm-18"></use>
                                       </svg>
                                     </span>
                                   :null}

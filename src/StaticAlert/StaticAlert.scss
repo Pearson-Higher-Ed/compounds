@@ -1,6 +1,6 @@
 .pe-alert {
   margin: 32px 0 0 32px;
-  padding: 8px 8px 28px 28px;
+  padding: 12px 12px 28px 28px;
   position: fixed;
   background-color: #FFF;
   width: 580px;
@@ -10,18 +10,18 @@
 
 .alert-content- {
   margin-left: 12px;
-  padding: 2px 2px 0 0;
+  padding: 4px 12px 0 0;
 }
 
 .alert-content-info {
   margin: 0;
-  padding: 2px 2px 0 0;
+  padding: 4px 12px 0 0;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
   .pe-alert {
     margin: 36px 25px 0;
-    padding: 4px 4px 24px 18px;
+    padding: 8px 8px 24px 28px;
     width: 440px;
   }
 
@@ -29,9 +29,17 @@
   .alert-content-info {
     padding-right: 8px;
   }
+
+  .error-svg {
+    margin-top: 10px !important;
+  }
+
+  .success-svg {
+    margin-top: 6px !important;
+  }
 }
 
-@media (min-width: 320px) and (max-width: 516px) {
+@media (min-width: 320px) and (max-width: 530px) {
   .pe-alert {
     width: auto;
   }
@@ -57,11 +65,12 @@
 
 .error-svg {
   color: #db0020;
-  margin-top: 7px;
+  margin-top: 8px;
 }
 
 .success-svg {
   color: #19A5A3;
+  margin-top: 4px;
 }
 
 .alert-content-container {
