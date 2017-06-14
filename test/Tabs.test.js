@@ -29,8 +29,8 @@ describe('Tabs', () => {
     it('sets the correct selected tab', function () {
       const wrap = mount(<Tabs><Pane label="1"><div>1</div></Pane><Pane label="2"><div>Content 2</div></Pane></Tabs>);
       const wrappy = mount(<Tabs selected={1}><Pane label="1"><div>1</div></Pane><Pane label="2"><div>Content 2</div></Pane></Tabs>);
-      expect(wrap.node.state).toEqual({ selected: 0 });
-      expect(wrappy.node.state).toEqual({ selected: 1 });
+      expect(wrap.node.state.selected).toEqual(0);
+      expect(wrappy.node.state.selected).toEqual(1);
     });
 
   });
