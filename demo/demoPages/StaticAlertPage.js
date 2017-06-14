@@ -12,7 +12,7 @@ const StaticAlertPage = () => (
     <div className="elementContainer">
       <div className="code">
         <h2>Props</h2>
-        <h4>Required:</h4>
+        <h3>Required:</h3>
         <ul>
           <li className="li-props">type:String === {`'Error' || 'Success' || 'Information'`}</li>
           <li className="li-props">title:String === {`'Your title'`}</li>

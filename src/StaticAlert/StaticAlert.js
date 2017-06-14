@@ -33,7 +33,7 @@ export default class StaticAlert extends Component {
       <div>
         {this.state.isOpen &&
           <div className={`pe-alert alert-${type}`}>
-            <button className="close-title"
+            <button className="pe-icon--btn close-title"
                     onClick={this.handleClose}
                     aria-label="Close alert">
               <Icon name="remove-sm-24" />
@@ -55,9 +55,9 @@ export default class StaticAlert extends Component {
                                     </span>
                                   :null}
               <div className={`alert-content-${infoCheck}`}>
-                <h4 className="pe-label alert-title">
+                <h2 className="pe-label alert-title">
                   <strong>{title}</strong>
-                </h4>
+                </h2>
                 <p className="pe-paragraph alert-text">
                   {message}
                 </p>
