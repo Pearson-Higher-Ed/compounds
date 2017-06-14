@@ -7,7 +7,7 @@ import './Dropdown.scss';
 
 let containerMargin = { marginRight: 0 };
 
-class Dropdown extends Component {
+export default class Dropdown extends Component {
 
   static propTypes = {
     list: PropTypes.array.isRequired,
@@ -125,22 +125,20 @@ class Dropdown extends Component {
                    : null }
 
           { this.state.open &&
-          <CSSTransitionGroup
-            className="li-wrapper"
-            component="ul"
-            role="menu"
-            transitionName="transition"
-            transitionEnterTimeout={300}
-            transitionLeaveTimeout={300}>
-           {this.renderListItems()}
-          </CSSTransitionGroup> }
+            <CSSTransitionGroup
+              className="li-wrapper"
+              component="ul"
+              role="menu"
+              transitionName="transition"
+              transitionEnterTimeout={300}
+              transitionLeaveTimeout={300}>
+             {this.renderListItems()}
+            </CSSTransitionGroup> }
         </div>
     )
   }
 
 };
-
-export default Dropdown;
 
 function _toggleDropDown() {
   this.setState({ open: !this.state.open })
@@ -149,6 +147,10 @@ function _toggleDropDown() {
   const viewWidth = document.body.clientWidth;
   const differenceRight = viewWidth - container.right;
   const differenceLeft = Math.round(viewWidth - container.left) - 25;
+
+  console.log(container, 'container');
+  console.log(viewWidth, 'width');
+  console.log(differenceRight, 'diff right');
 
   if (differenceRight < 0) {
     containerMargin = { marginRight: differenceLeft, marginLeft: 'auto', left: 'auto'}

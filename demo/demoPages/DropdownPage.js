@@ -13,7 +13,7 @@ const DropdownPage = () => (
 
       <div className="code">
         <h2>Props</h2>
-        <h4>Required:</h4>
+        <h3>Required:</h3>
         <ul>
           <li className="li-props">presentationType:String === "label", "button", "icon"</li>
           <li className="li-props">mobileTitle:String === "Your mobile title"</li>
@@ -23,7 +23,7 @@ const DropdownPage = () => (
           <li className="li-props">The "divider" option may be used in conjunction with any of
           the presentationType for <br/>separating options presented in your list.</li>
         </ul>
-        <h4>Optional:</h4>
+        <h3>Optional:</h3>
         <ul>
           <li className="li-props">presentationText:String === "Your label or button text"</li>
         </ul>
