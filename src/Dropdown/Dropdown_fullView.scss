@@ -65,6 +65,7 @@ svg[id^='svg-id-'] {
   display: block;
   position: absolute;
   background-color: #ffffff;
+  z-index: 5;
 }
 
 .li-wrapper .li-button {
