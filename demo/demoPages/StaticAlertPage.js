@@ -22,11 +22,13 @@ const StaticAlertPage = () => (
           <h3>Optional:</h3>
           <ul>
             <li className="li-props">inline:Boolean === {`<StaticAlert inline />`}</li>
-            <li className="li-props">
-              <img className="inline-pic"
-                   src="../../icons/alertslabel.jpg"
-                   alt="Inline warning" />
-            </li>
+            <li className="li-props">The Inline alert applies to a specific task or content where the <br/>
+              action occurred. Inline alerts should be used very sparingly as they <br/>
+              distract users from their tasks.</li>
+            <li className="li-props">disable:Boolean === {`<StaticAlert inline disable />`}</li>
+            <li className="li-props">The disable prop is only to be used with the inline alert.
+            By default, <br/>the inline alert is dismissable but it can be made to display permanently <br/>
+            with this prop.</li>
           </ul>
         </div>
       </div>
@@ -47,7 +49,7 @@ const StaticAlertPage = () => (
     <StaticAlert inline
                  type="Error"
                  title="Inline title"
-                 message={`Disruptive message goes here.`} />
+                 message={`Disruptive inline alert message goes here.`} />
   </div>
 );
 

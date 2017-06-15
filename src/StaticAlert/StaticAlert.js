@@ -10,11 +10,13 @@ export default class StaticAlert extends Component {
     type: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
-    inline: PropTypes.bool
+    inline: PropTypes.bool,
+    disable: PropTypes.bool
   }
 
   static defaultProps = {
-    inline: false
+    inline: false,
+    disable: false
   }
 
   constructor(props) {
@@ -31,15 +33,17 @@ export default class StaticAlert extends Component {
 
   render() {
 
-    const { type, title, message, inline } = this.props;
+    const { type, title, message, inline, disable } = this.props;
     const infoCheck = type === 'Information' ? 'info':'';
     const inlineCheck = inline ? '-inline':'';
+    const disableCheck = disable ? 'disabled': null;
 
     return (
       <div>
         {this.state.isOpen &&
           <div className={`pe-alert${inlineCheck} alert-${type}`}>
             <button className="pe-icon--btn close-title"
+                    disabled={disableCheck}
                     onClick={this.handleClose}
                     aria-label="Close alert">
               <Icon name="remove-sm-24" />
