@@ -9,7 +9,12 @@ export default class StaticAlert extends Component {
   static propTypes = {
     type: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired
+    message: PropTypes.string.isRequired,
+    inline: PropTypes.bool
+  }
+
+  static defaultProps = {
+    inline: false
   }
 
   constructor(props) {
@@ -26,13 +31,14 @@ export default class StaticAlert extends Component {
 
   render() {
 
-    const { type, title, message } = this.props;
-    const infoCheck = type === 'Information' ? 'info' :'';
+    const { type, title, message, inline } = this.props;
+    const infoCheck = type === 'Information' ? 'info':'';
+    const inlineCheck = inline ? '-inline':'';
 
     return (
       <div>
         {this.state.isOpen &&
-          <div className={`pe-alert alert-${type}`}>
+          <div className={`pe-alert${inlineCheck} alert-${type}`}>
             <button className="pe-icon--btn close-title"
                     onClick={this.handleClose}
                     aria-label="Close alert">

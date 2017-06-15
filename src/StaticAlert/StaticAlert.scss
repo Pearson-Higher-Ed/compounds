@@ -8,6 +8,14 @@
   top: 0;
 }
 
+.pe-alert-inline {
+  padding: 12px 12px 28px 28px;
+  background-color: #FFF;
+  position: static;
+  width: 400px;
+  left: 0;
+}
+
 .alert-content- {
   margin-left: 12px;
   padding: 4px 12px 0 0;
@@ -23,6 +31,11 @@
     margin: 36px 25px 0;
     padding: 8px 8px 24px 28px;
     width: 440px;
+  }
+
+  .pe-alert-inline {
+    padding: 8px 8px 24px 28px;
+    width: auto;
   }
 
   .alert-content-,
