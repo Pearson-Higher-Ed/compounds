@@ -4,7 +4,7 @@ export TextInput       from './src/TextInput';
 export MultiLineText   from './src/MultiLineText';
 export RadioCheckGroup from './src/RadioCheckGroup';
 export Select          from './src/Select';
-export Dropdown        from './src/Dropdown';
+export Dropdown        from './src/Dropdown/Dropdown';
 export Footer          from './src/Footer/Footer';
 export Tabs            from './src/Tabs/Tabs';
 export Pane            from './src/Tabs/Pane';
