@@ -1,3 +1,8 @@
+<a name="0.7.2"></a>
+## [0.7.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.1...v0.7.2) (2017-06-15)
+
+
+
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.0...v0.7.1) (2017-06-14)
 
@@ -107,6 +112,7 @@
 * correctly adding selected check ([6dfece2](https://github.com/Pearson-Higher-Ed/compounds/commit/6dfece2))
 * correctly picking up selected item | svgs not being assigned correctly ([cfb8c09](https://github.com/Pearson-Higher-Ed/compounds/commit/cfb8c09))
 * dropdown button ([0743d9b](https://github.com/Pearson-Higher-Ed/compounds/commit/0743d9b))
+* Dropdown styles moved back to Compounds ([4cf26c9](https://github.com/Pearson-Higher-Ed/compounds/commit/4cf26c9))
 * dropdown window prevents scrolling from body ([2c4ac37](https://github.com/Pearson-Higher-Ed/compounds/commit/2c4ac37))
 * error on ghpages ([bba3414](https://github.com/Pearson-Higher-Ed/compounds/commit/bba3414))
 * forgot punctuation on doc ([f024e6d](https://github.com/Pearson-Higher-Ed/compounds/commit/f024e6d))
