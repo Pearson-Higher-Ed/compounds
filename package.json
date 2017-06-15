@@ -1,6 +1,6 @@
 {
   "name": "pearson-compounds",
-  "version": "0.4.3",
+  "version": "0.7.1",
   "description": "Atomic React Components",
   "main": "./build/dist.compounds.js",
   "author": "Pearson Design Accelerator",
@@ -13,7 +13,7 @@
   "scripts": {
     "start": "npm run serve",
     "serve": "NODE_ENV=development webpack-dev-server --hot",
-    "deploy": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
+    "gh-pages": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
     "test": "jest --no-cache --coverage",
     "build": "NODE_ENV=production webpack -p",
     "gen-changelog": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gen-changelog.js",
@@ -46,12 +46,9 @@
       }
     }
   },
-  "dependencies": {
-    "react-modal": "^1.7.7",
-    "sinon": "^2.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@pearson-components/npm-scripts": "^0.4.1",
+    "@pearson-components/npm-scripts": "^0.5.1",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
     "babel-jest": "^18.0.0",
@@ -90,6 +87,7 @@
     "react-transition-group": "^1.1.3",
     "sass-loader": "^6.0.0",
     "semver": "~5.1.0",
+    "sinon": "^2.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "uuid": "2.0.2",

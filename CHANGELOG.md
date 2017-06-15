@@ -1,5 +1,93 @@
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.0...v0.7.1) (2017-06-14)
+
+
+
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.6.1...v0.7.0) (2017-06-14)
+
+
+
+<a name="0.6.1"></a>
+## [0.6.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.6.0...v0.6.1) (2017-06-06)
+
+
+
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.5.2...v0.6.0) (2017-06-02)
+
+
+### Bug Fixes
+
+* PR comments ([de43d0b](https://github.com/Pearson-Higher-Ed/compounds/commit/de43d0b))
+
+
+
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.5.1...v0.5.2) (2017-05-31)
+
+
+
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.5.0...v0.5.1) (2017-05-31)
+
+
+### Bug Fixes
+
+* removes direct proptype validation... ([c49ace3](https://github.com/Pearson-Higher-Ed/compounds/commit/c49ace3))
+
+
+
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.7...v0.5.0) (2017-05-31)
+
+
+### Bug Fixes
+
+* Footer unit test ([a952fcc](https://github.com/Pearson-Higher-Ed/compounds/commit/a952fcc))
+
+
+
+<a name="0.4.7"></a>
+## [0.4.7](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.6...v0.4.7) (2017-05-31)
+
+
+
+<a name="0.4.6"></a>
+## [0.4.6](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.5...v0.4.6) (2017-05-31)
+
+
+### Bug Fixes
+
+* focus order for close buttons ([2e6e69c](https://github.com/Pearson-Higher-Ed/compounds/commit/2e6e69c))
+* Font styles ([0a69a7f](https://github.com/Pearson-Higher-Ed/compounds/commit/0a69a7f))
+* icons path in index.html ([35383f0](https://github.com/Pearson-Higher-Ed/compounds/commit/35383f0))
+
+
+
+<a name="0.4.5"></a>
+## [0.4.5](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.4...v0.4.5) (2017-05-26)
+
+
+
+<a name="0.4.4"></a>
+## [0.4.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.3...v0.4.4) (2017-05-26)
+
+
+### Bug Fixes
+
+* assigned refs to fix tests ([a5aec84](https://github.com/Pearson-Higher-Ed/compounds/commit/a5aec84))
+* breakout text ([7b759ba](https://github.com/Pearson-Higher-Ed/compounds/commit/7b759ba))
+
+
+
 <a name="0.4.3"></a>
-## [0.4.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.3.1...v0.4.3) (2017-05-24)
+## [0.4.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.2...v0.4.3) (2017-05-24)
+
+
+
+<a name="0.4.2"></a>
+## [0.4.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.3.1...v0.4.2) (2017-05-23)
 
 
 ### Bug Fixes
@@ -12,8 +100,9 @@
 * add sinon dependency ([f23ff9b](https://github.com/Pearson-Higher-Ed/compounds/commit/f23ff9b))
 * adding no cache to jest ([3ed2ee5](https://github.com/Pearson-Higher-Ed/compounds/commit/3ed2ee5))
 * aria hide app to false ([139f8e3](https://github.com/Pearson-Higher-Ed/compounds/commit/139f8e3))
-* breakout inputs page ([d941001](https://github.com/Pearson-Higher-Ed/compounds/commit/d941001))
+* arrow functionality ([5c0523a](https://github.com/Pearson-Higher-Ed/compounds/commit/5c0523a))
 * breakout inputs page ([8ef6fc5](https://github.com/Pearson-Higher-Ed/compounds/commit/8ef6fc5))
+* breakout inputs page ([d941001](https://github.com/Pearson-Higher-Ed/compounds/commit/d941001))
 * correction on the homepage ([6519b06](https://github.com/Pearson-Higher-Ed/compounds/commit/6519b06))
 * correctly adding selected check ([6dfece2](https://github.com/Pearson-Higher-Ed/compounds/commit/6dfece2))
 * correctly picking up selected item | svgs not being assigned correctly ([cfb8c09](https://github.com/Pearson-Higher-Ed/compounds/commit/cfb8c09))
@@ -27,11 +116,13 @@
 * make loadingSpinner styles available in the dist file. ([4da29f2](https://github.com/Pearson-Higher-Ed/compounds/commit/4da29f2))
 * make webpack vars more generic, fix header ([ad9a89d](https://github.com/Pearson-Higher-Ed/compounds/commit/ad9a89d))
 * make webpack vars more generic, fix header ([70d452f](https://github.com/Pearson-Higher-Ed/compounds/commit/70d452f))
+* Mallory's comments ([de74e7a](https://github.com/Pearson-Higher-Ed/compounds/commit/de74e7a))
 * mock styles ([4f9fe6f](https://github.com/Pearson-Higher-Ed/compounds/commit/4f9fe6f))
 * move test files ([c952ede](https://github.com/Pearson-Higher-Ed/compounds/commit/c952ede))
 * moved styles to elements ([029ee5f](https://github.com/Pearson-Higher-Ed/compounds/commit/029ee5f))
 * npm ignore ([3a44e67](https://github.com/Pearson-Higher-Ed/compounds/commit/3a44e67))
 * padding issues ([5b077ed](https://github.com/Pearson-Higher-Ed/compounds/commit/5b077ed))
+* padding to mimic design spacing ([6c8b002](https://github.com/Pearson-Higher-Ed/compounds/commit/6c8b002))
 * password input error validator ([59e0314](https://github.com/Pearson-Higher-Ed/compounds/commit/59e0314))
 * point main at index.js so consumer gets source, dist to contain fully packaged assets ([c5d0de1](https://github.com/Pearson-Higher-Ed/compounds/commit/c5d0de1))
 * proper edge detection for left / right alignment ([d1bf707](https://github.com/Pearson-Higher-Ed/compounds/commit/d1bf707))
@@ -48,9 +139,10 @@
 * scss stuff ([6e65335](https://github.com/Pearson-Higher-Ed/compounds/commit/6e65335))
 * simplify docs pages ([a69de8c](https://github.com/Pearson-Higher-Ed/compounds/commit/a69de8c))
 * take out vendor libs ([2496632](https://github.com/Pearson-Higher-Ed/compounds/commit/2496632))
-* test ([08a8c5d](https://github.com/Pearson-Higher-Ed/compounds/commit/08a8c5d))
 * test ([c8f7070](https://github.com/Pearson-Higher-Ed/compounds/commit/c8f7070))
+* test ([08a8c5d](https://github.com/Pearson-Higher-Ed/compounds/commit/08a8c5d))
 * test ([c9fe5a6](https://github.com/Pearson-Higher-Ed/compounds/commit/c9fe5a6))
+* test coverage to 73%~ ([a74a341](https://github.com/Pearson-Higher-Ed/compounds/commit/a74a341))
 * tests meet threshold ([0867798](https://github.com/Pearson-Higher-Ed/compounds/commit/0867798))
 * update for react proptypes ([5e63a69](https://github.com/Pearson-Higher-Ed/compounds/commit/5e63a69))
 * wayward style ([02ffd5b](https://github.com/Pearson-Higher-Ed/compounds/commit/02ffd5b))

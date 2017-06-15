@@ -7,9 +7,8 @@ const HomePage = () => (
 
           <h1>Atomic React Components</h1>
 
-          <p>Welcome to Compounds SDK! This SDK is mean to be an
-            Open Source, Accessible (a11y), Unified Brand that
-            is International Ready (i18n, l10n). </p>
+          <p>Welcome to Compounds SDK! This SDK is an Open Source, Accessible (a11y),
+            Unified Brand that is International Ready (i18n, l10n). </p>
 
           <p>React Components:</p>
 
@@ -17,8 +16,9 @@ const HomePage = () => (
             <li><Link className="link_homepage" to={`buttons`}>Buttons</Link></li>
             <li><Link className="link_homepage" to={`icons`}>Icons</Link></li>
             <li><Link className="link_homepage" to={`inputs`}>Inputs</Link></li>
-            <li><Link className="link_homepage" to={`modal`}>Modal</Link></li>
             <li><Link className="link_homepage" to={`dropdown`}>Dropdown</Link></li>
+            <li><Link className="link_homepage" to={`footer`}>Footer</Link></li>
+            <li><Link className="link_homepage" to={`tabs`}>Tabs</Link></li>
             <li><Link className="link_homepage" to={`loadingSpinner`}>Loading Spinner</Link></li>
             <li><Link className="link_homepage" to={`staticAlert`}>Static Alert</Link></li>
           </ul>
