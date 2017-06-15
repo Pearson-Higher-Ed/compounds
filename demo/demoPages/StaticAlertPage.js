@@ -41,6 +41,13 @@ const StaticAlertPage = () => (
                        message="My success message!" />`}
       </p>
 
+      <p className="code">
+        {`<StaticAlert inline
+                       type="Error"
+                       title="Inline title"
+                       message="Disruptive etc." />`}
+      </p>
+
       <StaticAlert type="Success"
                    title="Your title"
                    message={`This alert is displayed on page load and can be dismissed
