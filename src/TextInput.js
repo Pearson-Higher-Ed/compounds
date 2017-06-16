@@ -53,7 +53,7 @@ class TextInput extends Component {
           />
 
         {(inputState  !== 'readOnly' || inputState !== 'disabled') && <span className={spanStyle} />}
-        {password     && <span><button type="button" className={butttonStyle} id={`showbutton-${id}`} onClick={this.togglePassword} disabled={inputState === 'disabled'}>{passwordStatusText}</button> <span aria-live="polite" className="pe-sr-only">{visibilityStatusText}</span></span>}
+        {password     && <span><button type="button" className={butttonStyle} id={`showbutton-${id}`} onClick={this.togglePassword} disabled={inputState === 'disabled'}>{passwordStatusText}</button> <span aria-live="polite" aria-atomic="true" className="pe-sr-only">{visibilityStatusText}</span></span>}
         {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
         {inputState === 'error' && errorMessage && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
       </div>
