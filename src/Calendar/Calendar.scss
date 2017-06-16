@@ -7,6 +7,8 @@
   margin-top: 16px; // <---container optional
   height: 320px;
   width: 320px !important;
+  position: relative;
+  transform: translateZ(1);
 }
 
 .r-calendar * {

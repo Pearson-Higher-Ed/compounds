@@ -32,7 +32,7 @@ class DatePickerPage extends Component {
               inputState      = "default"
               labelText       = "Select date"
               datepickerValue = {this.state.datepickerValue1}
-              changeHandler   = {() => console.log('hi')}
+              changeHandler   = {() => console.log('DatePicker-(fancy)-changed!!')}
             />
             <br />
             <p className="code">{'<DatePicker fancy={true} />'}</p>
@@ -42,13 +42,12 @@ class DatePickerPage extends Component {
             <h2>DatePicker (basic): </h2>
             <br />
             <DatePicker
-              fancy           = {false}
               id              = "someGiantId"
               placeholder     = "mm/dd/yyyy"
               inputState      = "default"
               labelText       = "Select date"
               datepickerValue = {this.state.datepickerValue2}
-              changeHandler   = {() => console.log('hi')}
+              changeHandler   = {() => console.log('DatePicker-(basic)-changed!!')}
             />
             <br />
             <p className="code">{'<DatePicker fancy={false} />'}</p>
@@ -73,8 +72,8 @@ class DatePickerPage extends Component {
                 endLabelText       = "End date"
                 datepickerValue    = {this.state.datepickerValue3}
                 endDatepickerValue = {this.state.datepickerValue4}
-                changeHandler      = {() => console.log('¡¡¡start')}
-                endChangeHandler   = {() => console.log('end!!!')}
+                changeHandler      = {() => console.log('¡¡¡start-basic')}
+                endChangeHandler   = {() => console.log('end-basic!!!')}
               />
             </div>
 
@@ -99,8 +98,8 @@ class DatePickerPage extends Component {
                 endLabelText       = "End date"
                 datepickerValue    = {this.state.datepickerValue3}
                 endDatepickerValue = {this.state.datepickerValue4}
-                changeHandler      = {() => console.log('¡¡¡start')}
-                endChangeHandler   = {() => console.log('end!!!')}
+                changeHandler      = {() => console.log('¡¡¡start-fancy')}
+                endChangeHandler   = {() => console.log('end-fancy!!!')}
               />
 
 

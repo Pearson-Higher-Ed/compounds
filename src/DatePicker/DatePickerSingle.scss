@@ -32,7 +32,11 @@
   padding    : 0px;
   position   : relative;
   margin-top : $textInput-basic-marginTop;
-  width      : 280px;
+  width      : 100%;
+}
+
+.pe-datepicker-main{
+  margin-right:40px;
 }
 
 .pe-datepicker-container svg {

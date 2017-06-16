@@ -16,7 +16,6 @@ class DatePicker extends Component {
   }
 
 
-
   render() {
 
     const { classNameContainer, classNameStart, classNameEnd, fancy, range, id, datepickerValue, placeholder, inputState, labelText, changeHandler, endId, endDatepickerValue, endPlaceholder, endInputState, endLabelText, endChangeHandler } = this.props;
@@ -53,6 +52,7 @@ class DatePicker extends Component {
 
   }
 }
+
 
 export default DatePicker;
 

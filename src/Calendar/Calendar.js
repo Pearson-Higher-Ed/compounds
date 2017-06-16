@@ -94,6 +94,10 @@ export default class Calendar extends Component {
       selectedDt: new Date(year, month, date),
       selectedElement: element.target
     });
+
+    // ======pass date to the parent componenet=================================
+    this.props.dateToParent.call(this, new Date(year, month, date));
+    // =========================================================================
   }
 
   render() {
