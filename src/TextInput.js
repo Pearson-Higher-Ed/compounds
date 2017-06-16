@@ -7,7 +7,6 @@ class TextInput extends Component {
   constructor(props) {
     super(props);
 
-    //const { showText, password } = this.props;
     const { showText, isNotVisibleMsg, password } = this.props;
 
     this.state = {
@@ -27,7 +26,6 @@ class TextInput extends Component {
 
   render() {
 
-    //const { labelStyle, inputStyle, spanStyle, passwordStatusText, passwordTypeSelector, butttonStyle, labelFocusStyle, labelStyleTmp  }  = this.state;
     const { labelStyle, inputStyle, spanStyle, passwordStatusText, visibilityStatusText, passwordTypeSelector, butttonStyle, labelFocusStyle, labelStyleTmp  }  = this.state;
     const { inputState, fancy, id, labelText, password, placeholder, infoMessage, errorMessage, changeHandler } = this.props;
 
@@ -81,16 +79,13 @@ TextInput.propTypes = {
 
 
 function _togglePassword() {
-  // const { passwordTypeSelector, passwordStatusText } = this.state;
   const { passwordTypeSelector, passwordStatusText, visibilityStatusText } = this.state;
-  //const { showText, hideText, inputState }           = this.props;
   const { showText, hideText, isNotVisibleMsg, isVisibleMsg, inputState } = this.props;
 
   const passwordTypeSelectorTmp = (passwordTypeSelector === 'password') ? 'text' : 'password';
   const visibilityStatusTextTmp = (passwordStatusText === showText) ? isVisibleMsg : isNotVisibleMsg;
   const passwordStatusTextTmp   = (passwordStatusText === showText) ? hideText : showText;
 
-  //this.setState({passwordTypeSelector:passwordTypeSelectorTmp, passwordStatusText:passwordStatusTextTmp});
   this.setState({passwordTypeSelector:passwordTypeSelectorTmp, passwordStatusText:passwordStatusTextTmp, visibilityStatusText: visibilityStatusTextTmp});
 
 };
