@@ -54,7 +54,7 @@ const TabsPage = () => (
           on a darker background. <br/>Defaults to false.</li>
         </ul>
 
-        <h3>Pane Props</h23
+        <h3>Pane Props</h3>
         <h4>Required:</h4>
         <ul>
           <li className="li-props">label:String === "Your Pane label"</li>
