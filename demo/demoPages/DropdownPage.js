@@ -7,12 +7,12 @@ const mobileTitle = "Test title";
 
 const DropdownPage = () => (
     <div className="displaySection">
-    <h1><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/">Dropdown</a></h1>
+    <h2><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/">Dropdown</a></h2>
 
     <div className="elementContainer">
 
       <div className="code">
-        <h2>Props</h2>
+        <h3>Props</h3>
         <h4>Required:</h4>
         <ul>
           <li className="li-props">presentationType:String === "label", "button", "icon"</li>

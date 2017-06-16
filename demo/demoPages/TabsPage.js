@@ -7,7 +7,7 @@ const sixteen = {paddingLeft: 16};
 
 const TabsPage = () => (
   <div className="displaySection">
-    <h1><a href="http://pearson-higher-ed.github.io/design/c/tab-navigation/beta/">Tabs</a></h1>
+    <h2><a href="http://pearson-higher-ed.github.io/design/c/tab-navigation/beta/">Tabs</a></h2>
 
     <div className="elementContainer">
       <Tabs>
@@ -38,12 +38,12 @@ const TabsPage = () => (
         </p>
 
       <div className="code">
-        <h2>Tab Props</h2>
-        <h3>Required:</h3>
+        <h3>Tab Props</h3>
+        <h4>Required:</h4>
         <ul>
           <li className="li-props">children:Array || Element</li>
         </ul>
-        <h3>Optional:</h3>
+        <h4>Optional:</h4>
         <ul>
           <li className="li-props">selected:Number === {`<Tabs selected={2}>`}</li>
           <li className="li-props">The selected prop can be passed the index of
@@ -54,13 +54,13 @@ const TabsPage = () => (
           on a darker background. <br/>Defaults to false.</li>
         </ul>
 
-        <h2>Pane Props</h2>
-        <h3>Required:</h3>
+        <h3>Pane Props</h23
+        <h4>Required:</h4>
         <ul>
           <li className="li-props">label:String === "Your Pane label"</li>
           <li className="li-props">children:Element</li>
         </ul>
-        <h3>Optional:</h3>
+        <h4>Optional:</h4>
         <ul>
           <li className="li-props">onActive:Function</li>
           <li className="li-props">Callback function that is fired when the Pane is activated</li>

@@ -5,10 +5,10 @@ import { MultiLineText } from '../../../../index';
 
 const MultiLineTextSection = (props) => (
   <div>
-    <h1><a href="http://pearson-higher-ed.github.io/design/c/inputs/#multiple-line-text">Multiple Line Text</a></h1>
+    <h2><a href="http://pearson-higher-ed.github.io/design/c/inputs/#multiple-line-text">Multiple Line Text</a></h2>
 
     <div className="code">
-      <h2>Props:</h2>
+      <h3>Props:</h3>
       <p>Multiple Line Text:</p>
       <ul>
         <li>id:String(required) === "a unique name"</li>
@@ -22,7 +22,7 @@ const MultiLineTextSection = (props) => (
     </div>
 
 
-    <h2>MultiLine</h2>
+    <h3>MultiLine</h3>
     <MultiLineText
       id           = "Multi"
       labelText    = "Multi-line label"
@@ -38,7 +38,7 @@ const MultiLineTextSection = (props) => (
     <br />
 
 
-    <h2>MultiLine - error</h2>
+    <h3>MultiLine - error</h3>
     <MultiLineText
       id           = "Multi"
       inputState   = 'error'
@@ -55,7 +55,7 @@ const MultiLineTextSection = (props) => (
     <br />
     <br />
 
-    <h2>MultiLine - readOnly</h2>
+    <h3>MultiLine - readOnly</h3>
     <MultiLineText
       id           = "Multi"
       inputState   = 'readOnly'
@@ -73,7 +73,7 @@ const MultiLineTextSection = (props) => (
     <br />
     <br />
 
-    <h2>MultiLine - disabled</h2>
+    <h3>MultiLine - disabled</h3>
     <MultiLineText
       id           = "Multi"
       inputState   = 'disabled'
