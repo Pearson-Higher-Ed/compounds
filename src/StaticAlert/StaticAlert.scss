@@ -26,7 +26,7 @@
   padding: 4px 12px 0 0;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
   .pe-alert {
     margin: 36px 25px 0;
     padding: 8px 8px 24px 28px;
@@ -52,7 +52,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 530px) {
+@media (max-width: 529px) {
   .pe-alert {
     width: auto;
   }
