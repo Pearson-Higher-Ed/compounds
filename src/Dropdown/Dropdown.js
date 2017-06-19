@@ -93,18 +93,18 @@ export default class Dropdown extends Component {
     return (
         <div onClick={this.toggleDropDown} ref={(div) => { this.dropdown = div; }}
              className="dropdown-container" style={containerMargin}>
-          { ddLabel ? <div>
+          { ddLabel ? <div className="testing">
                         <p className="dropdown-label-text">{this.props.presentationText}</p>
-                        <button className={`icon-btn${appendButtonClass}`}>
+                        <button className="icon-btn-right">
                           <Icon name='dropdown-open-sm-18'>Dropdown open</Icon>
                         </button>
                       </div>
                     : null }
 
-          { ddButton ? <div className={`pe-btn-container${appendButtonClass}`}>
+          { ddButton ? <div className={`pe-btn-container`}>
                          <div className="pe-btn__primary">
                            {this.props.presentationText}
-                           <button className={`icon-btn${appendButtonClass}`}>
+                           <button className="icon-btn">
                              <svg
                                id="icon-in-button"
                                aria-hidden="true"
@@ -119,9 +119,11 @@ export default class Dropdown extends Component {
                        </div>
                      : null }
 
-          { ddIcon ? <button className={`icon-btn${appendButtonClass}`}>
+          { ddIcon ? <div>
+                     <button className={`icon-btn`}>
                        <Icon name='dropdown-open-sm-24'>Dropdown open</Icon>
                      </button>
+                     </div>
                    : null }
 
           { this.state.open &&
@@ -148,9 +150,6 @@ function _toggleDropDown() {
   const differenceRight = viewWidth - container.right;
   const differenceLeft = Math.round(viewWidth - container.left) - 25;
 
-  console.log(container, 'container');
-  console.log(viewWidth, 'width');
-  console.log(differenceRight, 'diff right');
 
   if (differenceRight < 0) {
     containerMargin = { marginRight: differenceLeft, marginLeft: 'auto', left: 'auto'}
