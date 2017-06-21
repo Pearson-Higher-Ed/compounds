@@ -60,9 +60,9 @@ const FooterPage = (props) => {
               text: 'Last link',
               href: 'last'
             }];`} <br/>
-            {`const copyrightText= 'Pearson Education Inc.
-            All Rights Reserved.'`}
-            {`<Footer links={testLinks} />`}
+            {`const crText= 'Pearson Education Inc.
+            All Rights Reserved.';`} <br/><br/>
+            {`<Footer links={testLinks} copyrightText={crText} />`}
           </p>
         <Footer links={testLinks} copyrightText={intlText.copyrightText} />
       </div>

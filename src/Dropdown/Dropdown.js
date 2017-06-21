@@ -5,16 +5,21 @@ import Icon from '../Icon';
 
 import './Dropdown.scss';
 
-let containerMargin = { marginRight: 0 };
-
 export default class Dropdown extends Component {
 
   static propTypes = {
     list: PropTypes.array.isRequired,
     mobileTitle: PropTypes.string.isRequired,
     presentationType: PropTypes.string.isRequired,
-    presentationText: PropTypes.string
+    presentationText: PropTypes.string,
+    dropup: PropTypes.bool,
+    alignRight: PropTypes.bool
   };
+
+  static defaultProps = {
+    dropup: false,
+    alignRight: false
+  }
 
   constructor(props) {
     super(props)
@@ -26,6 +31,22 @@ export default class Dropdown extends Component {
 
     this.toggleDropDown = _toggleDropDown.bind(this);
     this.selectedItem = _selectedItem.bind(this);
+  }
+
+  componentDidMount() {
+    document.body.addEventListener('click', this.handleOutsideClick.bind(this), true);
+  }
+
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this.handleOutsideClick.bind(this), true);
+  }
+
+  handleOutsideClick(event) {
+    const domNode = ReactDOM.findDOMNode(this);
+
+    if ((!domNode || !domNode.contains(event.target))) {
+      this.setState({ open: false });
+    }
   }
 
   renderListItems() {
@@ -50,7 +71,7 @@ export default class Dropdown extends Component {
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
       const appendId = this.state.selectedItem === item
-                       ? '-this.state.selectedItem' : '';
+                       ? '-this.state.selectedItem' :'';
 
       const dividerLine = <li className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
@@ -66,14 +87,13 @@ export default class Dropdown extends Component {
                                                 id="mobile-font"
                                                 className="li-button">
                                         { this.props.presentationType !== 'label'
-                                          ?
-                                           <svg
-                                             id={`svg-id${appendId}`}
-                                             aria-hidden="true"
-                                             focusable="false"
-                                             className="pe-icon--check-sm-18">
-                                             <use xlinkHref="#check-sm-18"></use>
-                                           </svg>
+                                          ?  <svg
+                                               id={`svg-id${appendId}`}
+                                               aria-hidden="true"
+                                               focusable="false"
+                                               className="pe-icon--check-sm-18">
+                                               <use xlinkHref="#check-sm-18"></use>
+                                             </svg>
                                           : null }
                                             <span className="dropdown-item">{item}</span>
                                         </button>
@@ -83,27 +103,28 @@ export default class Dropdown extends Component {
   }
 
   render() {
+    const { presentationType, presentationText, dropup, alignRight } = this.props;
 
-    const appendButtonClass = containerMargin.marginRight > 0 ? '-right' : '';
-
-    const ddLabel = this.props.presentationType === 'label';
-    const ddButton = this.props.presentationType === 'button';
-    const ddIcon = this.props.presentationType === 'icon';
+    const dropUp = dropup ? 'drop-up' :'';
 
     return (
-        <div onClick={this.toggleDropDown} ref={(div) => { this.dropdown = div; }}
-             className="dropdown-container" style={containerMargin}>
-          { ddLabel ? <div className="testing">
-                        <p className="dropdown-label-text">{this.props.presentationText}</p>
-                        <button className="icon-btn-right">
+        <div onClick={this.toggleDropDown}
+             ref={(div) => { this.dropdown = div; }}
+             className="dropdown-container">
+
+          { presentationType === 'label' ?
+                      <div className="test-time">
+                        <p className="dropdown-label-text">{presentationText}</p>
+                        <button className="icon-btn">
                           <Icon name='dropdown-open-sm-18'>Dropdown open</Icon>
                         </button>
                       </div>
                     : null }
 
-          { ddButton ? <div className={`pe-btn-container`}>
+          { presentationType === 'button' ?
+                       <div className="pe-btn-container">
                          <div className="pe-btn__primary">
-                           {this.props.presentationText}
+                           {presentationText}
                            <button className="icon-btn">
                              <svg
                                id="icon-in-button"
@@ -119,16 +140,15 @@ export default class Dropdown extends Component {
                        </div>
                      : null }
 
-          { ddIcon ? <div>
-                     <button className={`icon-btn`}>
+          { presentationType === 'icon' ?
+                     <button className="icon-btn">
                        <Icon name='dropdown-open-sm-24'>Dropdown open</Icon>
                      </button>
-                     </div>
                    : null }
 
           { this.state.open &&
             <CSSTransitionGroup
-              className="li-wrapper"
+              className={`li-wrapper ${dropUp}`}
               component="ul"
               role="menu"
               transitionName="transition"
@@ -142,20 +162,10 @@ export default class Dropdown extends Component {
 
 };
 
-function _toggleDropDown() {
-  this.setState({ open: !this.state.open })
-
-  const container = this.dropdown.getBoundingClientRect();
-  const viewWidth = document.body.clientWidth;
-  const differenceRight = viewWidth - container.right;
-  const differenceLeft = Math.round(viewWidth - container.left) - 25;
-
-
-  if (differenceRight < 0) {
-    containerMargin = { marginRight: differenceLeft, marginLeft: 'auto', left: 'auto'}
-  }
+function _toggleDropDown(e) {
+  this.setState({ open: !this.state.open });
 };
 
 function _selectedItem(e) {
   this.setState({ selectedItem: e.target.innerText });
-};
+}
