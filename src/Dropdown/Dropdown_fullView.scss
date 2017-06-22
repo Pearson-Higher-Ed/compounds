@@ -32,14 +32,10 @@ svg[id^='svg-id-'] {
   padding: 0;
 }
 
-// margin right on button pe-btn__primary
-
 .label-wrapper-rightAlign,
 .pe-btn-container-rightAlign,
 .icon-btn-wrapper-rightAlign {
   text-align: right;
-  content: "";
-  clear: both;
 }
 
 .icon-btn {
