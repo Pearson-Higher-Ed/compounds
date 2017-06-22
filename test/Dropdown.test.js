@@ -70,7 +70,7 @@ describe('Dropdown', () => {
       const wrap = mount(<Dropdown presentationType="icon"
                                    list={items}
                                    mobileTitle="Title" />);
-      wrap.find('div').simulate('click');
+      wrap.find('.dropdown-container').simulate('click');
       wrap.update();
       expect(wrap.find('.li-wrapper')).toExist(true);
     });

@@ -27,12 +27,16 @@ svg[id^='svg-id-'] {
   margin-right: 4px;
 }
 
-
-
 %icon-btn-extend {
   background: transparent;
   border: 0;
   padding: 0;
+}
+
+.label-wrapper-rightAlign,
+.pe-btn-container-rightAlign,
+.icon-btn-wrapper-rightAlign {
+  text-align: right;
 }
 
 .icon-btn {

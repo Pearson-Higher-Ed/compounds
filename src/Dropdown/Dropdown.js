@@ -87,12 +87,11 @@ export default class Dropdown extends Component {
                                                 id="mobile-font"
                                                 className="li-button">
                                         { this.props.presentationType !== 'label'
-                                          ?  <svg
-                                               id={`svg-id${appendId}`}
-                                               aria-hidden="true"
-                                               focusable="false"
-                                               className="pe-icon--check-sm-18">
-                                               <use xlinkHref="#check-sm-18"></use>
+                                          ?  <svg id={`svg-id${appendId}`}
+                                                  aria-hidden="true"
+                                                  focusable="false"
+                                                  className="pe-icon--check-sm-18">
+                                                  <use xlinkHref="#check-sm-18"></use>
                                              </svg>
                                           : null }
                                             <span className="dropdown-item">{item}</span>
@@ -106,6 +105,7 @@ export default class Dropdown extends Component {
     const { presentationType, presentationText, dropup, alignRight } = this.props;
 
     const dropUp = dropup ? 'drop-up' :'';
+    const rightAlign = alignRight ? '-rightAlign' :'';
 
     return (
         <div onClick={this.toggleDropDown}
@@ -113,7 +113,7 @@ export default class Dropdown extends Component {
              className="dropdown-container">
 
           { presentationType === 'label' ?
-                      <div className="test-time">
+                      <div className={`label-wrapper${rightAlign}`}>
                         <p className="dropdown-label-text">{presentationText}</p>
                         <button className="icon-btn">
                           <Icon name='dropdown-open-sm-18'>Dropdown open</Icon>
@@ -122,7 +122,7 @@ export default class Dropdown extends Component {
                     : null }
 
           { presentationType === 'button' ?
-                       <div className="pe-btn-container">
+                       <div className={`pe-btn-container${rightAlign}`}>
                          <div className="pe-btn__primary">
                            {presentationText}
                            <button className="icon-btn">
@@ -141,9 +141,11 @@ export default class Dropdown extends Component {
                      : null }
 
           { presentationType === 'icon' ?
-                     <button className="icon-btn">
-                       <Icon name='dropdown-open-sm-24'>Dropdown open</Icon>
-                     </button>
+                     <div className={`icon-btn-wrapper${rightAlign}`}>
+                       <button className="icon-btn">
+                         <Icon name='dropdown-open-sm-24'>Dropdown open</Icon>
+                       </button>
+                     </div>
                    : null }
 
           { this.state.open &&
