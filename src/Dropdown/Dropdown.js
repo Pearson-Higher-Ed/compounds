@@ -34,11 +34,11 @@ export default class Dropdown extends Component {
   }
 
   componentDidMount() {
-    document.body.addEventListener('click', this.handleOutsideClick.bind(this), true);
+    document.addEventListener('click', this.handleOutsideClick.bind(this), true);
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener('click', this.handleOutsideClick.bind(this), true);
+    document.removeEventListener('click', this.handleOutsideClick.bind(this), true);
   }
 
   handleOutsideClick(event) {
@@ -57,7 +57,6 @@ export default class Dropdown extends Component {
                            </span>
                            <button className="mobile-close-button">
                              <svg
-                               id="header-close"
                                focusable="false"
                                className="pe-icon--remove-lg-18">
                                <title>Close button</title>
