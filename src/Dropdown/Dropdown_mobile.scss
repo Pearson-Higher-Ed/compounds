@@ -32,11 +32,11 @@
     margin: 12px 0;
     padding: 0 24px 0 40px;
   }
-
-  #mobile-font {
-    font-size: 16px;
-    line-height: 20px;
-    padding: 12px 24px;
+  
+  button[id^='mobile-font-'] {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    padding: 12px 24px !important;
   }
 
   .mobile-close-button {

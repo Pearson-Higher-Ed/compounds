@@ -56,11 +56,10 @@ export default class Dropdown extends Component {
                              {this.props.mobileTitle}
                            </span>
                            <button className="mobile-close-button">
-                             <svg
-                               focusable="false"
-                               className="pe-icon--remove-lg-18">
-                               <title>Close button</title>
-                               <use xlinkHref="#remove-lg-18"></use>
+                             <svg focusable="false"
+                                  className="pe-icon--remove-lg-18">
+                                  <title>Close button</title>
+                                  <use xlinkHref="#remove-lg-18"></use>
                              </svg>
                            </button>
                          </li>;
@@ -83,7 +82,7 @@ export default class Dropdown extends Component {
                                           role="presentation">
                                         <button type="button"
                                                 role="menuitem"
-                                                id="mobile-font"
+                                                id={`mobile-font-${i}`}
                                                 className="li-button">
                                         { this.props.presentationType !== 'label'
                                           ?  <svg id={`svg-id${appendId}`}
@@ -125,15 +124,15 @@ export default class Dropdown extends Component {
                          <div className="pe-btn__primary">
                            {presentationText}
                            <button className="icon-btn">
-                             <svg
-                               id="icon-in-button"
-                               aria-hidden="true"
-                               aria-labelledby="dropdown-title"
-                               focusable="false"
-                               className="pe-icon--dropdown-open-sm-18">
-                               <title id="dropdown-title">Dropdown open</title>
-                               <use xlinkHref="#dropdown-open-sm-18"></use>
-                             </svg>
+                             <span className="icon-in-button">
+                               <svg aria-hidden="true"
+                                    aria-labelledby="dropdown-title"
+                                    focusable="false"
+                                    className="pe-icon--dropdown-open-sm-18">
+                                    <title id="dropdown-title">Dropdown open</title>
+                                    <use xlinkHref="#dropdown-open-sm-18"></use>
+                               </svg>
+                             </span>
                            </button>
                          </div>
                        </div>
