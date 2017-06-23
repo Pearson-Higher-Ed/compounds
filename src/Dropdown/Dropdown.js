@@ -82,8 +82,7 @@ export default class Dropdown extends Component {
                                           role="presentation">
                                         <button type="button"
                                                 role="menuitem"
-                                                id={`mobile-font-${i}`}
-                                                className="li-button">
+                                                className="li-button mobile-font">
                                         { this.props.presentationType !== 'label'
                                           ?  <svg id={`svg-id${appendId}`}
                                                   aria-hidden="true"
