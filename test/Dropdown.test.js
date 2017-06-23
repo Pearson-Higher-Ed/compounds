@@ -44,7 +44,7 @@ describe('Dropdown', () => {
     });
 
     it('has the correct Icon', function () {
-      expect(this.wrapper.find('button').node.props.children.props.className).toEqual('pe-icon--dropdown-open-sm-18');
+      expect(this.wrapper.find('button').node.props.children.props.children.props.className).toEqual('pe-icon--dropdown-open-sm-18');
     });
 
 
