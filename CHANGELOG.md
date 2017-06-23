@@ -1,10 +1,5 @@
-<a name="0.8.0"></a>
-# [0.8.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.2...v0.8.0) (2017-06-23)
-
-
-
-<a name="0.7.2"></a>
-## [0.7.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.1...v0.7.2) (2017-06-15)
+<a name="0.8.1"></a>
+## [0.8.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.1...v0.8.1) (2017-06-23)
 
 
 
@@ -15,6 +10,11 @@
 
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.6.1...v0.7.0) (2017-06-14)
+
+
+### Bug Fixes
+
+* dropdown overlaying other elements & taking up 100% height on mobile ([83144f6](https://github.com/Pearson-Higher-Ed/compounds/commit/83144f6))
 
 
 
