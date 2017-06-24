@@ -39,7 +39,6 @@
     "testPathIgnorePatterns": [
       "<rootDir>/(build|node_modules|demo|coverage)/"
     ],
-    "testEnvironment": "node",
     "coverageThreshold": {
       "global": {
         "lines": 80

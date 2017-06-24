@@ -1,0 +1,20 @@
+@import '../../node_modules/pearson-elements/scss/elements/color/color';
+
+.pe-timepicker-list{
+  border: 1px solid $pe-color-medium-gray;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+
+.pe-timepicker-list-item-hour{
+  list-style-type: none;
+  padding-top: 10px;
+  &:last-child{
+    padding-bottom:10px;
+  }
+}
+
+.pe-timepicker-list-item-hour-twentyfour{
+
+}
