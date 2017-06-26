@@ -5,7 +5,7 @@ import { jsdom } from 'jsdom';
 import { Dropdown } from '../index';
 
 describe('Dropdown', () => {
-  const items=['one', 'two', 'three'];
+  const items = ['one', 'two', 'three'];
 
   describe('Dropdown /w label', function () {
     beforeEach(function () {
@@ -44,7 +44,7 @@ describe('Dropdown', () => {
     });
 
     it('has the correct Icon', function () {
-      expect(this.wrapper.find('button').node.props.children.props.className).toEqual('pe-icon--dropdown-open-sm-18');
+      expect(this.wrapper.find('button').node.props.children.props.children.props.className).toEqual('pe-icon--dropdown-open-sm-18');
     });
 
 
@@ -70,7 +70,7 @@ describe('Dropdown', () => {
       const wrap = mount(<Dropdown presentationType="icon"
                                    list={items}
                                    mobileTitle="Title" />);
-      wrap.find('div').simulate('click');
+      wrap.find('.dropdown-container').simulate('click');
       wrap.update();
       expect(wrap.find('.li-wrapper')).toExist(true);
     });

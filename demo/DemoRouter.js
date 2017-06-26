@@ -5,8 +5,9 @@ import IconPage           from './demoPages/IconPage';
 import HomePage           from './demoPages/HomePage';
 import HeaderPage         from './demoPages/HeaderPage';
 import InputsPage         from './demoPages/InputsPage';
-import ModalPage          from './demoPages/ModalPage';
 import DropdownPage       from './demoPages/DropdownPage';
+import FooterPage         from './demoPages/FooterPage';
+import TabsPage           from './demoPages/TabsPage';
 import LoadingSpinnerPage from './demoPages/LoadingSpinnerPage';
 import CalendarPage       from './demoPages/CalendarPage';
 
@@ -19,10 +20,11 @@ const DemoRouter = (props) => (
       <HeaderPage />
         <Route path="/" exact         component={HomePage}   />
         <Route path="/icons"          component={IconPage}   />
-        <Route path="/modal"          component={ModalPage}   />
         <Route path="/inputs"         component={InputsPage} />
         <Route path="/buttons"        component={ButtonPage} />
         <Route path="/dropdown"       component={DropdownPage} />
+        <Route path="/footer"         component={FooterPage} />
+        <Route path="/tabs"           component={TabsPage} />
         <Route path="/loadingSpinner" component={LoadingSpinnerPage} />
         <Route path="/calendar"       component={CalendarPage} />
     </div>

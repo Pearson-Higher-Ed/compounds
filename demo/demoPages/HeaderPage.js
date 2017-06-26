@@ -15,7 +15,7 @@ import { Icon, Button }     from '../../index';
       <div className="container">
         <div className="header">
           <Link to="/"><h1 className="headerTitle">Pearson Design Accelerator</h1></Link>
-          <Button btnSize="xlarge" onClick={this.toggleList}>
+          <Button btnSize="xlarge headerButton" onClick={this.toggleList}>
             Compounds
             <Icon name="dropdown-open-18" />
           </Button>
@@ -25,8 +25,9 @@ import { Icon, Button }     from '../../index';
           <li><Link className="link" to={`/buttons`} >Buttons</Link></li>
           <li><Link className="link" to={`/icons`} >Icons</Link></li>
           <li><Link className="link" to={`/inputs`} >Inputs</Link></li>
-          <li><Link className="link" to={`/modal`} >Modal</Link></li>
           <li><Link className="link" to={`/dropdown`} >Dropdown</Link></li>
+          <li><Link className="link" to={`/footer`} >Footer</Link></li>
+          <li><Link className="link" to={`/tabs`} >Tabs</Link></li>
           <li><Link className="link" to={`/loadingSpinner`} >Loading Spinner</Link></li>
           <li><Link className="link" to={`/calendar`} >Calendar</Link></li>
         </ul>

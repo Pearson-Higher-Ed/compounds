@@ -37,9 +37,14 @@ h2 a {
   list-style: none;
 }
 
-li {
+.buttonList li {
   margin-bottom: .6em;
   list-style: none;
+}
+
+.li-props {
+  list-style: none;
+  margin-bottom: 8px;
 }
 
 //---------HomePage-------------------------------
@@ -60,7 +65,7 @@ li {
   height:50px;
 }
 
-.header button {
+.header .headerButton {
   float:right;
   margin:2.5px;
   outline:none;
@@ -116,4 +121,9 @@ li {
   margin-bottom: 0;
   color: #db0020;
   line-height: 24px;
+}
+
+.inline-pic {
+  height: 50%;
+  width: 50%;
 }

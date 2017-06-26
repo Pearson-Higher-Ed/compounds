@@ -46,7 +46,7 @@ RadioCheckGroup.propTypes = {
   id              : PropTypes.string.isRequired,
   legendText      : PropTypes.string.isRequired,
   options         : PropTypes.object.isRequired,
-  inputType       : PropTypes.oneOf(['checkbox', 'radio']).isRequired,
+  inputType       : PropTypes.string.isRequired,
   changeHandler   : PropTypes.func.isRequired,
   selectedOptions : PropTypes.array
 };
