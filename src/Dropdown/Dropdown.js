@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Icon from '../Icon';
@@ -44,7 +45,7 @@ export default class Dropdown extends Component {
   }
 
   handleOutsideClick(event) {
-    const domNode = this.node;
+    const domNode = ReactDOM.findDOMNode(this);
 
     if ((!domNode || !domNode.contains(event.target))) {
       this.setState({ open: false });
