@@ -9,13 +9,19 @@ export default class Dropdown extends Component {
 
   static propTypes = {
     list: PropTypes.array.isRequired,
-    mobileTitle: PropTypes.string.isRequired,
+    mobileTitle: PropTypes.string,
     presentationType: PropTypes.string.isRequired,
     presentationText: PropTypes.string,
     dropup: PropTypes.bool,
     alignRight: PropTypes.bool,
     killFocus: PropTypes.bool
   };
+
+  static defaultProps = {
+    dropup: false,
+    alignRight: false,
+    killFocus: false
+  }
 
   constructor(props) {
     super(props)
