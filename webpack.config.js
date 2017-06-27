@@ -30,6 +30,7 @@ module.exports = {
     https              : false,
     overlay            : true,
     watchContentBase   : true,
+    disableHostCheck   : true,
     historyApiFallback : true,
     watchOptions       : { poll: true },
     staticOptions      : { redirect: false },
