@@ -87,7 +87,7 @@ export default class Dropdown extends Component {
                                           role="presentation">
                                         <button type="button"
                                                 role="menuitem"
-                                                tabIndex={`${killFocus}`}
+                                                tabIndex={killFocus}
                                                 className="li-button mobile-font">
                                         { this.props.presentationType !== 'label'
                                           ?  <svg id={`svg-id${appendId}`}
