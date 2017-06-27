@@ -16,9 +16,6 @@ const DropdownPage = () => (
           <h3>Required:</h3>
           <ul>
             <li className="li-props">presentationType:String === "label", "button", "icon"</li>
-            <li className="li-props">mobileTitle:String === "Your mobile title"</li>
-            <li className="li-props">A different view is used for mobile and this title will be reflected
-              in the mobile header <br/>when the dropdown is open.</li>
             <li className="li-props">list:Array = ["one", "two", "three"] || ["one", "two", "divider", "three"]</li>
             <li className="li-props">The "divider" option may be used in conjunction with any of
             the presentationType for <br/>separating options presented in your list.</li>
@@ -26,6 +23,9 @@ const DropdownPage = () => (
           <h3>Optional:</h3>
           <ul>
             <li className="li-props">presentationText:String === "Your label or button text"</li>
+            <li className="li-props">mobileTitle:String === "Your mobile title"</li>
+            <li className="li-props">A different view is used for mobile and this title will be reflected
+              in the mobile header <br/>when the dropdown is open.</li>
             <li className="li-props">dropup:Boolean === {`<Dropdown dropup />`}</li>
             <li className="li-props">The dropdown menu can be changed to expand upwards
               by using the <i>dropup</i> prop</li>
