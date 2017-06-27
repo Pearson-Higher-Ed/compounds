@@ -13,13 +13,9 @@ export default class Dropdown extends Component {
     presentationType: PropTypes.string.isRequired,
     presentationText: PropTypes.string,
     dropup: PropTypes.bool,
-    alignRight: PropTypes.bool
+    alignRight: PropTypes.bool,
+    killFocus: PropTypes.bool
   };
-
-  static defaultProps = {
-    dropup: false,
-    alignRight: false
-  }
 
   constructor(props) {
     super(props)
@@ -71,6 +67,8 @@ export default class Dropdown extends Component {
       const appendId = this.state.selectedItem === item
                        ? '-this.state.selectedItem' :'';
 
+      const killFocus = this.props.killFocus ? '-1' :null;
+
       const dividerLine = <li className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
                           </li>;
@@ -82,6 +80,7 @@ export default class Dropdown extends Component {
                                           role="presentation">
                                         <button type="button"
                                                 role="menuitem"
+                                                tabIndex={`${killFocus}`}
                                                 className="li-button mobile-font">
                                         { this.props.presentationType !== 'label'
                                           ?  <svg id={`svg-id${appendId}`}
