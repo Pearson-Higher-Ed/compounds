@@ -67,7 +67,7 @@ export default class Dropdown extends Component {
       const appendId = this.state.selectedItem === item
                        ? '-this.state.selectedItem' :'';
 
-      const killFocus = this.props.killFocus ? '-1' :null;
+      const killFocus = this.props.killFocus ? '-1' :'0';
 
       const dividerLine = <li className="divider-container" key={i}>
                             <hr className="dropdown-divider" />
