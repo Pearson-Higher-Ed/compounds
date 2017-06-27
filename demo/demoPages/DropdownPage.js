@@ -32,6 +32,8 @@ const DropdownPage = () => (
             <li className="li-props">alignRight:Boolean === {`<Dropdown alignRight />`}</li>
             <li className="li-props">By default, a dropdown menu is left aligned. Add the&nbsp;
               <i>alignRight</i> prop to right align the <br/> dropdown menu.</li>
+            <li className="li-props">killFocus:Boolean === {`<Dropdown killFocus />`}</li>
+            <li className="li-props">The killFocus prop will assign a tabIndex of -1 inside of the list items.</li>
           </ul>
         </div>
 

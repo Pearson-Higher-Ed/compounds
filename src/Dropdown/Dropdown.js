@@ -167,7 +167,7 @@ export default class Dropdown extends Component {
 
 };
 
-function _toggleDropdown(e) {
+function _toggleDropdown() {
   this.addListener();
   this.setState({ open: !this.state.open });
 };
