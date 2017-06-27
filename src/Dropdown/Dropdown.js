@@ -32,16 +32,16 @@ export default class Dropdown extends Component {
       selectedItem: ''
     }
 
-    this.toggleDropDown = _toggleDropDown.bind(this);
+    this.toggleDropdown = _toggleDropdown.bind(this);
     this.selectedItem = _selectedItem.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener('click', this.handleOutsideClick.bind(this), true);
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleOutsideClick.bind(this), true);
+  }
+
+  addListener() {
+    document.addEventListener('click', this.handleOutsideClick.bind(this), true);
   }
 
   handleOutsideClick(event) {
@@ -111,7 +111,7 @@ export default class Dropdown extends Component {
     const rightAlign = alignRight ? '-rightAlign' :'';
 
     return (
-        <div onClick={this.toggleDropDown}
+        <div onClick={this.toggleDropdown}
              ref={(div) => { this.dropdown = div; }}
              className="dropdown-container">
 
@@ -167,7 +167,8 @@ export default class Dropdown extends Component {
 
 };
 
-function _toggleDropDown(e) {
+function _toggleDropdown(e) {
+  this.addListener();
   this.setState({ open: !this.state.open });
 };
 
