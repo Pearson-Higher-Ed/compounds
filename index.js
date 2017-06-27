@@ -9,3 +9,4 @@ export Footer           from './src/Footer/Footer';
 export LoadingSpinner   from './src/loadingSpinner/loadingSpinner';
 export Calendar         from './src/Calendar/Calendar';
 export DatePicker       from './src/DatePicker/DatePicker';
+export DatePickerRange  from './src/DatePicker/DatePickerRange';

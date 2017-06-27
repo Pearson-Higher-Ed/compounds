@@ -27,8 +27,6 @@ class DatePicker extends Component {
 
   componentDidUpdate(){
     if(this.state.selectedDate){
-      // console.log(this.state.selectedDate)
-      // console.log(nextState.selectedDate)
       this.setState({
         datepickerSingleValue : moment(this.state.selectedDate).format('L'),
         labelStyleTmp         : this.state.labelStyle,
@@ -39,12 +37,12 @@ class DatePicker extends Component {
 
   render() {
 
-    const { inputStyle, labelStyleTmp, displayOpen, idValue, datepickerSingleValue, timepickerSingleValue, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg }  = this.state;
+    const { inputStyle, labelStyleTmp, displayOpen, idValue, datepickerSingleValue, timepickerSingleValue, selectedHour, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg }  = this.state;
     const { className, fancy, time, datepickerValue, inputState, id, labelText, placeholder, infoMessage, errorMessage } = this.props;
 
     return (
       <div className={`pe-datepicker-main ${className}`}>
-        <label className={labelStyleTmp} htmlFor={id}>{`${labelText} - (${placeholder})`}</label>
+        <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${placeholder})`}</label>
 
         <div className={containerStyle}>
           <input
@@ -56,30 +54,33 @@ class DatePicker extends Component {
             disabled    = {inputState === 'disabled' || inputState === 'readOnly'}
             readOnly    = {inputState === 'readOnly'}
             onFocus     = {this.datePickerFocus}
-            // onBlur      = {this.datePickerBlur}
+            onBlur      = {this.datePickerBlur}
             onChange    = {this.changeHandler}
           />
 
           <Icon name={time ? "clock-18" : "calendar-18"} />
         </div>
 
-        {fancy && inputState  !== 'readOnly' && <span className={spanStyle} />}
+        {fancy && inputState !== 'readOnly' && <span className={spanStyle} />}
 
         {infoMessage     && <span className="pe-input--info_message">{infoMessage}</span>}
         {errorMessage    && <span className="pe-input--error_message">{errorMessage}</span>}
         {!dateValidation && <span className="pe-input--error_message">{dateValidationErrorMsg}</span>}
 
-        {displayOpen && !time && <Calendar disablePast={true} dateToParent={date =>  this.setState({selectedDate:date}) } />}
-        {displayOpen &&  time && <TimeList showHours={true} twentyFourHour={true} timeToParent={hour =>  this.setState({selectedTime:hour}) } />}
+        {displayOpen && !time && <Calendar disablePast={true} dateToParent={(date) => this.setState({selectedDate:date}) } />}
+        {displayOpen &&  time && <TimeList id={id} showHours={true} selectedHour={selectedHour} twentyFourHour={true} timeToParent={(hour) => this.setState({selectedHour:hour}) } />}
 
       </div>
     );
 
   }
+
 }
 
 
+
 export default DatePicker;
+
 
 
 DatePicker.propTypes = {
@@ -91,31 +92,26 @@ DatePicker.propTypes = {
 };
 
 
+
+
+
 function _datePickerFocus(){
   this.setState({labelStyleTmp:this.state.labelFocusStyle, displayOpen:true});
 };
 
 function _datePickerBlur(){
-  this.setState({labelStyleTmp:this.state.labelStyle, displayOpen:false});
+  // this.setState({labelStyleTmp:this.state.labelStyle, displayOpen:false});
 };
-
-
 
 function _changeHandler(e){
-  const { changeHandler } = this.props;
 
-  this.setState({idValue : e.target.value, datepickerSingleValue:null});
+  this.setState({idValue:e.target.value, datepickerSingleValue:null});
 
-  // Do the Date Validation...
   this.validateDate(e);
 
-  //========= allow consumer to pass in callback================================
-  // changeHandler.call(this); // TODO: uncomment to allow callback...
-  //============================================================================
+  // this.props.changeHandler.call(this);
 
 };
-
-
 
 function _validateDate(e){
 
@@ -149,30 +145,30 @@ function _applyDatePickerStyles() {
   switch (inputState) {
     case 'error':
       labelStyle      = 'pe-textLabelInput__label--label_error';
-      inputStyle      = fancy ? 'pe-textInput--input_error' : 'pe-textInput--basic_error';
-      spanStyle       = fancy ? 'pe-inputError_underline'   : '';
       labelFocusStyle = 'pe-textLabelInput__label--label_error';
+      inputStyle      = fancy ? 'pe-textInput--input_error'     : 'pe-textInput--basic_error';
+      spanStyle       = fancy ? 'pe-inputError_underline'       : '';
       containerStyle  = fancy ? 'pe-datepicker-container-fancy' : 'pe-datepicker-container';
       break;
     case 'disabled':
-      labelStyle      = 'pe-textLabelInput__label--label-disabled';
-      inputStyle      = fancy ? 'pe-textInput' : 'pe-textInput--basic';
       spanStyle       = '';
+      labelStyle      = 'pe-textLabelInput__label--label-disabled';
       labelFocusStyle = 'pe-textLabelInput__label--label-disabled';
       containerStyle  = fancy ? 'pe-datepicker-container-fancy' : 'pe-datepicker-container';
+      inputStyle      = fancy ? 'pe-textInput'                  : 'pe-textInput--basic';
       break;
     case 'readOnly':
-      labelStyle      = 'pe-textLabelInput__label';
-      inputStyle      = 'pe-textInput--input_readonly';
       spanStyle       = '';
+      labelStyle      = 'pe-textLabelInput__label';
       labelFocusStyle = 'pe-textLabelInput__label';
+      inputStyle      = 'pe-textInput--input_readonly';
       containerStyle  = fancy ? 'pe-datepicker-container-fancy' : 'pe-datepicker-container';
       break;
     default:
       labelStyle      = 'pe-textLabelInput__label';
-      inputStyle      = fancy ? 'pe-textInput'             : 'pe-textInput--basic';
-      spanStyle       = fancy ? 'pe-input_underline'       : '';
       labelFocusStyle = 'pe-textLabelInput__label--label_focus';
+      inputStyle      = fancy ? 'pe-textInput'                  : 'pe-textInput--basic';
+      spanStyle       = fancy ? 'pe-input_underline'            : '';
       containerStyle  = fancy ? 'pe-datepicker-container-fancy' : 'pe-datepicker-container';
   };
 

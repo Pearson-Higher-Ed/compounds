@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { DatePicker }       from '../../index';
+import React, { Component }            from 'react';
+import { DatePicker, DatePickerRange } from '../../index';
 
 
 class DatePickerPage extends Component {
@@ -12,7 +12,7 @@ class DatePickerPage extends Component {
   render() {
     return (
         <div className="displaySection">
-          <h1><a href="http://pearson-higher-ed.github.io/design/c/date-picker/">DatePicker</a></h1>
+          <h1><a href="http://pearson-higher-ed.github.io/design/c/date-picker/beta">DatePicker</a></h1>
 
           <div className="elementContainer">
 
@@ -87,11 +87,30 @@ class DatePickerPage extends Component {
 
             <br />
 
-            <h2>DatePickers (basic range):</h2>
+            <h2>DatePickerRange (basic range single):</h2>
             <br />
 
             <div>
-              <DatePicker
+              <DatePickerRange
+                className          = ""
+                id                 = "someGiantIdStart"
+                placeholder        = "mm/dd/yyyy"
+                inputState         = "default"
+                labelText          = "Start date"
+                datepickerValue    = {this.state.datepickerValue5}
+                changeHandler      = {() => console.log('¡¡¡start-basic')}
+              />
+            </div>
+
+            <p className="code">{'<DatePicker />'}</p>
+
+            <br />
+
+            <h2>DatePickerRange (basic range):</h2>
+            <br />
+
+            <div>
+              <DatePickerRange
                 range              = {true}
                 className          = ""
                 endClassName       = ""
@@ -112,11 +131,13 @@ class DatePickerPage extends Component {
 
             <p className="code">{'<DatePicker />'}</p>
 
-            <h2>DatePickers (fancy range):</h2>
+            <br />
+
+            <h2>DatePickerRange (fancy range):</h2>
             <br />
 
             <div>
-              <DatePicker
+              <DatePickerRange
                 fancy              = {true}
                 range              = {true}
                 className          = ""
@@ -144,11 +165,11 @@ class DatePickerPage extends Component {
 
             <br />
 
-            <h2>DatePickers (fancy range time):</h2>
+            <h2>DatePickerRange (basic range time):</h2>
             <br />
 
             <div>
-              <DatePicker
+              <DatePickerRange
                 time               = {true}
                 range              = {true}
                 className          = ""
@@ -173,13 +194,13 @@ class DatePickerPage extends Component {
 
           <br />
 
-          <h2>DatePickers (fancy range time):</h2>
+          <h2>DatePickerRange (fancy range time):</h2>
           <br />
 
           <div>
-            <DatePicker
+            <DatePickerRange
               time               = {true}
-              fancy              = {false}
+              fancy              = {true}
               range              = {true}
               className          = ""
               endClassName       = ""
