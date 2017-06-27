@@ -71,7 +71,6 @@ const DropdownPage = () => (
 
           <h3>Icon only (selectable options)</h3>
             <Dropdown
-              killFocus
               presentationType="icon"
               list={listItems}
               mobileTitle={mobileTitle}
