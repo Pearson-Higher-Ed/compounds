@@ -24,10 +24,7 @@ export default class Months extends Component{
     const janOne = new Date(that.props.year, 0, 1);
     let rows = 5;
 
-    if (startDay === 5 && this.props.daysInMonth === 31 ||
-      startDay === 6 && this.props.daysInMonth > 29) {
-        rows = 6;
-    }
+    if (startDay === 5 && this.props.daysInMonth === 31 || startDay === 6 && this.props.daysInMonth > 29) rows = 6;
 
     className = rows === 6 ? 'r-dates' : 'r-dates r-fix';
     haystack = Array(...{ length: rows }).map(Number.call, Number);
