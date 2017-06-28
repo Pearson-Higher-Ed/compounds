@@ -15,6 +15,7 @@ const DropdownPage = () => (
           <h2>Props</h2>
           <h3>Required:</h3>
           <ul>
+            <li className="li-props">dropdownControlLabel:String === "Descriptive text of what the button will be doing"</li>
             <li className="li-props">presentationType:String === "label", "button", "icon"</li>
             <li className="li-props">list:Array = ["one", "two", "three"] || ["one", "two", "divider", "three"]</li>
             <li className="li-props">The "divider" option may be used in conjunction with any of

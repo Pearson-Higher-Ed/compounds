@@ -9,6 +9,7 @@ import './Dropdown.scss';
 export default class Dropdown extends Component {
 
   static propTypes = {
+    dropdownControlLabel: PropTypes.string.isRequired,
     list: PropTypes.array.isRequired,
     mobileTitle: PropTypes.string,
     presentationType: PropTypes.string.isRequired,
@@ -84,7 +85,9 @@ export default class Dropdown extends Component {
 
       const killFocus = this.props.killFocus ? '-1' :'0';
 
-      const dividerLine = <li className="divider-container" key={i}>
+      const dividerLine = <li className="divider-container"
+                              key={i}
+                              role="separator">
                             <hr className="dropdown-divider" />
                           </li>;
 
@@ -113,7 +116,8 @@ export default class Dropdown extends Component {
   }
 
   render() {
-    const { presentationType, presentationText, dropup, alignRight } = this.props;
+    const { presentationType, presentationText, dropup,
+            alignRight, dropdownControlLabel } = this.props;
 
     const dropUp = dropup ? 'drop-up' :'';
     const rightAlign = alignRight ? '-rightAlign' :'';
@@ -127,7 +131,7 @@ export default class Dropdown extends Component {
                       <div className={`label-wrapper${rightAlign}`}>
                         <p className="dropdown-label-text">{presentationText}</p>
                         <button className="icon-btn">
-                          <Icon name='dropdown-open-sm-18'>Dropdown open</Icon>
+                          <Icon name='dropdown-open-sm-18'>{dropdownControlLabel}</Icon>
                         </button>
                       </div>
                     : null }
@@ -138,13 +142,7 @@ export default class Dropdown extends Component {
                            {presentationText}
                            <button className="icon-btn">
                              <span className="icon-in-button">
-                               <svg aria-hidden="true"
-                                    aria-labelledby="dropdown-title"
-                                    focusable="false"
-                                    className="pe-icon--dropdown-open-sm-18">
-                                    <title id="dropdown-title">Dropdown open</title>
-                                    <use xlinkHref="#dropdown-open-sm-18"></use>
-                               </svg>
+                               <Icon name='dropdown-open-sm-18'>{dropdownControlLabel}</Icon>
                              </span>
                            </button>
                          </div>
@@ -154,7 +152,7 @@ export default class Dropdown extends Component {
           { presentationType === 'icon' ?
                      <div className={`icon-btn-wrapper${rightAlign}`}>
                        <button className="icon-btn">
-                         <Icon name='dropdown-open-sm-24'>Dropdown open</Icon>
+                         <Icon name='dropdown-open-sm-24'>{dropdownControlLabel}</Icon>
                        </button>
                      </div>
                    : null }
