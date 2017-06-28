@@ -32,6 +32,12 @@ svg[id^='svg-id-'] {
   padding: 0;
 }
 
+.label-wrapper-rightAlign,
+.pe-btn-container-rightAlign,
+.icon-btn-wrapper-rightAlign {
+  text-align: right;
+}
+
 .icon-btn {
   @extend %icon-btn-extend;
 }
@@ -41,11 +47,7 @@ svg[id^='svg-id-'] {
   float: right;
 }
 
-.pe-btn-container-right {
-  float: right;
-}
-
-#icon-in-button {
+.icon-in-button {
   margin-left: 8px;
   color: #FFFFFF;
 }
@@ -53,11 +55,16 @@ svg[id^='svg-id-'] {
 .dropdown-container {
   width: 220px;
   position: relative;
+
+  span {
+    white-space: nowrap;
+  }
 }
 
 .li-wrapper {
   border: 1px solid #c7c7c7;
-  width: 100%;
+  width: auto;
+  min-width: 220px;
   padding: 12px 0;
   margin-top: 2px;
   margin-bottom: 0;
@@ -65,6 +72,12 @@ svg[id^='svg-id-'] {
   display: block;
   position: absolute;
   background-color: #ffffff;
+  z-index: 5;
+}
+
+.drop-up {
+  top: auto;
+  bottom: 100%;
 }
 
 .li-wrapper .li-button {

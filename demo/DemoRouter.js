@@ -27,7 +27,6 @@ const DemoRouter = (props) => (
         <Route path="/tabs"           component={TabsPage} />
         <Route path="/loadingSpinner" component={LoadingSpinnerPage} />
         <Route path="/StaticAlert"    component={StaticAlertPage} />
-        <Route path="/footer"         component={FooterPage} />
     </div>
   </Router>
 )

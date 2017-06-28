@@ -9,81 +9,84 @@ const DropdownPage = () => (
     <div className="displaySection">
     <h2><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/">Dropdown</a></h2>
 
-    <div className="elementContainer">
+      <div className="elementContainer">
 
-      <div className="code">
-        <h3>Props</h3>
-        <h4>Required:</h4>
-        <ul>
-          <li className="li-props">presentationType:String === "label", "button", "icon"</li>
-          <li className="li-props">mobileTitle:String === "Your mobile title"</li>
-          <li className="li-props">A different view is used for mobile and this title will be reflected
-          in the mobile header <br/>when the dropdown is open.</li>
-          <li className="li-props">list:Array = ["one", "two", "three"] || ["one", "two", "divider", "three"]</li>
-          <li className="li-props">The "divider" option may be used in conjunction with any of
-          the presentationType for <br/>separating options presented in your list.</li>
-        </ul>
-        <h4>Optional:</h4>
-        <ul>
-          <li className="li-props">presentationText:String === "Your label or button text"</li>
-        </ul>
-      </div>
+        <div className="code">
+          <h3>Props</h3>
+          <h4>Required:</h4>
+          <ul>
+            <li className="li-props">presentationType:String === "label", "button", "icon"</li>
+            <li className="li-props">mobileTitle:String === "Your mobile title"</li>
+            <li className="li-props">A different view is used for mobile and this title will be reflected
+              in the mobile header <br/>when the dropdown is open.</li>
+            <li className="li-props">list:Array = ["one", "two", "three"] || ["one", "two", "divider", "three"]</li>
+            <li className="li-props">The "divider" option may be used in conjunction with any of
+            the presentationType for <br/>separating options presented in your list.</li>
+          </ul>
+          <h4>Optional:</h4>
+          <ul>
+            <li className="li-props">presentationText:String === "Your label or button text"</li>
+            <li className="li-props">dropup:Boolean === {`<Dropdown dropup />`}</li>
+            <li className="li-props">The dropdown menu can be changed to expand upwards
+              by using the <i>dropup</i> prop</li>
+            <li className="li-props">alignRight:Boolean === {`<Dropdown alignRight />`}</li>
+            <li className="li-props">By default, a dropdown menu is left aligned. Add the&nbsp;
+              <i>alignRight</i> prop to right align the <br/> dropdown menu.</li>
+          </ul>
+        </div>
 
-      <h3>Label /w Icon (non selectable options)</h3>
-        <Dropdown
-          presentationType="label"
-          presentationText="label"
-          list={simpleList}
-          mobileTitle={mobileTitle}
-        />
-        <p className="code">
-          {`const simpleList = ['Thing one', 'Thing two'];`} <br/>
-          {`<Dropdown
+        <h3>label /w Icon (non-selectable options)</h3>
+          <Dropdown
             presentationType="label"
             presentationText="label"
-            list={simpleList}
-            mobileTitle="Mobile title"
-          />`}
-        </p>
-
-        <h3>button /w Icon (selectable options)</h3>
-          <Dropdown
-            presentationType="button"
-            presentationText="button"
             list={simpleList}
             mobileTitle={mobileTitle}
           />
           <p className="code">
             {`const simpleList = ['Thing one', 'Thing two'];`} <br/>
             {`<Dropdown
-              presentationType="button"
-              presentationText="button"
+              presentationType="label"
+              presentationText="label"
               list={simpleList}
               mobileTitle="Mobile title"
             />`}
           </p>
 
-        <h3>Icon only (selectable options)</h3>
-          <Dropdown
-            presentationType="icon"
-            list={listItems}
-            mobileTitle={mobileTitle}
-          />
-          <p className="code">
-            {`const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', '!!'];`}
-            <br/>
-            {`<Dropdown
+          <h3>button /w Icon (selectable options)</h3>
+            <Dropdown
+              presentationType="button"
+              presentationText="button"
+              list={simpleList}
+              mobileTitle={mobileTitle}
+            />
+            <p className="code">
+              {`const simpleList = ['Thing one', 'Thing two'];`} <br/>
+              {`<Dropdown
+                presentationType="button"
+                presentationText="button"
+                list={simpleList}
+                mobileTitle="Mobile title"
+              />`}
+            </p>
+
+          <h3>Icon only (selectable options)</h3>
+            <Dropdown
               presentationType="icon"
               list={listItems}
-              mobileTitle="Mobile title"
-            />`}
-          </p>
+              mobileTitle={mobileTitle}
+            />
+            <p className="code">
+              {`const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', '!!'];`}
+              <br/>
+              {`<Dropdown
+                presentationType="icon"
+                list={listItems}
+                mobileTitle="Mobile title"
+              />`}
+            </p>
 
-
+      </div>
     </div>
-
-    </div>
-
-)
+);
 
 export default DropdownPage;

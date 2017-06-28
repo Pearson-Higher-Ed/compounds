@@ -3,11 +3,6 @@
     border-bottom: 1px solid #c7c7c7;
   }
 
-  html, body {
-    height: 100%;
-    overflow-y: scroll;
-  }
-
   .dropdown-container {
     width: 100%;
     height: 100%;
@@ -21,7 +16,7 @@
     right: 0;
     bottom: 0;
     background-color: #FFFFFF;
-    position: absolute;
+    position: fixed !important;
     margin-top: 0;
     padding: 0;
     height: 100%;
@@ -38,10 +33,10 @@
     padding: 0 24px 0 40px;
   }
 
-  #mobile-font {
-    font-size: 16px;
-    line-height: 20px;
-    padding: 12px 24px;
+  .mobile-font {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    padding: 12px 24px !important;
   }
 
   .mobile-close-button {
