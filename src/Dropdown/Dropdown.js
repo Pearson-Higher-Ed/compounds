@@ -37,17 +37,24 @@ export default class Dropdown extends Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleOutsideClick.bind(this), true);
+    document.removeEventListener('click', this.handleOutsideClick.bind(this));
   }
 
   addListener() {
-    document.addEventListener('click', this.handleOutsideClick.bind(this), true);
+    document.addEventListener('click', this.handleOutsideClick.bind(this));
+    document.addEventListener('keydown', this.handleEsc.bind(this));
   }
 
   handleOutsideClick(event) {
     const domNode = ReactDOM.findDOMNode(this);
 
     if ((!domNode || !domNode.contains(event.target))) {
+      this.setState({ open: false });
+    }
+  }
+
+  handleEsc(e) {
+    if (e.which === 27) {
       this.setState({ open: false });
     }
   }
