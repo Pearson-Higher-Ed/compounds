@@ -40,7 +40,7 @@ const MultiLineTextSection = (props) => (
 
     <h3>MultiLine - error</h3>
     <MultiLineText
-      id           = "Multi"
+      id           = "Multi2"
       inputState   = 'error'
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
@@ -49,7 +49,7 @@ const MultiLineTextSection = (props) => (
       errorMessage = {props.intlDefaultText.textInputErrorMessage}
       />
 
-    <p className="code">{'<MultiLineText id="Multi" inputState="error" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+    <p className="code">{'<MultiLineText id="Multi2" inputState="error" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
     <br />
@@ -57,7 +57,7 @@ const MultiLineTextSection = (props) => (
 
     <h3>MultiLine - readOnly</h3>
     <MultiLineText
-      id           = "Multi"
+      id           = "Multi3"
       inputState   = 'readOnly'
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
@@ -67,7 +67,7 @@ const MultiLineTextSection = (props) => (
       readOnly     = {true}
       />
 
-    <p className="code">{'<MultiLineText id="Multi" inputState="readOnly" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" readOnly={true} />'}</p>
+    <p className="code">{'<MultiLineText id="Multi3" inputState="readOnly" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" readOnly={true} />'}</p>
 
 
     <br />
@@ -75,7 +75,7 @@ const MultiLineTextSection = (props) => (
 
     <h3>MultiLine - disabled</h3>
     <MultiLineText
-      id           = "Multi"
+      id           = "Multi4"
       inputState   = 'disabled'
       labelText    = "Multi-line label"
       placeholder  = "Many words displayed over multiple lines."
@@ -85,7 +85,7 @@ const MultiLineTextSection = (props) => (
       disabled     = {true}
       />
 
-    <p className="code">{'<MultiLineText id="Multi" inputState="disabled" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" disabled={true} />'}</p>
+    <p className="code">{'<MultiLineText id="Multi4" inputState="disabled" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" disabled={true} />'}</p>
 
 
   </div>
