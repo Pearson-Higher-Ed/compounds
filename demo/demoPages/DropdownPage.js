@@ -40,6 +40,7 @@ const DropdownPage = () => (
 
         <h3>label /w Icon (non-selectable options)</h3>
           <Dropdown
+            dropdownControlLabel="Dropdown open"
             presentationType="label"
             presentationText="label"
             list={simpleList}
@@ -57,6 +58,7 @@ const DropdownPage = () => (
 
           <h3>button /w Icon (selectable options)</h3>
             <Dropdown
+              dropdownControlLabel="Button that opens Dropdown"
               presentationType="button"
               presentationText="button"
               list={simpleList}
@@ -74,6 +76,7 @@ const DropdownPage = () => (
 
           <h3>Icon only (selectable options)</h3>
             <Dropdown
+              dropdownControlLabel="Icon that opens Dropdown"
               presentationType="icon"
               list={listItems}
               mobileTitle={mobileTitle}
