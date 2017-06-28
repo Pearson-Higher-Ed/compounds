@@ -38,6 +38,7 @@ export default class Dropdown extends Component {
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleOutsideClick.bind(this));
+    document.removeEventListener('keydown', this.handleEsc.bind(this));
   }
 
   addListener() {
