@@ -9,7 +9,12 @@ import './Calendar.scss';
 export default class Calendar extends Component {
 
   static propTypes = {
-    disablePast: PropTypes.bool
+    disablePast: PropTypes.bool,
+    minDate: PropTypes.object
+  }
+
+  static defaultProps = {
+    disablePast: false
   }
 
   constructor(props) {
