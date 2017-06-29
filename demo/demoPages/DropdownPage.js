@@ -35,6 +35,8 @@ const DropdownPage = () => (
               <i>alignRight</i> prop to right align the <br/> dropdown menu.</li>
             <li className="li-props">killFocus:Boolean === {`<Dropdown killFocus />`}</li>
             <li className="li-props">The killFocus prop will assign a tabIndex of -1 inside of the list items.</li>
+            <li className="li-props">changeHandler:Function === {`<Dropdown changeHandler={(item) => { console.log(item) } }`}</li>
+            <li className="li-props">Callback that is fired when an item is selected in the Dropdown menu.</li>
           </ul>
         </div>
 
@@ -49,6 +51,7 @@ const DropdownPage = () => (
           <p className="code">
             {`const simpleList = ['Thing one', 'Thing two'];`} <br/>
             {`<Dropdown
+              dropdownControlLabel="Dropdown open"
               presentationType="label"
               presentationText="label"
               list={simpleList}
@@ -67,6 +70,7 @@ const DropdownPage = () => (
             <p className="code">
               {`const simpleList = ['Thing one', 'Thing two'];`} <br/>
               {`<Dropdown
+                dropdownControlLabel="Button that opens Dropdown"
                 presentationType="button"
                 presentationText="button"
                 list={simpleList}
@@ -76,6 +80,7 @@ const DropdownPage = () => (
 
           <h3>Icon only (selectable options)</h3>
             <Dropdown
+              dropup
               dropdownControlLabel="Icon that opens Dropdown"
               presentationType="icon"
               list={listItems}
@@ -85,6 +90,8 @@ const DropdownPage = () => (
               {`const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', '!!'];`}
               <br/>
               {`<Dropdown
+                dropup
+                dropdownControlLabel="Icon that opens Dropdown"
                 presentationType="icon"
                 list={listItems}
                 mobileTitle="Mobile title"
