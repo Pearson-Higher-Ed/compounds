@@ -1,5 +1,5 @@
-<a name="0.8.3"></a>
-## [0.8.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.2...v0.8.3) (2017-06-29)
+<a name="0.8.4"></a>
+## [0.8.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.1...v0.8.4) (2017-06-29)
 
 
 ### Bug Fixes
@@ -14,23 +14,8 @@
 
 
 
-<a name="0.8.2"></a>
-## [0.8.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.1...v0.8.2) (2017-06-23)
-
-
-
 <a name="0.8.1"></a>
-## [0.8.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.0...v0.8.1) (2017-06-23)
-
-
-
-<a name="0.8.0"></a>
-# [0.8.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.2...v0.8.0) (2017-06-23)
-
-
-
-<a name="0.7.2"></a>
-## [0.7.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.1...v0.7.2) (2017-06-15)
+## [0.8.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.1...v0.8.1) (2017-06-23)
 
 
 
