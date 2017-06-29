@@ -43,11 +43,6 @@ describe('Dropdown', () => {
       _currentElement.props.presentationText).toBe('Button');
     });
 
-    it('has the correct Icon', function () {
-      expect(this.wrapper.find('button').node.props.children.props.children.props.className).toEqual('pe-icon--dropdown-open-sm-18');
-    });
-
-
   });
 
   describe('Dropdown - Icon only', function () {
