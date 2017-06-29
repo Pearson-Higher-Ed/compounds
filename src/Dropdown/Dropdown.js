@@ -85,7 +85,7 @@ export default class Dropdown extends Component {
       let item = this.props.list[i];
       const appendId = this.state.selectedItem === item
                        ? '-this.state.selectedItem' :'';
-                       
+
       const dividerLine = <li className="divider-container"
                               key={i}
                               role="separator">
@@ -181,5 +181,5 @@ function _toggleDropdown() {
 
 function _selectedItem(e) {
   this.setState({ selectedItem: e.target.innerText });
-  this.props.changeHandler.call(this, e.target.innerText);
+  this.props.changeHandler ? this.props.changeHandler.call(this, e.target.innerText) : null;
 }
