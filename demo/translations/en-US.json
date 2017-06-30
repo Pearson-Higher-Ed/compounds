@@ -1,6 +1,8 @@
 {
   "showText"              : "show",
   "hideText"              : "hide",
+  "isNotVisibleMsg"       : "Password is hidden",
+  "isVisibleMsg"          : "Password is visible",
   "passwordPlaceholder"   : "Enter Password",
   "passwordLabel"         : "Password",
   "textLabel"             : "First Name",

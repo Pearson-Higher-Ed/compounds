@@ -26,10 +26,10 @@ class RadioCheckGroupSection extends Component {
 
     return (
       <div>
-        <h1><a href="http://pearson-higher-ed.github.io/design/c/inputs/#radio-buttons">RadioCheckGroup</a></h1>
+        <h2><a href="http://pearson-higher-ed.github.io/design/c/inputs/#radio-buttons">RadioCheckGroup</a></h2>
 
           <div className="code">
-            <h2>Props:</h2>
+            <h3>Props:</h3>
             <p>RadioCheckGroup:</p>
             <ul>
               <li>id:String(required)               === "a unique name"</li>
@@ -37,11 +37,11 @@ class RadioCheckGroupSection extends Component {
               <li>options:Object(required)          === {'{<option>:<inputState>,<option>:<inputState>, ... }'} where inputState is one of 'default','disabled'. </li>
               <li>name:String(required)             === "a desciptive name"</li>
               <li>selectedOptions:Array             === "the checked options (radio only supports a single selected option by definition)"</li>
-              <li>changeHandler:Function(required)  === "handles populating the selected options from the options (see source for exmple<a href="https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js"> https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js</a> )"</li>
+              <li>changeHandler:Function(required)  === "handles populating the selected options from the options (see source for example <a href='https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js'>https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js</a>)"</li>
             </ul>
 
           </div>
-          <h2>RadioButton Group (disabled):</h2>
+          <h3>RadioButton Group (disabled):</h3>
 
           <RadioCheckGroup
             inputType       = "radio"
@@ -56,7 +56,7 @@ class RadioCheckGroupSection extends Component {
           <p className="code">{'<RadioCheckGroup inputType="radio" id="radiobutton1" legendText="radiobutton1" options={{"tea":"default","coffee":"disabled","soda":"","water":"disabled"}} selectedOptions={["tea"]} changeHandler={() => {}} />'}</p>
 
 
-          <h2>RadioButton Group:</h2>
+          <h3>RadioButton Group:</h3>
 
           <RadioCheckGroup
             inputType       = "radio"
@@ -70,7 +70,7 @@ class RadioCheckGroupSection extends Component {
           <br />
           <p className="code">{'<RadioCheckGroup inputType="radio" id="radiobutton2" legendText="radiobutton2" options={{"tea":"default","coffee":"","soda":"","water":""}} selectedOptions={["tea"]} changeHandler={() => {}} />'}</p>
 
-          <h2>Checkbox Group:</h2>
+          <h3>Checkbox Group:</h3>
 
           <RadioCheckGroup
             inputType       = "checkbox"

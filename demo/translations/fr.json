@@ -1,6 +1,8 @@
 {
   "showText"              : "montrer",
   "hideText"              : "cacher",
+  "shownText"             : "Mot de passe est caché",
+  "hiddenText"            : "Mot de passe est visible",
   "passwordPlaceholder"   : "Entrer le mot de passe",
   "passwordLabel"         : "Mot de passe",
   "textLabel"             : "Prénom",

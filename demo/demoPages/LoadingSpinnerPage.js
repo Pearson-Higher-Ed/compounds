@@ -4,18 +4,18 @@ import { LoadingSpinner } from '../../index';
 
 const LoadingSpinnerPage = () => (
       <div className="displaySection">
-        <h1>Loading Spinner</h1>
+        <h2>Loading Spinner</h2>
 
         <div className="elementContainer">
 
           <div className="code">
-            <h2>Props:</h2>
+            <h3>Props:</h3>
             <ul>
               <li>No Props</li>
             </ul>
           </div>
 
-          <h2>Loading Spinner</h2>
+          <h3>Loading Spinner</h3>
           <br />
           <LoadingSpinner />
           <br />

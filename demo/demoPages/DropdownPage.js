@@ -7,13 +7,13 @@ const mobileTitle = "Test title";
 
 const DropdownPage = () => (
     <div className="displaySection">
-      <h1><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/">Dropdown</a></h1>
+    <h2><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/">Dropdown</a></h2>
 
       <div className="elementContainer">
 
         <div className="code">
-          <h2>Props</h2>
-          <h3>Required:</h3>
+          <h3>Props</h3>
+          <h4>Required:</h4>
           <ul>
             <li className="li-props">dropdownControlLabel:String === "Descriptive text of what the button will be doing"</li>
             <li className="li-props">presentationType:String === "label", "button", "icon"</li>
@@ -21,7 +21,7 @@ const DropdownPage = () => (
             <li className="li-props">The "divider" option may be used in conjunction with any of
             the presentationType for <br/>separating options presented in your list.</li>
           </ul>
-          <h3>Optional:</h3>
+          <h4>Optional:</h4>
           <ul>
             <li className="li-props">presentationText:String === "Your label or button text"</li>
             <li className="li-props">mobileTitle:String === "Your mobile title"</li>

@@ -28,11 +28,11 @@ const FooterPage = (props) => {
 
   return (
     <div className="displaySection">
-      <h1><a href="http://pearson-higher-ed.github.io/design/c/footer/">Footer</a></h1>
+      <h2><a href="http://pearson-higher-ed.github.io/design/c/footer/">Footer</a></h2>
 
       <div className="elementContainer">
         <div className="code">
-          <h2>Props</h2>
+          <h3>Props</h3>
           <h4>Required:</h4>
           <ul>
             <li className="li-props">links:Array === {`[{ text: 'First link', href: 'First href'},
