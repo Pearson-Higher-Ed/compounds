@@ -11,6 +11,7 @@ describe('Dropdown', () => {
     beforeEach(function () {
       this.wrapper = shallow(<Dropdown presentationType="label"
                                        presentationText="Label here"
+                                       dropdownControlLabel="Test"
                                        list={items}
                                        mobileTitle="My mobile title" />);
     });
@@ -34,6 +35,7 @@ describe('Dropdown', () => {
     beforeEach(function () {
       this.wrapper = shallow(<Dropdown presentationType="button"
                                        presentationText="Button"
+                                       dropdownControlLabel="Test"
                                        list={items}
                                        mobileTitle="Mobile Title" />);
     });
@@ -49,6 +51,7 @@ describe('Dropdown', () => {
 
     it('has the correct Icon', function () {
       this.wrapper = shallow(<Dropdown presentationType="icon"
+                                       dropdownControlLabel="Test"
                                        list={items}
                                        mobileTitle="Title" />);
       expect(this.wrapper.find('button').node.props.children.props.name).toEqual('dropdown-open-sm-24');
@@ -63,6 +66,7 @@ describe('Dropdown', () => {
       });
 
       const wrap = mount(<Dropdown presentationType="icon"
+                                   dropdownControlLabel="Test"
                                    list={items}
                                    mobileTitle="Title" />);
       wrap.find('.dropdown-container').simulate('click');
