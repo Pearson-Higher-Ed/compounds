@@ -16,7 +16,8 @@ export default class Dropdown extends Component {
     presentationText: PropTypes.string,
     dropup: PropTypes.bool,
     alignRight: PropTypes.bool,
-    killFocus: PropTypes.bool
+    killFocus: PropTypes.bool,
+    changeHandler: PropTypes.func
   };
 
   static defaultProps = {
@@ -76,14 +77,14 @@ export default class Dropdown extends Component {
                            </button>
                          </li>;
 
-     items.push(mobileHeader);
+    items.push(mobileHeader);
+
+    const killFocus = this.props.killFocus ? '-1' :'0';
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
       const appendId = this.state.selectedItem === item
                        ? '-this.state.selectedItem' :'';
-
-      const killFocus = this.props.killFocus ? '-1' :'0';
 
       const dividerLine = <li className="divider-container"
                               key={i}
@@ -108,7 +109,7 @@ export default class Dropdown extends Component {
                                                   <use xlinkHref="#check-sm-18"></use>
                                              </svg>
                                           : null }
-                                            <span className="dropdown-item">{item}</span>
+                                          <span className="dropdown-item">{item}</span>
                                         </button>
                                       </li>);
     }
@@ -127,35 +128,35 @@ export default class Dropdown extends Component {
              ref={(div) => { this.dropdown = div; }}
              className="dropdown-container">
 
-          { presentationType === 'label' ?
-                      <div className={`label-wrapper${rightAlign}`}>
-                        <p className="dropdown-label-text">{presentationText}</p>
-                        <button className="icon-btn">
+          { presentationType === 'label'
+               ?  <div className={`label-wrapper${rightAlign}`}>
+                    <p className="dropdown-label-text">{presentationText}</p>
+                    <button className="icon-btn">
+                      <Icon name='dropdown-open-sm-18'>{dropdownControlLabel}</Icon>
+                    </button>
+                  </div>
+               : null }
+
+          { presentationType === 'button'
+               ?  <div className={`pe-btn-container${rightAlign}`}>
+                    <div className="pe-btn__primary">
+                      {presentationText}
+                      <button className="icon-btn">
+                        <span className="icon-in-button">
                           <Icon name='dropdown-open-sm-18'>{dropdownControlLabel}</Icon>
-                        </button>
-                      </div>
-                    : null }
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+               : null }
 
-          { presentationType === 'button' ?
-                       <div className={`pe-btn-container${rightAlign}`}>
-                         <div className="pe-btn__primary">
-                           {presentationText}
-                           <button className="icon-btn">
-                             <span className="icon-in-button">
-                               <Icon name='dropdown-open-sm-18'>{dropdownControlLabel}</Icon>
-                             </span>
-                           </button>
-                         </div>
-                       </div>
-                     : null }
-
-          { presentationType === 'icon' ?
-                     <div className={`icon-btn-wrapper${rightAlign}`}>
-                       <button className="icon-btn">
-                         <Icon name='dropdown-open-sm-24'>{dropdownControlLabel}</Icon>
-                       </button>
-                     </div>
-                   : null }
+          { presentationType === 'icon'
+               ?  <div className={`icon-btn-wrapper${rightAlign}`}>
+                    <button className="icon-btn">
+                      <Icon name='dropdown-open-sm-24'>{dropdownControlLabel}</Icon>
+                    </button>
+                  </div>
+               : null }
 
           { this.state.open &&
             <CSSTransitionGroup
@@ -180,4 +181,5 @@ function _toggleDropdown() {
 
 function _selectedItem(e) {
   this.setState({ selectedItem: e.target.innerText });
+  this.props.changeHandler ? this.props.changeHandler.call(this, e.target.innerText) : null;
 }
