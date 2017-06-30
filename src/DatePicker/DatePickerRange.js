@@ -11,7 +11,7 @@ const DatePickerRange = (props) => {
     const { classNameContainer, time, classNameStart, classNameEnd, fancy, range, id, datepickerValue, placeholder, inputState, labelText, changeHandler, endId, endDatepickerValue, endPlaceholder, endInputState, endLabelText, endChangeHandler } = props;
 
     return (
-      <div className={`pe-range-container ${classNameContainer}`}>
+      <div className={`pe-range-container ${classNameContainer || ''}`}>
 
         <DatePicker
           time            = {time}

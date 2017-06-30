@@ -5,20 +5,20 @@ const hours = ["1:00 AM","2:00 AM","3:00 AM","4:00 AM","5:00 AM","6:00 AM","7:00
 const twentyFourHours = ["1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"];
 
 
-const TimeList = (props) => {
+export const TimeList = (props) => {
 
-  const { id, showHours, twentyFourHour, timeToParent, selectedHour } = props;
+  const { id, twentyFourHour, timeToParent, selectedHour } = props;
 
   return (
     <ul className="pe-timepicker-list">
-      {showHours && !twentyFourHour && hours.map((hour,i) =>
-        <li key={`timeList-${id}-item-${i}`} className="pe-timepicker-list-item-hour" onClick={timeToParent} >
+      {!twentyFourHour && hours.map((hour,i) =>
+        <li key={`timeList-${id}-item-${i}`} className="pe-timepicker-list-item-hour" onClick={() => timeToParent.call(this, hour)} >
           {selectedHour === hour && <Icon name="check-sm-18" />}
           {hour}
         </li>)
       }
-      {showHours && twentyFourHour && twentyFourHours.map((hour,i) =>
-        <li key={`timeList-${id}-item-${i}`} className="pe-timepicker-list-item-hour" onClick={timeToParent} >
+      {twentyFourHour && twentyFourHours.map((hour,i) =>
+        <li key={`timeList-${id}-item-${i}`} className="pe-timepicker-list-item-hour" onClick={() => timeToParent.call(this, hour)} >
           {selectedHour === hour && <Icon name="check-sm-18" />}
           {hour}
         </li>)
@@ -26,5 +26,3 @@ const TimeList = (props) => {
     </ul>
   )
 }
-
-export default TimeList;

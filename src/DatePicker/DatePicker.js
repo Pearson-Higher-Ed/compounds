@@ -2,9 +2,20 @@ import React, { Component } from 'react';
 import PropTypes            from 'prop-types';
 import { Icon, Calendar }   from '../../index';
 import moment               from 'moment';
-import TimeList             from './TimeList';
+import { TimeList }         from './TimeList';
 
 import './DatePicker.scss';
+
+const KEY_CODE = {
+  ESC        : 27,
+  DOWN_ARROW : 40,
+  UP_ARROW   : 38,
+  SPACE      : 32,
+  END        : 35,
+  HOME       : 36,
+  SHIFT      : 16,
+  TAB        : 9
+};
 
 
 class DatePicker extends Component {
@@ -12,7 +23,9 @@ class DatePicker extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      showHours:false
+    };
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
     this.datePickerFocus       = _datePickerFocus.bind(this);
@@ -37,25 +50,30 @@ class DatePicker extends Component {
 
   render() {
 
-    const { inputStyle, labelStyleTmp, displayOpen, idValue, datepickerSingleValue, timepickerSingleValue, selectedHour, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg }  = this.state;
+    const { inputStyle, showHours, labelStyleTmp, labelStyle, displayOpen, idValue, datepickerSingleValue, timepickerSingleValue, selectedHour, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg }  = this.state;
     const { className, fancy, time, datepickerValue, inputState, id, labelText, placeholder, infoMessage, errorMessage } = this.props;
 
+    const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
+    const ariaDescribedby =  em + ((infoMessage) ? `infoMsg-${id}` : '');
+
     return (
-      <div className={`pe-datepicker-main ${className}`}>
+      <div className={`pe-datepicker-main ${className || ''}`}>
         <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${placeholder})`}</label>
 
         <div className={containerStyle}>
           <input
-            id          = {id}
-            type        = "text"
-            value       = {datepickerSingleValue || idValue}
-            placeholder = {placeholder}
-            className   = {inputStyle}
-            disabled    = {inputState === 'disabled' || inputState === 'readOnly'}
-            readOnly    = {inputState === 'readOnly'}
-            onFocus     = {this.datePickerFocus}
-            onBlur      = {this.datePickerBlur}
-            onChange    = {this.changeHandler}
+            type             = "text"
+            id               = {id}
+            value            = {datepickerSingleValue || idValue}
+            placeholder      = {placeholder}
+            className        = {inputStyle}
+            aria-describedby = {ariaDescribedby}
+            aria-invalid     = {inputState === 'error'}
+            disabled         = {inputState === 'disabled'}
+            readOnly         = {inputState === 'readOnly'}
+            onFocus          = {this.datePickerFocus}
+            onBlur           = {this.datePickerBlur}
+            onChange         = {this.changeHandler}
           />
 
           <Icon name={time ? "clock-18" : "calendar-18"} />
@@ -63,12 +81,12 @@ class DatePicker extends Component {
 
         {fancy && inputState !== 'readOnly' && <span className={spanStyle} />}
 
-        {infoMessage     && <span className="pe-input--info_message">{infoMessage}</span>}
-        {errorMessage    && <span className="pe-input--error_message">{errorMessage}</span>}
+        {infoMessage     && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
+        {errorMessage    && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
         {!dateValidation && <span className="pe-input--error_message">{dateValidationErrorMsg}</span>}
 
-        {displayOpen && !time && <Calendar disablePast={true} dateToParent={(date) => this.setState({selectedDate:date}) } />}
-        {displayOpen &&  time && <TimeList id={id} showHours={true} selectedHour={selectedHour} twentyFourHour={true} timeToParent={(hour) => this.setState({selectedHour:hour}) } />}
+        {displayOpen && !time && <Calendar disablePast={true} selectedDates={[]} dateToParent={date => this.setState({selectedDate:date}) } />}
+        {displayOpen &&  time && <TimeList id={id} selectedHour={selectedHour} twentyFourHour={true} timeToParent={hour => this.setState({selectedHour:hour, displayOpen:false, labelStyleTmp:labelStyle}) } />}
 
       </div>
     );
@@ -96,7 +114,7 @@ DatePicker.propTypes = {
 
 
 function _datePickerFocus(){
-  this.setState({labelStyleTmp:this.state.labelFocusStyle, displayOpen:true});
+  this.setState({labelStyleTmp:this.state.labelFocusStyle, displayOpen:true, showHours:true});
 };
 
 function _datePickerBlur(){
@@ -152,8 +170,8 @@ function _applyDatePickerStyles() {
       break;
     case 'disabled':
       spanStyle       = '';
-      labelStyle      = 'pe-textLabelInput__label--label-disabled';
-      labelFocusStyle = 'pe-textLabelInput__label--label-disabled';
+      labelStyle      = 'pe-textLabelInput__label';
+      labelFocusStyle = 'pe-textLabelInput__label';
       containerStyle  = fancy ? 'pe-datepicker-container-fancy' : 'pe-datepicker-container';
       inputStyle      = fancy ? 'pe-textInput'                  : 'pe-textInput--basic';
       break;
