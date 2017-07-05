@@ -21,6 +21,8 @@ const InputsPage = (props) => {
   const intlDefaultText =  {
     showText              : intl.formatMessage(messages.showText),
     hideText              : intl.formatMessage(messages.hideText),
+    isNotVisibleMsg       : intl.formatMessage(messages.isNotVisibleMsg),
+    isVisibleMsg          : intl.formatMessage(messages.isVisibleMsg),
     passwordPlaceholder   : intl.formatMessage(messages.passwordPlaceholder),
     passwordLabel         : intl.formatMessage(messages.passwordLabel),
     textLabel             : intl.formatMessage(messages.textLabel),

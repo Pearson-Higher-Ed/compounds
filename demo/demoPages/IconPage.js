@@ -4,47 +4,47 @@ import { Icon, Button } from '../../index';
 
 const IconPage = () => (
       <div className="displaySection">
-        <h1><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icons</a></h1>
+        <h2><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icons</a></h2>
 
         <div className="elementContainer">
 
           <div className="code">
-            <h2>Props:</h2>
+            <h3>Props:</h3>
             <ul>
               <li>name:String === "remove-sm-18"</li>
             </ul>
           </div>
 
-          <h2>Examples</h2>
+          <h3>Examples</h3>
           <p>Note: the "name" string sets the appropriate CSS class to show the correct icon. Additionally, to give the icon alternative text for screen reader users, type any string between the Icon tags.</p>
-          <p>Basic Icon without alt text:</p>
+          <h4>Basic Icon without alt text:</h4>
           <Icon name="remove-sm-18"/>
           <p className="code">{"<Icon name='remove-sm-18'/>"}</p>
 
           <br />
 
-          <p>Basic Icon with alt text "close":</p>
+          <h4>Basic Icon with alt text "close":</h4>
           <Icon name="remove-sm-18">close</Icon>
           <p className="code">{"<Icon name='remove-sm-18'>close</Icon>"}</p>
 
           <br />
 
 
-          <p>This is "remove-sm-18" inside a button, with the alt text "close".</p>
+          <h4>This is "remove-sm-18" inside a button, with the alt text "close":</h4>
           <Button btnType="primary"><Icon name="remove-sm-18">close</Icon></Button>
           <p className="code">{"<Button btnType='primary'><Icon name='remove-sm-18'>close</Icon></Button>"}</p>
 
           <br/>
 
-          <p>This is "warning-24" inside a heading as a decorative (no alt text) icon.</p>
+          <h4>This is "warning-24" inside a heading as a decorative (no alt text) icon:</h4>
           <div className="warning">
-            <h3><Icon name="warning-24" /> Alert! Form was not submitted!</h3>
+            <h2><Icon name="warning-24" /> Alert! Form was not submitted!</h2>
           </div>
           <p className="code">{"<h2><Icon name='warning-24'/> Alert! Form was not submitted!</h2>"}</p>
 
           <br/>
 
-          <h2>Available icons</h2>
+          <h3>Available icons</h3>
           <p>These are icons with their names inside as example alternative text.</p>
           <ul>
             <li><Icon name="archive-18">Archive 18</Icon> archive-18</li>

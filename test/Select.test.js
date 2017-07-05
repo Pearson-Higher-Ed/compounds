@@ -18,12 +18,6 @@ describe('Select', () => {
       expect(this.wrapper.find('label').node.props.className).toEqual('pe-textLabelInput__label--label_error')
     });
 
-    it('should apply correct style for disabled type', function(){
-      this.wrapper = shallow(<Select id="selectTestId2" labelText="Select Label:" changeHandler={() => {}} options={["coffee", "tea"]} inputState='disabled' />);
-      this.wrapper.instance().applySelectStyles();
-      expect(this.wrapper.find('label').node.props.className).toEqual('pe-textLabelInput__label--label-disabled')
-    });
-
     it('should apply correct style for readOnly type', function(){
       this.wrapper = shallow(<Select id="selectTestId3" labelText="Select Label:" changeHandler={() => {}} options={["coffee", "tea"]} inputState='readOnly' />);
       this.wrapper.instance().componentDidMount();

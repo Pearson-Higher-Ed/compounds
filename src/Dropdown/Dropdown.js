@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Icon from '../Icon';
@@ -8,17 +9,21 @@ import './Dropdown.scss';
 export default class Dropdown extends Component {
 
   static propTypes = {
+    dropdownControlLabel: PropTypes.string.isRequired,
     list: PropTypes.array.isRequired,
-    mobileTitle: PropTypes.string.isRequired,
+    mobileTitle: PropTypes.string,
     presentationType: PropTypes.string.isRequired,
     presentationText: PropTypes.string,
     dropup: PropTypes.bool,
-    alignRight: PropTypes.bool
+    alignRight: PropTypes.bool,
+    killFocus: PropTypes.bool,
+    changeHandler: PropTypes.func
   };
 
   static defaultProps = {
     dropup: false,
-    alignRight: false
+    alignRight: false,
+    killFocus: false
   }
 
   constructor(props) {
@@ -29,22 +34,30 @@ export default class Dropdown extends Component {
       selectedItem: ''
     }
 
-    this.toggleDropDown = _toggleDropDown.bind(this);
+    this.toggleDropdown = _toggleDropdown.bind(this);
     this.selectedItem = _selectedItem.bind(this);
   }
 
-  componentDidMount() {
-    document.addEventListener('click', this.handleOutsideClick.bind(this), true);
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick.bind(this));
+    document.removeEventListener('keydown', this.handleEsc.bind(this));
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleOutsideClick.bind(this), true);
+  addListener() {
+    document.addEventListener('click', this.handleOutsideClick.bind(this));
+    document.addEventListener('keydown', this.handleEsc.bind(this));
   }
 
   handleOutsideClick(event) {
     const domNode = ReactDOM.findDOMNode(this);
 
     if ((!domNode || !domNode.contains(event.target))) {
+      this.setState({ open: false });
+    }
+  }
+
+  handleEsc(e) {
+    if (e.which === 27) {
       this.setState({ open: false });
     }
   }
@@ -64,14 +77,18 @@ export default class Dropdown extends Component {
                            </button>
                          </li>;
 
-     items.push(mobileHeader);
+    items.push(mobileHeader);
+
+    const killFocus = this.props.killFocus ? '-1' :'0';
 
     for (let i = 0; i < this.props.list.length; i++) {
       let item = this.props.list[i];
       const appendId = this.state.selectedItem === item
                        ? '-this.state.selectedItem' :'';
 
-      const dividerLine = <li className="divider-container" key={i}>
+      const dividerLine = <li className="divider-container"
+                              key={i}
+                              role="separator">
                             <hr className="dropdown-divider" />
                           </li>;
 
@@ -82,6 +99,7 @@ export default class Dropdown extends Component {
                                           role="presentation">
                                         <button type="button"
                                                 role="menuitem"
+                                                tabIndex={killFocus}
                                                 className="li-button mobile-font">
                                         { this.props.presentationType !== 'label'
                                           ?  <svg id={`svg-id${appendId}`}
@@ -91,7 +109,7 @@ export default class Dropdown extends Component {
                                                   <use xlinkHref="#check-sm-18"></use>
                                              </svg>
                                           : null }
-                                            <span className="dropdown-item">{item}</span>
+                                          <span className="dropdown-item">{item}</span>
                                         </button>
                                       </li>);
     }
@@ -99,51 +117,46 @@ export default class Dropdown extends Component {
   }
 
   render() {
-    const { presentationType, presentationText, dropup, alignRight } = this.props;
+    const { presentationType, presentationText, dropup,
+            alignRight, dropdownControlLabel } = this.props;
 
     const dropUp = dropup ? 'drop-up' :'';
     const rightAlign = alignRight ? '-rightAlign' :'';
 
     return (
-        <div onClick={this.toggleDropDown}
+        <div onClick={this.toggleDropdown}
              ref={(div) => { this.dropdown = div; }}
              className="dropdown-container">
 
-          { presentationType === 'label' ?
-                      <div className={`label-wrapper${rightAlign}`}>
-                        <p className="dropdown-label-text">{presentationText}</p>
-                        <button className="icon-btn">
-                          <Icon name='dropdown-open-sm-18'>Dropdown open</Icon>
-                        </button>
-                      </div>
-                    : null }
+          { presentationType === 'label'
+               ?  <div className={`label-wrapper${rightAlign}`}>
+                    <p className="dropdown-label-text">{presentationText}</p>
+                    <button className="icon-btn">
+                      <Icon name='dropdown-open-sm-18'>{dropdownControlLabel}</Icon>
+                    </button>
+                  </div>
+               : null }
 
-          { presentationType === 'button' ?
-                       <div className={`pe-btn-container${rightAlign}`}>
-                         <div className="pe-btn__primary">
-                           {presentationText}
-                           <button className="icon-btn">
-                             <span className="icon-in-button">
-                               <svg aria-hidden="true"
-                                    aria-labelledby="dropdown-title"
-                                    focusable="false"
-                                    className="pe-icon--dropdown-open-sm-18">
-                                    <title id="dropdown-title">Dropdown open</title>
-                                    <use xlinkHref="#dropdown-open-sm-18"></use>
-                               </svg>
-                             </span>
-                           </button>
-                         </div>
-                       </div>
-                     : null }
+          { presentationType === 'button'
+               ?  <div className={`pe-btn-container${rightAlign}`}>
+                    <div className="pe-btn__primary">
+                      {presentationText}
+                      <button className="icon-btn">
+                        <span className="icon-in-button">
+                          <Icon name='dropdown-open-sm-18'>{dropdownControlLabel}</Icon>
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+               : null }
 
-          { presentationType === 'icon' ?
-                     <div className={`icon-btn-wrapper${rightAlign}`}>
-                       <button className="icon-btn">
-                         <Icon name='dropdown-open-sm-24'>Dropdown open</Icon>
-                       </button>
-                     </div>
-                   : null }
+          { presentationType === 'icon'
+               ?  <div className={`icon-btn-wrapper${rightAlign}`}>
+                    <button className="icon-btn">
+                      <Icon name='dropdown-open-sm-24'>{dropdownControlLabel}</Icon>
+                    </button>
+                  </div>
+               : null }
 
           { this.state.open &&
             <CSSTransitionGroup
@@ -161,10 +174,12 @@ export default class Dropdown extends Component {
 
 };
 
-function _toggleDropDown(e) {
+function _toggleDropdown() {
+  this.addListener();
   this.setState({ open: !this.state.open });
 };
 
 function _selectedItem(e) {
   this.setState({ selectedItem: e.target.innerText });
+  this.props.changeHandler ? this.props.changeHandler.call(this, e.target.innerText) : null;
 }

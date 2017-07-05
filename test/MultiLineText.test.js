@@ -18,12 +18,6 @@ describe('MultiLineText', () => {
       expect(this.wrapper.find('label').node.props.className).toEqual('pe-textLabelInput__label--label_error')
     });
 
-    it('should apply correct style for disabled type', function(){
-      this.wrapper = shallow(<MultiLineText id="multiTestId" labelText="Multi Label:" placeholder="place" changeHandler={() => {}}  showText="show" hideText="hide" inputState='disabled' />);
-      this.wrapper.instance().componentDidMount();
-      expect(this.wrapper.find('label').node.props.className).toEqual('pe-textLabelInput__label--label-disabled')
-    });
-
     it('should apply correct style for readOnly type', function(){
       this.wrapper = shallow(<MultiLineText id="multiTestId" labelText="Multi Label:" placeholder="place" changeHandler={() => {}}  showText="show" hideText="hide" inputState='readOnly' />);
       this.wrapper.instance().componentDidMount();

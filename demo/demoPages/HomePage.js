@@ -11,7 +11,7 @@ const HomePage = () => (
             Open Source, Accessible (a11y), Unified Brand that
             is International Ready (i18n, l10n). </p>
 
-          <p>React Components:</p>
+          <h2>React Components:</h2>
 
           <ul className="homepageList">
             <li><Link className="link_homepage" to={`buttons`}>Buttons</Link></li>

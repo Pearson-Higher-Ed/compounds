@@ -23,6 +23,9 @@ class Select extends Component {
     const { labelStyle, inputStyle, spanStyle, selectStyle, containerStyle, containerFocusStyle, disabledStyle, containerStyleTmp, labelFocusStyle, labelStyleTmp } = this.state;
     const { id, fancy, labelText, inputState, options, infoMessage, errorMessage, changeHandler, selectedOption } = this.props;
 
+    const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
+    const ariaDescribedby =  em + ((infoMessage) ? `infoMsg-${id}` : '');
+
       return (
         <div>
           <label className={labelStyleTmp} htmlFor={id}>{labelText}</label>
@@ -30,7 +33,10 @@ class Select extends Component {
             <select id           = {id}
                     defaultValue = {selectedOption}
                     className    = {selectStyle}
-                    disabled     = {inputState === 'disabled' || inputState === 'readOnly'}
+                    aria-invalid     = {inputState === 'error'}
+                    aria-describedby = {ariaDescribedby}
+                    disabled         = {inputState === 'disabled'}
+                    readOnly         = {inputState === 'readOnly'}
                     onFocus      = { () => this.setState({labelStyleTmp:labelFocusStyle, containerStyleTmp:containerFocusStyle}) }
                     onBlur       = { () => this.setState({labelStyleTmp:labelStyle, containerStyleTmp:containerStyle}) }
                     onChange     = { changeHandler }
@@ -40,8 +46,8 @@ class Select extends Component {
             {fancy && <span className={spanStyle} />}
             <Icon name='dropdown-open-18' />
           </div>
-          {infoMessage  && <span className='pe-input--info_message'>{infoMessage}</span>}
-          {errorMessage && <span className='pe-input--error_message'>{errorMessage}</span>}
+            {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
+            {inputState === 'error' && errorMessage && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
         </div>
       )
 
@@ -57,6 +63,8 @@ Select.propTypes = {
   id            : PropTypes.string.isRequired,
   labelText     : PropTypes.string.isRequired,
   options       : PropTypes.array.isRequired,
+  'aria-describedby' : PropTypes.string,
+  'aria-invalid'     : PropTypes.bool,
   changeHandler : PropTypes.func.isRequired,
   infoMessage   : PropTypes.string,
   errorMessage  : PropTypes.string,
@@ -80,12 +88,12 @@ function _applySelectStyles() {
             containerFocusStyle = fancy ? 'pe-select-container-fancy-error-focus' : 'pe-select-container-focus-error';
             break;
           case 'disabled':
-            labelStyle      = 'pe-textLabelInput__label--label-disabled';
+            labelStyle      = 'pe-textLabelInput__label';
             selectStyle     = fancy ? 'pe-selectInput-fancy-disabled'      : 'pe-select-container-disabled';
             spanStyle       = '';
             disabledStyle   = 'disabled';
             containerStyle  = fancy ? 'pe-select-container-fancy-disabled' : 'pe-select-container-disabled';
-            labelFocusStyle = 'pe-textLabelInput__label--label-disabled';
+            labelFocusStyle = 'pe-textLabelInput__label';
             break;
           case 'readOnly':
             labelStyle      = 'pe-textLabelInput__label';
