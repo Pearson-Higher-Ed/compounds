@@ -1,5 +1,15 @@
+<a name="0.8.5"></a>
+## [0.8.5](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.4...v0.8.5) (2017-07-05)
+
+
+
 <a name="0.8.4"></a>
-## [0.8.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.1...v0.8.4) (2017-06-29)
+## [0.8.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.3...v0.8.4) (2017-06-29)
+
+
+
+<a name="0.8.3"></a>
+## [0.8.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.2...v0.8.3) (2017-06-29)
 
 
 ### Bug Fixes
@@ -10,12 +20,33 @@
 
 ### Features
 
+* changeHandler callback added ([a6cfc4f](https://github.com/Pearson-Higher-Ed/compounds/commit/a6cfc4f))
 * esc key closes dropdown ([3f8299a](https://github.com/Pearson-Higher-Ed/compounds/commit/3f8299a))
 
 
 
+<a name="0.8.2"></a>
+## [0.8.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.1...v0.8.2) (2017-06-23)
+
+
+
 <a name="0.8.1"></a>
-## [0.8.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.1...v0.8.1) (2017-06-23)
+## [0.8.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.0...v0.8.1) (2017-06-23)
+
+
+
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.2...v0.8.0) (2017-06-23)
+
+
+### Features
+
+* screen-reader message for show/hide password state added ([dc8ce83](https://github.com/Pearson-Higher-Ed/compounds/commit/dc8ce83))
+
+
+
+<a name="0.7.2"></a>
+## [0.7.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.1...v0.7.2) (2017-06-15)
 
 
 
