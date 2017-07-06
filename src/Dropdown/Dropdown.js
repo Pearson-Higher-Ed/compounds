@@ -34,18 +34,19 @@ export default class Dropdown extends Component {
       selectedItem: ''
     }
 
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.toggleDropdown = _toggleDropdown.bind(this);
     this.selectedItem = _selectedItem.bind(this);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleOutsideClick.bind(this));
-    document.removeEventListener('keydown', this.handleEsc.bind(this));
+    document.removeEventListener('click', this.handleOutsideClick);
+    document.removeEventListener('keydown', this.handleEsc);
   }
 
   addListener() {
-    document.addEventListener('click', this.handleOutsideClick.bind(this));
-    document.addEventListener('keydown', this.handleEsc.bind(this));
+    document.addEventListener('click', this.handleOutsideClick);
+    document.addEventListener('keydown', this.handleEsc);
   }
 
   handleOutsideClick(event) {

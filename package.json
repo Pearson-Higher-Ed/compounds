@@ -1,6 +1,6 @@
 {
   "name": "pearson-compounds",
-  "version": "0.8.4",
+  "version": "0.8.6",
   "description": "Atomic React Components",
   "main": "./build/dist.compounds.js",
   "author": "Pearson Design Accelerator",
