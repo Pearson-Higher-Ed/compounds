@@ -6,11 +6,6 @@ export default class WeekDays extends Component {
     const haystack = Array(...{ length: 7 }).map(Number.call, Number);
     return (
       <div className="r-row r-weekdays">
-        {(() => {
-          if (that.props.weekNumbers) {
-            return <div className="r-cell r-weeknum" />;
-          }
-        })()}
         {haystack.map((item, i) => {
           return (
             <div className="r-cell pe-label--small r-cell-dayNames">

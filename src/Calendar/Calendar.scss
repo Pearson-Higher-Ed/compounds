@@ -1,23 +1,15 @@
 .r-calendar {
   border: 1px solid #c7c7c7;
   background-color: #fff;
-  min-width: 280px;
+  min-width: 320px;
   padding: 16px 20px 20px;
-  margin: 8px;
   height: 320px;
-  width: 320px !important;
-}
-
-.r-calendar * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  width: 320px;
 }
 
 .r-calendar .r-row {
   display: flex;
   flex-flow: row nowrap;
-  width: 100%;
   justify-content: center;
 }
 
@@ -37,15 +29,10 @@
   color: #6a7070;
 }
 
-.r-calendar .r-head {
-  flex-grow: 1;
-  flex-basis: 0;
-}
-
 .r-icons {
   cursor: pointer;
-  height: 40px;
   width: 40px;
+  height: 40px;
 }
 
 .r-calendar .r-title {
@@ -54,8 +41,7 @@
 }
 
 .r-calendar .r-weekdays {
-  flex-grow: 1;
-  flex-basis: 0;
+  height: 40px;
 }
 
 .r-calendar .r-weekdays .r-cell {
@@ -68,6 +54,7 @@
   flex-grow: 6;
   flex-basis: 0;
 }
+
 .r-calendar .r-dates.r-fix {
   flex-grow: 5;
 }
@@ -84,11 +71,8 @@
 .r-calendar .r-cell.r-date {
   cursor: pointer;
   outline: none;
-}
-
-.r-calendar .r-cell.r-date.r-today {
-  background-color: #ffffff;
-  border: solid 1px #0066CC;
+  height: 40px;
+  width: 40px;
 }
 
 .r-calendar .r-cell.r-date:not(.r-past):hover {
@@ -108,14 +92,8 @@
   cursor: not-allowed;
 }
 
-.r-calendar .r-weeknum {
-  color: #999999;
-  font-size: 0.8em;
-}
-
 .r-calendar {
   position: relative;
-  width: 100%;
 }
 
 .r-calendar:after {
@@ -125,7 +103,6 @@
 }
 
 .r-calendar .r-inner {
-  width: 100%;
   height: 100%;
   display: flex;
   flex-flow: column nowrap;

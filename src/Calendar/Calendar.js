@@ -10,7 +10,8 @@ export default class Calendar extends Component {
 
   static propTypes = {
     disablePast: PropTypes.bool,
-    minDate: PropTypes.object
+    minDate: PropTypes.object,
+    dateToParent: PropTypes.func
   }
 
   static defaultProps = {
@@ -30,7 +31,6 @@ export default class Calendar extends Component {
       selectedDate: date.getDate(),
       selectedDt: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
       startDay: 0,
-      weekNumbers: false,
       minDate: this.props.minDate ? this.props.minDate : null,
       disablePast: this.props.disablePast ? this.props.disablePast : false,
       dayNames: ["S", "M", "T", "W", "T", "F", "S"],
@@ -128,8 +128,8 @@ export default class Calendar extends Component {
   }
 
   render() {
-    const { monthNamesFull, month, year, dayNames, startDay, weekNumbers,
-            daysInMonth, firstOfMonth, selectedDate, disablePast, minDate
+    const { monthNamesFull, month, year, dayNames, startDay, daysInMonth,
+            firstOfMonth, selectedDate, disablePast, minDate
           } = this.state;
 
     return (
@@ -144,8 +144,7 @@ export default class Calendar extends Component {
 
           <WeekDays
             dayNames={dayNames}
-            startDay={startDay}
-            weekNumbers={weekNumbers} />
+            startDay={startDay} />
 
           <Months
             month={month}
@@ -154,12 +153,9 @@ export default class Calendar extends Component {
             firstOfMonth={firstOfMonth}
             startDay={startDay}
             onSelect={this.selectDate}
-            weekNumbers={weekNumbers}
             disablePast={disablePast}
             minDate={minDate} />
 
-            {console.log(this.state.selectedDate, 'DATE')}
-            {console.log(this.state.selectedDt, 'DT')}
         </div>
       </div>
     );

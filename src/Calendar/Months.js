@@ -40,18 +40,6 @@ export default class Months extends Component{
           d = day + i * 7;
           return (
             <div className="r-row">
-              {(() => {
-                if (that.props.weekNumbers) {
-                  let wn = Math.ceil(
-                    ((new Date(that.props.year, that.props.month, d) - janOne) /
-                      86400000 + janOne.getDay() + 1) / 7);
-                  return (
-                    <div className="r-cell r-weeknum">
-                      {wn}
-                    </div>
-                  );
-                }
-              })()}
               {weekStack.map((item, i) => {
                 d += 1;
                 isDate = d > 0 && d <= that.props.daysInMonth;
