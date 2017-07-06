@@ -6,55 +6,47 @@ import { TimeList }         from './TimeList';
 
 import './DatePicker.scss';
 
-const KEY_CODE = {
-  ESC        : 27,
-  DOWN_ARROW : 40,
-  UP_ARROW   : 38,
-  SPACE      : 32,
-  END        : 35,
-  HOME       : 36,
-  SHIFT      : 16,
-  TAB        : 9
-};
 
-
-class DatePicker extends Component {
+export default class DatePicker extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      showHours:false
-    };
+    this.state = {};
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
     this.datePickerFocus       = _datePickerFocus.bind(this);
     this.datePickerBlur        = _datePickerBlur.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
     this.validateDate          = _validateDate.bind(this);
+    this.validateTime          = _validateTime.bind(this);
   }
 
   componentDidMount() {
     this.applyDatePickerStyles();
   }
 
-  componentDidUpdate(){
-    if(this.state.selectedDate){
+  componentDidUpdate(nextProps,nextState){
+
+    const { selectedDate, selectedHour, labelStyle } = this.state;
+
+    if(nextState.selectedDate !== selectedDate || nextState.selectedHour !== selectedHour){
       this.setState({
-        datepickerSingleValue : moment(this.state.selectedDate).format('L'),
-        labelStyleTmp         : this.state.labelStyle,
-        displayOpen           : false
+        datepickerValue : selectedDate ? moment(selectedDate).format('L') : selectedHour,
+        labelStyleTmp   : labelStyle,
+        displayOpen     : false
       });
     }
+
   }
 
   render() {
 
-    const { inputStyle, showHours, labelStyleTmp, labelStyle, displayOpen, idValue, datepickerSingleValue, timepickerSingleValue, selectedHour, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg }  = this.state;
-    const { className, fancy, time, datepickerValue, inputState, id, labelText, placeholder, infoMessage, errorMessage } = this.props;
+    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg } = this.state;
+    const { className, fancy, time, inputState, id, labelText, placeholder, infoMessage, errorMessage } = this.props;
 
     const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
-    const ariaDescribedby =  em + ((infoMessage) ? `infoMsg-${id}` : '');
+    const ariaDescribedby = em + (infoMessage ? `infoMsg-${id}` : '');
 
     return (
       <div className={`pe-datepicker-main ${className || ''}`}>
@@ -64,7 +56,7 @@ class DatePicker extends Component {
           <input
             type             = "text"
             id               = {id}
-            value            = {datepickerSingleValue || idValue}
+            value            = {datepickerValue}
             placeholder      = {placeholder}
             className        = {inputStyle}
             aria-describedby = {ariaDescribedby}
@@ -86,7 +78,7 @@ class DatePicker extends Component {
         {!dateValidation && <span className="pe-input--error_message">{dateValidationErrorMsg}</span>}
 
         {displayOpen && !time && <Calendar disablePast={true} selectedDates={[]} dateToParent={date => this.setState({selectedDate:date}) } />}
-        {displayOpen &&  time && <TimeList id={id} selectedHour={selectedHour} twentyFourHour={true} timeToParent={hour => this.setState({selectedHour:hour, displayOpen:false, labelStyleTmp:labelStyle}) } />}
+        {displayOpen &&  time && <TimeList id={`${id}-timelist`} selectedHour={datepickerValue} twentyFourHour={true} timeToParent={hour => this.setState({selectedHour:hour}) } />}
 
       </div>
     );
@@ -94,10 +86,6 @@ class DatePicker extends Component {
   }
 
 }
-
-
-
-export default DatePicker;
 
 
 
@@ -111,10 +99,19 @@ DatePicker.propTypes = {
 
 
 
-
+const KEY_CODE = {
+  ESC        : 27,
+  DOWN_ARROW : 40,
+  UP_ARROW   : 38,
+  SPACE      : 32,
+  END        : 35,
+  HOME       : 36,
+  SHIFT      : 16,
+  TAB        : 9
+};
 
 function _datePickerFocus(){
-  this.setState({labelStyleTmp:this.state.labelFocusStyle, displayOpen:true, showHours:true});
+  this.setState({labelStyleTmp:this.state.labelFocusStyle, displayOpen:true});
 };
 
 function _datePickerBlur(){
@@ -123,9 +120,9 @@ function _datePickerBlur(){
 
 function _changeHandler(e){
 
-  this.setState({idValue:e.target.value, datepickerSingleValue:null});
+  this.setState({datepickerValue:e.target.value});
 
-  this.validateDate(e);
+  // this.props.time ? this.validateTime(e) : this.validateDate(e);
 
   // this.props.changeHandler.call(this);
 
@@ -134,17 +131,29 @@ function _changeHandler(e){
 function _validateDate(e){
 
   const { placeholder } = this.props;
-  const { idValue } = this.state;
+  const { datepickerValue } = this.state;
 
   // when user is finished typing, validate input...
-  if(idValue.length === placeholder.length){
-    if(moment(idValue, placeholder.toUpperCase(), true).format() !== 'Invalid date'){
+  if(datepickerValue.length === placeholder.length){
+    if(moment(datepickerValue, placeholder.toUpperCase(), true).format() !== 'Invalid date'){
       document.getElementById('someGiantIdStart').style.backgroundColor = 'green';
       this.setState({dateValidation:true});
     }else{
       document.getElementById('someGiantIdStart').style.backgroundColor = 'red';
       this.setState({dateValidation:false, dateValidationErrorMsg:"Not Valid!!!"});
     }
+  }
+
+};
+
+function _validateTime(e){
+
+  const { placeholder } = this.props;
+  const { datepickerValue } = this.state;
+
+  // while user is finished typing, validate input...
+  if(datepickerValue.length === placeholder.length){
+
   }
 
 };
