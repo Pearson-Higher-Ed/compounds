@@ -25,6 +25,7 @@ export default class Months extends Component{
     let rows = 5;
 
     if (startDay === 5 && this.props.daysInMonth === 31 || startDay === 6 && this.props.daysInMonth > 29) rows = 6;
+    if (startDay === 0 && this.props.daysInMonth === 28) rows = 4;
 
     className = rows === 6 ? 'r-dates' : 'r-dates r-fix';
     haystack = Array(...{ length: rows }).map(Number.call, Number);
@@ -56,7 +57,7 @@ export default class Months extends Component{
 
                   if (/r-past/.test(className)) {
                     return (
-                      <div className={`${className} pe-label`} role="button" tabIndex="0">
+                      <div className={`${className} pe-label`} role="button">
                         {d}
                       </div>
                     );
@@ -64,8 +65,6 @@ export default class Months extends Component{
 
                   return (
                     <div className={`${className} pe-label`}
-                      role="button"
-                      tabIndex="0"
                       onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}
                     >
                       {d}

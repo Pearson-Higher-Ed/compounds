@@ -10,15 +10,13 @@ export default class Header extends Component {
           {this.props.year}
         </div>
         <div className="r-cell r-icons"
-          onClick={this.props.onPrev.bind(this)}
-          role="button"
-          tabIndex="0">
+             onClick={this.props.onPrev.bind(this)}
+        >
           <Icon name="chevron-back-18" />
         </div>
         <div className="r-cell r-icons"
-          onClick={this.props.onNext.bind(this)}
-          role="button"
-          tabIndex="0">
+             onClick={this.props.onNext.bind(this)}
+        >
           <Icon name="chevron-next-18" />
         </div>
       </div>
