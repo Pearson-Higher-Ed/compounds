@@ -22,14 +22,20 @@ export default class DatePicker extends Component {
     this.validateTime          = _validateTime.bind(this);
   }
 
-  componentDidMount() {
-    this.applyDatePickerStyles();
+  componentDidMount(){
+    this.applyDatePickerStyles(this.props.inputState);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.inputState){
+      this.applyDatePickerStyles(nextProps.inputState);
+    }
   }
 
   componentDidUpdate(nextProps,nextState){
 
     const { selectedDate, selectedHour, labelStyle } = this.state;
-console.log(selectedHour)
+
     if(nextState.selectedDate !== selectedDate || nextState.selectedHour !== selectedHour){
       this.setState({
         datepickerValue : selectedDate ? moment(selectedDate).format('L') : selectedHour,
@@ -95,14 +101,20 @@ DatePicker.propTypes = {
   labelText     : PropTypes.string.isRequired,
   placeholder   : PropTypes.string.isRequired,
   changeHandler : PropTypes.func.isRequired,
-  inputState    : PropTypes.string
+  infoMessage   : PropTypes.string,
+  errorMessage  : PropTypes.string,
+  inputState    : PropTypes.string,
+  fancy         : PropTypes.bool,
+  time          : PropTypes.bool
 };
 
 
 
 
 function _datePickerFocus(){
-  this.setState({labelStyleTmp:this.state.labelFocusStyle, displayOpen:true});
+  if(this.state.inputState !== 'readOnly'){
+    this.setState({labelStyleTmp:this.state.labelFocusStyle, displayOpen:true});
+  }
 };
 
 function _datePickerBlur(){
@@ -112,9 +124,7 @@ function _datePickerBlur(){
 function _changeHandler(e){
 
   this.setState({datepickerValue:e.target.value});
-  // this.props.time ? this.validateTime(e) : this.validateDate(e);
-
-  this.validateDate(e);
+  this.props.time ? this.validateTime(e) : this.validateDate(e);
 
   // this.props.changeHandler.call(this);
 
@@ -124,7 +134,7 @@ function _validateDate(e){
 
   const { placeholder } = this.props;
   const { datepickerValue } = this.state;
-console.log(datepickerValue)
+
   // when user is finished typing, validate input...
   if(datepickerValue.length === placeholder.length){
     if(moment(datepickerValue, placeholder.toUpperCase(), true).format() !== 'Invalid date'){
@@ -153,13 +163,9 @@ function _validateTime(e){
 
 
 
-
-
-
-
-function _applyDatePickerStyles() {
+function _applyDatePickerStyles(inputState) {
   let { labelStyle, inputStyle, spanStyle, labelFocusStyle, labelStyleTmp, containerStyle } = this.state;
-  const { fancy, inputState } = this.props;
+  const { fancy } = this.props;
 
   switch (inputState) {
     case 'error':

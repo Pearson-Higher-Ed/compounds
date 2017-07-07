@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes            from 'prop-types';
-import { Icon, Calendar }   from '../../index';
 import DatePicker           from './DatePicker';
+import { Icon, Calendar }   from '../../index';
 
 import './DatePickerRange.scss';
 
 
-const DatePickerRange = (props) => {
+export const DatePickerRange = (props) => {
 
-    const { classNameContainer, time, className, classNameEnd, fancy, range, id, datepickerValue, placeholder, inputState, labelText, changeHandler, endId, endDatepickerValue, endPlaceholder, endInputState, endLabelText, endChangeHandler, endTime, infoMessage, errorMessage, endInfoMessage, endErrorMessage } = props;
+    const { classNameContainer, time, endTime, className, classNameEnd, fancy, range, id, datepickerValue, placeholder, inputState, labelText, changeHandler, endId, endDatepickerValue, endPlaceholder, endInputState, endLabelText, endChangeHandler, infoMessage, errorMessage, endInfoMessage, endErrorMessage } = props;
 
     return (
       <div className={`pe-range-container ${classNameContainer || ''}`}>
@@ -53,9 +53,23 @@ export default DatePickerRange;
 
 
 DatePickerRange.propTypes = {
-  id            : PropTypes.string.isRequired,
-  labelText     : PropTypes.string.isRequired,
-  placeholder   : PropTypes.string.isRequired,
-  changeHandler : PropTypes.func.isRequired,
-  inputState    : PropTypes.string
+  range            : PropTypes.bool,
+  id               : PropTypes.string.isRequired,
+  labelText        : PropTypes.string.isRequired,
+  placeholder      : PropTypes.string.isRequired,
+  changeHandler    : PropTypes.func.isRequired,
+  infoMessage      : PropTypes.string,
+  errorMessage     : PropTypes.string,
+  inputState       : PropTypes.string,
+  fancy            : PropTypes.bool,
+  time             : PropTypes.bool,
+  endId            : PropTypes.string.isRequired,
+  endLabelText     : PropTypes.string.isRequired,
+  endPlaceholder   : PropTypes.string.isRequired,
+  endChangeHandler : PropTypes.func.isRequired,
+  endInfoMessage   : PropTypes.string,
+  endErrorMessage  : PropTypes.string,
+  endInputState    : PropTypes.string,
+  endFancy         : PropTypes.bool,
+  endTime          : PropTypes.bool
 };
