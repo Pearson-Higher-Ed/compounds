@@ -1,8 +1,6 @@
 import React from 'react';
 import expect from 'expect';
-import { shallow, mount } from 'enzyme';
-import sinon from 'sinon';
-import { jsdom } from 'jsdom';
+import { shallow } from 'enzyme';
 import { Footer } from '../index';
 
 describe('Footer', () => {
@@ -30,16 +28,9 @@ describe('Footer', () => {
       expect(lightProp.instance().props.light).toEqual(true);
     });
 
-    it('calls componentDidMount()', function () {
-      const document = jsdom('');
-      Object.keys(document.defaultView).forEach((property) => {
-        if (typeof global[property] === 'undefined') {
-          global[property] = document.defaultView[property];
-        }
-      });
-      sinon.spy(Footer.prototype, 'componentDidMount');
-      const wrapper = mount(<Footer links={moreLinks} />);
-      expect(Footer.prototype.componentDidMount.calledOnce).toEqual(true);
+    it('correctly assigns the stick class ', function() {
+      const stickProp = shallow(<Footer links={moreLinks} singlePageStick />);
+      expect(stickProp.find('footer').hasClass('pe-footer--stick')).toEqual(true);
     });
 
   });

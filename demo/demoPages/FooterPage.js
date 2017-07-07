@@ -42,9 +42,13 @@ const FooterPage = (props) => {
           <ul>
             <li className="li-props">copyrightText:String</li>
             <li className="li-props">Used to insert copyright information.</li>
-            <li className="li-props">light:Boolean</li>
-            <li className="li-props">The light prop can be used to provide contrast
+            <li className="li-props">light:Boolean === {`<Footer light />`}</li>
+            <li className="li-props">The <b>light</b> prop can be used to provide contrast
             on a darker background.</li>
+            <li className="li-props">singlePageStick:Boolean === {`<Footer singlePageStick />`}</li>
+            <li className="li-props">The <b>singlePageStick</b> prop can be used if the page you are using the Footer on does <br/>
+            not exceed the screen&#39;s height. If the page exceeds one screen in height do not use <br/>
+            this prop as this will absolutely position the Footer over your content.</li>
           </ul>
         </div>
 
@@ -62,9 +66,9 @@ const FooterPage = (props) => {
             }];`} <br/>
             {`const crText= 'Pearson Education Inc.
             All Rights Reserved.';`} <br/><br/>
-            {`<Footer links={testLinks} copyrightText={crText} />`}
+            {`<Footer links={testLinks} copyrightText={crText} singlePageStick />`}
           </p>
-        <Footer links={testLinks} copyrightText={intlText.copyrightText} />
+        <Footer links={testLinks} copyrightText={intlText.copyrightText} singlePageStick />
       </div>
     </div>
     );
