@@ -155,7 +155,6 @@ export default class Calendar extends Component {
             onSelect={this.selectDate}
             disablePast={disablePast}
             minDate={minDate} />
-
         </div>
       </div>
     );

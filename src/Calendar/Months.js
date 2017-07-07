@@ -49,9 +49,9 @@ export default class Months extends Component{
                   className = current !== that.statics.today
                               ? "r-cell r-date" : "r-cell r-date r-today";
                   if (that.props.disablePast && current < that.statics.today) {
-                    className += " r-past";
+                       className += " r-past";
                   } else if (that.props.minDate !== null && current < that.props.minDate) {
-                    className += " r-past";
+                              className += " r-past";
                   }
 
                   if (/r-past/.test(className)) {
