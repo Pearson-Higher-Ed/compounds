@@ -8,19 +8,17 @@ export default class Footer extends Component {
   static propTypes = {
     copyrightText: PropTypes.string,
     links: PropTypes.array.isRequired,
-    light: PropTypes.bool
+    light: PropTypes.bool,
+    singlePageStick: PropTypes.bool
   }
 
   static defaultProps = {
-    light: false
+    light: false,
+    singlePageStick: false
   }
 
   constructor(props) {
     super(props)
-
-    this.state = {
-      position: ''
-    }
   }
 
   renderCopy() {
@@ -43,37 +41,14 @@ export default class Footer extends Component {
     return items;
   }
 
-  componentDidMount() {
-    const that = this;
-    (document.body.scrollHeight > (window.innerHeight * 1.48))
-    ? this.setState({position: ''}) : this.setState({position: '--stick'});
-
-    ((() => {
-      window.addEventListener("resize", resizeThrottler, false);
-      let resizeTimeout;
-
-      function resizeThrottler() {
-        // ignore resize events as long as an actualResizeHandler execution is in the queue
-        if (!resizeTimeout) {
-          resizeTimeout = setTimeout(() => {
-            resizeTimeout = null;
-            actualResizeHandler();
-         }, 500);
-        }
-      }
-
-      function actualResizeHandler() {
-        (document.body.scrollHeight > (window.innerHeight * 1.5))
-        ? that.setState({position: ''}) : that.setState({position: '--stick'});
-      }
-
-    })());
-  }
-
   render() {
 
+    const { light, singlePageStick } = this.props;
+    const lightCheck = light ? 'pe-footer--light':'';
+    const stickCheck = singlePageStick ? '--stick':'';
+
     return (
-        <footer className={`pe-footer${this.state.position} pe-label ${(this.props.light)? 'pe-footer--light':''}`}>
+        <footer className={`pe-footer${stickCheck} pe-label ${lightCheck}`}>
           <ul>
             {this.renderLinks()}
           </ul>

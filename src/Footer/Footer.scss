@@ -33,6 +33,10 @@
 .pe-footer--light a,
 .pe-footer--light p {
   color: #fff;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 @media (max-width: 767px) {
