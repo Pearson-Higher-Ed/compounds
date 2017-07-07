@@ -5,6 +5,7 @@
   padding: 16px 0 20px 0;
   height: 320px;
   width: 320px;
+  margin: 10px;
 }
 
 .r-calendar .r-row {
@@ -34,11 +35,6 @@
   height: 40px;
 }
 
-.tester {
-  height: 32px;
-  width: 32px;
-}
-
 .r-calendar .r-title {
   padding: 0 8px 8px;
   height: 40px;
@@ -46,10 +42,6 @@
 
 .r-calendar .r-weekdays {
   height: 40px;
-}
-
-.r-calendar .r-weekdays .r-cell {
-  font-weight: bold;
 }
 
 .r-calendar .r-dates {
@@ -84,10 +76,14 @@
   background-color: #6a7070;
   border-radius: 50%;
   color: #fff;
+
+  &:hover {
+    background-color: #6a7070;
+  }
 }
 
 .r-calendar .r-cell.r-date.r-past {
-  color: #999999;
+  color: #c7c7c7;
   cursor: not-allowed;
 }
 
