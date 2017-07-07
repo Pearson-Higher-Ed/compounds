@@ -37,6 +37,7 @@ export default class Dropdown extends Component {
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.toggleDropdown = _toggleDropdown.bind(this);
     this.selectedItem = _selectedItem.bind(this);
+    this.handleEsc = this.handleEsc.bind(this);
   }
 
   componentWillUnmount() {
@@ -57,8 +58,8 @@ export default class Dropdown extends Component {
     }
   }
 
-  handleEsc(e) {
-    if (e.which === 27) {
+  handleEsc(event) {
+    if (event.which === 27) {
       this.setState({ open: false });
     }
   }
