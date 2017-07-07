@@ -29,7 +29,7 @@ export default class DatePicker extends Component {
   componentDidUpdate(nextProps,nextState){
 
     const { selectedDate, selectedHour, labelStyle } = this.state;
-
+console.log(selectedHour)
     if(nextState.selectedDate !== selectedDate || nextState.selectedHour !== selectedHour){
       this.setState({
         datepickerValue : selectedDate ? moment(selectedDate).format('L') : selectedHour,
@@ -55,6 +55,7 @@ export default class DatePicker extends Component {
         <div className={containerStyle}>
           <input
             type             = "text"
+            tabIndex         = "0"
             id               = {id}
             value            = {datepickerValue}
             placeholder      = {placeholder}
@@ -78,7 +79,7 @@ export default class DatePicker extends Component {
         {!dateValidation && <span className="pe-input--error_message">{dateValidationErrorMsg}</span>}
 
         {displayOpen && !time && <Calendar disablePast={true} selectedDates={[]} dateToParent={date => this.setState({selectedDate:date}) } />}
-        {displayOpen &&  time && <TimeList id={`${id}-timelist`} selectedHour={datepickerValue} twentyFourHour={true} timeToParent={hour => this.setState({selectedHour:hour}) } />}
+        {displayOpen &&  time && <TimeList id={`${id}-timelist`} selectedHour={datepickerValue} twentyFourHour={false} timeToParent={hour => this.setState({selectedHour:hour}) } />}
 
       </div>
     );
@@ -99,16 +100,6 @@ DatePicker.propTypes = {
 
 
 
-const KEY_CODE = {
-  ESC        : 27,
-  DOWN_ARROW : 40,
-  UP_ARROW   : 38,
-  SPACE      : 32,
-  END        : 35,
-  HOME       : 36,
-  SHIFT      : 16,
-  TAB        : 9
-};
 
 function _datePickerFocus(){
   this.setState({labelStyleTmp:this.state.labelFocusStyle, displayOpen:true});
@@ -121,8 +112,9 @@ function _datePickerBlur(){
 function _changeHandler(e){
 
   this.setState({datepickerValue:e.target.value});
-
   // this.props.time ? this.validateTime(e) : this.validateDate(e);
+
+  this.validateDate(e);
 
   // this.props.changeHandler.call(this);
 
@@ -132,7 +124,7 @@ function _validateDate(e){
 
   const { placeholder } = this.props;
   const { datepickerValue } = this.state;
-
+console.log(datepickerValue)
   // when user is finished typing, validate input...
   if(datepickerValue.length === placeholder.length){
     if(moment(datepickerValue, placeholder.toUpperCase(), true).format() !== 'Invalid date'){
@@ -152,9 +144,9 @@ function _validateTime(e){
   const { datepickerValue } = this.state;
 
   // while user is finished typing, validate input...
-  if(datepickerValue.length === placeholder.length){
-
-  }
+  // if(datepickerValue.length === placeholder.length){
+  //
+  // }
 
 };
 

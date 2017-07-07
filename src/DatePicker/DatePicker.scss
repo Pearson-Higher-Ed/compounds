@@ -14,10 +14,10 @@
 }
 
 %container-extend {
-  position   : relative;
-  display    : $textInput-basic-display;
-  min-width  : $textInput-basic-select-minWidth;
-  padding    : 0;
+  position  : relative;
+  display   : $textInput-basic-display;
+  min-width : $textInput-basic-select-minWidth;
+  padding   : 0;
 }
 
 %container-extend-svg {
@@ -30,30 +30,32 @@
 .pe-datepicker-container {
   @extend %abstract, %container-extend;
   padding    : 0px;
-  position   : relative;
   margin-top : $textInput-basic-marginTop;
   width      : 100%;
 }
 
 .pe-datepicker-main{
-  margin-right:40px;
+  padding   : 10px;
+  flex      : 1 1 auto;
+  min-width : 150px;
+
 }
 
 .pe-datepicker-container svg {
   @extend %container-extend-svg;
-  fill: $pe-color-medium-gray;
+  fill : $pe-color-medium-gray;
 }
 
 .pe-datepicker-container-fancy {
   @extend %abstract, %container-extend;
   padding    : 0px;
   margin-top : $textInput-basic-marginTop;
-  width      : 280px;
+  width      : 100%;
 }
 
 .pe-datepicker-container-fancy svg {
   @extend %container-extend-svg;
-  fill: $pe-color-medium-gray;
-  padding-right: 0px;
-  right: 0;
+  fill          : $pe-color-medium-gray;
+  padding-right : 0px;
+  right         : 0;
 }

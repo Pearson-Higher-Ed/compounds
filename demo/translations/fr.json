@@ -5,6 +5,6 @@
   "passwordLabel"         : "Mot de passe",
   "textLabel"             : "Prénom",
   "textPlaceholder"       : "Prénom",
-  "textInputMessage"      : "Ceci est un message d'information",
+  "textInputInfoMessage"  : "Ceci est un message d'information",
   "textInputErrorMessage" : "Ceci est un message d'erreur"
 }

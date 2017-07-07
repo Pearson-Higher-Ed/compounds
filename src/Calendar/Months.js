@@ -80,7 +80,7 @@ export default class Months extends Component{
                   return (
                     <div className={`${className} pe-label`}
                       role="button"
-                      tabIndex="0"
+                      // tabIndex="0"
                       onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}
                     >
                       {d}

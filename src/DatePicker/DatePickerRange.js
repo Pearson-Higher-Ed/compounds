@@ -8,7 +8,7 @@ import './DatePickerRange.scss';
 
 const DatePickerRange = (props) => {
 
-    const { classNameContainer, time, classNameStart, classNameEnd, fancy, range, id, datepickerValue, placeholder, inputState, labelText, changeHandler, endId, endDatepickerValue, endPlaceholder, endInputState, endLabelText, endChangeHandler } = props;
+    const { classNameContainer, time, className, classNameEnd, fancy, range, id, datepickerValue, placeholder, inputState, labelText, changeHandler, endId, endDatepickerValue, endPlaceholder, endInputState, endLabelText, endChangeHandler, endTime, infoMessage, errorMessage, endInfoMessage, endErrorMessage } = props;
 
     return (
       <div className={`pe-range-container ${classNameContainer || ''}`}>
@@ -17,17 +17,19 @@ const DatePickerRange = (props) => {
           time            = {time}
           fancy           = {fancy}
           id              = {id}
-          className       = {classNameStart}
+          className       = {className}
           datepickerValue = {datepickerValue}
           placeholder     = {placeholder}
           inputState      = {inputState}
           labelText       = {labelText}
           changeHandler   = {changeHandler}
+          infoMessage     = {infoMessage}
+          errorMessage    = {errorMessage}
         />
 
         {range &&
           <DatePicker
-            time            = {time}
+            time            = {endTime}
             fancy           = {fancy}
             id              = {endId}
             className       = {classNameEnd}
@@ -36,6 +38,8 @@ const DatePickerRange = (props) => {
             inputState      = {endInputState}
             labelText       = {endLabelText}
             changeHandler   = {endChangeHandler}
+            infoMessage     = {endInfoMessage}
+            errorMessage    = {endErrorMessage}
           />
         }
 

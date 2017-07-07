@@ -1,16 +1,28 @@
 @import '../../node_modules/pearson-elements/scss/elements/color/color';
 
 .pe-timepicker-list{
-  border: 1px solid $pe-color-medium-gray;
-  max-height: 200px;
-  overflow-y: scroll;
+  position      : absolute;
+  background    : #FFFFFF;
+  border        : 1px solid $pe-color-concrete;
+  border-radius : 3px;
+  max-height    : 200px;
+  overflow-y    : scroll;
+  min-width     : 220px;
+  z-index       : 1;
 }
 
 
 .pe-timepicker-list-item-hour{
-  list-style-type: none;
-  padding-top: 10px;
+  list-style-type : none;
+  padding-top     : 8px;
+  padding-bottom  : 8px;
   &:last-child{
-    padding-bottom:10px;
+    padding-bottom : 10px;
   }
+}
+
+.pe-timepicker-list-item-hour svg {
+  margin-left  : -23px;
+  margin-right : 5px;
+  color        : $pe-color-medium-gray;
 }
