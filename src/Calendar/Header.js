@@ -12,12 +12,16 @@ export default class Header extends Component {
         <div className="r-cell r-icons"
              onClick={this.props.onPrev.bind(this)}
         >
-          <Icon name="chevron-back-18" />
+          <span className="icon-wrapper">
+            <Icon name="chevron-back-18" />
+          </span>
         </div>
         <div className="r-cell r-icons"
              onClick={this.props.onNext.bind(this)}
         >
-          <Icon name="chevron-next-18" />
+          <span className="icon-wrapper">
+            <Icon name="chevron-next-18" />
+          </span>
         </div>
       </div>
     );
