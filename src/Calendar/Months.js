@@ -57,7 +57,7 @@ export default class Months extends Component{
 
                   if (/r-past/.test(className)) {
                     return (
-                      <div className={`${className} pe-label`} role="button">
+                      <div className={`${className} pe-label`}>
                         {d}
                       </div>
                     );

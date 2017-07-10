@@ -31,12 +31,13 @@
 
 .r-icons {
   cursor: pointer;
-  width: 40px;
   height: 40px;
+  flex-grow: 0 !important;
 }
 
 .icon-wrapper {
   color: #6a7070;
+  width: 40px;
 
   &:hover {
     color: #252525;
@@ -46,6 +47,7 @@
 .r-calendar .r-title {
   padding: 0 8px 8px;
   height: 40px;
+  justify-content: flex-start;
 }
 
 .r-calendar .r-weekdays {
