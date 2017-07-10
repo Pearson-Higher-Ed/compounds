@@ -7,6 +7,7 @@ export default class Header extends Component {
       <div className="r-row r-head">
         <div className="r-cell r-title pe-title--small">
           {this.props.monthNames[this.props.month]}
+          <span className="fake-title-space"></span>
           {this.props.year}
         </div>
         <div className="r-cell r-icons"
