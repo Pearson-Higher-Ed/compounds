@@ -67,7 +67,9 @@ export default class Months extends Component{
                     <div className={`${className} pe-label`}
                       onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}
                     >
-                      {d}
+                      <div className="inner-cell-square">
+                        {d}
+                      </div>
                     </div>
                   );
                 }
