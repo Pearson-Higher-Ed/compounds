@@ -67,9 +67,16 @@ export default class Months extends Component{
                     <div className={`${className} pe-label`}
                       onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}
                     >
-                      <div className="inner-cell-square">
-                        {d}
-                      </div>
+                      {current.getDate().toString().split(' ') == that.statics.date
+                        ? <div className="currentDate-box">
+                            <div className="inner-cell-square">
+                              {d}
+                            </div>
+                          </div>
+                        : <div className="inner-cell-square">
+                            {d}
+                          </div>
+                      }
                     </div>
                   );
                 }
