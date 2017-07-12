@@ -4,7 +4,7 @@ import Icon from '../Icon';
 export default class Header extends Component {
   render() {
     return (
-      <div className="r-row r-head">
+      <div className="r-row r-header">
         <div className="r-cell r-title pe-title--small">
           {this.props.monthNames[this.props.month]}
           <span className="fake-title-space" />

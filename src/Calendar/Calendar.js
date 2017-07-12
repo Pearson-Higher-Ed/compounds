@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+
 import Header from './Header';
 import WeekDays from './WeekDays';
-import Months from './Months';
+import Dates from './Dates';
 
 import './Calendar.scss';
 
@@ -11,7 +13,8 @@ export default class Calendar extends Component {
   static propTypes = {
     disablePast: PropTypes.bool,
     minDate: PropTypes.object,
-    dateToParent: PropTypes.func
+    dateToParent: PropTypes.func,
+    onSelect: PropTypes.func
   }
 
   static defaultProps = {
@@ -66,7 +69,7 @@ export default class Calendar extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.onSelect && prevState.selectedDt !== this.state.selectedDt) {
-      this.props.onSelect.call(this.getDOMNode(), this.state);
+      this.props.onSelect.call(ReactDOM.findDOMNode(this), this.state);
     }
   }
 
@@ -146,7 +149,7 @@ export default class Calendar extends Component {
             dayNames={dayNames}
             startDay={startDay} />
 
-          <Months
+          <Dates
             month={month}
             year={year}
             daysInMonth={daysInMonth}

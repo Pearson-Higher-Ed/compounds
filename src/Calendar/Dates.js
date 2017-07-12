@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Months extends Component{
+export default class Dates extends Component{
 
   statics = {
     year: new Date().getFullYear(),
@@ -47,8 +47,7 @@ export default class Months extends Component{
 
                 if (isDate) {
                   current = new Date(that.props.year, that.props.month, d);
-                  className = current !== that.statics.today
-                              ? "r-cell r-date" : "r-cell r-date r-today";
+                  className = "r-cell r-date";
                   if (that.props.disablePast && current < that.statics.today) {
                        className += " r-past";
                   } else if (that.props.minDate !== null && current < that.props.minDate) {
@@ -65,17 +64,17 @@ export default class Months extends Component{
 
                   return (
                     <div className={`${className} pe-label`}
-                      onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}
+                         onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}
                     >
                       {current.getDate().toString().split(' ') == that.statics.date
-                        ? <div className="currentDate-box">
-                            <div className="inner-cell-square">
-                              {d}
-                            </div>
-                          </div>
-                        : <div className="inner-cell-square">
-                            {d}
-                          </div>
+                         ? <div className="currentDate-box">
+                             <div className="inner-cell-square">
+                               {d}
+                             </div>
+                           </div>
+                         : <div className="inner-cell-square">
+                             {d}
+                           </div>
                       }
                     </div>
                   );
