@@ -13,7 +13,6 @@ export default class Calendar extends Component {
   static propTypes = {
     disablePast: PropTypes.bool,
     minDate: PropTypes.object,
-    dateToParent: PropTypes.func,
     onSelect: PropTypes.func
   }
 
@@ -126,8 +125,6 @@ export default class Calendar extends Component {
       selectedDt: new Date(year, month, date),
       selectedElement: element.target
     });
-
-    this.props.dateToParent ? this.props.dateToParent.call(this, new Date(year, month, date)) :null;
   }
 
   render() {

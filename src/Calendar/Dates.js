@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Dates extends Component{
+export default class Dates extends Component {
 
   statics = {
     year: new Date().getFullYear(),
