@@ -5,6 +5,8 @@
   padding: 16px 0 20px 0;
   height: 320px;
   width: 320px;
+  position: absolute;
+  z-index: 1;
 }
 
 .r-calendar .r-row {
@@ -117,10 +119,6 @@
 .r-calendar .r-cell.r-date.r-past {
   color: #c7c7c7;
   cursor: not-allowed;
-}
-
-.r-calendar {
-  position: relative;
 }
 
 .r-calendar:after {
