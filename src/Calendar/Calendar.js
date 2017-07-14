@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+
 import Header from './Header';
 import WeekDays from './WeekDays';
-import Months from './Months';
+import Dates from './Dates';
 
 import './Calendar.scss';
 
 export default class Calendar extends Component {
+
+  static propTypes = {
+    disablePast: PropTypes.bool,
+    minDate: PropTypes.object,
+    onSelect: PropTypes.func
+  }
+
+  static defaultProps = {
+    disablePast: false
+  }
+
   constructor(props) {
     super(props);
 
@@ -19,7 +33,6 @@ export default class Calendar extends Component {
       selectedDate: date.getDate(),
       selectedDt: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
       startDay: 0,
-      weekNumbers: false,
       minDate: this.props.minDate ? this.props.minDate : null,
       disablePast: this.props.disablePast ? this.props.disablePast : false,
       dayNames: ["S", "M", "T", "W", "T", "F", "S"],
@@ -45,14 +58,32 @@ export default class Calendar extends Component {
   }
 
   componentWillMount() {
+    document.addEventListener('keydown', this.handleKeys);
     this.setState(this.calc.call(null, this.state.year, this.state.month));
   }
 
-  componentDidMount() {}
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeys);
+  }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.onSelect && prevState.selectedDt !== this.state.selectedDt) {
-      this.props.onSelect.call(this.getDOMNode(), this.state);
+      this.props.onSelect.call(ReactDOM.findDOMNode(this), this.state);
+    }
+  }
+
+  handleKeys = (e) => {
+    if (e.which === 37 || e.which === 38 || e.which === 39 || e.which === 40 || e.which === 13) {
+      e.preventDefault();
+    }
+
+    switch (e.which) {
+      case 13: console.log(e.which); break; // enter
+      case 37: console.log(e.which); break; // left
+      case 38: console.log(e.which); break; // up
+      case 39: console.log(e.which); break; // right
+      case 40: console.log(e.which); break; // down
+      default: break;
     }
   }
 
@@ -94,38 +125,36 @@ export default class Calendar extends Component {
       selectedDt: new Date(year, month, date),
       selectedElement: element.target
     });
-
-    // ======pass date to the parent componenet=================================
-    this.props.dateToParent.call(this, new Date(year, month, date));
-    // =========================================================================
   }
 
   render() {
+    const { monthNamesFull, month, year, dayNames, startDay, daysInMonth,
+            firstOfMonth, selectedDate, disablePast, minDate
+          } = this.state;
+
     return (
       <div className="r-calendar">
         <div className="r-inner">
           <Header
-            monthNames={this.state.monthNamesFull}
-            month={this.state.month}
-            year={this.state.year}
+            monthNames={monthNamesFull}
+            month={month}
+            year={year}
             onPrev={this.getPrev}
             onNext={this.getNext} />
 
           <WeekDays
-            dayNames={this.state.dayNames}
-            startDay={this.state.startDay}
-            weekNumbers={this.state.weekNumbers} />
+            dayNames={dayNames}
+            startDay={startDay} />
 
-          <Months
-            month={this.state.month}
-            year={this.state.year}
-            daysInMonth={this.state.daysInMonth}
-            firstOfMonth={this.state.firstOfMonth}
-            startDay={this.state.startDay}
+          <Dates
+            month={month}
+            year={year}
+            daysInMonth={daysInMonth}
+            firstOfMonth={firstOfMonth}
+            startDay={startDay}
             onSelect={this.selectDate}
-            weekNumbers={this.state.weekNumbers}
-            disablePast={this.state.disablePast}
-            minDate={this.state.minDate} />
+            disablePast={disablePast}
+            minDate={minDate} />
         </div>
       </div>
     );

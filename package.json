@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "npm run serve",
-    "serve": "NODE_ENV=development webpack-dev-server --hot",
+    "serve": "NODE_ENV=development webpack-dev-server",
     "deploy": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
     "test": "jest --no-cache --coverage",
     "build": "NODE_ENV=production webpack -p",

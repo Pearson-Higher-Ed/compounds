@@ -20,6 +20,7 @@ export default class DatePicker extends Component {
     this.changeHandler         = _changeHandler.bind(this);
     this.validateDate          = _validateDate.bind(this);
     this.validateTime          = _validateTime.bind(this);
+    this.arrowIntoDropdown     = _arrowIntoDropdown.bind(this);
   }
 
   componentDidMount(){
@@ -49,7 +50,7 @@ export default class DatePicker extends Component {
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg } = this.state;
-    const { className, fancy, time, inputState, id, labelText, placeholder, infoMessage, errorMessage } = this.props;
+    const { className, fancy, time, inputState, id, labelText, placeholder, infoMessage, errorMessage, twentyFourHour } = this.props;
 
     const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby = em + (infoMessage ? `infoMsg-${id}` : '');
@@ -84,8 +85,8 @@ export default class DatePicker extends Component {
         {errorMessage    && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
         {!dateValidation && <span className="pe-input--error_message">{dateValidationErrorMsg}</span>}
 
-        {displayOpen && !time && <Calendar disablePast={true} selectedDates={[]} dateToParent={date => this.setState({selectedDate:date}) } />}
-        {displayOpen &&  time && <TimeList id={`${id}-timelist`} selectedHour={datepickerValue} twentyFourHour={false} timeToParent={hour => this.setState({selectedHour:hour}) } />}
+        {displayOpen && !time && <Calendar disablePast={true} selectedDates={[]} onSelect={date => this.setState({selectedDate:date.selectedDt}) } />}
+        {displayOpen &&  time && <TimeList id={`${id}-timelist`} selectedHour={datepickerValue} twentyFourHour={twentyFourHour} timeToParent={hour => this.setState({selectedHour:hour}) } />}
 
       </div>
     );
@@ -97,24 +98,29 @@ export default class DatePicker extends Component {
 
 
 DatePicker.propTypes = {
-  id            : PropTypes.string.isRequired,
-  labelText     : PropTypes.string.isRequired,
-  placeholder   : PropTypes.string.isRequired,
-  changeHandler : PropTypes.func.isRequired,
-  infoMessage   : PropTypes.string,
-  errorMessage  : PropTypes.string,
-  inputState    : PropTypes.string,
-  fancy         : PropTypes.bool,
-  time          : PropTypes.bool
+  id             : PropTypes.string.isRequired,
+  labelText      : PropTypes.string.isRequired,
+  placeholder    : PropTypes.string.isRequired,
+  changeHandler  : PropTypes.func.isRequired,
+  infoMessage    : PropTypes.string,
+  errorMessage   : PropTypes.string,
+  inputState     : PropTypes.string,
+  className      : PropTypes.string,
+  twentyFourHour : PropTypes.bool,
+  fancy          : PropTypes.bool,
+  time           : PropTypes.bool
 };
 
 
 
-
 function _datePickerFocus(){
-  if(this.state.inputState !== 'readOnly'){
-    this.setState({labelStyleTmp:this.state.labelFocusStyle, displayOpen:true});
+
+  const { inputState, labelFocusStyle } = this.state;
+
+  if(inputState !== 'readOnly'){
+    this.setState({labelStyleTmp:labelFocusStyle, displayOpen:true});
   }
+
 };
 
 function _datePickerBlur(){
@@ -159,6 +165,18 @@ function _validateTime(e){
   // }
 
 };
+
+
+
+function _arrowIntoDropdown(e){
+  const { displayOpen } = this.state;
+
+  if(displayOpen && e.keycode === "40"){
+    document.getElementsByClassName('')[0].focus()
+  }
+
+
+}
 
 
 

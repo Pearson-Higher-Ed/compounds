@@ -4,11 +4,12 @@
   position      : absolute;
   background    : #FFFFFF;
   border        : 1px solid $pe-color-concrete;
-  border-radius : 3px;
   max-height    : 200px;
   overflow-y    : scroll;
   min-width     : 220px;
   z-index       : 1;
+  margin-top    : 0px;
+  margin-bottom : 0px;
 }
 
 

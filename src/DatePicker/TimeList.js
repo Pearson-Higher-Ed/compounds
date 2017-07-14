@@ -12,13 +12,19 @@ export const TimeList = (props) => {
   const hoursToList = twentyFourHour ? TWENTYFOUR_HOURS : HOURS;
 
   return (
-    <ul className="pe-timepicker-list">
+    <ul className="pe-timepicker-list" role="listbox" aria-expanded="true" aria-live="polite">
       {
         hoursToList.map((hour,i) =>
-        <li key={`timeList-${id}-item-${i}`} className="pe-timepicker-list-item-hour" onClick={() => timeToParent(hour)} >
-          {selectedHour === hour && <Icon name="check-sm-18" />}
-          {hour}
-        </li>)
+          <li key           = {`timeList-${id}-item-${i}`}
+              id            = {`timeList-${id}-item-${i}`}
+              className     = "pe-timepicker-list-item-hour"
+              role          = "option"
+              aria-selected = {hour === selectedHour}
+              onClick       = {() => timeToParent(hour)}
+            >
+            {selectedHour === hour && <Icon name="check-sm-18" />}
+            {hour}
+          </li>)
       }
     </ul>
   )
