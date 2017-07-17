@@ -1,4 +1,4 @@
-.r-calendar {
+.pe-calendar {
   border: 1px solid #c7c7c7;
   background-color: #fff;
   min-width: 320px;
@@ -9,13 +9,13 @@
   z-index: 1;
 }
 
-.r-calendar .r-row {
+.pe-calendar .pe-cal-row {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
 }
 
-.r-calendar .r-cell {
+.pe-calendar .pe-cal-cell {
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
@@ -26,11 +26,11 @@
   overflow-wrap: break-word;
 }
 
-.r-cell-dayNames {
+.pe-cal-cell-dayNames {
   color: #6a7070;
 }
 
-.r-icons {
+.pe-arrowIcons {
   cursor: pointer;
   height: 40px;
   flex-grow: 0 !important;
@@ -42,7 +42,7 @@
   padding: 0 3px;
 }
 
-.inner-cell-square {
+.pe-cal-cell-square {
   height: 32px;
   width: 32px;
   align-items: center;
@@ -84,50 +84,50 @@
   }
 }
 
-.r-calendar .r-title {
+.pe-calendar .pe-cal-title {
   padding: 0 8px 8px;
   height: 40px;
   justify-content: flex-start;
 }
 
-.r-calendar .r-weekdays {
+.pe-calendar .pe-cal-weekdays {
   height: 40px;
 }
 
-.r-calendar .r-dates {
+.pe-calendar .pe-cal-dates {
   display: flex;
   flex-flow: column nowrap;
   flex-grow: 6;
   flex-basis: 0;
 }
 
-.r-calendar .r-dates.r-fix {
+.pe-calendar .pe-cal-dates.pe-cal-fix {
   flex-grow: 5;
 }
 
-.r-calendar .r-dates .r-row {
+.pe-calendar .pe-cal-dates .pe-cal-row {
   flex-grow: 1;
 }
 
-.r-calendar .r-cell.r-date {
+.pe-calendar .pe-cal-cell.pe-cal-date {
   cursor: pointer;
   outline: none;
   height: 40px;
   width: 40px;
 }
 
-.r-calendar .r-cell.r-date.r-past {
+.pe-calendar .pe-cal-cell.pe-cal-date.pe-cal-past {
   color: #c7c7c7;
   cursor: not-allowed;
 }
 
-.r-calendar:after {
+.pe-calendar:after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
 
-.r-calendar .r-inner {
+.pe-calendar .pe-inner {
   height: 100%;
   display: flex;
   padding: 0 20px;

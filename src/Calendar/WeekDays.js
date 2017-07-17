@@ -5,10 +5,10 @@ export default class WeekDays extends Component {
     const that = this;
     const dayNumbers = Array(...{ length: 7 }).map(Number.call, Number);
     return (
-      <div className="r-row r-weekdays">
+      <div className="pe-cal-row pe-cal-weekdays">
         {dayNumbers.map((item, i) => {
           return (
-            <div className="r-cell pe-label--small r-cell-dayNames">
+            <div className="pe-cal-cell pe-label--small pe-cal-cell-dayNames">
               {that.props.dayNames[(that.props.startDay + i) % 7]}
             </div>
           );

@@ -133,8 +133,8 @@ export default class Calendar extends Component {
           } = this.state;
 
     return (
-      <div className="r-calendar">
-        <div className="r-inner">
+      <div className="pe-calendar">
+        <div className="pe-inner">
           <Header
             monthNames={monthNamesFull}
             month={month}

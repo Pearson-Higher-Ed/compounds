@@ -4,30 +4,28 @@ import Icon from '../Icon';
 export default class Header extends Component {
   render() {
     return (
-      <div className="r-row r-header">
-        <div className="r-cell r-title pe-title--small">
+      <div className="pe-cal-row pe-cal-header">
+        <div className="pe-cal-cell pe-cal-title pe-title--small">
           {this.props.monthNames[this.props.month]}
           <span className="fake-title-space" />
           {this.props.year}
         </div>
-        <div className="r-cell r-icons"
-             onClick={this.props.onPrev.bind(this)}
-             role="button"
-             tabIndex="0"
+        <button className="pe-cal-cell pe-arrowIcons pe-icon--btn"
+                onClick={this.props.onPrev.bind(this)}
+                type="button"
         >
           <span className="icon-wrapper">
             <Icon name="chevron-back-18" />
           </span>
-        </div>
-        <div className="r-cell r-icons"
-             onClick={this.props.onNext.bind(this)}
-             role="button"
-             tabIndex="0"
+        </button>
+        <button className="pe-cal-cell pe-arrowIcons pe-icon--btn"
+                onClick={this.props.onNext.bind(this)}
+                type="button"
         >
           <span className="icon-wrapper">
             <Icon name="chevron-next-18" />
           </span>
-        </div>
+        </button>
       </div>
     );
   }

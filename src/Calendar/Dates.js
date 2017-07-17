@@ -27,7 +27,7 @@ export default class Dates extends Component {
     if (startDay === 5 && this.props.daysInMonth === 31 || startDay === 6 && this.props.daysInMonth > 29) rows = 6;
     if (startDay === 0 && this.props.daysInMonth === 28) rows = 4;
 
-    className = rows === 6 ? 'r-dates' : 'r-dates r-fix';
+    className = rows === 6 ? 'pe-cal-dates' : 'pe-cal-dates pe-cal-fix';
     haystack = Array(...{ length: rows }).map(Number.call, Number);
     day = this.props.startDay + 1 - first;
     while (day > 1) {
@@ -40,21 +40,21 @@ export default class Dates extends Component {
         {haystack.map((item, i) => {
           d = day + i * 7;
           return (
-            <div className="r-row">
+            <div className="pe-cal-row">
               {weekStack.map((item, i) => {
                 d += 1;
                 isDate = d > 0 && d <= that.props.daysInMonth;
 
                 if (isDate) {
                   current = new Date(that.props.year, that.props.month, d);
-                  className = "r-cell r-date";
+                  className = "pe-cal-cell pe-cal-date";
                   if (that.props.disablePast && current < that.statics.today) {
-                       className += " r-past";
+                       className += " pe-cal-past";
                   } else if (that.props.minDate !== null && current < that.props.minDate) {
-                              className += " r-past";
+                              className += " pe-cal-past";
                   }
 
-                  if (/r-past/.test(className)) {
+                  if (/pe-cal-past/.test(className)) {
                     return (
                       <div className={`${className} pe-label`}>
                         {d}
@@ -68,11 +68,11 @@ export default class Dates extends Component {
                     >
                       {current.getDate().toString().split(' ') == that.statics.date
                          ? <div className="currentDate-box">
-                             <div className="inner-cell-square">
+                             <div className="pe-cal-cell-square">
                                {d}
                              </div>
                            </div>
-                         : <div className="inner-cell-square">
+                         : <div className="pe-cal-cell-square">
                              {d}
                            </div>
                       }
@@ -80,7 +80,7 @@ export default class Dates extends Component {
                   );
                 }
 
-                return <div className="r-cell" />;
+                return <div className="pe-cal-cell" />;
               })}
             </div>
           );
