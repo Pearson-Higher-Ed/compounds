@@ -46,9 +46,9 @@ export default class Calendar extends Component {
   calc = (year, month) => {
     if (this.state.selectedElement) {
       if (this.state.selectedMonth !== month || this.state.selectedYear !== year) {
-        this.state.selectedElement.classList.remove('r-selected');
+        this.state.selectedElement.classList.remove('pe-cal-selected');
       } else {
-        this.state.selectedElement.classList.add('r-selected');
+        this.state.selectedElement.classList.add('pe-cal-selected');
       }
     }
     return {
@@ -115,9 +115,11 @@ export default class Calendar extends Component {
 
   selectDate = (year, month, date, element) => {
     if (this.state.selectedElement) {
-      this.state.selectedElement.classList.remove('r-selected');
+      this.state.selectedElement.classList.remove('pe-cal-selected');
+      this.state.selectedElement.removeAttribute('aria-selected');
     }
-    element.target.classList.add('r-selected');
+    element.target.classList.add('pe-cal-selected' );
+    element.target.setAttribute('aria-selected', true);
     this.setState({
       selectedYear: year,
       selectedMonth: month,
@@ -133,7 +135,7 @@ export default class Calendar extends Component {
           } = this.state;
 
     return (
-      <div className="pe-calendar">
+      <div className="pe-calendar" role="grid">
         <div className="pe-inner">
           <Header
             monthNames={monthNamesFull}

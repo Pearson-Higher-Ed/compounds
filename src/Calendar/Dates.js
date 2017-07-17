@@ -36,7 +36,7 @@ export default class Dates extends Component {
     day -= 1;
 
     return (
-      <div className={className}>
+      <div className={className} tabIndex="0">
         {haystack.map((item, i) => {
           d = day + i * 7;
           return (
@@ -64,6 +64,7 @@ export default class Dates extends Component {
 
                   return (
                     <div className={`${className} pe-label`}
+                         role="gridcell"
                          onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}
                     >
                       {current.getDate().toString().split(' ') == that.statics.date
