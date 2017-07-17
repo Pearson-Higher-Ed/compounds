@@ -12,6 +12,8 @@ export default class Header extends Component {
         </div>
         <div className="r-cell r-icons"
              onClick={this.props.onPrev.bind(this)}
+             role="button"
+             tabIndex="0"
         >
           <span className="icon-wrapper">
             <Icon name="chevron-back-18" />
@@ -19,6 +21,8 @@ export default class Header extends Component {
         </div>
         <div className="r-cell r-icons"
              onClick={this.props.onNext.bind(this)}
+             role="button"
+             tabIndex="0"
         >
           <span className="icon-wrapper">
             <Icon name="chevron-next-18" />
