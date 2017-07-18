@@ -13,6 +13,7 @@ export default class Header extends Component {
         <button className="pe-cal-cell pe-arrowIcons pe-icon--btn"
                 onClick={this.props.onPrev.bind(this)}
                 type="button"
+                aria-label="Prev month"
         >
           <span className="icon-wrapper">
             <Icon name="chevron-back-18" />
@@ -21,6 +22,7 @@ export default class Header extends Component {
         <button className="pe-cal-cell pe-arrowIcons pe-icon--btn"
                 onClick={this.props.onNext.bind(this)}
                 type="button"
+                aria-label="Next month"
         >
           <span className="icon-wrapper">
             <Icon name="chevron-next-18" />

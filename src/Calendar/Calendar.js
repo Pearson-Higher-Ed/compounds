@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-
 import Header from './Header';
 import WeekDays from './WeekDays';
 import Dates from './Dates';
-
 import './Calendar.scss';
 
 export default class Calendar extends Component {
@@ -36,6 +34,7 @@ export default class Calendar extends Component {
       minDate: this.props.minDate ? this.props.minDate : null,
       disablePast: this.props.disablePast ? this.props.disablePast : false,
       dayNames: ["S", "M", "T", "W", "T", "F", "S"],
+      dayNamesFull: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       monthNamesFull: ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"],
       firstOfMonth: null,
@@ -58,8 +57,8 @@ export default class Calendar extends Component {
   }
 
   componentWillMount() {
-    document.addEventListener('keydown', this.handleKeys);
     this.setState(this.calc.call(null, this.state.year, this.state.month));
+    document.addEventListener('keydown', this.handleKeys);
   }
 
   componentWillUnmount() {
@@ -73,7 +72,7 @@ export default class Calendar extends Component {
   }
 
   handleKeys = (e) => {
-    if (e.which === 37 || e.which === 38 || e.which === 39 || e.which === 40 || e.which === 13) {
+    if (e.which === 37 || e.which === 38 || e.which === 39 || e.which === 40) {
       e.preventDefault();
     }
 
@@ -118,7 +117,7 @@ export default class Calendar extends Component {
       this.state.selectedElement.classList.remove('pe-cal-selected');
       this.state.selectedElement.removeAttribute('aria-selected');
     }
-    element.target.classList.add('pe-cal-selected' );
+    element.target.classList.add('pe-cal-selected');
     element.target.setAttribute('aria-selected', true);
     this.setState({
       selectedYear: year,
@@ -131,11 +130,11 @@ export default class Calendar extends Component {
 
   render() {
     const { monthNamesFull, month, year, dayNames, startDay, daysInMonth,
-            firstOfMonth, selectedDate, disablePast, minDate
+            firstOfMonth, selectedDate, disablePast, minDate, dayNamesFull
           } = this.state;
 
     return (
-      <div className="pe-calendar" role="grid">
+      <div className="pe-calendar">
         <div className="pe-inner">
           <Header
             monthNames={monthNamesFull}
@@ -146,6 +145,7 @@ export default class Calendar extends Component {
 
           <WeekDays
             dayNames={dayNames}
+            dayNamesFull={dayNamesFull}
             startDay={startDay} />
 
           <Dates
