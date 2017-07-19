@@ -75,13 +75,24 @@ export default class Calendar extends Component {
     if (e.which === 37 || e.which === 38 || e.which === 39 || e.which === 40) {
       e.preventDefault();
     }
+    const doc = document;
+    const test = doc.querySelectorAll('div.pe-cal-cell-square');
 
     switch (e.which) {
-      case 13: this.enterSelect(); break; // enter
-      case 37: console.log(e.which); break; // left
-      case 38: console.log(e.which); break; // up
-      case 39: console.log(e.which); break; // right
-      case 40: console.log(e.which); break; // down
+      case 13: this.enterSelect(); break;
+      case 37: doc.getElementById(`day${this.state.selectedDate - 1}`).focus();
+               this.setState({selectedDate: this.state.selectedDate - 1});
+        break;
+      case 38: doc.getElementById(`day${this.state.selectedDate - 7}`).focus();
+               this.setState({selectedDate: this.state.selectedDate - 7});
+        break;
+      case 39:
+               doc.getElementById(`day${this.state.selectedDate + 1}`).focus();
+               this.setState({selectedDate: this.state.selectedDate + 1});
+        break;
+      case 40: doc.getElementById(`day${this.state.selectedDate + 7}`).focus();
+               this.setState({selectedDate: this.state.selectedDate + 7});
+        break;
       default: break;
     }
   }
@@ -117,7 +128,7 @@ export default class Calendar extends Component {
       this.state.selectedElement.classList.remove('pe-cal-selected');
       this.state.selectedElement.removeAttribute('aria-selected');
     }
-    // console.log(document.querySelectorAll('div.pe-cal-cell-square'));
+    console.log(document.querySelectorAll('div.pe-cal-cell-square')[1]);
     element.target.classList.add('pe-cal-selected');
     element.target.setAttribute('aria-selected', true);
     this.setState({
