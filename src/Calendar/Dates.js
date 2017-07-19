@@ -72,7 +72,8 @@ export default class Dates extends Component {
                          role="gridcell"
                          onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}
                     >
-                      {current.getDate().toString().split(' ') == that.statics.date
+                      {current.getDate().toString().split(' ') == that.statics.date &&
+                       that.props.firstOfMonth.getMonth().toString().split(' ') == that.statics.month
                          ? <div className="currentDate-box">
                              <div className="pe-cal-cell-square" id={`day${d}`}>
                                {d}
