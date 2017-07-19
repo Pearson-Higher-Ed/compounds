@@ -151,6 +151,7 @@ export default class Calendar extends Component {
           <Dates
             month={month}
             year={year}
+            selectedDate={selectedDate}
             daysInMonth={daysInMonth}
             firstOfMonth={firstOfMonth}
             startDay={startDay}

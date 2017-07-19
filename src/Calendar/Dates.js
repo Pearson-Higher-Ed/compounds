@@ -39,6 +39,7 @@ export default class Dates extends Component {
       <div className={className}
            role="grid"
            tabIndex="0"
+           aria-activedescendant={`day${that.props.selectedDate}`}
            aria-labelledby="pe-cal-month"
       >
         {haystack.map((item, i) => {
@@ -73,11 +74,11 @@ export default class Dates extends Component {
                     >
                       {current.getDate().toString().split(' ') == that.statics.date
                          ? <div className="currentDate-box">
-                             <div className="pe-cal-cell-square">
+                             <div className="pe-cal-cell-square" id={`day${d}`}>
                                {d}
                              </div>
                            </div>
-                         : <div className="pe-cal-cell-square">
+                         : <div className="pe-cal-cell-square" id={`day${d}`}>
                              {d}
                            </div>
                       }
