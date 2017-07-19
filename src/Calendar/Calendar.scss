@@ -36,6 +36,12 @@
   flex-grow: 0 !important;
   display: inline;
   text-align: center;
+
+  &:focus {
+    span {
+      color: #252525;
+    }
+  }
 }
 
 .fake-title-space {
