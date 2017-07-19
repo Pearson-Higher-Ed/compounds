@@ -36,7 +36,11 @@ export default class Dates extends Component {
     day -= 1;
 
     return (
-      <div className={className} role="grid" tabIndex="0">
+      <div className={className}
+           role="grid"
+           tabIndex="0"
+           aria-labelledby="pe-cal-month"
+      >
         {haystack.map((item, i) => {
           d = day + i * 7;
           return (

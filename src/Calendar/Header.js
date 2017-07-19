@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Icon from '../Icon';
 
 export default class Header extends Component {
+
   render() {
     return (
       <div className="pe-cal-row pe-cal-header">
-        <div className="pe-cal-cell pe-cal-title pe-title--small">
+        <div className="pe-cal-cell pe-cal-title pe-title--small" id="pe-cal-month">
           {this.props.monthNames[this.props.month]}
           <span className="fake-title-space" />
           {this.props.year}

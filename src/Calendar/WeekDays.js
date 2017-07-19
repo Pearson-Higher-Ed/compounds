@@ -5,6 +5,7 @@ export default class WeekDays extends Component {
   render() {
     const that = this;
     const dayNumbers = Array(...{ length: 7 }).map(Number.call, Number);
+    
     return (
       <div className="pe-cal-row pe-cal-weekdays">
         {dayNumbers.map((item, i) => {
