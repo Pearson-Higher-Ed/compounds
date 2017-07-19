@@ -77,7 +77,7 @@ export default class Calendar extends Component {
     }
 
     switch (e.which) {
-      case 13: console.log(e.which); break; // enter
+      case 13: this.enterSelect(); break; // enter
       case 37: console.log(e.which); break; // left
       case 38: console.log(e.which); break; // up
       case 39: console.log(e.which); break; // right
@@ -117,6 +117,7 @@ export default class Calendar extends Component {
       this.state.selectedElement.classList.remove('pe-cal-selected');
       this.state.selectedElement.removeAttribute('aria-selected');
     }
+    // console.log(document.querySelectorAll('div.pe-cal-cell-square'));
     element.target.classList.add('pe-cal-selected');
     element.target.setAttribute('aria-selected', true);
     this.setState({
@@ -125,6 +126,20 @@ export default class Calendar extends Component {
       selectedDate: date,
       selectedDt: new Date(year, month, date),
       selectedElement: element.target
+    });
+  }
+
+  enterSelect = () => {
+    if (this.state.selectedElement) {
+      this.state.selectedElement.classList.remove('pe-cal-selected');
+      this.state.selectedElement.removeAttribute('aria-selected');
+    }
+    document.activeElement.classList.add('pe-cal-selected');
+    document.activeElement.setAttribute('aria-selected', true);
+    this.setState({
+      selectedDate: document.activeElement.innerText,
+      selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), document.activeElement.innerText),
+      selectedElement: document.activeElement
     });
   }
 

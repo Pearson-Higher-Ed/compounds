@@ -38,7 +38,6 @@ export default class Dates extends Component {
     return (
       <div className={className}
            role="grid"
-           tabIndex="0"
            aria-activedescendant={`day${that.props.selectedDate}`}
            aria-labelledby="pe-cal-month"
       >
@@ -61,7 +60,9 @@ export default class Dates extends Component {
 
                   if (/pe-cal-past/.test(className)) {
                     return (
-                      <div className={`${className} pe-label`}>
+                      <div className={`${className} pe-label`}
+                           aria-disabled={true}
+                      >
                         {d}
                       </div>
                     );
@@ -75,11 +76,17 @@ export default class Dates extends Component {
                       {current.getDate().toString().split(' ') == that.statics.date &&
                        that.props.firstOfMonth.getMonth().toString().split(' ') == that.statics.month
                          ? <div className="currentDate-box">
-                             <div className="pe-cal-cell-square" id={`day${d}`}>
+                             <div className="pe-cal-cell-square"
+                                  id={`day${d}`}
+                                  tabIndex="0"
+                             >
                                {d}
                              </div>
                            </div>
-                         : <div className="pe-cal-cell-square" id={`day${d}`}>
+                         : <div className="pe-cal-cell-square"
+                                id={`day${d}`}
+                                tabIndex="0"
+                           >
                              {d}
                            </div>
                       }
