@@ -76,7 +76,6 @@ export default class Dates extends Component {
                   return (
                     <div className={`${className} pe-label ${dayContrast}`}
                          role="gridcell"
-                         onClick={onSelect.bind(that, year, month, d)}
                     >
                       {current.getDate().toString().split(' ') == that.statics.date &&
                        firstOfMonth.getMonth().toString().split(' ') == that.statics.month
@@ -84,6 +83,7 @@ export default class Dates extends Component {
                              <div className="pe-cal-cell-square"
                                   id={`day${d}`}
                                   tabIndex="0"
+                                  onClick={onSelect.bind(that, year, month, d)}
                              >
                                {d}
                              </div>
@@ -91,6 +91,7 @@ export default class Dates extends Component {
                          : <div className="pe-cal-cell-square"
                                 id={`day${d}`}
                                 tabIndex="0"
+                                onClick={onSelect.bind(that, year, month, d)}
                            >
                              {d}
                            </div>
