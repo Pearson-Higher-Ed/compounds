@@ -162,11 +162,12 @@ export default class Calendar extends Component {
   }
 
   selectDate = (year, month, date, element) => {
+    const selectInverse = this.props.contrast ? '-inverse' :'';
     if (this.state.selectedElement) {
-      this.state.selectedElement.classList.remove('pe-cal-selected');
+      this.state.selectedElement.classList.remove(`pe-cal-selected${selectInverse}`);
       this.state.selectedElement.removeAttribute('aria-selected');
     }
-    element.target.classList.add('pe-cal-selected');
+    element.target.classList.add(`pe-cal-selected${selectInverse}`);
     element.target.setAttribute('aria-selected', true);
     this.setState({
       selectedYear: year,
@@ -178,11 +179,12 @@ export default class Calendar extends Component {
   }
 
   enterSelect = () => {
+    const selectInverse = this.props.contrast ? '-inverse' :'';
     if (this.state.selectedElement) {
-      this.state.selectedElement.classList.remove('pe-cal-selected');
+      this.state.selectedElement.classList.remove(`pe-cal-selected${selectInverse}`);
       this.state.selectedElement.removeAttribute('aria-selected');
     }
-    document.activeElement.classList.add('pe-cal-selected');
+    document.activeElement.classList.add(`pe-cal-selected${selectInverse}`);
     document.activeElement.setAttribute('aria-selected', true);
     this.setState({
       selectedDate: parseInt(document.activeElement.innerText),
@@ -193,20 +195,24 @@ export default class Calendar extends Component {
 
   render() {
     const { monthNamesFull, month, year, dayNames, startDay, daysInMonth,
-            firstOfMonth, selectedDate, disablePast, minDate, dayNamesFull
+            firstOfMonth, selectedDate, disablePast, minDate, dayNamesFull, contrast
           } = this.state;
 
+    const colorSwap = contrast ? 'calendar-contrast' :null;
+
     return (
-      <div className="pe-calendar">
+      <div className={`pe-calendar ${colorSwap}`}>
         <div className="pe-inner">
           <Header
             monthNames={monthNamesFull}
             month={month}
+            contrast={contrast}
             year={year}
             onPrev={this.getPrev}
             onNext={this.getNext} />
 
           <WeekDays
+            contrast={contrast}
             dayNames={dayNames}
             dayNamesFull={dayNamesFull}
             startDay={startDay} />
@@ -214,6 +220,7 @@ export default class Calendar extends Component {
           <Dates
             month={month}
             year={year}
+            contrast={contrast}
             selectedDate={selectedDate}
             daysInMonth={daysInMonth}
             firstOfMonth={firstOfMonth}

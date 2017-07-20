@@ -9,6 +9,11 @@
   z-index: 1;
 }
 
+.calendar-contrast {
+  background-color: #005a70;
+  border: 1px solid #005a70;
+}
+
 .pe-calendar .pe-cal-row {
   display: flex;
   flex-flow: row nowrap;
@@ -28,6 +33,24 @@
 
 .pe-cal-cell-dayNames {
   color: #6a7070;
+}
+
+.inverse-title,
+.inverse-dayNames,
+.date-inverse {
+  color: #FFFFFF !important;
+}
+
+.date-inverse:hover {
+  color: #252525 !important;
+}
+
+.inverse-buttons {
+  color: #FFFFFF !important;
+
+  &:hover {
+    color: #c7c7c7 !important;
+  }
 }
 
 .pe-arrowIcons {
@@ -70,13 +93,27 @@
   justify-content: center;
 }
 
+.pe-cal-selected,
+.pe-cal-selected-inverse {
+  border-radius: 16px;
+  font-weight: 600;
+}
+
 .pe-cal-selected {
   background-color: #6a7070;
-  border-radius: 16px;
   color: #fff;
 
   &:hover {
     background-color: #6a7070;
+  }
+}
+
+.pe-cal-selected-inverse {
+  color: #252525;
+  background-color: #fff;
+
+  &:hover {
+    background-color: #fff;
   }
 }
 

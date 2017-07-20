@@ -18,14 +18,17 @@ export default class Dates extends Component {
     let isDate;
     let className;
     const weekStack = Array(...{ length: 7 }).map(Number.call, Number);
+    const { contrast, daysInMonth, firstOfMonth, year, month, selectedDate,
+            disablePast, minDate, onSelect } = this.props;
+    const dayContrast = contrast ? 'date-inverse' :null;
     const that = this;
-    const startDay = this.props.firstOfMonth.getUTCDay();
-    const first = this.props.firstOfMonth.getDay();
-    const janOne = new Date(that.props.year, 0, 1);
+    const startDay = firstOfMonth.getUTCDay();
+    const first = firstOfMonth.getDay();
+    const janOne = new Date(year, 0, 1);
     let rows = 5;
 
-    if (startDay === 5 && this.props.daysInMonth === 31 || startDay === 6 && this.props.daysInMonth > 29) rows = 6;
-    if (startDay === 0 && this.props.daysInMonth === 28) rows = 4;
+    if (startDay === 5 && daysInMonth === 31 || startDay === 6 && daysInMonth > 29) rows = 6;
+    if (startDay === 0 && daysInMonth === 28) rows = 4;
 
     className = rows === 6 ? 'pe-cal-dates' : 'pe-cal-dates pe-cal-fix';
     haystack = Array(...{ length: rows }).map(Number.call, Number);
@@ -38,7 +41,7 @@ export default class Dates extends Component {
     return (
       <div className={className}
            role="grid"
-           aria-activedescendant={`day${that.props.selectedDate}`}
+           aria-activedescendant={`day${selectedDate}`}
            aria-labelledby="pe-cal-month"
       >
         {haystack.map((item, i) => {
@@ -47,14 +50,14 @@ export default class Dates extends Component {
             <div className="pe-cal-row">
               {weekStack.map((item, i) => {
                 d += 1;
-                isDate = d > 0 && d <= that.props.daysInMonth;
+                isDate = d > 0 && d <= daysInMonth;
 
                 if (isDate) {
-                  current = new Date(that.props.year, that.props.month, d);
+                  current = new Date(year, month, d);
                   className = "pe-cal-cell pe-cal-date";
-                  if (that.props.disablePast && current < that.statics.today) {
+                  if (disablePast && current < that.statics.today) {
                        className += " pe-cal-past";
-                  } else if (that.props.minDate !== null && current < that.props.minDate) {
+                  } else if (minDate !== null && current < minDate) {
                               className += " pe-cal-past";
                   }
 
@@ -71,12 +74,12 @@ export default class Dates extends Component {
                   }
 
                   return (
-                    <div className={`${className} pe-label`}
+                    <div className={`${className} pe-label ${dayContrast}`}
                          role="gridcell"
-                         onClick={that.props.onSelect.bind(that, that.props.year, that.props.month, d)}
+                         onClick={onSelect.bind(that, year, month, d)}
                     >
                       {current.getDate().toString().split(' ') == that.statics.date &&
-                       that.props.firstOfMonth.getMonth().toString().split(' ') == that.statics.month
+                       firstOfMonth.getMonth().toString().split(' ') == that.statics.month
                          ? <div className="currentDate-box">
                              <div className="pe-cal-cell-square"
                                   id={`day${d}`}
