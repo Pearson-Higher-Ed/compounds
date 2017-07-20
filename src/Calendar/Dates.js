@@ -62,6 +62,8 @@ export default class Dates extends Component {
                     return (
                       <div className={`${className} pe-label`}
                            aria-disabled={true}
+                           id={`day${d}`}
+                           tabIndex="0"
                       >
                         {d}
                       </div>

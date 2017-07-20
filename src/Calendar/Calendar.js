@@ -11,11 +11,13 @@ export default class Calendar extends Component {
   static propTypes = {
     disablePast: PropTypes.bool,
     minDate: PropTypes.object,
-    onSelect: PropTypes.func
+    onSelect: PropTypes.func,
+    contrast: PropTypes.bool
   }
 
   static defaultProps = {
-    disablePast: false
+    disablePast: false,
+    contrast: false
   }
 
   constructor(props) {
@@ -33,6 +35,7 @@ export default class Calendar extends Component {
       startDay: 0,
       minDate: this.props.minDate ? this.props.minDate : null,
       disablePast: this.props.disablePast ? this.props.disablePast : false,
+      contrast: this.props.contrast ? this.props.contrast : false,
       dayNames: ["S", "M", "T", "W", "T", "F", "S"],
       dayNamesFull: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       monthNamesFull: ["January", "February", "March", "April", "May", "June",
@@ -75,25 +78,60 @@ export default class Calendar extends Component {
     if (e.which === 37 || e.which === 38 || e.which === 39 || e.which === 40) {
       e.preventDefault();
     }
-    const doc = document;
-    const test = doc.querySelectorAll('div.pe-cal-cell-square');
 
     switch (e.which) {
       case 13: this.enterSelect(); break;
-      case 37: doc.getElementById(`day${this.state.selectedDate - 1}`).focus();
-               this.setState({selectedDate: this.state.selectedDate - 1});
-        break;
-      case 38: doc.getElementById(`day${this.state.selectedDate - 7}`).focus();
-               this.setState({selectedDate: this.state.selectedDate - 7});
-        break;
-      case 39:
-               doc.getElementById(`day${this.state.selectedDate + 1}`).focus();
-               this.setState({selectedDate: this.state.selectedDate + 1});
-        break;
-      case 40: doc.getElementById(`day${this.state.selectedDate + 7}`).focus();
-               this.setState({selectedDate: this.state.selectedDate + 7});
-        break;
+      case 37: this.leftArrow(); break;
+      case 38: this.upArrow(); break;
+      case 39: this.rightArrow(); break;
+      case 40: this.downArrow(); break;
       default: break;
+    }
+  }
+
+  leftArrow = () => {
+    if (this.state.selectedDate <= 1) {
+      this.getPrev();
+      this.setState({selectedDate: this.state.daysInMonth});
+      document.getElementById(`day${this.state.daysInMonth}`).focus();
+    } else {
+      this.setState({selectedDate: this.state.selectedDate - 1});
+      document.getElementById(`day${this.state.selectedDate}`).focus();
+    }
+  }
+
+  rightArrow = () => {
+    if (this.state.selectedDate >= this.state.daysInMonth) {
+      this.getNext();
+      this.setState({selectedDate: 1});
+      document.getElementById('day1').focus();
+    } else {
+      this.setState({selectedDate: this.state.selectedDate + 1});
+      document.getElementById(`day${this.state.selectedDate}`).focus();
+    }
+  }
+
+  upArrow = () => {
+    if (this.state.selectedDate - 7 < 1) {
+      const dayDiff = this.state.selectedDate - 7;
+      this.getPrev();
+      this.setState({selectedDate: this.state.daysInMonth + dayDiff});
+      document.getElementById(`day${this.state.selectedDate}`).focus();
+    } else {
+      this.setState({selectedDate: this.state.selectedDate - 7});
+      document.getElementById(`day${this.state.selectedDate}`).focus();
+    }
+  }
+
+  downArrow = () => {
+    if (this.state.selectedDate + 7 > this.state.daysInMonth) {
+      const diff = (this.state.selectedDate + 7) - this.state.daysInMonth;
+      this.setState({selectedDate: diff});
+      this.getNext();
+      document.getElementById(`day${this.state.selectedDate}`).focus();
+    } else {
+      this.setState({selectedDate: this.state.selectedDate + 7});
+      document.getElementById(`day${this.state.selectedDate}`).focus();
     }
   }
 
@@ -128,7 +166,6 @@ export default class Calendar extends Component {
       this.state.selectedElement.classList.remove('pe-cal-selected');
       this.state.selectedElement.removeAttribute('aria-selected');
     }
-    console.log(document.querySelectorAll('div.pe-cal-cell-square')[1]);
     element.target.classList.add('pe-cal-selected');
     element.target.setAttribute('aria-selected', true);
     this.setState({
@@ -148,8 +185,8 @@ export default class Calendar extends Component {
     document.activeElement.classList.add('pe-cal-selected');
     document.activeElement.setAttribute('aria-selected', true);
     this.setState({
-      selectedDate: document.activeElement.innerText,
-      selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), document.activeElement.innerText),
+      selectedDate: parseInt(document.activeElement.innerText),
+      selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), parseInt(document.activeElement.innerText)),
       selectedElement: document.activeElement
     });
   }
