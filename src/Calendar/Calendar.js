@@ -180,17 +180,20 @@ export default class Calendar extends Component {
 
   enterSelect = () => {
     const selectInverse = this.props.contrast ? '-inverse' :'';
+    const icons = document.querySelectorAll('button.pe-arrowIcons');
     if (this.state.selectedElement) {
       this.state.selectedElement.classList.remove(`pe-cal-selected${selectInverse}`);
       this.state.selectedElement.removeAttribute('aria-selected');
     }
-    document.activeElement.classList.add(`pe-cal-selected${selectInverse}`);
-    document.activeElement.setAttribute('aria-selected', true);
-    this.setState({
-      selectedDate: parseInt(document.activeElement.innerText),
-      selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), parseInt(document.activeElement.innerText)),
-      selectedElement: document.activeElement
-    });
+    if (document.activeElement !== icons[0] && document.activeElement !== icons[1]) {
+      document.activeElement.classList.add(`pe-cal-selected${selectInverse}`);
+      document.activeElement.setAttribute('aria-selected', true);
+      this.setState({
+        selectedDate: parseInt(document.activeElement.innerText),
+        selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), parseInt(document.activeElement.innerText)),
+        selectedElement: document.activeElement
+      });
+  }
   }
 
   render() {
