@@ -12,10 +12,7 @@ export default class DatePicker extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      HOURS            : ["1:00 AM","2:00 AM","3:00 AM","4:00 AM","5:00 AM","6:00 AM","7:00 AM","8:00 AM","9:00 AM","10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM","6:00 PM","7:00 PM","8:00 PM","9:00 PM","10:00 PM","11:00 PM","12:00 AM"],
-      TWENTYFOUR_HOURS : ["1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"]
-    };
+    this.state = {};
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
     this.datePickerFocus       = _datePickerFocus.bind(this);
@@ -38,8 +35,8 @@ export default class DatePicker extends Component {
 
   render() {
 
-    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg, TWENTYFOUR_HOURS, HOURS, placeholder } = this.state;
-    const { className, fancy, time, inputState, id, labelText, dateFormat, infoMessage, errorMessage, twentyFourHour, associationId } = this.props;
+    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg, placeholder } = this.state;
+    const { className, fancy, time, inputState, id, labelText, dateFormat, infoMessage, errorMessage, twentyFourHour, associationId, TWENTYFOUR_HOURS, HOURS } = this.props;
 
     const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby = em + (infoMessage ? `infoMsg-${id}` : '');
@@ -60,7 +57,7 @@ export default class DatePicker extends Component {
             className        = {inputStyle}
             aria-describedby = {ariaDescribedby}
             aria-invalid     = {inputState === 'error'}
-            disabled         = {inputState === 'disabled' || inputState === 'readOnly'}
+            disabled         = {inputState === 'disabled'}
             readOnly         = {inputState === 'readOnly'}
             onFocus          = {this.datePickerFocus}
             onBlur           = {this.datePickerBlur}
@@ -76,7 +73,7 @@ export default class DatePicker extends Component {
         {errorMessage    && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
         {!dateValidation && <span className="pe-input--error_message">{dateValidationErrorMsg}</span>}
 
-        {displayOpen && <div className="pe-dropdownContainer">
+        {displayOpen && inputState !== 'readOnly' && <div className="pe-dropdownContainer">
           {!time && <Calendar disablePast={true} selectedDates={[]} onSelect={this.calendarHandler} />}
           { time && <TimeList id={`${id}-timelist`} hoursToList={twentyFourHour ? TWENTYFOUR_HOURS : HOURS} selectedHour={datepickerValue} timeToParent={this.timeListHandler} />}
         </div>}
@@ -89,20 +86,27 @@ export default class DatePicker extends Component {
 }
 
 
+DatePicker.defaultProps = {
+  HOURS            : ["1:00 AM","2:00 AM","3:00 AM","4:00 AM","5:00 AM","6:00 AM","7:00 AM","8:00 AM","9:00 AM","10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM","6:00 PM","7:00 PM","8:00 PM","9:00 PM","10:00 PM","11:00 PM","12:00 AM"],
+  TWENTYFOUR_HOURS : ["1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"]
+}
+
 
 DatePicker.propTypes = {
-  id             : PropTypes.string.isRequired,
-  labelText      : PropTypes.string.isRequired,
-  dateFormat    : PropTypes.string.isRequired,
-  changeHandler  : PropTypes.func.isRequired,
-  associationId  : PropTypes.string,
-  infoMessage    : PropTypes.string,
-  errorMessage   : PropTypes.string,
-  inputState     : PropTypes.string,
-  className      : PropTypes.string,
-  twentyFourHour : PropTypes.bool,
-  fancy          : PropTypes.bool,
-  time           : PropTypes.bool
+  id               : PropTypes.string.isRequired,
+  labelText        : PropTypes.string.isRequired,
+  dateFormat       : PropTypes.string.isRequired,
+  HOURS            : PropTypes.array.isRequired,
+  TWENTYFOUR_HOURS : PropTypes.array.isRequired,
+  changeHandler    : PropTypes.func.isRequired,
+  associationId    : PropTypes.string,
+  infoMessage      : PropTypes.string,
+  errorMessage     : PropTypes.string,
+  inputState       : PropTypes.string,
+  className        : PropTypes.string,
+  twentyFourHour   : PropTypes.bool,
+  fancy            : PropTypes.bool,
+  time             : PropTypes.bool
 };
 
 
