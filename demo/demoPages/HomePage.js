@@ -21,7 +21,8 @@ const HomePage = () => (
             <li><Link className="link_homepage" to={`dropdown`}>Dropdown</Link></li>
             <li><Link className="link_homepage" to={`footer`}>Footer</Link></li>
             <li><Link className="link_homepage" to={`loadingSpinner`}>Loading Spinner</Link></li>
-            <li><Link className="link_homepage" to={`datepicker`}>DatePicker</Link></li>
+            <li><Link className="link_homepage" to={`date-picker`}>DatePicker</Link></li>
+            <li><Link className="link_homepage" to={`time-picker`}>TimePicker</Link></li>
           </ul>
 
           <p>Contributions: <a href="https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md">FAQ</a></p>

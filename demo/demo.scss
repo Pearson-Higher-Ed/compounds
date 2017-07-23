@@ -80,7 +80,7 @@ h2 a {
 }
 
 .header button svg {
-  vertical-align: text-top;
+  vertical-align: inherit !important;
   margin-left: 10px;
 }
 
@@ -122,4 +122,14 @@ h2 a {
   margin-bottom: 0;
   color: #db0020;
   line-height: 24px;
+}
+
+
+// ====Datepicker ==============================================
+.sidebyside {
+  display: flex;
+  width :100%;
+  &:first-child{
+    margin-right:20px;
+  }
 }

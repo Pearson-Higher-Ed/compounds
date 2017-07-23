@@ -8,6 +8,7 @@ import InputsPage         from './demoPages/InputsPage';
 import DropdownPage       from './demoPages/DropdownPage';
 import FooterPage         from './demoPages/FooterPage';
 import DatePickerPage     from './demoPages/DatePickerPage';
+import TimePickerPage     from './demoPages/TimePickerPage';
 import LoadingSpinnerPage from './demoPages/LoadingSpinnerPage';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
@@ -19,7 +20,8 @@ const DemoRouter = (props) => (
       <HeaderPage />
         <Route path="/" exact         component={HomePage}   />
         <Route path="/icons"          component={IconPage}   />
-        <Route path="/datepicker"     component={DatePickerPage}   />
+        <Route path="/date-picker"     component={DatePickerPage}   />
+        <Route path="/time-picker"     component={TimePickerPage}   />
         <Route path="/inputs"         component={InputsPage} />
         <Route path="/buttons"        component={ButtonPage} />
         <Route path="/dropdown"       component={DropdownPage} />

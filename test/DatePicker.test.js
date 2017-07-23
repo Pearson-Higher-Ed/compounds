@@ -1,7 +1,8 @@
 import React          from 'react';
 import expect         from 'expect';
 import { shallow }    from 'enzyme';
-import { DatePicker } from '../index';
+
+import { DatePicker, DatePickeRange } from '../index';
 
 describe('DatePicker', () => {
 
@@ -9,6 +10,11 @@ describe('DatePicker', () => {
 
     it('should render the DatePicker as div element', function() {
       this.wrapper = shallow(<DatePicker />);
+      expect(this.wrapper.node.type).toEqual('div');
+    });
+
+    it('should render the DatePickeRange as div element', function() {
+      this.wrapper = shallow(<DatePickeRange />);
       expect(this.wrapper.node.type).toEqual('div');
     });
 
