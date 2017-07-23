@@ -36,7 +36,7 @@ export default class DatePicker extends Component {
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg, placeholder } = this.state;
-    const { className, fancy, time, inputState, id, labelText, dateFormat, infoMessage, errorMessage, twentyFourHour, associationId, TWENTYFOUR_HOURS, HOURS } = this.props;
+    const { className, time, inputState, id, labelText, dateFormat, infoMessage, errorMessage, twentyFourHour, associationId, TWENTYFOUR_HOURS, HOURS } = this.props;
 
     const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby = em + (infoMessage ? `infoMsg-${id}` : '');
@@ -66,8 +66,6 @@ export default class DatePicker extends Component {
           />
           <Icon name={time ? "clock-18" : "calendar-18"} />
         </div>
-
-        {fancy && inputState !== 'readOnly' && <span className={spanStyle} />}
 
         {infoMessage     && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
         {errorMessage    && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
@@ -105,7 +103,6 @@ DatePicker.propTypes = {
   inputState       : PropTypes.string,
   className        : PropTypes.string,
   twentyFourHour   : PropTypes.bool,
-  fancy            : PropTypes.bool,
   time             : PropTypes.bool
 };
 
@@ -198,41 +195,36 @@ function _calendarHandler(date){
 }
 
 function _applyDatePickerStyles(inputState) {
-  let { labelStyle, inputStyle, spanStyle, labelFocusStyle, labelStyleTmp, containerStyle } = this.state;
-  const { fancy } = this.props;
+  let { labelStyle, inputStyle, labelFocusStyle, labelStyleTmp, containerStyle } = this.state;
 
   switch (inputState) {
     case 'error':
       labelStyle      = 'pe-textLabelInput__label--label_error';
       labelFocusStyle = 'pe-textLabelInput__label--label_error';
-      inputStyle      = fancy ? 'pe-textInput--input_error'     : 'pe-textInput--basic_error';
-      spanStyle       = fancy ? 'pe-inputError_underline'       : '';
-      containerStyle  = fancy ? 'pe-datepicker-container-fancy' : 'pe-datepicker-container';
+      inputStyle      = 'pe-textInput--basic_error';
+      containerStyle  = 'pe-datepicker-container';
       break;
     case 'disabled':
-      spanStyle       = '';
       labelStyle      = 'pe-textLabelInput__label';
       labelFocusStyle = 'pe-textLabelInput__label';
-      containerStyle  = fancy ? 'pe-datepicker-container-fancy' : 'pe-datepicker-container';
-      inputStyle      = fancy ? 'pe-textInput'                  : 'pe-textInput--basic';
+      containerStyle  = 'pe-datepicker-container';
+      inputStyle      = 'pe-textInput--basic';
       break;
     case 'readOnly':
-      spanStyle       = '';
       labelStyle      = 'pe-textLabelInput__label';
       labelFocusStyle = 'pe-textLabelInput__label';
       inputStyle      = 'pe-textInput--input_readonly';
-      containerStyle  = fancy ? 'pe-datepicker-container-fancy' : 'pe-datepicker-container';
+      containerStyle  = 'pe-datepicker-container';
       break;
     default:
       labelStyle      = 'pe-textLabelInput__label';
       labelFocusStyle = 'pe-textLabelInput__label--label_focus';
-      inputStyle      = fancy ? 'pe-textInput'                  : 'pe-textInput--basic';
-      spanStyle       = fancy ? 'pe-input_underline'            : '';
-      containerStyle  = fancy ? 'pe-datepicker-container-fancy' : 'pe-datepicker-container';
+      inputStyle      = 'pe-textInput--basic';
+      containerStyle  = 'pe-datepicker-container';
   };
 
   labelStyleTmp = labelStyle;
 
-  this.setState({ labelStyle, labelStyleTmp, inputStyle, labelFocusStyle, spanStyle, containerStyle });
+  this.setState({ labelStyle, labelStyleTmp, inputStyle, labelFocusStyle, containerStyle });
 
 };
