@@ -41,7 +41,6 @@ class TimePickerPage extends Component {
 
             <ul>
               <li>time:Boolean  === "render datepicker as timepicker"</li>
-              {/* <li>fancy:Boolean  === "render with fancy style"</li> */}
               <li>className:String  === "styles to pass to datepicker"</li>
               <li>id:String === "A unique name for the datepicker"</li>
               <li>associationId:String === "A unique name to associate 2 picker elemets, used for range"</li>
@@ -74,51 +73,6 @@ class TimePickerPage extends Component {
             errorMessage    = {text.textInputErrorMessage}
           />
           <p className="code">{`<DatePicker time = {true} id = "someGiantId" dateFormat = "hh:mm" inputState = "default" labelText = "Select time" datepickerValue = {this.state.datepickerValue3} changeHandler = {() => console.log("DatePicker-(basic)-changed!!")} infoMessage = "${text.textInputInfoMessage}" errorMessage = "${text.textInputErrorMessage}" />`}</p>
-
-
-          {/* <h2>TimePicker (fancy time): </h2>
-          <DatePicker
-            time            = {true}
-            fancy           = {true}
-            id              = "someGiantId4"
-            dateFormat      = "hh:mm"
-            inputState      = {inputState}
-            labelText       = "Select time"
-            datepickerValue = {this.state.datepickerValue4}
-            changeHandler   = {() => console.log('DatePicker-(basic)-changed!!')}
-            infoMessage     = {text.textInputInfoMessage}
-            errorMessage    = {text.textInputErrorMessage}
-          />
-          <p className="code">{`<DatePicker time = {true} fancy = {true} id = "someGiantId" dateFormat = "hh:mm" inputState = "default" labelText = "Select time" datepickerValue = {this.state.datepickerValue4} changeHandler = {() => console.log("DatePicker-(basic)-changed!!")} infoMessage = "${text.textInputInfoMessage}" errorMessage = "${text.textInputErrorMessage}" />`}</p> */}
-
-          {/* <h2>TimePicker (fancy time range): </h2>
-          <DatePicker
-            time            = {true}
-            fancy           = {true}
-            associationId   = "range1"
-            id              = "someGiantId4"
-            dateFormat      = "hh:mm"
-            inputState      = {inputState}
-            labelText       = "Select time"
-            datepickerValue = {this.state.datepickerValue4}
-            changeHandler   = {() => console.log('DatePicker-(basic)-changed!!')}
-            infoMessage     = {text.textInputInfoMessage}
-            errorMessage    = {text.textInputErrorMessage}
-          />
-          <DatePicker
-            time            = {true}
-            fancy           = {true}
-            associationId   = "range1"
-            id              = "someGiantId4"
-            dateFormat      = "hh:mm"
-            inputState      = {inputState}
-            labelText       = "Select time"
-            datepickerValue = {this.state.datepickerValue4}
-            changeHandler   = {() => console.log('DatePicker-(basic)-changed!!')}
-            infoMessage     = {text.textInputInfoMessage}
-            errorMessage    = {text.textInputErrorMessage}
-          />
-          <p className="code">{`<DatePicker time = {true} fancy = {true} id = "someGiantId" dateFormat = "hh:mm" inputState = "default" labelText = "Select time" datepickerValue = {this.state.datepickerValue4} changeHandler = {() => console.log("DatePicker-(basic)-changed!!")} infoMessage = "${text.textInputInfoMessage}" errorMessage = "${text.textInputErrorMessage}" />`}</p> */}
 
           <h2>TimePicker (basic time range): </h2>
           <DatePicker

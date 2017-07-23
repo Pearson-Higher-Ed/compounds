@@ -48,7 +48,6 @@ class DatePickerPage extends Component {
 
               <ul>
                 <li>time:Boolean  === "render datepicker as timepicker"</li>
-                {/* <li>fancy:Boolean  === "render with fancy style"</li> */}
                 <li>className:String  === "styles to pass to datepicker"</li>
                 <li>id:String === "A unique name for the datepicker"</li>
                 <li>associationId:String === "A unique name to associate 2 picker elemets, used for range"</li>
@@ -65,22 +64,6 @@ class DatePickerPage extends Component {
               <h3>Configure Props:</h3>
               <Select id="select" changeHandler={e => this.setState({inputState:`${e.target.value}`}) } selectedOption={inputState} labelText="Select An inputState:" options={["default", "error", "readOnly", "disabled"]} />
             </div>
-
-
-            {/* <h2>DatePicker (fancy): </h2>
-            <DatePicker
-              fancy           = {true}
-              id              = "someGiantId1"
-              dateFormat      = "mm/dd/yyyy"
-              inputState      = {inputState}
-              labelText       = "Select date"
-              datepickerValue = {this.state.datepickerValue1}
-              changeHandler   = {e => this.setState({datepickerValue1:e.target.value})}
-              infoMessage     = {text.textInputInfoMessage}
-              errorMessage    = {text.textInputErrorMessage}
-            />
-            <p className="code">{`<DatePicker fancy = {true} id = "someGiantId" associationId="range2" dateFormat = "mm/dd/yyyy" inputState = "${inputState}" labelText = "Select date" datepickerValue = {this.state.datepickerValue1} changeHandler = {() => console.log("DatePicker-(fancy)-changed!!")} infoMessage = ""${text.textInputInfoMessage}"" errorMessage = ""${text.textInputErrorMessage}"" />`}</p> */}
-
 
             <h2>DatePicker (basic): </h2>
             <DatePicker
@@ -119,34 +102,6 @@ class DatePickerPage extends Component {
               errorMessage    = {text.textInputErrorMessage}
             />
             <p className="code">{`<DatePicker id = "someGiantId" associationId="range2" dateFormat = "mm/dd/yyyy" inputState = "default" labelText = "Select date" datepickerValue = {this.state.datepickerValue2} changeHandler = {() => console.log("DatePicker-(basic)-changed!!")} infoMessage = "${text.textInputInfoMessage}" errorMessage = "${text.textInputErrorMessage}" />`}</p>
-
-            {/* <h2>DatePicker (fancy range): </h2>
-            <DatePicker
-              fancy           = {true}
-              id              = "someGiantId5"
-              associationId   = "range2"
-              dateFormat      = "mm/dd/yyyy"
-              inputState      = {inputState}
-              labelText       = "Select Start date"
-              datepickerValue = {this.state.datepickerValue5}
-              changeHandler   = {e => this.setState({datepickerValue5:e.target.value})}
-              infoMessage     = {text.textInputInfoMessage}
-              errorMessage    = {text.textInputErrorMessage}
-            />
-            <DatePicker
-              fancy           = {true}
-              id              = "someGiantId6"
-              associationId   = "range2"
-              dateFormat      = "mm/dd/yyyy"
-              inputState      = {inputState}
-              labelText       = "Select End date"
-              datepickerValue = {this.state.datepickerValue6}
-              changeHandler   = {e => this.setState({datepickerValue6:e.target.value})}
-              infoMessage     = {text.textInputInfoMessage}
-              errorMessage    = {text.textInputErrorMessage}
-            />
-            <p className="code">{`<DatePicker id = "someGiantId" associationId="range2" dateFormat = "mm/dd/yyyy" inputState = "default" labelText = "Select date" datepickerValue = {this.state.datepickerValue2} changeHandler = {() => console.log("DatePicker-(basic)-changed!!")} infoMessage = "${text.textInputInfoMessage}" errorMessage = "${text.textInputErrorMessage}" />`}</p> */}
-
 
           </div>
         </div>
