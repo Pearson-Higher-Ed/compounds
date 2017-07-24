@@ -192,6 +192,7 @@ export default class Calendar extends Component {
       document.activeElement.classList.add(`pe-cal-selected${selectInverse}`);
       document.activeElement.setAttribute('aria-selected', true);
       this.setState({
+        selectedMonth: this.state.month,
         selectedDate: parseInt(document.activeElement.innerText),
         selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), parseInt(document.activeElement.innerText)),
         selectedElement: document.activeElement
