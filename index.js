@@ -9,4 +9,5 @@ export Footer          from './src/Footer/Footer';
 export Tabs            from './src/Tabs/Tabs';
 export Pane            from './src/Tabs/Pane';
 export LoadingSpinner  from './src/loadingSpinner/loadingSpinner';
+export StaticAlert     from './src/StaticAlert/StaticAlert';
 export Calendar        from './src/Calendar/Calendar';
