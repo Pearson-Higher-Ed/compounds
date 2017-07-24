@@ -35,27 +35,9 @@
   min-width  : 150px;
 }
 
-.pe-datepicker-main{
-  // min-width : 150px;
-}
-
 .pe-datepicker-container svg {
   @extend %container-extend-svg;
   fill : $pe-color-medium-gray;
-}
-
-.pe-datepicker-container-fancy {
-  @extend %abstract, %container-extend;
-  padding    : 0px;
-  margin-top : $textInput-basic-marginTop;
-  width      : 100%;
-}
-
-.pe-datepicker-container-fancy svg {
-  @extend %container-extend-svg;
-  fill          : $pe-color-medium-gray;
-  padding-right : 0px;
-  right         : 0;
 }
 
 .pe-dropdownContainer{

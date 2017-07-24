@@ -12,11 +12,10 @@ export default class TimeList extends Component {
       focusStartIndex : -1
     };
 
-    this.listEventInterface = _listEventInterface.bind(this);
   }
 
   componentWillMount(){
-    document.body.addEventListener('keyup', this.listEventInterface);
+    document.body.addEventListener('keyup', this::_listEventInterface);
   }
 
   render(){
@@ -44,7 +43,7 @@ export default class TimeList extends Component {
   }
 
   componentWillUnmount(){
-    document.body.removeEventListener('keyup', this.listEventInterface);
+    document.body.removeEventListener('keyup', this::_listEventInterface);
   }
 
 }

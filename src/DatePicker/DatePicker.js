@@ -21,8 +21,6 @@ export default class DatePicker extends Component {
     this.calendarHandler       = _calendarHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
     this.inputEvents           = _inputEvents.bind(this);
-    this.validateDate          = _validateDate.bind(this);
-    this.validateTime          = _validateTime.bind(this);
   }
 
   componentDidMount(){
@@ -110,7 +108,7 @@ DatePicker.propTypes = {
 
 function _datePickerFocus(){
 
-  const { inputState, labelFocusStyle, spanStyle } = this.state;
+  const { inputState, labelFocusStyle } = this.state;
 
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
     this.setState({labelStyleTmp:labelFocusStyle, displayOpen:true});
@@ -125,45 +123,8 @@ function _datePickerBlur(){
 function _changeHandler(e){
 
   this.setState({datepickerValue:e.target.value, displayOpen:false});
-  this.props.time ? this.validateTime(e) : this.validateDate(e);
 
-  // this.props.changeHandler.call(this);
-
-};
-
-function _validateDate(e){
-
-  const { dateFormat } = this.props;
-  const { datepickerValue } = this.state;
-
-  // when user is finished typing, validate input...
-  if(datepickerValue.length === dateFormat.length){
-    if(moment(datepickerValue, dateFormat.toUpperCase(), true).format() !== 'Invalid date'){
-      document.getElementById('someGiantIdStart').style.backgroundColor = 'green';
-      this.setState({dateValidation:true});
-    }else{
-      document.getElementById('someGiantIdStart').style.backgroundColor = 'red';
-      this.setState({dateValidation:false, dateValidationErrorMsg:"Not Valid!!!"});
-    }
-  }
-
-};
-
-function _validateTime(e){
-
-  const { dateFormat } = this.props;
-
-  const { datepickerValue, twentyFourHour, HOURS, TWENTYFOUR_HOURS } = this.state;
-
-  // compare datepickerValue or e.target.value to array of hours....
-  const hourList = twentyFourHour ? TWENTYFOUR_HOURS : HOURS;
-  const matchedValue = hourList.find(hour => hour.indexOf(datepickerValue) !== -1 );
-
-console.log(datepickerValue)
-console.log(matchedValue)
-
-
-  this.setState({placeholder:matchedValue});
+  this.props.changeHandler.call(this);
 
 };
 
