@@ -12,7 +12,9 @@ export default class Calendar extends Component {
     disablePast: PropTypes.bool,
     minDate: PropTypes.object,
     onSelect: PropTypes.func,
-    contrast: PropTypes.bool
+    contrast: PropTypes.bool,
+    dayNamesFull: PropTypes.array.isRequired,
+    monthNamesFull: PropTypes.array.isRequired
   }
 
   static defaultProps = {
@@ -24,6 +26,8 @@ export default class Calendar extends Component {
     super(props);
 
     const date = new Date();
+    const { minDate, disablePast, contrast,
+            dayNamesFull, monthNamesFull } = this.props;
 
     this.state = {
       year: date.getFullYear(),
@@ -33,13 +37,12 @@ export default class Calendar extends Component {
       selectedDate: date.getDate(),
       selectedDt: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
       startDay: 0,
-      minDate: this.props.minDate ? this.props.minDate : null,
-      disablePast: this.props.disablePast ? this.props.disablePast : false,
-      contrast: this.props.contrast ? this.props.contrast : false,
+      minDate: minDate ? minDate : null,
+      disablePast: disablePast ? disablePast : false,
+      contrast: contrast ? contrast : false,
       dayNames: ["S", "M", "T", "W", "T", "F", "S"],
-      dayNamesFull: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      monthNamesFull: ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"],
+      dayNamesFull: dayNamesFull,
+      monthNamesFull: monthNamesFull,
       firstOfMonth: null,
       daysInMonth: null
     }
@@ -202,6 +205,7 @@ export default class Calendar extends Component {
           } = this.state;
 
     const colorSwap = contrast ? 'calendar-contrast' :null;
+    {this.props.testArr}
 
     return (
       <div className={`pe-calendar ${colorSwap}`}>
