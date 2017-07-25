@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Header from './Header';
-import WeekDays from './WeekDays';
-import Dates from './Dates';
+import Header from './children/Header';
+import WeekDays from './children/WeekDays';
+import Dates from './children/Dates';
 import './Calendar.scss';
 
 export default class Calendar extends Component {
