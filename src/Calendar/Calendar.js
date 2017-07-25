@@ -192,6 +192,7 @@ export default class Calendar extends Component {
       document.activeElement.classList.add(`pe-cal-selected${selectInverse}`);
       document.activeElement.setAttribute('aria-selected', true);
       this.setState({
+        selectedYear: this.state.year,
         selectedMonth: this.state.month,
         selectedDate: parseInt(document.activeElement.innerText),
         selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), parseInt(document.activeElement.innerText)),
@@ -204,9 +205,7 @@ export default class Calendar extends Component {
     const { monthNamesFull, month, year, dayNames, startDay, daysInMonth,
             firstOfMonth, selectedDate, disablePast, minDate, dayNamesFull, contrast
           } = this.state;
-
-    const colorSwap = contrast ? 'calendar-contrast' :null;
-    {this.props.testArr}
+    const colorSwap = contrast ? 'calendar-contrast' :'';
 
     return (
       <div className={`pe-calendar ${colorSwap}`}>

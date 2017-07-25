@@ -40,7 +40,7 @@ const CalendarPage = () => (
           {`<Calendar dayNamesFull={days} monthNamesFull={months} />`}
         </p>
 
-      <Calendar dayNamesFull={days} monthNamesFull={months}  />
+      <Calendar dayNamesFull={days} monthNamesFull={months} />
     </div>
 
   </div>
