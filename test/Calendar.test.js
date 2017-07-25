@@ -6,15 +6,11 @@ import { Calendar } from '../index';
 describe('Calendar', () => {
 
   describe('Calendar', function () {
-    beforeEach(function () {
-      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      const months = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
-      this.wrapper = shallow(<Calendar dayNamesFull={days} monthNamesFull={months} />);
-    });
 
-    it('renders', function() {
-      expect(this.wrapper.node.type).toEqual('div');
+    it('sets the minDate properly', function() {
+      const minDate= new Date(2017, 5, 5);
+      const wrapper = shallow(<Calendar minDate={minDate} />);
+      expect(wrapper.unrendered.props.minDate).toEqual(minDate);
     });
 
 

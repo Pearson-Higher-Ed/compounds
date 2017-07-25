@@ -13,8 +13,8 @@ export default class Calendar extends Component {
     minDate: PropTypes.object,
     onSelect: PropTypes.func,
     contrast: PropTypes.bool,
-    dayNamesFull: PropTypes.array.isRequired,
-    monthNamesFull: PropTypes.array.isRequired
+    dayNamesFull: PropTypes.array,
+    monthNamesFull: PropTypes.array
   }
 
   static defaultProps = {
@@ -41,8 +41,9 @@ export default class Calendar extends Component {
       disablePast: disablePast ? disablePast : false,
       contrast: contrast ? contrast : false,
       dayNames: ["S", "M", "T", "W", "T", "F", "S"],
-      dayNamesFull: dayNamesFull,
-      monthNamesFull: monthNamesFull,
+      dayNamesFull: dayNamesFull || ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      monthNamesFull: monthNamesFull || ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"],
       firstOfMonth: null,
       daysInMonth: null
     }
