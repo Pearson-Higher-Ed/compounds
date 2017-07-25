@@ -5,7 +5,7 @@ import { Calendar } from '../index';
 
 describe('Calendar', () => {
 
-  describe('Placeholder', function () {
+  describe('Calendar', function () {
     beforeEach(function () {
       const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       const months = ["January", "February", "March", "April", "May", "June",
@@ -13,8 +13,8 @@ describe('Calendar', () => {
       this.wrapper = shallow(<Calendar dayNamesFull={days} monthNamesFull={months} />);
     });
 
-    it('blah', function() {
-      expect(this.wrapper.node.type.toEqual('div'));
+    it('renders', function() {
+      expect(this.wrapper.node.type).toEqual('div');
     });
 
 

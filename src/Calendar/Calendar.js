@@ -64,6 +64,9 @@ export default class Calendar extends Component {
 
   componentWillMount() {
     this.setState(this.calc.call(null, this.state.year, this.state.month));
+  }
+
+  componentDidMount() {
     document.addEventListener('keydown', this.handleKeys);
   }
 
