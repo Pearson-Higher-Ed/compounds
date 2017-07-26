@@ -32,7 +32,7 @@ const CalendarPage = () => (
           {`<Calendar />`}
         </p>
 
-      <Calendar />
+      <Calendar  />
     </div>
 
   </div>

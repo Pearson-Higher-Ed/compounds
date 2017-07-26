@@ -20,7 +20,7 @@ export default class Dates extends Component {
     const weekStack = Array(...{ length: 7 }).map(Number.call, Number);
     const { contrast, daysInMonth, firstOfMonth, year, month, selectedDate,
             disablePast, minDate, onSelect } = this.props;
-    const dayContrast = contrast ? 'date-inverse' :null;
+    const dayContrast = contrast ? 'date-inverse' :'';
     const that = this;
     const startDay = firstOfMonth.getUTCDay();
     const first = firstOfMonth.getDay();
@@ -74,22 +74,23 @@ export default class Dates extends Component {
                   }
 
                   return (
-                    <div className={`${className} pe-label ${dayContrast}`}
-                         role="gridcell"
-                    >
+                    <div className={`${className} pe-label ${dayContrast}`}>
                       {current.getDate().toString().split(' ') == that.statics.date &&
                        firstOfMonth.getMonth().toString().split(' ') == that.statics.month
                          ? <div className="currentDate-box">
                              <div className="pe-cal-cell-square"
                                   id={`day${d}`}
+                                  role="gridcell"
                                   tabIndex="0"
                                   onClick={onSelect.bind(that, year, month, d)}
                              >
                                {d}
+                               <span className="pe-sr-only">Current date</span>
                              </div>
                            </div>
                          : <div className="pe-cal-cell-square"
                                 id={`day${d}`}
+                                role="gridcell"
                                 tabIndex="0"
                                 onClick={onSelect.bind(that, year, month, d)}
                            >
