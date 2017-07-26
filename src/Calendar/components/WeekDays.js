@@ -5,7 +5,7 @@ export default class WeekDays extends Component {
   render() {
     const { dayNamesFull, dayNames, startDay, contrast } = this.props;
     const dayNumbers = Array(...{ length: 7 }).map(Number.call, Number);
-    const inverseColor = contrast ? 'inverse-dayNames' :null;
+    const inverseColor = contrast ? 'inverse-dayNames' :'';
 
     return (
       <div className="pe-cal-row pe-cal-weekdays">

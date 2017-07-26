@@ -5,8 +5,8 @@ export default class Header extends Component {
 
   render() {
     const { onPrev, onNext, month, year, monthNames, contrast } = this.props;
-    const colorSwap = contrast ? 'inverse-title' :null;
-    const iconSwap = contrast ? 'inverse-buttons' :null;
+    const colorSwap = contrast ? 'inverse-title' :'';
+    const iconSwap = contrast ? 'inverse-buttons' :'';
 
     return (
       <div className="pe-cal-row pe-cal-header">
