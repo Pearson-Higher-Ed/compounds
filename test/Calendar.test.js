@@ -28,7 +28,19 @@ describe('Calendar', () => {
       expect(wrapper.node.props.children.props.children[1].props.dayNamesFull).toEqual(daysFR);
     });
 
+    describe('mounted', function () {
+      const document = jsdom('');
+      Object.keys(document.defaultView).forEach((property) => {
+        if (typeof global[property] === 'undefined') {
+          global[property] = document.defaultView[property];
+        }
+      });
 
+      it('something', function() {
+        const wrapper = mount(<Calendar />);
+        console.log(wrapper.node);
+      });
+    })
 
   });
 });

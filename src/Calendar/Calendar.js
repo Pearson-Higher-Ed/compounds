@@ -193,6 +193,7 @@ export default class Calendar extends Component {
       this.state.selectedElement.classList.remove(`pe-cal-selected${selectInverse}`);
       this.state.selectedElement.removeAttribute('aria-selected');
     }
+    if (document.activeElement.hasAttribute('aria-disabled')) return;
     if (document.activeElement !== icons[0] && document.activeElement !== icons[1]) {
       document.activeElement.classList.add(`pe-cal-selected${selectInverse}`);
       document.activeElement.setAttribute('aria-selected', true);
