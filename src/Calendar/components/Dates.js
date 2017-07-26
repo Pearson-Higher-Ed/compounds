@@ -21,6 +21,7 @@ export default class Dates extends Component {
     const { contrast, daysInMonth, firstOfMonth, year, month, selectedDate,
             disablePast, minDate, onSelect } = this.props;
     const dayContrast = contrast ? 'date-inverse' :'';
+    const disabledContrast = contrast ? '-inverse' :'';
     const that = this;
     const startDay = firstOfMonth.getUTCDay();
     const first = firstOfMonth.getDay();
@@ -63,7 +64,7 @@ export default class Dates extends Component {
 
                   if (/pe-cal-past/.test(className)) {
                     return (
-                      <div className={`${className} pe-label`}
+                      <div className={`${className}${disabledContrast} pe-label`}
                            aria-disabled={true}
                            id={`day${d}`}
                            tabIndex="0"
