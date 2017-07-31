@@ -13,5 +13,5 @@ npm-debug.log
 
 #====-Build Section-=========
 # comment out for gh_pages...
-##/build
+/build
 #============================
