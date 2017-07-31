@@ -94,45 +94,14 @@ export default RadioCheckGroupSection;
 
 
 
-function _checkboxHandler (e) {
-    const newSelection = e.target.value;
-
-    let newSelectionArray;
-
-    if(this.state.checkboxSelectedOptions.indexOf(newSelection) > -1) {
-      newSelectionArray = this.state.checkboxSelectedOptions.filter(s => s !== newSelection)
-    } else {
-      newSelectionArray = [...this.state.checkboxSelectedOptions, newSelection];
-    }
-
-    this.setState({ checkboxSelectedOptions: newSelectionArray });
-  }
-
-
-function _radioHandler1 (e) {
-    const newSelection = e.target.value;
-
-    let newSelectionArray;
-
-    if(this.state.radioSelectedOptions1.indexOf(newSelection) > -1) {
-      newSelectionArray = this.state.radioSelectedOptions1.filter(s => s !== newSelection)
-    } else {
-      newSelectionArray = [newSelection];
-    }
-
-    this.setState({ radioSelectedOptions1: newSelectionArray });
+function _checkboxHandler (newSelectionArray) {
+  this.setState({ checkboxSelectedOptions: newSelectionArray });
 }
 
-function _radioHandler2 (e) {
-    const newSelection = e.target.value;
+function _radioHandler1 (newSelectionArray) {
+  this.setState({ radioSelectedOptions1: newSelectionArray });
+}
 
-    let newSelectionArray;
-
-    if(this.state.radioSelectedOptions2.indexOf(newSelection) > -1) {
-      newSelectionArray = this.state.radioSelectedOptions2.filter(s => s !== newSelection)
-    } else {
-      newSelectionArray = [newSelection];
-    }
-
-    this.setState({ radioSelectedOptions2: newSelectionArray });
+function _radioHandler2 (newSelectionArray) {
+  this.setState({ radioSelectedOptions2: newSelectionArray });
 }
