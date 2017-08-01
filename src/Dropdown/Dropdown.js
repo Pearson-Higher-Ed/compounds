@@ -96,7 +96,7 @@ export default class Dropdown extends Component {
     return (
         <div className="dropdown-container">
           {this.renderPresentation()}
-          <ul className={this.state.open ? "" : "dropdown-menu"} onClick={this.itemSelected}>
+          <ul className={this.state.open ? '' : 'dropdown-menu'} onClick={this.itemSelected}>
             {this.props.children}
           </ul>
         </div>
