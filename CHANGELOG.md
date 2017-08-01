@@ -1,19 +1,50 @@
+<a name="0.8.9"></a>
+## [0.8.9](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.8...v0.8.9) (2017-08-01)
+
+
+
 <a name="0.8.8"></a>
-## [0.8.8](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.5...v0.8.8) (2017-07-31)
+## [0.8.8](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.7...v0.8.8) (2017-07-31)
+
+
+
+<a name="0.8.7"></a>
+## [0.8.7](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.6...v0.8.7) (2017-07-07)
+
+
+### Bug Fixes
+
+* esc key again closes the DD menu ([1db4529](https://github.com/Pearson-Higher-Ed/compounds/commit/1db4529))
+
+
+
+<a name="0.8.6"></a>
+## [0.8.6](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.5...v0.8.6) (2017-07-05)
+
+
+### Bug Fixes
+
+* remove listener binding ([63a411b](https://github.com/Pearson-Higher-Ed/compounds/commit/63a411b))
+
+
+
+<a name="0.8.5"></a>
+## [0.8.5](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.4...v0.8.5) (2017-07-05)
+
+
+
+<a name="0.8.4"></a>
+## [0.8.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.3...v0.8.4) (2017-06-29)
+
+
+
+<a name="0.8.3"></a>
+## [0.8.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.2...v0.8.3) (2017-06-29)
 
 
 ### Bug Fixes
 
 * disableHostCheck on webpack for VM issues ([208ce91](https://github.com/Pearson-Higher-Ed/compounds/commit/208ce91))
-* dropdown overlaying other elements & taking up 100% height on mobile ([83144f6](https://github.com/Pearson-Higher-Ed/compounds/commit/83144f6))
-* esc key again closes the DD menu ([1db4529](https://github.com/Pearson-Higher-Ed/compounds/commit/1db4529))
-* focus order for close buttons ([2e6e69c](https://github.com/Pearson-Higher-Ed/compounds/commit/2e6e69c))
-* Font styles ([0a69a7f](https://github.com/Pearson-Higher-Ed/compounds/commit/0a69a7f))
-* Footer unit test ([a952fcc](https://github.com/Pearson-Higher-Ed/compounds/commit/a952fcc))
-* icons path in index.html ([35383f0](https://github.com/Pearson-Higher-Ed/compounds/commit/35383f0))
-* PR comments ([de43d0b](https://github.com/Pearson-Higher-Ed/compounds/commit/de43d0b))
-* remove listener binding ([63a411b](https://github.com/Pearson-Higher-Ed/compounds/commit/63a411b))
-* removes direct proptype validation... ([c49ace3](https://github.com/Pearson-Higher-Ed/compounds/commit/c49ace3))
 * setState errors solved ([5c8443e](https://github.com/Pearson-Higher-Ed/compounds/commit/5c8443e))
 
 
@@ -21,7 +52,103 @@
 
 * changeHandler callback added ([a6cfc4f](https://github.com/Pearson-Higher-Ed/compounds/commit/a6cfc4f))
 * esc key closes dropdown ([3f8299a](https://github.com/Pearson-Higher-Ed/compounds/commit/3f8299a))
+
+
+
+<a name="0.8.2"></a>
+## [0.8.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.1...v0.8.2) (2017-06-23)
+
+
+
+<a name="0.8.1"></a>
+## [0.8.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.0...v0.8.1) (2017-06-23)
+
+
+
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.2...v0.8.0) (2017-06-23)
+
+
+### Features
+
 * screen-reader message for show/hide password state added ([dc8ce83](https://github.com/Pearson-Higher-Ed/compounds/commit/dc8ce83))
+
+
+
+<a name="0.7.2"></a>
+## [0.7.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.1...v0.7.2) (2017-06-15)
+
+
+
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.7.0...v0.7.1) (2017-06-14)
+
+
+
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.6.1...v0.7.0) (2017-06-14)
+
+
+### Bug Fixes
+
+* dropdown overlaying other elements & taking up 100% height on mobile ([83144f6](https://github.com/Pearson-Higher-Ed/compounds/commit/83144f6))
+
+
+
+<a name="0.6.1"></a>
+## [0.6.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.6.0...v0.6.1) (2017-06-06)
+
+
+
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.5.2...v0.6.0) (2017-06-02)
+
+
+### Bug Fixes
+
+* PR comments ([de43d0b](https://github.com/Pearson-Higher-Ed/compounds/commit/de43d0b))
+
+
+
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.5.1...v0.5.2) (2017-05-31)
+
+
+
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.5.0...v0.5.1) (2017-05-31)
+
+
+### Bug Fixes
+
+* removes direct proptype validation... ([c49ace3](https://github.com/Pearson-Higher-Ed/compounds/commit/c49ace3))
+
+
+
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.7...v0.5.0) (2017-05-31)
+
+
+### Bug Fixes
+
+* Footer unit test ([a952fcc](https://github.com/Pearson-Higher-Ed/compounds/commit/a952fcc))
+
+
+
+<a name="0.4.7"></a>
+## [0.4.7](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.6...v0.4.7) (2017-05-31)
+
+
+
+<a name="0.4.6"></a>
+## [0.4.6](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.4.5...v0.4.6) (2017-05-31)
+
+
+### Bug Fixes
+
+* focus order for close buttons ([2e6e69c](https://github.com/Pearson-Higher-Ed/compounds/commit/2e6e69c))
+* Font styles ([0a69a7f](https://github.com/Pearson-Higher-Ed/compounds/commit/0a69a7f))
+* icons path in index.html ([35383f0](https://github.com/Pearson-Higher-Ed/compounds/commit/35383f0))
 
 
 
