@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown } from '../../index';
+import { Dropdown, DropdownItem } from '../../index';
 
 const simpleList = ['Thing one', 'Thing two'];
 const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', '!!'];
@@ -47,7 +47,14 @@ const DropdownPage = () => (
             presentationText="label"
             list={simpleList}
             mobileTitle={mobileTitle}
-          />
+            changeHandler={(item) => {
+              console.log(item);
+            }}
+          >
+            <DropdownItem label="list item 1" />
+            <DropdownItem divider />
+            <DropdownItem label="list item 2" />
+          </Dropdown>
           <p className="code">
             {`const simpleList = ['Thing one', 'Thing two'];`} <br/>
             {`<Dropdown
