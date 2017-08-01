@@ -9,9 +9,19 @@ describe('Calendar', () => {
   describe('Calendar', function () {
 
     it('sets the minDate properly', function() {
-      const minDate= new Date(2017, 5, 5);
+      const minDate = new Date(2017, 5, 5);
       const wrapper = shallow(<Calendar minDate={minDate} />);
       expect(wrapper.unrendered.props.minDate).toEqual(minDate);
+    });
+
+    it('disables pastDates', function() {
+      const wrapper = shallow(<Calendar disablePast />);
+      expect(wrapper.unrendered.props.disablePast).toEqual(true);
+    });
+
+    it('provides contrast', function() {
+      const wrapper = shallow(<Calendar contrast />);
+      expect(wrapper.unrendered.props.contrast).toEqual(true);
     });
 
     it('passes intl months', function() {
@@ -30,17 +40,35 @@ describe('Calendar', () => {
 
     describe('mounted', function () {
       const document = jsdom('');
+      const date = new Date();
+      const currentDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      const month = date.getMonth();
+
       Object.keys(document.defaultView).forEach((property) => {
         if (typeof global[property] === 'undefined') {
           global[property] = document.defaultView[property];
         }
       });
+      const wrapper = mount(<Calendar />);
 
-      it('something', function() {
-        const wrapper = mount(<Calendar />);
-        console.log(wrapper.node);
+      it('selects a new date', function() {
+        const selectedDate = new Date(date.getFullYear(), date.getMonth(), 3);
+        expect(wrapper.node.state.selectedDt).toEqual(currentDate);
+        wrapper.find('#day3').simulate('click');
+        expect(wrapper.node.state.selectedDt).toEqual(selectedDate);
       });
-    })
+
+      it('goes to prev month', function() {
+        expect(wrapper.node.state.month).toEqual(month);
+        wrapper.find('[aria-label="Prev month"]').simulate('click');
+        expect(wrapper.node.state.month).toEqual(month - 1);
+      });
+
+      it('goes to next month', function() {
+        wrapper.find('[aria-label="Next month"]').simulate('click');
+        expect(wrapper.node.state.month).toEqual(month);
+      });
+    });
 
   });
 });

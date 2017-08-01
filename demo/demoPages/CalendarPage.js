@@ -22,7 +22,7 @@ const CalendarPage = () => (
             specified date.</li>
             <li className="li-props">onSelect:Function === {`<Calendar onSelect={(date) => console.log(date)}`}</li>
             <li className="li-props">Callback fired on new date selection.  This will expose the state Object.</li>
-            <li className="li-props">contrast:Boolean ==={`<Calendar contrast />`}</li>
+            <li className="li-props">contrast:Boolean === {`<Calendar contrast />`}</li>
             <li className="li-props"><i>contrast</i> will apply a blue background and make the text white.</li>
           </ul>
       </div>
@@ -32,7 +32,7 @@ const CalendarPage = () => (
           {`<Calendar />`}
         </p>
 
-      <Calendar  />
+      <Calendar />
     </div>
 
   </div>
