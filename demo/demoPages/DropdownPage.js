@@ -6,14 +6,15 @@ const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', '!!'];
 const mobileTitle = "Test title";
 const DropdownPage = () => (
     <div className="displaySection">
-    <h2><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/">Dropdown</a></h2>
+      <h2><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/">Dropdown</a></h2>
 
       <div className="elementContainer">
 
         <div className="code">
           <h3>Props</h3>
           <h4>Required:</h4>
-            <li className="li-props">targetElement === element to be used as anchor of the dropdown</li>
+            <li className="li-props">type === text, button, icon</li>
+            <li className="li-props">label === required for text/button label</li>
           <h4>Optional:</h4>
           <ul>
             <li className="li-props">mobileTitle:String === "Your mobile title"</li>
@@ -33,13 +34,12 @@ const DropdownPage = () => (
             changeHandler={(item) => {
               console.log(item);
             }}
-            targetElement={
-                <p> parent label</p>
-            }
+            type="text"
+            label="text"
           >
-            <DropdownItem label="list item 1" />
-            <DropdownItem divider />
-            <DropdownItem label="list item 2" />
+            <DropdownItem label="list item 1" type="button" />
+            <DropdownItem type="divider" />
+            <DropdownItem label="list item 2" type="link" url="www.google.com" />
           </Dropdown>
           <p className="code">
             {`<Dropdown
@@ -57,19 +57,15 @@ const DropdownPage = () => (
                 <DropdownItem label="list item 2" />
               </Dropdown>`}
           </p>
-
           <h3>button /w Icon (selectable options)</h3>
             <Dropdown
               mobileTitle={mobileTitle}
-              targetElement={
-                <Button>
-                   Role <Icon name="dropdown-open-sm-18">Button that opens Dropdown</Icon>
-                </Button>
-              }
+              type="button"
+              label="Button text"
             >
-              <DropdownItem label="list item 1" />
-              <DropdownItem divider />
-              <DropdownItem label="list item 2" />
+              <DropdownItem label="list item 1" type="button" />
+              <DropdownItem type="divider" />
+              <DropdownItem label="list item 2" type="link" url="www.google.com"/>
             </Dropdown>
             <p className="code">
               {`<Dropdown
@@ -89,15 +85,12 @@ const DropdownPage = () => (
           <h3>Icon only (selectable options)</h3>
             <Dropdown
               mobileTitle={mobileTitle}
-              targetElement={
-                <Button btnIcon>
-                   <Icon name="dropdown-open-sm-18">Button that opens Dropdown</Icon>
-                </Button>
-              }
+              type="icon"
+              label="icon text"
             >
-              <DropdownItem label="list item 1" />
-              <DropdownItem divider />
-              <DropdownItem label="list item 2" />
+              <DropdownItem label="list item 1" type="button" />
+              <DropdownItem type="divider" />
+              <DropdownItem label="list item 2" type="link" url="www.google.com" />
             </Dropdown>
             <p className="code">
               {`<Dropdown
@@ -113,7 +106,6 @@ const DropdownPage = () => (
                   <DropdownItem label="list item 2" />
                 </Dropdown>`}
             </p>
-
       </div>
     </div>
 );

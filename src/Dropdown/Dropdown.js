@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import Button from '../Button';
+import Icon from '../Icon';
 
 import './Dropdown.scss';
 
@@ -19,22 +21,34 @@ export default class Dropdown extends Component {
     this.state = {
       open: false,
       selectedItem: ''
-    }
+    };
 
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
-    this.handleEsc = this.handleEsc.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.itemSelected = this.itemSelected.bind(this);
+    this.closeDropdown = this.closeDropdown.bind(this);
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleOutsideClick);
-    document.removeEventListener('keydown', this.handleEsc);
+    document.removeEventListener('keydown', this.handleKeyDown);
   }
 
   componentDidMount() {
     document.addEventListener('click', this.handleOutsideClick);
-    document.addEventListener('keydown', this.handleEsc);
+    document.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  closeDropdown() {
+    // we need to set timeout due to the browser getting the activeElement after a cycle
+    // otherwise its still on the wrong active element at the time due to the function being
+    // on blur
+    setTimeout(() => {
+      if (!ReactDOM.findDOMNode(this).contains(document.activeElement)) {
+        this.setState({open: false});
+      }
+    }, 0);
   }
 
   handleOutsideClick(event) {
@@ -46,12 +60,53 @@ export default class Dropdown extends Component {
   }
 
   toggleDropdown() {
+    this.focusedItem = 0;
     this.setState({ open: !this.state.open });
   };
 
-  handleEsc(event) {
-    if (event.which === 27) {
-      this.setState({ open: false });
+  handleKeyDown(event) {
+    if (this.state.open) {
+      if (event.which === 27) {
+        // escape
+        this.setState({ open: false });
+      }
+
+      if (event.which === 38) {
+        // up
+        event.preventDefault();
+        const list = this.list;
+        while (this.focusedItem > 0) {
+          this.focusedItem--;
+          if (list.children[this.focusedItem].attributes.role.value !== 'separator') {
+            break;
+          }
+        }
+        list.children[this.focusedItem].children[0].focus();
+      }
+
+      if (event.which === 40) {
+        // down
+        event.preventDefault();
+        const list = this.list;
+        // this is for first time hitting the down button to get to the first row
+        // If we are already focused on the first element then we don't need to do this
+        // and skip to the loop
+        if (document.activeElement !== list.children[0].children[0]) {
+          if (this.focusedItem === 0) {
+            list.children[this.focusedItem].children[0].focus();
+            this.focusedItem++;
+            return;
+          }
+        }
+
+        while (this.focusedItem < list.children.length-1) {
+          this.focusedItem++;
+          if (list.children[this.focusedItem].attributes.role.value !== 'separator') {
+            break;
+          }
+        }
+        list.children[this.focusedItem].children[0].focus();
+      }
     }
   }
 
@@ -65,15 +120,46 @@ export default class Dropdown extends Component {
     }
   }
 
+  insertAnchor() {
+    let buttonClass='pe-icon--btn dropdown-activator', btnIcon=false, buttonLabel = this.props.label;
+    switch (this.props.type) {
+      case 'text':
+        buttonClass = 'pe-icon--btn dropdown-activator'
+        break;
+      case 'button':
+        buttonClass='pe-btn dropdown-activator';
+        break;
+      case 'icon':
+        btnIcon=true;
+        buttonClass= 'dropdown-activator';
+        buttonLabel = (
+          <Icon name="dropdown-open-sm-18">{this.props.label}</Icon>
+        );
+        break;
+    }
+
+    return (
+      <Button
+        className={buttonClass}
+        aria-expanded={this.state.open}
+        aria-controls={`${this.props.label}-dropdown`}
+        aria-haspopup="true"
+        btnIcon={btnIcon}>
+        {buttonLabel}
+      </Button>
+    );
+  }
+
   render() {
     return (
-        <div className="dropdown-container">
-          <div
-            className="dropdown-activator"
-            onClick={this.toggleDropdown} >
-            {this.props.targetElement}
-          </div>
-          <ul className={this.state.open ? '' : 'dropdown-menu'} onClick={this.itemSelected}>
+        <div className="dropdown-container" onClick={this.toggleDropdown} onBlur={this.closeDropdown} >
+          {this.insertAnchor()}
+          <ul
+            role="menu"
+            id={`${this.props.label}-dropdown`}
+            ref={(dom) => { this.list = dom; }}
+            className={this.state.open ? '' : 'dropdown-menu'}
+            onClick={this.itemSelected}>
             {this.props.children}
           </ul>
         </div>

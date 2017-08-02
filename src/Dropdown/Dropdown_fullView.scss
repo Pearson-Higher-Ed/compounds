@@ -1,6 +1,5 @@
 .dropdown-activator {
   cursor: pointer;
-  display: inline-block;
 }
 
 .dropdown-container {
@@ -26,8 +25,21 @@
       padding: 4px 24px 4px 24px;
       cursor: pointer;
 
-      &:hover {
+      &:hover, &:focus {
         background-color: $pe-color-moonlight;
+      }
+
+
+      button {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      a {
+        color: $pe-color-charcoal;
+        text-decoration: none;
       }
     }
   }
