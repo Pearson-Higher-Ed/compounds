@@ -7,6 +7,34 @@ import Icon from '../Icon';
 
 import './Dropdown.scss';
 
+const placement = (dropdown) => {
+  const anchor = dropdown.children[0];
+  const element = dropdown.children[1];
+  // get window geometry - this is how jQuery does it
+  const elementRect = element.getBoundingClientRect();
+  const anchorRect = anchor.getBoundingClientRect();
+  // then we are past the right side and need to right justify
+  const touch_right = window.innerWidth < elementRect.right;
+  // we need to push up
+  const touch_bottom = elementRect.bottom > window.innerHeight;
+
+  if (touch_bottom) {
+    // 4 because of margins
+    element.style.top = `-${(elementRect.height + 4)}px`;
+  }
+
+  if (touch_right) {
+    element.style.left = `-${elementRect.width - anchorRect.width}px`;
+  }
+
+};
+
+const resetPlacement = (dropdown) => {
+  const element = dropdown.children[1];
+  element.style.left = null;
+  element.style.top = null;
+};
+
 export default class Dropdown extends Component {
 
   static propTypes = {
@@ -62,6 +90,16 @@ export default class Dropdown extends Component {
   toggleDropdown() {
     this.focusedItem = 0;
     this.setState({ open: !this.state.open });
+    if(!this.state.open) {
+      setTimeout(() => {
+        placement(ReactDOM.findDOMNode(this));
+      }, 0)
+    } else {
+      setTimeout(() => {
+        resetPlacement(ReactDOM.findDOMNode(this));
+      }, 0)
+    }
+
   };
 
   handleKeyDown(event) {
