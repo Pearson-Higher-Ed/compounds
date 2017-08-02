@@ -1,3 +1,8 @@
+.dropdown-activator {
+  cursor: pointer;
+  display: inline-block;
+}
+
 .dropdown-container {
   p {
     margin-bottom: 0px;
@@ -40,11 +45,6 @@
       border-right: none;
       margin: 0;
     }
-  }
-
-
-  .dropdown-activator {
-    cursor: pointer;
   }
 
   .dropdown-menu {
