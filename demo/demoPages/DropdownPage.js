@@ -4,8 +4,18 @@ import { Dropdown, DropdownItem, Icon, Button } from '../../index';
 const simpleList = ['Thing one', 'Thing two'];
 const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', '!!'];
 const mobileTitle = "Test title";
-const DropdownPage = () => (
-    <div className="displaySection">
+
+class DropdownPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      buttonSelected : false
+    };
+  }
+  render() {
+    return (
+      <div className="displaySection">
       <h2><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/">Dropdown</a></h2>
 
       <div className="elementContainer">
@@ -14,7 +24,8 @@ const DropdownPage = () => (
           <h3>Props</h3>
           <h4>Required:</h4>
             <li className="li-props">type === text, button, icon</li>
-            <li className="li-props">label === unique text for the button/label to activate dropdown</li>
+            <li className="li-props">label === text for the button/label to activate dropdown</li>
+            <li className="li-props">id === unique id</li>
           <h4>Optional:</h4>
           <ul>
             <li className="li-props">mobileTitle:String === "Your mobile title"</li>
@@ -32,14 +43,16 @@ const DropdownPage = () => (
             dropdownControlLabel="Dropdown open"
             mobileTitle={mobileTitle}
             changeHandler={(item) => {
-              console.log(item);
+              this.setState({buttonSelected:true});
             }}
             type="text"
             label="text"
+            id="text"
           >
-            <DropdownItem label="list item 1" type="button" />
+            <DropdownItem selected={this.state.buttonSelected} selectedName="selected" label="list item 1" type="button" />
             <DropdownItem type="divider" />
-            <DropdownItem label="list item 2" type="link" url="www.google.com" />
+            <DropdownItem label="list item 2" type="link" url="http://www.google.com" />
+            <DropdownItem label="list item 3" type="link" url="http://www.google.com" />
           </Dropdown>
           <p className="code">
             {`<Dropdown
@@ -62,6 +75,7 @@ const DropdownPage = () => (
               mobileTitle={mobileTitle}
               type="button"
               label="Button text"
+              id="buttontext"
             >
               <DropdownItem label="list item 1" type="button" />
               <DropdownItem type="divider" />
@@ -87,6 +101,7 @@ const DropdownPage = () => (
               mobileTitle={mobileTitle}
               type="icon"
               label="icon text"
+              id="iconText"
             >
               <DropdownItem label="list item 1" type="button" />
               <DropdownItem type="divider" />
@@ -108,6 +123,8 @@ const DropdownPage = () => (
             </p>
       </div>
     </div>
-);
+    );
+  }
+};
 
 export default DropdownPage;

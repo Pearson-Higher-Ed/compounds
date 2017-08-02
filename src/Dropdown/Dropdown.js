@@ -90,6 +90,10 @@ export default class Dropdown extends Component {
   toggleDropdown() {
     this.focusedItem = 0;
     this.setState({ open: !this.state.open });
+
+    setTimeout(() => {
+      this.list.children[this.focusedItem].children[0].focus();
+    }, 0);
     // we need timeouts because once again the state will cause a refresh so we need
     // to wait for 1 cycle before we can find the domNode and position it properly
     if (!this.state.open) {
@@ -101,7 +105,6 @@ export default class Dropdown extends Component {
         resetPlacement(ReactDOM.findDOMNode(this));
       }, 0)
     }
-
   };
 
   handleKeyDown(event) {
@@ -114,38 +117,25 @@ export default class Dropdown extends Component {
       if (event.which === 38) {
         // up
         event.preventDefault();
-        const list = this.list;
         while (this.focusedItem > 0) {
           this.focusedItem--;
-          if (list.children[this.focusedItem].attributes.role.value !== 'separator') {
+          if (this.list.children[this.focusedItem].attributes.role.value !== 'separator') {
             break;
           }
         }
-        list.children[this.focusedItem].children[0].focus();
+        this.list.children[this.focusedItem].children[0].focus();
       }
 
       if (event.which === 40) {
         // down
         event.preventDefault();
-        const list = this.list;
-        // this is for first time hitting the down button to get to the first row
-        // If we are already focused on the first element then we don't need to do this
-        // and skip to the loop
-        if (document.activeElement !== list.children[0].children[0]) {
-          if (this.focusedItem === 0) {
-            list.children[this.focusedItem].children[0].focus();
-            this.focusedItem++;
-            return;
-          }
-        }
-
-        while (this.focusedItem < list.children.length-1) {
+        while (this.focusedItem < this.list.children.length-1) {
           this.focusedItem++;
-          if (list.children[this.focusedItem].attributes.role.value !== 'separator') {
+          if (this.list.children[this.focusedItem].attributes.role.value !== 'separator') {
             break;
           }
         }
-        list.children[this.focusedItem].children[0].focus();
+        this.list.children[this.focusedItem].children[0].focus();
       }
     }
   }
@@ -163,11 +153,15 @@ export default class Dropdown extends Component {
   insertAnchor() {
     let buttonClass='pe-icon--btn dropdown-activator';
     let btnIcon=false;
-    let buttonLabel = this.props.label;
+    let buttonLabel = (
+      <div>
+        {this.props.label} <Icon name="dropdown-open-sm-18">{this.props.label}</Icon>
+      </div>
+    );
 
     switch (this.props.type) {
       case 'text':
-        buttonClass = 'pe-icon--btn dropdown-activator'
+        buttonClass = 'pe-icon--btn dropdown-activator';
         break;
       case 'button':
         buttonClass='pe-btn dropdown-activator';
@@ -176,7 +170,7 @@ export default class Dropdown extends Component {
         btnIcon=true;
         buttonClass= 'dropdown-activator';
         buttonLabel = (
-          <Icon name="dropdown-open-sm-18">{this.props.label}</Icon>
+          <Icon name="dropdown-open-sm-24">{this.props.label}</Icon>
         );
         break;
     }
@@ -185,7 +179,7 @@ export default class Dropdown extends Component {
       <Button
         className={buttonClass}
         aria-expanded={this.state.open}
-        aria-controls={`${this.props.label.replace(' ', '_')}-dropdown`}
+        aria-controls={`${this.props.id.replace(' ', '_')}-dropdown`}
         aria-haspopup="true"
         btnIcon={btnIcon}>
         {buttonLabel}
@@ -199,7 +193,7 @@ export default class Dropdown extends Component {
           {this.insertAnchor()}
           <ul
             role="menu"
-            id={`${this.props.label.replace(' ', '_')}-dropdown`}
+            id={`${this.props.id.replace(' ', '_')}-dropdown`}
             ref={(dom) => { this.list = dom; }}
             className={this.state.open ? '' : 'dropdown-menu'}
             onClick={this.itemSelected}>

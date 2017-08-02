@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Icon from '../Icon'
 
-const DropdownItem = ({ url, label, type }) => {
+const DropdownItem = ({ url, label, type, selected, selectedName }) => {
   switch (type) {
     case 'divider':
       return (
@@ -20,7 +21,12 @@ const DropdownItem = ({ url, label, type }) => {
     case 'button':
       return (
         <li role="presentation" data-item={label}>
-          <button role="menuitem" tabIndex="-1" data-item={label}>{label}</button>
+          <button role="menuitem" tabIndex="-1" data-item={label}>
+            <span style={{visibility: selected ? 'visible' : 'hidden'}}>
+              <Icon name="check-sm-18">{selectedName}</Icon>
+            </span>
+            <span className="icon-padding">{label}</span>
+          </button>
         </li>
       );
       break;
