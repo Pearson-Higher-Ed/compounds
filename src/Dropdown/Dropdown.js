@@ -90,7 +90,9 @@ export default class Dropdown extends Component {
   toggleDropdown() {
     this.focusedItem = 0;
     this.setState({ open: !this.state.open });
-    if(!this.state.open) {
+    // we need timeouts because once again the state will cause a refresh so we need
+    // to wait for 1 cycle before we can find the domNode and position it properly
+    if (!this.state.open) {
       setTimeout(() => {
         placement(ReactDOM.findDOMNode(this));
       }, 0)
