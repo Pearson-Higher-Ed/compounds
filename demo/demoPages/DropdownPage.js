@@ -14,7 +14,7 @@ const DropdownPage = () => (
           <h3>Props</h3>
           <h4>Required:</h4>
             <li className="li-props">type === text, button, icon</li>
-            <li className="li-props">label === required for text/button label</li>
+            <li className="li-props">label === unique text for the button/label to activate dropdown</li>
           <h4>Optional:</h4>
           <ul>
             <li className="li-props">mobileTitle:String === "Your mobile title"</li>

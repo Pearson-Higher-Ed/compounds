@@ -121,7 +121,10 @@ export default class Dropdown extends Component {
   }
 
   insertAnchor() {
-    let buttonClass='pe-icon--btn dropdown-activator', btnIcon=false, buttonLabel = this.props.label;
+    let buttonClass='pe-icon--btn dropdown-activator';
+    let btnIcon=false;
+    let buttonLabel = this.props.label;
+
     switch (this.props.type) {
       case 'text':
         buttonClass = 'pe-icon--btn dropdown-activator'
@@ -142,7 +145,7 @@ export default class Dropdown extends Component {
       <Button
         className={buttonClass}
         aria-expanded={this.state.open}
-        aria-controls={`${this.props.label}-dropdown`}
+        aria-controls={`${this.props.label.replace(' ', '_')}-dropdown`}
         aria-haspopup="true"
         btnIcon={btnIcon}>
         {buttonLabel}
@@ -156,7 +159,7 @@ export default class Dropdown extends Component {
           {this.insertAnchor()}
           <ul
             role="menu"
-            id={`${this.props.label}-dropdown`}
+            id={`${this.props.label.replace(' ', '_')}-dropdown`}
             ref={(dom) => { this.list = dom; }}
             className={this.state.open ? '' : 'dropdown-menu'}
             onClick={this.itemSelected}>
