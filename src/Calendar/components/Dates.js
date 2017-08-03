@@ -19,7 +19,7 @@ export default class Dates extends Component {
     let className;
     const weekStack = Array(...{ length: 7 }).map(Number.call, Number);
     const { contrast, daysInMonth, firstOfMonth, year, month, selectedDate,
-            disablePast, minDate, onSelect } = this.props;
+            disablePast, minDate, onSelect, secondaryDate } = this.props;
     const dayContrast = contrast ? 'date-inverse' :'';
     const disabledContrast = contrast ? '-inverse' :'';
     const that = this;

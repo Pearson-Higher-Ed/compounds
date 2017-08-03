@@ -24,6 +24,8 @@ const CalendarPage = () => (
             <li className="li-props">Callback fired on new date selection.  This will expose the state Object.</li>
             <li className="li-props">contrast:Boolean === {`<Calendar contrast />`}</li>
             <li className="li-props"><i>contrast</i> will apply a blue background and make the text white.</li>
+            <li className="li-props">mondayFirstDayOfWeek:Boolean === {`<Calendar mondayFirstDayOfWeek />`}</li>
+            <li className="li-props">Sets weeks first day to Monday.  Will default to Sunday.</li>
           </ul>
       </div>
 
