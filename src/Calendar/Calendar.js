@@ -11,7 +11,7 @@ export default class Calendar extends Component {
   static propTypes = {
     disablePast: PropTypes.bool,
     minDate: PropTypes.object,
-    secondaryDate: PropTypes.object,
+    secondaryDate: PropTypes.array,
     onSelect: PropTypes.func,
     contrast: PropTypes.bool,
     dayNamesFull: PropTypes.array,
@@ -41,7 +41,7 @@ export default class Calendar extends Component {
       selectedDt: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
       startDay: mondayFirstDayOfWeek ? 1 : 0,
       minDate: minDate ? minDate : null,
-      secondaryDate: secondaryDate ? secondaryDate : null,
+      secondaryDate: secondaryDate ? secondaryDate : [],
       disablePast: disablePast ? disablePast : false,
       contrast: contrast ? contrast : false,
       dayNames: ["S", "M", "T", "W", "T", "F", "S"],

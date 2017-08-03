@@ -17,6 +17,7 @@ export default class Dates extends Component {
     let onClick;
     let isDate;
     let className;
+    let secondaryDateClass='';
     const weekStack = Array(...{ length: 7 }).map(Number.call, Number);
     const { contrast, daysInMonth, firstOfMonth, year, month, selectedDate,
             disablePast, minDate, onSelect, secondaryDate } = this.props;
@@ -79,7 +80,10 @@ export default class Dates extends Component {
                       {current.getDate().toString().split(' ') == that.statics.date &&
                        firstOfMonth.getMonth().toString().split(' ') == that.statics.month
                          ? <div className="currentDate-box">
-                             <div className="pe-cal-cell-square"
+                             <div className={`pe-cal-cell-square ${secondaryDate.map((i) => {
+                                      i.getTime() == current.getTime()
+                                      ? secondaryDateClass = 'secondary-date' : secondaryDateClass='';
+                                  })} ${secondaryDateClass}`}
                                   id={`day${d}`}
                                   role="gridcell"
                                   tabIndex="0"
@@ -89,7 +93,10 @@ export default class Dates extends Component {
                                <span className="pe-sr-only">Current date</span>
                              </div>
                            </div>
-                         : <div className="pe-cal-cell-square"
+                         : <div className={`pe-cal-cell-square ${secondaryDate.map((i) => {
+                                    i.getTime() == current.getTime()
+                                    ? secondaryDateClass = 'secondary-date' : secondaryDateClass='';
+                                })} ${secondaryDateClass}`}
                                 id={`day${d}`}
                                 role="gridcell"
                                 tabIndex="0"
