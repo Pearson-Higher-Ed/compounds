@@ -26,7 +26,6 @@ const placement = (dropdown) => {
   if (touch_right) {
     element.style.left = `-${elementRect.width - anchorRect.width}px`;
   }
-
 };
 
 const resetPlacement = (dropdown) => {
@@ -91,19 +90,21 @@ export default class Dropdown extends Component {
     this.focusedItem = 0;
     this.setState({ open: !this.state.open });
 
-    setTimeout(() => {
-      this.list.children[this.focusedItem].children[0].focus();
-    }, 0);
-    // we need timeouts because once again the state will cause a refresh so we need
-    // to wait for 1 cycle before we can find the domNode and position it properly
-    if (!this.state.open) {
+    if (window.screen.width >= 480) {
       setTimeout(() => {
-        placement(ReactDOM.findDOMNode(this));
-      }, 0)
-    } else {
-      setTimeout(() => {
-        resetPlacement(ReactDOM.findDOMNode(this));
-      }, 0)
+        this.list.children[this.focusedItem].children[0].focus();
+      }, 0);
+      // we need timeouts because once again the state will cause a refresh so we need
+      // to wait for 1 cycle before we can find the domNode and position it properly
+      if (!this.state.open) {
+        setTimeout(() => {
+          placement(ReactDOM.findDOMNode(this));
+        }, 0)
+      } else {
+        setTimeout(() => {
+          resetPlacement(ReactDOM.findDOMNode(this));
+        }, 0)
+      }
     }
   };
 
@@ -187,6 +188,23 @@ export default class Dropdown extends Component {
     );
   }
 
+  addMobileHeader() {
+    if (window.screen.width < 480) {
+      return (
+        <li data-item="divider">
+          <div className="mobile-title">
+            <h1 className="pe-page-title pe-page-title--small">
+              {this.props.mobileTitle}
+              <span className="icon-fix">
+                <Icon name="remove-lg-18"></Icon>
+              </span>
+            </h1>
+          </div>
+        </li>
+      );
+    }
+  }
+
   render() {
     return (
         <div className="dropdown-container" onClick={this.toggleDropdown} onBlur={this.closeDropdown} >
@@ -197,6 +215,7 @@ export default class Dropdown extends Component {
             ref={(dom) => { this.list = dom; }}
             className={this.state.open ? '' : 'dropdown-menu'}
             onClick={this.itemSelected}>
+            {this.addMobileHeader()}
             {this.props.children}
           </ul>
         </div>

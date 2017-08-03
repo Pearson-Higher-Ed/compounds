@@ -3,7 +3,7 @@ import { Dropdown, DropdownItem, Icon, Button } from '../../index';
 
 const simpleList = ['Thing one', 'Thing two'];
 const listItems = ['Pearson', 'Design', 'divider', 'Accelerator', '!!'];
-const mobileTitle = "Test title";
+const mobileTitle = "Introduction to mobile";
 
 class DropdownPage extends React.Component {
   constructor(props) {
@@ -43,7 +43,9 @@ class DropdownPage extends React.Component {
             dropdownControlLabel="Dropdown open"
             mobileTitle={mobileTitle}
             changeHandler={(item) => {
-              this.setState({buttonSelected:true});
+              if (item === 'list item 1') {
+                this.setState({buttonSelected:true});
+              }
             }}
             type="text"
             label="text"
