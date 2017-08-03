@@ -37,7 +37,9 @@ export default class Dropdown extends Component {
 
   static propTypes = {
     mobileTitle: PropTypes.string,
-    alignRight: PropTypes.bool,
+    type: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     changeHandler: PropTypes.func
   };
 

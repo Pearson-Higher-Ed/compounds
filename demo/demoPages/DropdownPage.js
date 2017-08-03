@@ -34,7 +34,6 @@ class DropdownPage extends React.Component {
               <br/>
               Callback that is fired when an item is selected in the Dropdown menu.
             </li>
-            <li className="li-props">alignRight:Boolean === {`<Dropdown alignRight/>`}</li>
           </ul>
         </div>
 
