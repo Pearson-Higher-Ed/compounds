@@ -6,33 +6,6 @@ import Icon from '../Icon';
 
 import './Dropdown.scss';
 
-const placement = (dropdown) => {
-  const anchor = dropdown.children[0];
-  const element = dropdown.children[1];
-  // get window geometry - this is how jQuery does it
-  const elementRect = element.getBoundingClientRect();
-  const anchorRect = anchor.getBoundingClientRect();
-  // then we are past the right side and need to right justify
-  const touch_right = window.innerWidth < elementRect.right;
-  // we need to push up
-  const touch_bottom = elementRect.bottom > window.innerHeight;
-
-  if (touch_bottom) {
-    // 4 because of margins
-    element.style.top = `-${(elementRect.height + 4)}px`;
-  }
-
-  if (touch_right) {
-    element.style.left = `-${elementRect.width - anchorRect.width}px`;
-  }
-};
-
-const resetPlacement = (dropdown) => {
-  const element = dropdown.children[1];
-  element.style.left = null;
-  element.style.top = null;
-};
-
 export default class Dropdown extends Component {
 
   static propTypes = {
@@ -68,6 +41,33 @@ export default class Dropdown extends Component {
     document.addEventListener('keydown', this.handleKeyDown);
   }
 
+  placement(dropdown) {
+    const anchor = dropdown.children[0];
+    const element = dropdown.children[1];
+    // get window geometry - this is how jQuery does it
+    const elementRect = element.getBoundingClientRect();
+    const anchorRect = anchor.getBoundingClientRect();
+    // then we are past the right side and need to right justify
+    const touch_right = window.innerWidth < elementRect.right;
+    // we need to push up
+    const touch_bottom = elementRect.bottom > window.innerHeight;
+
+    if (touch_bottom) {
+      // 4 because of margins
+      element.style.top = `-${(elementRect.height + 4)}px`;
+    }
+
+    if (touch_right) {
+      element.style.left = `-${elementRect.width - anchorRect.width}px`;
+    }
+  }
+
+  resetPlacement(dropdown) {
+    const element = dropdown.children[1];
+    element.style.left = null;
+    element.style.top = null;
+  }
+
   closeDropdown() {
     // we need to set timeout due to the browser getting the activeElement after a cycle
     // otherwise its still on the wrong active element at the time due to the function being
@@ -99,11 +99,11 @@ export default class Dropdown extends Component {
       // to wait for 1 cycle before we can find the domNode and position it properly
       if (!this.state.open) {
         setTimeout(() => {
-          placement(ReactDOM.findDOMNode(this));
+          this.placement(ReactDOM.findDOMNode(this));
         }, 0)
       } else {
         setTimeout(() => {
-          resetPlacement(ReactDOM.findDOMNode(this));
+          this.resetPlacement(ReactDOM.findDOMNode(this));
         }, 0)
       }
     }
@@ -113,7 +113,7 @@ export default class Dropdown extends Component {
     if (this.state.open) {
       if (event.which === 27) {
         // escape
-        this.setState({ open: false });
+        return this.setState({ open: false });
       }
 
       if (event.which === 38) {
@@ -145,11 +145,12 @@ export default class Dropdown extends Component {
   itemSelected(e) {
     if (e.target.dataset.item !== 'divider') {
       this.props.changeHandler ? this.props.changeHandler(e.target.dataset.item) : null;
-      this.setState({
-        open: false,
-        selectedItem: e.target.dataset.item
-      });
     }
+
+    this.setState({
+      open: false,
+      selectedItem: e.target.dataset.item === 'divider' ? null : e.target.dataset.item
+    });
   }
 
   insertAnchor() {
@@ -162,18 +163,20 @@ export default class Dropdown extends Component {
     );
 
     switch (this.props.type) {
-      case 'text':
-        buttonClass = 'pe-icon--btn dropdown-activator';
-        break;
       case 'button':
         buttonClass='pe-btn dropdown-activator';
         break;
       case 'icon':
-        btnIcon=true;
-        buttonClass= 'dropdown-activator';
+        btnIcon = true;
+        buttonClass = 'dropdown-activator';
         buttonLabel = (
           <Icon name="dropdown-open-sm-24">{this.props.label}</Icon>
         );
+        break;
+      // if not one of the types go to text
+      default:
+      case 'text':
+        buttonClass = 'pe-icon--btn dropdown-activator';
         break;
     }
 
