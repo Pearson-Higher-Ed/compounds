@@ -23,7 +23,7 @@ class DatePickerPage extends Component {
   render() {
 
     const { intl } = this.props;
-    const { inputState, inputState1, inputState2, hourFormat, datepickerValue1, datepickerValue2, datepickerValue3, datepickerValue4, datepickerValue5, datepickerValue6 } = this.state;
+    const { inputState, hourFormat, datepickerValue1, datepickerValue2, datepickerValue3, datepickerValue4, datepickerValue5, datepickerValue6 } = this.state;
 
 
     // ======================Internationalization Example=========================
@@ -67,12 +67,12 @@ class DatePickerPage extends Component {
 
             <h2>DatePicker (basic): </h2>
             <DatePicker
-              id              = "someGiantId2"
+              id              = "someGiantId1"
               dateFormat      = "mm/dd/yyyy"
               inputState      = {inputState}
               labelText       = "Select date"
-              datepickerValue = {this.state.datepickerValue2}
-              changeHandler   = {e => this.setState({datepickerValue2:e.target.value})}
+              datepickerValue = {this.state.datepickerValue1}
+              changeHandler   = {e => this.setState({datepickerValue1:e.target.value})}
               infoMessage     = {text.textInputInfoMessage}
               errorMessage    = {text.textInputErrorMessage}
             />
@@ -80,24 +80,24 @@ class DatePickerPage extends Component {
 
             <h2>DatePicker (basic range): </h2>
             <DatePicker
-              id              = "someGiantId3"
+              id              = "someGiantId2"
               dateFormat      = "mm/dd/yyyy"
               inputState      = {inputState}
               associationId   = "range1"
               labelText       = "Select Start date"
-              datepickerValue = {this.state.datepickerValue3}
-              changeHandler   = {e => this.setState({datepickerValue3:e.target.value})}
+              datepickerValue = {this.state.datepickerValue2}
+              changeHandler   = {e => this.setState({datepickerValue2:e.target.value})}
               infoMessage     = {text.textInputInfoMessage}
               errorMessage    = {text.textInputErrorMessage}
             />
             <DatePicker
-              id              = "someGiantId4"
+              id              = "someGiantId3"
               associationId   = "range1"
               dateFormat      = "mm/dd/yyyy"
               inputState      = {inputState}
               labelText       = "Select End date"
-              datepickerValue = {this.state.datepickerValue4}
-              changeHandler   = {e => this.setState({datepickerValue4:e.target.value})}
+              datepickerValue = {this.state.datepickerValue3}
+              changeHandler   = {e => this.setState({datepickerValue3:e.target.value})}
               infoMessage     = {text.textInputInfoMessage}
               errorMessage    = {text.textInputErrorMessage}
             />
