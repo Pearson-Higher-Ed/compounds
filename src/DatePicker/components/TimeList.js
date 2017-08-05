@@ -21,7 +21,7 @@ export default class TimeList extends Component {
     const { id, hoursToList, timeToParent, selectedHour } = this.props;
 
     return (
-      <ul id="list" className="pe-timepicker-list" role="listbox" aria-expanded="true" aria-live="polite">
+      <ul id="list" className="pe-timepicker-list" onKeyUp={this.listEventInterface} role="listbox" aria-expanded="true" aria-live="polite">
         {
           hoursToList.map((hour,i) =>
             <li key           = {`${id}-item-${i}`}
@@ -29,7 +29,6 @@ export default class TimeList extends Component {
                 className     = "pe-timepicker-list-item-hour"
                 role          = "option"
                 tabIndex      = "0"
-                onKeyUp       = {this.listEventInterface}
                 aria-selected = {hour === selectedHour}
                 onClick       = {timeToParent}
               >
