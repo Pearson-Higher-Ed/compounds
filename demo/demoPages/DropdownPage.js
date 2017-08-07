@@ -62,9 +62,9 @@ class DropdownPage extends React.Component {
                 changeHandler={(item) => {
                   console.log(item);
                 }}
-                targetElement={
-                    <p> parent label</p>
-                }
+                type="text"
+                label="text"
+                id="text"
               >
                 <DropdownItem label="list item 1" />
                 <DropdownItem divider />
@@ -85,11 +85,9 @@ class DropdownPage extends React.Component {
             <p className="code">
               {`<Dropdown
                   mobileTitle={mobileTitle}
-                  targetElement={
-                    <Button>
-                       Role <Icon name="dropdown-open-sm-18">Button that opens Dropdown</Icon>
-                    </Button>
-                  }
+                  type="button"
+                  label="Button text"
+                  id="buttontext"
                 >
                   <DropdownItem label="list item 1" />
                   <DropdownItem divider />
@@ -111,11 +109,9 @@ class DropdownPage extends React.Component {
             <p className="code">
               {`<Dropdown
                   mobileTitle={mobileTitle}
-                  targetElement={
-                    <Button btnIcon>
-                       <Icon name="dropdown-open-sm-18">Button that opens Dropdown</Icon>
-                    </Button>
-                  }
+                  type="icon"
+                  label="icon text"
+                  id="iconText"
                 >
                   <DropdownItem label="list item 1" />
                   <DropdownItem divider />
