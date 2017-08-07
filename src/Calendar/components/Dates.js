@@ -81,7 +81,7 @@ export default class Dates extends Component {
                        firstOfMonth.getMonth().toString().split(' ') == that.statics.month
                          ? <div className="currentDate-box">
                              <div className={`pe-cal-cell-square ${secondaryDate.map((i) => {
-                                      i.getTime() == current.getTime()
+                                      i.getTime() === current.getTime()
                                       ? secondaryDateClass = 'secondary-date' : secondaryDateClass='';
                                   })} ${secondaryDateClass}`}
                                   id={`day${d}`}
@@ -94,7 +94,7 @@ export default class Dates extends Component {
                              </div>
                            </div>
                          : <div className={`pe-cal-cell-square ${secondaryDate.map((i) => {
-                                    i.getTime() == current.getTime()
+                                    i.getTime() === current.getTime()
                                     ? secondaryDateClass = 'secondary-date' : secondaryDateClass='';
                                 })} ${secondaryDateClass}`}
                                 id={`day${d}`}

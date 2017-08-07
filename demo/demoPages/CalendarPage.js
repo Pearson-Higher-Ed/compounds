@@ -24,10 +24,12 @@ const CalendarPage = () => (
             <li className="li-props">Callback fired on new date selection.  This will expose the state Object.</li>
             <li className="li-props">contrast:Boolean === {`<Calendar contrast />`}</li>
             <li className="li-props"><i>contrast</i> will apply a blue background and make the text white.</li>
-            <li className="li-props">mondayFirstDayOfWeek:Boolean === {`<Calendar mondayFirstDayOfWeek />`}</li>
-            <li className="li-props">Sets weeks first day to Monday.  Will default to Sunday.</li>
-            <li className="li-props">secondaryDate:Array === {`<Calendar secodaryDate={[new Date(2017, 8, 13)]}`}</li>
-            <li className="li-props"><i>secondaryDate</i> is used to apply a secondary indicator for the specified dates.</li>
+            <li className="li-props">weekStartDay:Number === {`<Calendar weekStartDay={1} />`}</li>
+            <li className="li-props">The Calendar will default to Sunday starting the week.  <i>weekStartDay</i> allows you to change that by <br/>
+            passing in the index of the day you would like.</li>
+            <li className="li-props">secondaryDate:Array === {`<Calendar secondaryDate={[new Date(2017, 8, 13)]}`}</li>
+            <li className="li-props"><i>secondaryDate</i> accepts a Date object (year, month, date) and is used to apply a secondary indicator for <br/>
+             the specified date(s).</li>
           </ul>
       </div>
 
@@ -36,7 +38,7 @@ const CalendarPage = () => (
           {`<Calendar />`}
         </p>
 
-      <Calendar  />
+      <Calendar />
     </div>
 
   </div>
