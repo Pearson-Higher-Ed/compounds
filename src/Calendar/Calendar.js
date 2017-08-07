@@ -16,7 +16,8 @@ export default class Calendar extends Component {
     contrast: PropTypes.bool,
     dayNamesFull: PropTypes.array,
     monthNamesFull: PropTypes.array,
-    weekStartDay: PropTypes.number
+    weekStartDay: PropTypes.number,
+    dayNamesShort: PropTypes.array
   }
 
   static defaultProps = {
@@ -30,7 +31,7 @@ export default class Calendar extends Component {
 
     const date = new Date();
     const { minDate, disablePast, contrast, dayNamesFull,
-            monthNamesFull, weekStartDay, secondaryDate } = this.props;
+            monthNamesFull, weekStartDay, secondaryDate, dayNamesShort } = this.props;
 
     this.state = {
       year: date.getFullYear(),
@@ -44,7 +45,7 @@ export default class Calendar extends Component {
       secondaryDate: secondaryDate ? secondaryDate : [],
       disablePast: disablePast ? disablePast : false,
       contrast: contrast ? contrast : false,
-      dayNames: ["S", "M", "T", "W", "T", "F", "S"],
+      dayNames: dayNamesShort || ["S", "M", "T", "W", "T", "F", "S"],
       dayNamesFull: dayNamesFull || ["Sunday", "Monday", "Tuesday", "Wednesday",
         "Thursday", "Friday", "Saturday"],
       monthNamesFull: monthNamesFull || ["January", "February", "March", "April",
