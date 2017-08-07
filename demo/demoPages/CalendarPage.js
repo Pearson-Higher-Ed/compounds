@@ -28,7 +28,7 @@ const CalendarPage = () => (
             <li className="li-props"><i>contrast</i> will apply a blue background and make the text white.</li>
             <li className="li-props">weekStartDay:Number === {`<Calendar weekStartDay={1} />`}</li>
             <li className="li-props">The Calendar will default to Sunday starting the week.  <i>weekStartDay</i> allows you to change that by <br/>
-            passing in the index of the day you would like.</li>
+            passing in the index of the day you would like. 0 - 6 are acceptable to use.</li>
             <li className="li-props">secondaryDate:Array === {`<Calendar secondaryDate={[new Date(2017, 8, 13)]} />`}</li>
             <li className="li-props"><i>secondaryDate</i> accepts a Date object (year, month, date) and is used to apply a secondary indicator for <br/>
              the specified date(s).</li>
@@ -40,7 +40,7 @@ const CalendarPage = () => (
           {`<Calendar />`}
         </p>
 
-      <Calendar secondaryDate={[new Date(2017, 7, 15)]} />
+      <Calendar />
     </div>
 
   </div>
