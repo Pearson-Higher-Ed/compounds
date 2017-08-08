@@ -40,7 +40,7 @@ const CalendarPage = () => (
           {`<Calendar />`}
         </p>
 
-      <Calendar secondaryDate={[new Date(2017, 7, 15)]} />
+      <Calendar secondaryDate={[new Date(2017, 7, 15), new Date(2017, 7, 17), new Date(2017,7,23)]} />
     </div>
 
   </div>
