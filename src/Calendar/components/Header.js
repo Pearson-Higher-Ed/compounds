@@ -5,8 +5,7 @@ export default class Header extends Component {
 
   render() {
     const { onPrev, onNext, month, year, monthNames, contrast } = this.props;
-    const colorSwap = contrast ? 'inverse-title' :'';
-    const iconSwap = contrast ? 'inverse-buttons' :'';
+    const colorSwap = contrast ? 'inverse-header' :'';
 
     return (
       <div className="pe-cal-row pe-cal-header">
@@ -22,7 +21,7 @@ export default class Header extends Component {
                 type="button"
                 aria-label="Prev month"
         >
-          <span className={`icon-wrapper ${iconSwap}`}>
+          <span className={`icon-wrapper ${colorSwap}`}>
             <Icon name="chevron-back-18" />
           </span>
         </button>
@@ -31,7 +30,7 @@ export default class Header extends Component {
                 type="button"
                 aria-label="Next month"
         >
-          <span className={`icon-wrapper ${iconSwap}`}>
+          <span className={`icon-wrapper ${colorSwap}`}>
             <Icon name="chevron-next-18" />
           </span>
         </button>

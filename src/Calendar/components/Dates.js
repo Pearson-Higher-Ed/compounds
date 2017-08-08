@@ -19,9 +19,11 @@ export default class Dates extends Component {
     let className;
     let secondaryDateClass='';
     let currentDateClass='';
+    let newSelectedDtClass='';
     const weekStack = Array(...{ length: 7 }).map(Number.call, Number);
     const { contrast, daysInMonth, firstOfMonth, year, month, selectedDate,
-            disablePast, minDate, onSelect, secondaryDate, dayNamesFull } = this.props;
+            disablePast, minDate, onSelect, secondaryDate, dayNamesFull,
+            selectedDt } = this.props;
     const dayContrast = contrast ? 'date-inverse' :'';
     const disabledContrast = contrast ? '-inverse' :'';
     const that = this;
@@ -75,14 +77,14 @@ export default class Dates extends Component {
                       </div>
                     );
                   }
-
                   {currentDateClass = (current.getDate().toString().split(' ')==that.statics.date && firstOfMonth.getMonth().toString().split(' ')==that.statics.month) ? 'currentDate-box' : '';}
                   {secondaryDateClass = (secondaryDate.some(date => date.getTime()===current.getTime())) ? 'secondary-date' : '';}
+                  {newSelectedDtClass = (selectedDt.getTime() === current.getTime() && (selectedDt.getDate() !== that.statics.date || selectedDt.getMonth() !== that.statics.month)) ? 'pe-cal-selected' :'';}
 
                   return (
                     <div className={`${className} pe-label ${dayContrast}`}>
                        <div className={currentDateClass}>
-                         <div className={`pe-cal-cell-square ${secondaryDateClass}`}
+                         <div className={`pe-cal-cell-square ${secondaryDateClass} ${newSelectedDtClass}${disabledContrast}`}
                             id={`day${d}`}
                             role="gridcell"
                             aria-current="date"

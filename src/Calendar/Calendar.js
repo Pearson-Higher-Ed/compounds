@@ -36,8 +36,8 @@ export default class Calendar extends Component {
             weekStartDay, secondaryDate, dayNamesShort, newSelectedDt } = this.props;
 
     this.state = {
-      year: date.getFullYear(),
-      month: date.getMonth(),
+      year: newSelectedDt ? newSelectedDt.getFullYear() : date.getFullYear(),
+      month: newSelectedDt ? newSelectedDt.getMonth() : date.getMonth(),
       selectedYear: newSelectedDt ? newSelectedDt.getFullYear() : date.getFullYear(),
       selectedMonth: newSelectedDt ? newSelectedDt.getMonth() : date.getMonth(),
       selectedDate: newSelectedDt ? newSelectedDt.getDate() : date.getDate(),
@@ -221,7 +221,7 @@ export default class Calendar extends Component {
   render() {
     const { monthNamesFull, month, year, dayNames, startDay, daysInMonth,
             firstOfMonth, selectedDate, disablePast, minDate, dayNamesFull,
-            contrast, secondaryDate } = this.state;
+            contrast, secondaryDate, selectedDt } = this.state;
 
     const colorSwap = contrast ? 'calendar-contrast' :'';
 
@@ -243,6 +243,7 @@ export default class Calendar extends Component {
             startDay={startDay} />
 
           <Dates
+            selectedDt={selectedDt}
             month={month}
             year={year}
             contrast={contrast}

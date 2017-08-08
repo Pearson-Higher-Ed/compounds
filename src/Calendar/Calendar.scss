@@ -37,7 +37,7 @@
   color: $pe-color-medium-gray;
 }
 
-.inverse-title,
+.inverse-header,
 .inverse-dayNames,
 .date-inverse {
   color: $pe-color-white !important;
@@ -47,12 +47,8 @@
   color: $pe-color-charcoal !important;
 }
 
-.inverse-buttons {
-  color: $pe-color-white !important;
-
-  &:hover {
-    color: $pe-color-concrete !important;
-  }
+button .inverse-header:hover {
+  color: $pe-color-concrete !important;
 }
 
 .pe-arrowIcons {
