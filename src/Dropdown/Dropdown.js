@@ -24,22 +24,21 @@ export default class Dropdown extends Component {
       selectedItem: ''
     };
 
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.itemSelected = this.itemSelected.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleOutsideClick);
-    document.removeEventListener('keydown', this.handleKeyDown);
-  }
+  // componentWillUnmount() {
+  //   document.removeEventListener('click', this.handleOutsideClick);
+  //   document.removeEventListener('keydown', this.handleKeyDown);
+  // }
 
-  componentDidMount() {
-    document.addEventListener('click', this.handleOutsideClick);
-    document.addEventListener('keydown', this.handleKeyDown);
-  }
+  // componentDidMount() {
+  //   document.addEventListener('click', this.handleOutsideClick);
+  //   document.addEventListener('keydown', this.handleKeyDown);
+  // }
 
   placement(dropdown) {
     const anchor = dropdown.children[0];
@@ -68,12 +67,15 @@ export default class Dropdown extends Component {
     element.style.top = null;
   }
 
-  closeDropdown() {
+  closeDropdown(e) {
+    console.log('blurred');
+    const currentElement = e.currentTarget;
     // we need to set timeout due to the browser getting the activeElement after a cycle
     // otherwise its still on the wrong active element at the time due to the function being
     // on blur
     setTimeout(() => {
-      if (!ReactDOM.findDOMNode(this).contains(document.activeElement)) {
+      if (!currentElement.contains(document.activeElement)) {
+        console.log('closing');
         this.setState({open: false});
       }
     }, 0);
@@ -142,15 +144,23 @@ export default class Dropdown extends Component {
     }
   }
 
-  itemSelected(e) {
-    if (e.target.dataset.item !== 'divider') {
-      this.props.changeHandler ? this.props.changeHandler(e.target.dataset.item) : null;
+  getParentLiSelected(dom) {
+    if (dom.nodeName !== 'LI') {
+      return this.getParentLiSelected(dom.parentElement);
     }
 
-    this.setState({
-      open: false,
-      selectedItem: e.target.dataset.item === 'divider' ? null : e.target.dataset.item
-    });
+    return dom;
+  }
+
+  itemSelected(e) {
+    const selectedListItem = this.getParentLiSelected(e.target);
+    if (selectedListItem.dataset.item !== 'divider') {
+      this.props.changeHandler ? this.props.changeHandler(selectedListItem.dataset.item) : null;
+      this.setState({
+        open: false,
+        selectedItem: selectedListItem.dataset.item
+      });
+    }
   }
 
   insertAnchor() {
@@ -218,7 +228,8 @@ export default class Dropdown extends Component {
             id={`${this.props.id.replace(' ', '_')}-dropdown`}
             ref={(dom) => { this.list = dom; }}
             className={this.state.open ? '' : 'dropdown-menu'}
-            onClick={this.itemSelected}>
+            onClick={this.itemSelected}
+            onKeyDown={this.handleKeyDown}>
             {this.addMobileHeader()}
             {this.props.children}
           </ul>

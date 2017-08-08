@@ -42,6 +42,7 @@ class DropdownPage extends React.Component {
             dropdownControlLabel="Dropdown open"
             mobileTitle={mobileTitle}
             changeHandler={(item) => {
+              console.log('item clicked', item);
               if (item === 'list item 1') {
                 this.setState({buttonSelected:true});
               }

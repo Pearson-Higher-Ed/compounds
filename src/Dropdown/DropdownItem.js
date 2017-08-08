@@ -14,14 +14,14 @@ const DropdownItem = ({ url, label, type, selected, selectedName }) => {
     case 'link':
       return (
         <li role="presentation" data-item={label}>
-          <a href={url} role="menuitem" tabIndex="-1" data-item={label}>{label}</a>
+          <a href={url} role="menuitem" tabIndex="-1">{label}</a>
         </li>
       );
       break;
     case 'button':
       return (
         <li role="presentation" data-item={label}>
-          <button role="menuitem" tabIndex="-1" data-item={label}>
+          <button role="menuitem" tabIndex="-1">
             <span style={{visibility: selected ? 'visible' : 'hidden'}}>
               <Icon name="check-sm-18">{selectedName}</Icon>
             </span>

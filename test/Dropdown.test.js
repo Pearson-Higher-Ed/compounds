@@ -57,6 +57,7 @@ describe('Dropdown', () => {
       const instance = mounted.instance();
       const e = {
         target : {
+          nodeName: 'LI',
           dataset : {
             item: 'option 1'
           }
@@ -67,28 +68,6 @@ describe('Dropdown', () => {
       expect(instance.state.open).toEqual(false);
       expect(instance.state.selectedItem).toEqual('option 1');
       expect(selectedItem).toEqual('option 1');
-    });
-
-    it('should NOT call changeHandler and set state to closed', function () {
-      let selectedItem = null;
-      const changeHandler = (item) => {
-        selectedItem = item;
-      };
-
-      const mounted = mount(<Dropdown label="test label" id="testId" type="text" changeHandler={changeHandler} />);
-      const instance = mounted.instance();
-      const e = {
-        target : {
-          dataset : {
-            item: 'divider'
-          }
-        }
-      };
-
-      instance.itemSelected(e);
-      expect(instance.state.open).toEqual(false);
-      expect(instance.state.selectedItem).toEqual(null);
-      expect(selectedItem).toEqual(null);
     });
   });
 
