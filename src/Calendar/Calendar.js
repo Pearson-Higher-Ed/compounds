@@ -17,15 +17,6 @@ export default class Calendar extends Component {
     dayNamesFull: PropTypes.array,
     monthNamesFull: PropTypes.array,
     weekStartDay: PropTypes.number,
-    // *** NOT WORKING ***
-    // customProp: (props, weekStartDay, Calendar) => {
-    //   if (!/^[0-6]$/.test(props[weekStartDay])) {
-    //     return new Error('Invalid number. Please use 0-6');
-    //   }
-    //   if (!(0 <= props[weekStartDay] < 7)) {
-    //     return new Error('Invalid number. Please use 0-6');
-    //   }
-    // },
     dayNamesShort: PropTypes.array
   }
 
@@ -254,6 +245,7 @@ export default class Calendar extends Component {
             contrast={contrast}
             selectedDate={selectedDate}
             daysInMonth={daysInMonth}
+            dayNamesFull={dayNamesFull}
             firstOfMonth={firstOfMonth}
             startDay={startDay}
             onSelect={this.selectDate}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
 
 export default class Dates extends Component {
 
@@ -22,14 +21,13 @@ export default class Dates extends Component {
     let currentDateClass='';
     const weekStack = Array(...{ length: 7 }).map(Number.call, Number);
     const { contrast, daysInMonth, firstOfMonth, year, month, selectedDate,
-            disablePast, minDate, onSelect, secondaryDate } = this.props;
+            disablePast, minDate, onSelect, secondaryDate, dayNamesFull } = this.props;
     const dayContrast = contrast ? 'date-inverse' :'';
     const disabledContrast = contrast ? '-inverse' :'';
     const that = this;
     const startDay = firstOfMonth.getUTCDay();
     const first = firstOfMonth.getDay();
     const janOne = new Date(year, 0, 1);
-    const unique_id = '_'+uuid.v1();
     let rows = 5;
 
     if (startDay === 5 && daysInMonth === 31 || startDay === 6 && daysInMonth > 29) rows = 6;
@@ -46,14 +44,13 @@ export default class Dates extends Component {
     return (
       <div className={className}
            role="grid"
-           tabIndex="0"
            aria-activedescendant={`day${selectedDate}`}
            aria-labelledby="pe-cal-month"
       >
         {haystack.map((item, i) => {
           d = day + i * 7;
           return (
-            <div className="pe-cal-row" role="row" id={`${unique_id}_row` + (i+1) }>
+            <div className="pe-cal-row" role="row">
               {weekStack.map((item, i) => {
                 d += 1;
                 isDate = d > 0 && d <= daysInMonth;
@@ -72,6 +69,7 @@ export default class Dates extends Component {
                       <div className={`${className}${disabledContrast} pe-label`}
                            aria-disabled={true}
                            id={`day${d}`}
+                           tabIndex="-1"
                       >
                         {d}
                       </div>
@@ -80,7 +78,7 @@ export default class Dates extends Component {
 
                   {currentDateClass = (current.getDate().toString().split(' ')==that.statics.date && firstOfMonth.getMonth().toString().split(' ')==that.statics.month) ? 'currentDate-box' : '';}
                   {secondaryDateClass = (secondaryDate.some(date => date.getTime()===current.getTime())) ? 'secondary-date' : '';}
-                    
+
                   return (
                     <div className={`${className} pe-label ${dayContrast}`}>
                        <div className={currentDateClass}>
@@ -88,7 +86,7 @@ export default class Dates extends Component {
                             id={`day${d}`}
                             role="gridcell"
                             aria-current="date"
-                            /*{ aria-describedby= abbr.id (weekday), row_id }*/ 
+                            aria-label={dayNamesFull[i]}
                             tabIndex="-1"
                             onClick={onSelect.bind(that, year, month, d)}
                            >
