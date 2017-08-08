@@ -68,14 +68,12 @@ export default class Dropdown extends Component {
   }
 
   closeDropdown(e) {
-    console.log('blurred');
     const currentElement = e.currentTarget;
     // we need to set timeout due to the browser getting the activeElement after a cycle
     // otherwise its still on the wrong active element at the time due to the function being
     // on blur
     setTimeout(() => {
       if (!currentElement.contains(document.activeElement)) {
-        console.log('closing');
         this.setState({open: false});
       }
     }, 0);
