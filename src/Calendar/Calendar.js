@@ -19,13 +19,13 @@ export default class Calendar extends Component {
     weekStartDay: PropTypes.number,
     // *** NOT WORKING ***
     // customProp: (props, weekStartDay, Calendar) => {
-    //   if (/^[0-6]$/.test(props[weekStartDay])) {
+    //   if (!/^[0-6]$/.test(props[weekStartDay])) {
     //     return new Error('Invalid number. Please use 0-6');
     //   }
     //   if (!(0 <= props[weekStartDay] < 7)) {
     //     return new Error('Invalid number. Please use 0-6');
     //   }
-    // },
+    },
     dayNamesShort: PropTypes.array
   }
 
