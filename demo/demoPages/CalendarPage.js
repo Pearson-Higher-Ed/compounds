@@ -22,6 +22,8 @@ const CalendarPage = () => (
             <li className="li-props">minDate:Object === {`<Calendar minDate={new Date(2017, 8, 13)} />`}</li>
             <li className="li-props"><i>minDate</i> accepts a Date Object (year, month, date) and will disable everything prior to the <br/>
             specified date.</li>
+            <li className="li-props">newSelectedDt:Object === {`<Calendar newSelectedDt={new Date(2017, 9, 15)}`}</li>
+            <li className="li-props"><i>newSelectedDt</i> accept a Date Object (year, month, date) and will update the selectedDt in state.</li>
             <li className="li-props">onSelect:Function === {`<Calendar onSelect={(date) => console.log(date)} />`}</li>
             <li className="li-props">Callback fired on new date selection.  This will expose the state Object.</li>
             <li className="li-props">contrast:Boolean === {`<Calendar contrast />`}</li>
@@ -30,8 +32,8 @@ const CalendarPage = () => (
             <li className="li-props">The Calendar will default to Sunday starting the week.  <i>weekStartDay</i> allows you to change that by <br/>
             passing in the index of the day you would like. 0 - 6 are acceptable to use.</li>
             <li className="li-props">secondaryDate:Array === {`<Calendar secondaryDate={[new Date(2017, 8, 13)]} />`}</li>
-            <li className="li-props"><i>secondaryDate</i> accepts a Date object (year, month, date) and is used to apply a secondary indicator for <br/>
-             the specified date(s).</li>
+            <li className="li-props"><i>secondaryDate</i> accepts a Date object (year, month, date) and is used to apply a secondary indicator<br/>
+             for the specified date(s).</li>
           </ul>
       </div>
 
