@@ -30,16 +30,6 @@ export default class Dropdown extends Component {
     this.closeDropdown = this.closeDropdown.bind(this);
   }
 
-  // componentWillUnmount() {
-  //   document.removeEventListener('click', this.handleOutsideClick);
-  //   document.removeEventListener('keydown', this.handleKeyDown);
-  // }
-
-  // componentDidMount() {
-  //   document.addEventListener('click', this.handleOutsideClick);
-  //   document.addEventListener('keydown', this.handleKeyDown);
-  // }
-
   placement(dropdown) {
     const anchor = dropdown.children[0];
     const element = dropdown.children[1];
