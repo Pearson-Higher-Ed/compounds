@@ -25,7 +25,7 @@ export default class Calendar extends Component {
     //   if (!(0 <= props[weekStartDay] < 7)) {
     //     return new Error('Invalid number. Please use 0-6');
     //   }
-    },
+    // },
     dayNamesShort: PropTypes.array
   }
 
