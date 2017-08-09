@@ -45,7 +45,7 @@ const CalendarPage = () => (
           {`<Calendar />`}
         </p>
 
-      <Calendar contrast />
+      <Calendar />
     </div>
 
   </div>
