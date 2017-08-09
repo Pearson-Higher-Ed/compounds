@@ -37,7 +37,7 @@ class DropdownPage extends React.Component {
           </ul>
         </div>
 
-        <h3>label /w Icon (non-selectable options)</h3>
+        <h3>label /w Icon (shows selectable and actual connections to changeHandler)</h3>
           <Dropdown
             dropdownControlLabel="Dropdown open"
             mobileTitle={mobileTitle}
@@ -72,7 +72,7 @@ class DropdownPage extends React.Component {
                 <DropdownItem label="list item 2" />
               </Dropdown>`}
           </p>
-          <h3>button /w Icon (selectable options)</h3>
+          <h3>button /w Icon (no changehandler connection)</h3>
             <Dropdown
               mobileTitle={mobileTitle}
               type="button"
@@ -96,7 +96,7 @@ class DropdownPage extends React.Component {
                 </Dropdown>`}
             </p>
 
-          <h3>Icon only (selectable options)</h3>
+          <h3>Icon only (no changehandler connection)</h3>
             <Dropdown
               mobileTitle={mobileTitle}
               type="icon"
