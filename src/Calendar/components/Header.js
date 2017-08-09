@@ -8,20 +8,19 @@ export default class Header extends Component {
     const colorSwap = contrast ? 'inverse-header' :'';
 
     return (
-      <div className="pe-cal-row pe-cal-header">
-        <div className={`pe-cal-cell pe-cal-title pe-title--small ${colorSwap}`}
+      <div className="pe-cal-row pe-cal-header pe-title--small">
+        <div className={`pe-cal-cell pe-cal-title ${colorSwap}`}
              id="pe-cal-month"
         >
                {monthNames[month]}
-               <span className="fake-title-space" />
-               {year}
+               {' '+ year}
         </div>
         <button className="pe-cal-cell pe-arrowIcons pe-icon--btn"
                 onClick={onPrev.bind(this)}
                 type="button"
                 aria-label="Prev month"
         >
-          <span className={`icon-wrapper ${colorSwap}`}>
+          <span>
             <Icon name="chevron-back-18" />
           </span>
         </button>
@@ -30,7 +29,7 @@ export default class Header extends Component {
                 type="button"
                 aria-label="Next month"
         >
-          <span className={`icon-wrapper ${colorSwap}`}>
+          <span>
             <Icon name="chevron-next-18" />
           </span>
         </button>

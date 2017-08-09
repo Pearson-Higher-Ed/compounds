@@ -17,15 +17,14 @@ export default class Dates extends Component {
     let onClick;
     let isDate;
     let className;
-    let secondaryDateClass='';
-    let currentDateClass='';
+    let isSecondaryDate;
+    let isCurrentDate;
     let newSelectedDtClass='';
     const weekStack = Array(...{ length: 7 }).map(Number.call, Number);
     const { contrast, daysInMonth, firstOfMonth, year, month, selectedDate,
             disablePast, minDate, onSelect, secondaryDate, dayNamesFull,
             selectedDt } = this.props;
     const dayContrast = contrast ? 'date-inverse' :'';
-    const disabledContrast = contrast ? '-inverse' :'';
     const that = this;
     const startDay = firstOfMonth.getUTCDay();
     const first = firstOfMonth.getDay();
@@ -77,23 +76,24 @@ export default class Dates extends Component {
                       </div>
                     );
                   }
-                  {currentDateClass = (current.getDate().toString().split(' ')==that.statics.date && firstOfMonth.getMonth().toString().split(' ')==that.statics.month) ? 'currentDate-box' : '';}
-                  {secondaryDateClass = (secondaryDate.some(date => date.getTime()===current.getTime())) ? 'secondary-date' : '';}
+                  {isCurrentDate = current.getDate().toString().split(' ')==that.statics.date && firstOfMonth.getMonth().toString().split(' ')==that.statics.month;}
+                  {isSecondaryDate = secondaryDate.some(date => date.getTime()===current.getTime())}
                   {newSelectedDtClass = (selectedDt.getTime() === current.getTime() && (selectedDt.getDate() !== that.statics.date || selectedDt.getMonth() !== that.statics.month)) ? 'pe-cal-selected' :'';}
 
                   return (
                     <div className={`${className} pe-label ${dayContrast}`}>
-                       <div className={currentDateClass}>
-                         <div className={`pe-cal-cell-square ${secondaryDateClass} ${newSelectedDtClass}${disabledContrast}`}
+                      <div className={isCurrentDate ? 'currentDate-box': ''}>
+                         <div className={`pe-cal-cell-square ${isSecondaryDate ? 'secondary-date':''} ${newSelectedDtClass}`}
                             id={`day${d}`}
                             role="gridcell"
-                            aria-current="date"
                             aria-label={dayNamesFull[i]}
+                            aria-current={isCurrentDate ? 'date' : null}
                             tabIndex="-1"
                             onClick={onSelect.bind(that, year, month, d)}
                            >
                            {d}
-                           <span className="pe-sr-only">Current date</span>
+                           {isCurrentDate && <span className="pe-sr-only">Current date</span>}
+                           {isSecondaryDate && <span className="pe-sr-only">Secondary date</span>}
                          </div>
                        </div>
                     </div>

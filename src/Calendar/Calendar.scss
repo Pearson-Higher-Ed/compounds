@@ -1,73 +1,105 @@
 @import '../../node_modules/pearson-elements/scss/elements/color/color';
 
 .pe-calendar {
-  border: 1px solid $pe-color-concrete;
-  background-color: $pe-color-white;
   min-width: 320px;
   padding: 16px 0 20px 0;
   height: 320px;
   width: 320px;
   position: absolute;
   z-index: 1;
+  color: $pe-color-charcoal;
+  border: 1px solid $pe-color-concrete;
+  background-color: $pe-color-white;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  .pe-inner {
+    height: 100%;
+    display: flex;
+    padding: 0 20px;
+    flex-flow: column nowrap;
+  }
+  .pe-cal-row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+  .pe-cal-cell {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+    flex-basis: 0;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .pe-cal-title {
+    padding: 0 8px 8px;
+    height: 40px;
+    justify-content: flex-start;
+  }
+  .pe-arrowIcons {
+    cursor: pointer;
+    height: 40px;
+    color: $pe-color-medium-gray;
+    flex-grow: 0;
+    display: inline;
+    text-align: center;
+
+    span {
+      display: block;
+      width: 40px;
+    }
+    
+    &:hover, &:focus {
+      color: $pe-color-charcoal;
+    }
+  }
+  .pe-cal-weekdays {
+    height: 40px;
+    color: $pe-color-medium-gray;
+  }
+  .pe-cal-dates {
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 6;
+    flex-basis: 0;
+  }
+  .pe-cal-dates.pe-cal-fix {
+    flex-grow: 5;
+  }
+  .pe-cal-dates .pe-cal-row {
+    flex-grow: 1;
+  }
+  .pe-cal-cell.pe-cal-date {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+  }
 }
 
+/* inverse */
 .calendar-contrast {
+  color: $pe-color-white;
   background-color: $pe-color-ink-blue;
   border: 1px solid $pe-color-ink-blue;
 }
 
-.pe-calendar .pe-cal-row {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
+.calendar-contrast .pe-cal-header .inverse-header,
+.calendar-contrast .pe-arrowIcons,
+.calendar-contrast .pe-cal-weekdays {
+  color: $pe-color-white;
+}
+.calendar-contrast .pe-arrowIcons:hover,
+.calendar-contrast .pe-arrowIcons:focus {
+  color: $pe-color-concrete;
 }
 
-.pe-calendar .pe-cal-cell {
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-  flex-grow: 1;
-  flex-basis: 0;
-  justify-content: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.pe-cal-cell-dayNames {
-  color: $pe-color-medium-gray;
-}
-
-.inverse-header,
-.inverse-dayNames,
-.date-inverse {
-  color: $pe-color-white !important;
-}
-
-.date-inverse:hover {
-  color: $pe-color-charcoal !important;
-}
-
-button .inverse-header:hover {
-  color: $pe-color-concrete !important;
-}
-
-.pe-arrowIcons {
-  cursor: pointer;
-  height: 40px;
-  flex-grow: 0 !important;
-  display: inline;
-  text-align: center;
-
-  &:focus {
-    span {
-      color: $pe-color-charcoal;
-    }
-  }
-}
-
-.fake-title-space {
-  padding: 0 3px;
-}
 
 .pe-cal-cell-square {
   height: 32px;
@@ -75,16 +107,15 @@ button .inverse-header:hover {
   align-items: center;
   display: flex;
   justify-content: center;
-
-  &:hover {
-    background-color: $pe-color-moonlight;
-    border-radius: 16px;
-  }
+  border-radius: 16px;
+}
+.pe-cal-date:hover .pe-cal-cell-square {
+  color: $pe-color-charcoal;
+  background-color: $pe-color-moonlight;
 }
 
 .secondary-date {
   border: 1px solid $pe-color-concrete;
-  border-radius: 16px;
 }
 
 .currentDate-box {
@@ -97,67 +128,15 @@ button .inverse-header:hover {
 }
 
 .pe-cal-selected,
-.pe-cal-selected-inverse {
-  border-radius: 16px;
+.pe-cal-date:hover .pe-cal-selected {
   font-weight: 600;
-}
-
-.pe-cal-selected {
-  background-color: $pe-color-medium-gray;
   color: $pe-color-white;
-
-  &:hover {
-    background-color: $pe-color-medium-gray;
-  }
+  background-color: $pe-color-medium-gray;
 }
-
-.pe-cal-selected-inverse {
+/* inverse */
+.pe-cal-date.date-inverse .pe-cal-selected {
   color: $pe-color-charcoal;
   background-color: $pe-color-white;
-
-  &:hover {
-    background-color: $pe-color-white;
-  }
-}
-
-.icon-wrapper {
-  color: $pe-color-medium-gray;
-  width: 40px;
-
-  &:hover {
-    color: $pe-color-charcoal;
-  }
-}
-
-.pe-calendar .pe-cal-title {
-  padding: 0 8px 8px;
-  height: 40px;
-  justify-content: flex-start;
-}
-
-.pe-calendar .pe-cal-weekdays {
-  height: 40px;
-}
-
-.pe-calendar .pe-cal-dates {
-  display: flex;
-  flex-flow: column nowrap;
-  flex-grow: 6;
-  flex-basis: 0;
-}
-
-.pe-calendar .pe-cal-dates.pe-cal-fix {
-  flex-grow: 5;
-}
-
-.pe-calendar .pe-cal-dates .pe-cal-row {
-  flex-grow: 1;
-}
-
-.pe-calendar .pe-cal-cell.pe-cal-date {
-  cursor: pointer;
-  height: 40px;
-  width: 40px;
 }
 
 .pe-calendar .pe-cal-cell.pe-cal-date.pe-cal-past {
@@ -168,17 +147,4 @@ button .inverse-header:hover {
 .pe-cal-past-inverse {
   color: $pe-color-digital-pearson-blue;
   cursor: not-allowed;
-}
-
-.pe-calendar:after {
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-}
-
-.pe-calendar .pe-inner {
-  height: 100%;
-  display: flex;
-  padding: 0 20px;
-  flex-flow: column nowrap;
 }
