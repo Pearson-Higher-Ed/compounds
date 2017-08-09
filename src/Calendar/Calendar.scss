@@ -11,12 +11,6 @@
   border: 1px solid $pe-color-concrete;
   background-color: $pe-color-white;
 
-  &:after {
-    content: '';
-    display: block;
-    padding-bottom: 100%;
-  }
-
   .pe-inner {
     height: 100%;
     display: flex;
@@ -55,7 +49,7 @@
       display: block;
       width: 40px;
     }
-    
+
     &:hover, &:focus {
       color: $pe-color-charcoal;
     }
