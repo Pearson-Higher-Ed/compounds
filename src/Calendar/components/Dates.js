@@ -25,6 +25,7 @@ export default class Dates extends Component {
             disablePast, minDate, onSelect, secondaryDate, dayNamesFull,
             selectedDt } = this.props;
     const dayContrast = contrast ? 'date-inverse' :'';
+    const disabledContrast = contrast ? '-inverse' : '';
     const that = this;
     const startDay = firstOfMonth.getUTCDay();
     const first = firstOfMonth.getDay();
