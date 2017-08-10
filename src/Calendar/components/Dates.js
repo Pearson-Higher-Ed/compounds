@@ -46,6 +46,7 @@ export default class Dates extends Component {
     return (
       <div className={className}
            role="grid"
+           tabIndex="0"
            aria-activedescendant={`day${selectedDate}`}
            aria-labelledby="pe-cal-month"
       >
