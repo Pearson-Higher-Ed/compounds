@@ -17,6 +17,29 @@
     padding: 0 20px;
     flex-flow: column nowrap;
   }
+  .pe-cal-header {
+    text-align: right;
+    overflow: hidden;
+  }
+  .pe-cal-title {
+    float: left;
+    padding: 8px;
+  }
+  .pe-arrowIcons {
+    cursor: pointer;
+    height: 40px;
+    color: $pe-color-medium-gray;
+    text-align: center;
+
+    span {
+      display: block;
+      width: 40px;
+    }
+
+    &:hover, &:focus {
+      color: $pe-color-charcoal;
+    }
+  }
   .pe-cal-row {
     display: flex;
     flex-flow: row nowrap;
@@ -31,28 +54,6 @@
     justify-content: center;
     word-wrap: break-word;
     overflow-wrap: break-word;
-  }
-  .pe-cal-title {
-    padding: 0 8px 8px;
-    height: 40px;
-    justify-content: flex-start;
-  }
-  .pe-arrowIcons {
-    cursor: pointer;
-    height: 40px;
-    color: $pe-color-medium-gray;
-    flex-grow: 0;
-    display: inline;
-    text-align: center;
-
-    span {
-      display: block;
-      width: 40px;
-    }
-
-    &:hover, &:focus {
-      color: $pe-color-charcoal;
-    }
   }
   .pe-cal-weekdays {
     height: 40px;
