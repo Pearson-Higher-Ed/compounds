@@ -1,22 +1,15 @@
 @import '../../node_modules/pearson-elements/scss/elements/color/color';
 
 .pe-calendar {
-  min-width: 320px;
-  padding: 16px 0 20px 0;
-  height: 320px;
-  width: 320px;
+  box-sizing: content-box;
+  padding: 16px 20px 20px 20px;
+  width: 280px;
   position: absolute;
   z-index: 1;
   color: $pe-color-charcoal;
   border: 1px solid $pe-color-concrete;
   background-color: $pe-color-white;
 
-  .pe-inner {
-    height: 100%;
-    display: flex;
-    padding: 0 20px;
-    flex-flow: column nowrap;
-  }
   .pe-cal-header {
     text-align: right;
     overflow: hidden;
@@ -40,42 +33,39 @@
       color: $pe-color-charcoal;
     }
   }
-  .pe-cal-row {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-  }
   .pe-cal-cell {
-    align-items: center;
-    display: flex;
-    flex-flow: row nowrap;
-    flex-grow: 1;
-    flex-basis: 0;
-    justify-content: center;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width: 40px;
   }
   .pe-cal-weekdays {
     height: 40px;
     color: $pe-color-medium-gray;
   }
-  .pe-cal-dates {
-    display: flex;
-    flex-flow: column nowrap;
-    flex-grow: 6;
-    flex-basis: 0;
-  }
-  .pe-cal-dates.pe-cal-fix {
-    flex-grow: 5;
-  }
-  .pe-cal-dates .pe-cal-row {
-    flex-grow: 1;
-  }
-  .pe-cal-cell.pe-cal-date {
+  .pe-cal-date {
     cursor: pointer;
-    height: 40px;
-    width: 40px;
   }
+}
+
+.pe-cal-cell-square {
+  height: 32px;
+  width: 32px;
+  margin: 4px;
+  line-height: 32px;
+  border-radius: 16px;
+}
+  .pe-cal-date:hover .pe-cal-cell-square {
+    color: $pe-color-charcoal;
+    background-color: $pe-color-moonlight;
+  }
+.currentDate-box .pe-cal-cell-square {
+  width: 36px;
+  height: 36px;
+  margin: 1px 0 0 0;
+  line-height: 36px;
+  border-radius: 0;
+  border: 1px solid $pe-color-concrete;
 }
 
 /* inverse */
@@ -95,31 +85,8 @@
   color: $pe-color-concrete;
 }
 
-
-.pe-cal-cell-square {
-  height: 32px;
-  width: 32px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  border-radius: 16px;
-}
-.pe-cal-date:hover .pe-cal-cell-square {
-  color: $pe-color-charcoal;
-  background-color: $pe-color-moonlight;
-}
-
 .secondary-date {
   border: 1px solid $pe-color-concrete;
-}
-
-.currentDate-box {
-  height: 38px;
-  width: 38px;
-  border: 1px solid $pe-color-concrete;
-  align-items: center;
-  display: flex;
-  justify-content: center;
 }
 
 .pe-cal-selected,
