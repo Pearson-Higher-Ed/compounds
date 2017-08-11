@@ -35,6 +35,10 @@
   min-width  : 150px;
 }
 
+.pe-datepicker-input-styles::-ms-clear {
+    display: none;
+}
+
 .pe-datepicker-container svg {
   @extend %container-extend-svg;
   fill : $pe-color-medium-gray;

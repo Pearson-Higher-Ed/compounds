@@ -8,27 +8,26 @@ export default class TimeList extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      focusStartIndex : -1
-    };
+    this.state = { focusStartIndex : 0 };
 
     this.listEventInterface = _listEventInterface.bind(this);
-
   }
 
   render(){
 
-    const { id, hoursToList, timeToParent, selectedHour } = this.props;
+    const { id, hoursToList, timeToParent, selectedHour, timeListRef } = this.props;
 
     return (
-      <ul id="list" className="pe-timepicker-list" onKeyUp={this.listEventInterface} role="listbox" aria-expanded="true" aria-live="polite">
+      <ul id="timelist" className="pe-timepicker-list" ref={timeListRef} onKeyUp={this.listEventInterface} role="listbox" aria-expanded="true" aria-live="polite">
         {
           hoursToList.map((hour,i) =>
             <li key           = {`${id}-item-${i}`}
                 id            = {`${id}-item-${i}`}
+                ref           = {li => this.item = li}
                 className     = "pe-timepicker-list-item-hour"
                 role          = "option"
-                tabIndex      = "0"
+                tabIndex      = "-1"
+                onFocus       = {() => this.setState({focusStartIndex:i})}
                 aria-selected = {hour === selectedHour}
                 onClick       = {timeToParent}
               >
@@ -43,60 +42,30 @@ export default class TimeList extends Component {
 }
 
 
-
 function _listEventInterface(e) {
 
     let { focusStartIndex } = this.state;
-    const listOfItems       = document.getElementsByClassName('pe-timepicker-list-item-hour');
-    const list              = document.getElementById('list');
-    const nextPicker        = e.target;
-
+    const list              = this.list;
+console.log(list)
     switch(e.which){
-      case 40:
-        console.log('hit down')
-        e.preventDefault();
-        if(focusStartIndex >= -1 && focusStartIndex < listOfItems.length - 1){
+      case 40:  //keypress: down arrow
+        e.stopPropagation();
+        if(focusStartIndex >= 0 && focusStartIndex < list.children.length - 1){
           focusStartIndex++;
-          this.setState({focusStartIndex: focusStartIndex});
-          listOfItems[focusStartIndex].focus();
-          list.setAttribute("aria-activedescendant", listOfItems[focusStartIndex].id);
+          list.children[focusStartIndex].focus();
+          list.setAttribute("aria-activedescendant", list.children[focusStartIndex].id);
         }
         break;
-      case 38:
-        e.preventDefault();
-        console.log('hit up')
-        if(focusStartIndex > 0 && focusStartIndex < listOfItems.length){
+      case 38:  //keypress: up arrow
+        if(focusStartIndex > 0 && focusStartIndex < list.children.length){
           focusStartIndex--;
-          this.setState({focusStartIndex: focusStartIndex});
-          listOfItems[focusStartIndex].focus();
-          list.setAttribute("aria-activedescendant", listOfItems[focusStartIndex].id);
+          list.children[focusStartIndex].focus();
+          list.setAttribute("aria-activedescendant", list.children[focusStartIndex].id);
         }
         break;
-      case 9:
-        e.preventDefault();
-        console.log('hit tab')
-        // close with out selection and move to next element or next element in range...
-        // this.props.timeToParent(e);
-        // this.props.closeDropdown();
-        // nextPicker.focus();
-        break;
-      case 27:
-        e.preventDefault();
-        console.log('hit esc')
-        this.props.closeDropdown();
-        break;
-      case 32:
-        e.preventDefault();
-        console.log('hit space')
-        // this.props.timeToParent(e);
-        break;
-      case 13:
-        e.preventDefault();
-        console.log('hit enter')
+      case 13:  //keypress: enter
         this.props.timeToParent(e);
         break;
-      default:
-        console.log(`default case for ${e.key}`);
-    }
+    };
 
 };

@@ -88,7 +88,6 @@ class TimePickerPage extends Component {
           <h2>TimePicker (basic time range): </h2>
           <DatePickerStart
             time            = {true}
-            associationId   = "range2"
             id              = "someGiantId2"
             dateFormat      = "hh:mm"
             inputState      = {inputState}
@@ -100,7 +99,6 @@ class TimePickerPage extends Component {
           />
           <DatePickerEnd
             time            = {true}
-            associationId   = "range2"
             id              = "someGiantId3"
             dateFormat      = "hh:mm"
             inputState      = {inputState}

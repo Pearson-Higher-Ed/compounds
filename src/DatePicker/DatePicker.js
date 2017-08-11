@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes            from 'prop-types';
 import { Icon, Calendar }   from '../../index';
-import moment               from 'moment';
 import TimeList             from './components/TimeList';
+import moment               from 'moment';
 
 import './DatePicker.scss';
 
@@ -21,7 +21,6 @@ export default class DatePicker extends Component {
     this.calendarHandler       = _calendarHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
     this.inputEvents           = _inputEvents.bind(this);
-    this.closeDropdown         = _closeDropdown.bind(this);
   }
 
   componentDidMount(){
@@ -34,23 +33,22 @@ export default class DatePicker extends Component {
 
   render() {
 
-    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg, placeholder } = this.state;
+    const { inputStyle, markToClose, labelStyleTmp, labelStyle, displayOpen, datepickerValue, spanStyle, containerStyle, dateValidation, dateValidationErrorMsg, placeholder } = this.state;
     const { className, time, inputState, id, labelText, dateFormat, infoMessage, errorMessage, twentyFourHour, TWENTYFOUR_HOURS, HOURS } = this.props;
 
-    const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
-    const ariaDescribedby = em + (infoMessage ? `infoMsg-${id}` : '');
-
-    const mainContainerStyles = className ? `pe-datepicker-main ${className}`:`pe-datepicker-main`;
-    const inputStyles = inputStyle ? `pe-datepicker-input-styles ${inputStyle}`:`pe-datepicker-input-styles`;
+    const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
+    const ariaDescribedby     = em + (infoMessage ? `infoMsg-${id}` : '');
+    const mainContainerStyles = className  ? `pe-datepicker-main ${className}`:`pe-datepicker-main`;
+    const inputStyles         = inputStyle ? `pe-datepicker-input-styles ${inputStyle}`:`pe-datepicker-input-styles`;
+    const hoursToList         = twentyFourHour ? TWENTYFOUR_HOURS : HOURS;
 
     return (
-      <div className={mainContainerStyles}>
+      <div className={mainContainerStyles} onBlur={this.datePickerBlur} onKeyUp={this.inputEvents} onFocus={this.datePickerFocus}>
         <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${dateFormat})`}</label>
 
         <div className={containerStyle}>
           <input
             type             = "text"
-            tabIndex         = "0"
             id               = {id}
             placeholder      = {placeholder}
             value            = {datepickerValue}
@@ -59,21 +57,17 @@ export default class DatePicker extends Component {
             aria-invalid     = {inputState === 'error'}
             disabled         = {inputState === 'disabled'}
             readOnly         = {inputState === 'readOnly'}
-            onFocus          = {this.datePickerFocus}
-            onBlur           = {this.datePickerBlur}
-            onKeyUp          = {this.inputEvents}
             onChange         = {this.changeHandler}
           />
           <Icon name={time ? "clock-18" : "calendar-18"} />
         </div>
 
-        {infoMessage     && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
-        {errorMessage    && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
-        {!dateValidation && <span className="pe-input--error_message">{dateValidationErrorMsg}</span>}
+        {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
+        {errorMessage && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
 
-        {displayOpen && inputState !== 'readOnly' && <div className="pe-dropdownContainer">
+        {displayOpen  && inputState !== 'readOnly' && <div className="pe-dropdownContainer">
           {!time && <Calendar disablePast={true} selectedDates={[]} onSelect={this.calendarHandler} />}
-          { time && <TimeList id={`${id}-timelist`} hoursToList={twentyFourHour ? TWENTYFOUR_HOURS : HOURS} selectedHour={datepickerValue} timeToParent={this.timeListHandler} closeDropdown={this.closeDropdown} />}
+          { time && <TimeList id={`${id}-timelist`} timeListRef={ul => this.list = ul} hoursToList={hoursToList} selectedHour={datepickerValue} timeToParent={this.timeListHandler}/>}
         </div>}
 
       </div>
@@ -94,86 +88,58 @@ DatePicker.propTypes = {
   id               : PropTypes.string.isRequired,
   labelText        : PropTypes.string.isRequired,
   dateFormat       : PropTypes.string.isRequired,
-  HOURS            : PropTypes.array.isRequired,
-  TWENTYFOUR_HOURS : PropTypes.array.isRequired,
   changeHandler    : PropTypes.func.isRequired,
-  associationId    : PropTypes.string,
   infoMessage      : PropTypes.string,
   errorMessage     : PropTypes.string,
   inputState       : PropTypes.string,
   className        : PropTypes.string,
+  HOURS            : PropTypes.array,
+  TWENTYFOUR_HOURS : PropTypes.array,
   twentyFourHour   : PropTypes.bool,
   time             : PropTypes.bool
 };
 
 
 function _datePickerFocus(){
-
   const { inputState, labelFocusStyle } = this.state;
-
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
     this.setState({labelStyleTmp:labelFocusStyle, displayOpen:true});
   }
-
 };
 
 function _datePickerBlur(e){
-  // console.log(e.target.value)
-  // this.setState({labelStyleTmp:this.state.labelStyle, displayOpen:false});
+  // console.log(e)
+  // this.setState({datepickerValue:e.target.innerText, labelStyleTmp:this.state.labelStyle, displayOpen:false});
+  // this.setState({markToClose:e.target});
+
 };
 
 function _changeHandler(e){
-
-  this.setState({datepickerValue:e.target.value});
-  this.closeDropdown();
-
-  this.props.changeHandler.call(this);
-
+  this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  this.props.changeHandler.call(this, e.target.value);
 };
 
 function _inputEvents(e){
-
-  let { focusStartIndex } = this.state;
-  const listOfItems       = document.getElementsByClassName('pe-timepicker-list-item-hour');
-  const list              = document.getElementById('list');
-
   switch(e.which){
-    case 40:
-      console.log('hit down')
-      e.preventDefault();
-      listOfItems[0].focus();
+    case 40:  //keypress: down arrow
+    console.log(e)
+      this.list.children[0].focus();
       break;
-    case 27:
-      e.preventDefault();
-      console.log('hit esc')
-      this.closeDropdown();
+    case 27:  //keypress: esc
+      this.setState({displayOpen:false, labelStyleTmp:this.state.labelStyle});
       break;
-    case 9:
-      console.log('hit tab')
-      // this.closeDropdown();
+    case 13:  //keypress: enter
+      this.timeListHandler(e);
       break;
-    // case 13:
-    //   e.preventDefault();
-    //   console.log('hit enter')
-    //   this.timeListHandler(e);
-    //   break;
-    default:
-      console.log(`default case for ${e.key}`);
-  }
+  };
 };
 
 function _timeListHandler(e){
- this.setState({ datepickerValue : e.target.innerText });
- this.closeDropdown();
+  this.setState({ datepickerValue:e.target.innerText, displayOpen:false, labelStyleTmp:this.state.labelStyle });
 };
 
 function _calendarHandler(date){
-  this.setState({ datepickerValue : moment(date.selectedDt).format('L') });
-  this.closeDropdown();
-};
-
-function _closeDropdown(){
-  this.setState({displayOpen:false, labelStyleTmp:this.state.labelStyle});
+  this.setState({ datepickerValue:moment(date.selectedDt).format('L'), displayOpen:false, labelStyleTmp:this.state.labelStyle });
 };
 
 function _applyDatePickerStyles(inputState) {
@@ -205,8 +171,6 @@ function _applyDatePickerStyles(inputState) {
       containerStyle  = 'pe-datepicker-container';
   };
 
-  labelStyleTmp = labelStyle;
-
-  this.setState({ labelStyle, labelStyleTmp, inputStyle, labelFocusStyle, containerStyle });
+  this.setState({ labelStyle, labelStyleTmp:labelStyle, inputStyle, labelFocusStyle, containerStyle });
 
 };

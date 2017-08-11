@@ -1,5 +1,6 @@
 import React     from 'react';
 import expect    from 'expect';
+import moment    from 'moment';
 
 import { mount, shallow } from 'enzyme';
 
@@ -10,47 +11,41 @@ describe('DatePicker', () => {
   describe('Basic DatePicker Test', function() {
 
     it('should render the DatePicker as div element', function() {
-      this.wrapper = shallow(<DatePicker />);
+      this.wrapper = shallow(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} />);
       expect(this.wrapper.node.type).toEqual('div');
     });
 
     it('should render the DatePicker in error state', function() {
-      this.wrapper = mount(<DatePicker inputState='error' />);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} inputState='error' />);
       expect(this.wrapper.instance().state.inputStyle).toEqual('pe-textInput--basic_error');
     });
 
     it('should render the DatePicker in default state', function() {
-      this.wrapper = mount(<DatePicker />);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} />);
       expect(this.wrapper.instance().state.inputStyle).toEqual('pe-textInput--basic');
     });
 
     it('should render the DatePicker in readOnly state', function() {
-      this.wrapper = mount(<DatePicker inputState='readOnly' />);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} inputState='readOnly' />);
       expect(this.wrapper.instance().state.inputStyle).toEqual('pe-textInput--input_readonly');
     });
 
     it('should render the DatePicker in disabled state', function() {
-      this.wrapper = mount(<DatePicker inputState='disabled' />);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} inputState='disabled' />);
       expect(this.wrapper.instance().state.inputStyle).toEqual('pe-textInput--basic');
     });
 
-    it('should close the dropdown', function() {
-      this.wrapper = mount(<DatePicker time />);
-      this.wrapper.find('input').simulate('click');
-      this.wrapper.instance().closeDropdown();
-      expect(this.wrapper.find('ul').exists()).toEqual(false);
-    });
-
     it('should handle the calendar', function() {
-      this.wrapper = mount(<DatePicker />);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} />);
       this.wrapper.find('input').simulate('click');
       const date ='Thu May 04 2017 00:00:00 GMT-0600 (MDT)';
+      const testdate = new Date();
       this.wrapper.instance().calendarHandler(date);
-      expect(this.wrapper.instance().state.datepickerValue).toEqual('08/04/2017');
+      expect(this.wrapper.instance().state.datepickerValue).toEqual(moment(testdate).format('L'));
     });
 
     it('should handle the timelist', function() {
-      this.wrapper = mount(<DatePicker time/>);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} time/>);
       this.wrapper.find('input').simulate('click');
       const e = {"target":{"innerText":"Hi There"}};
       this.wrapper.instance().timeListHandler(e);
@@ -58,43 +53,66 @@ describe('DatePicker', () => {
     });
 
     it('should handle the inputKeyEvents esc key', function() {
-      this.wrapper = mount(<DatePicker time/>);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} time/>);
       this.wrapper.find('input').simulate('click');
-      const e = {"target":{"innerText":"Hi There"},"which":27,"preventDefault":() => {}};
+      const e = {"which":27};
       this.wrapper.instance().inputEvents(e);
       expect(this.wrapper.find('ul').exists()).toEqual(false);
     });
 
     it('should handle the inputKeyEvents tab key', function() {
-      this.wrapper = mount(<DatePicker time/>);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} time/>);
       this.wrapper.find('input').simulate('click');
-      const e = {"target":{"innerText":"Hi There"},"which":9,"preventDefault":() => {}};
+      const e = {"which":9};
       this.wrapper.instance().inputEvents(e);
       expect(this.wrapper.find('ul').exists()).toEqual(false);
     });
 
-    // it('should handle the inputKeyEvents down key', function() {
-    //   this.wrapper = mount(<DatePicker time/>);
-    //   this.wrapper.find('input').simulate('click');
-    //   const e = {"target":{"innerText":"Hi There"},"which":40,"preventDefault":() => {}};
-    //   this.wrapper.instance().inputEvents(e);
-    //   expect(this.wrapper.find('ul').exists()).toEqual(false);
-    // });
+    it('should close the dropdown with enter key', function() {
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} time/>);
+      this.wrapper.find('input').simulate('click');
+      const e = {"target":{"innerText":"Hi there"},"which":13};
+      this.wrapper.instance().inputEvents(e);
+      expect(this.wrapper.find('ul').exists()).toEqual(false);
+    });
+
+    it('should check classes on the main container', function() {
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} id='errorInput' className="hithere" inputState='error' errorMessage='error message' />);
+      expect(this.wrapper.find('.hithere').exists()).toEqual(true);
+    });
+
+    it('should check inputState error message', function() {
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} id='errorInput' inputState='error' errorMessage='error message' />);
+      expect(this.wrapper.find('.pe-input--error_message').exists()).toEqual(true);
+    });
+
+    it('should check info message', function() {
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} id='infoInput' infoMessage='info message' />);
+      expect(this.wrapper.find('.pe-input--info_message').exists()).toEqual(true);
+    });
 
     it('should handle the inputKeyEvents default case', function() {
-      this.wrapper = mount(<DatePicker time/>);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} time/>);
       this.wrapper.find('input').simulate('click');
-      const e = {"target":{"innerText":"Hi There"},"which":1000,"preventDefault":() => {}};
+      const e = {"which":1000};
       this.wrapper.instance().inputEvents(e);
       expect(this.wrapper.find('ul').exists()).toEqual(false);
     });
 
     it('should call the changehandler', function() {
-      this.wrapper = mount(<DatePicker time changeHandler={() => {}} />);
+      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} time changeHandler={() => {}} />);
       this.wrapper.find('input').simulate('click');
-      const e = {"target":{"value":"Hi There"},"preventDefault":() => {}};
+      const e = {"target":{"value":"Hi There"}};
       this.wrapper.instance().changeHandler(e);
       expect(this.wrapper.instance().state.datepickerValue).toEqual("Hi There");
+    });
+
+    it('should handle the inputKeyEvents down key', function() {
+      this.wrapper = mount(<DatePicker time id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}}/>);
+      this.wrapper.find('input').simulate('click');
+      const e = {"target":{"innerText":"Hi There"},"which":40};
+      this.wrapper.instance().inputEvents(e);
+      expect(this.wrapper.find('ul').exists()).toEqual(true);
     });
 
   })

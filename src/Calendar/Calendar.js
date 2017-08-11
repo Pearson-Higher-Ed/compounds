@@ -6,41 +6,48 @@ import WeekDays from './components/WeekDays';
 import Dates from './components/Dates';
 import './Calendar.scss';
 
+
 export default class Calendar extends Component {
 
   static propTypes = {
     disablePast: PropTypes.bool,
     minDate: PropTypes.object,
+    secondaryDate: PropTypes.array,
     onSelect: PropTypes.func,
     contrast: PropTypes.bool,
     dayNamesFull: PropTypes.array,
-    monthNamesFull: PropTypes.array
+    monthNamesFull: PropTypes.array,
+    weekStartDay: PropTypes.number,
+    dayNamesShort: PropTypes.array,
+    newSelectedDt: PropTypes.object
   }
 
   static defaultProps = {
     disablePast: false,
-    contrast: false
+    contrast: false,
+    weekStartDay: 0
   }
 
   constructor(props) {
     super(props);
 
     const date = new Date();
-    const { minDate, disablePast, contrast,
-            dayNamesFull, monthNamesFull } = this.props;
+    const { minDate, disablePast, contrast, dayNamesFull, monthNamesFull,
+            weekStartDay, secondaryDate, dayNamesShort, newSelectedDt } = this.props;
 
     this.state = {
-      year: date.getFullYear(),
-      month: date.getMonth(),
-      selectedYear: date.getFullYear(),
-      selectedMonth: date.getMonth(),
-      selectedDate: date.getDate(),
-      selectedDt: new Date(date.getFullYear(), date.getMonth(), date.getDate()),
-      startDay: 0,
+      year: newSelectedDt ? newSelectedDt.getFullYear() : date.getFullYear(),
+      month: newSelectedDt ? newSelectedDt.getMonth() : date.getMonth(),
+      selectedYear: newSelectedDt ? newSelectedDt.getFullYear() : date.getFullYear(),
+      selectedMonth: newSelectedDt ? newSelectedDt.getMonth() : date.getMonth(),
+      selectedDate: newSelectedDt ? newSelectedDt.getDate() : date.getDate(),
+      selectedDt: newSelectedDt || new Date(date.getFullYear(), date.getMonth(), date.getDate()),
+      startDay: weekStartDay,
       minDate: minDate ? minDate : null,
+      secondaryDate: secondaryDate ? secondaryDate : [],
       disablePast: disablePast ? disablePast : false,
-      contrast: contrast ? contrast : false,
-      dayNames: ["S", "M", "T", "W", "T", "F", "S"],
+      contrast: contrast,
+      dayNames: dayNamesShort || ["S", "M", "T", "W", "T", "F", "S"],
       dayNamesFull: dayNamesFull || ["Sunday", "Monday", "Tuesday", "Wednesday",
         "Thursday", "Friday", "Saturday"],
       monthNamesFull: monthNamesFull || ["January", "February", "March", "April",
@@ -51,11 +58,12 @@ export default class Calendar extends Component {
   }
 
   calc = (year, month) => {
+    const selectInverse = this.props.contrast ? '-inverse' :'';
     if (this.state.selectedElement) {
       if (this.state.selectedMonth !== month || this.state.selectedYear !== year) {
-        this.state.selectedElement.classList.remove('pe-cal-selected');
+        this.state.selectedElement.classList.remove(`pe-cal-selected${selectInverse}`);
       } else {
-        this.state.selectedElement.classList.add('pe-cal-selected');
+        this.state.selectedElement.classList.add(`pe-cal-selected${selectInverse}`);
       }
     }
     return {
@@ -189,28 +197,32 @@ export default class Calendar extends Component {
   enterSelect = () => {
     const selectInverse = this.props.contrast ? '-inverse' :'';
     const icons = document.querySelectorAll('button.pe-arrowIcons');
+    const days = document.querySelectorAll('div.pe-cal-cell-square');
     if (this.state.selectedElement) {
       this.state.selectedElement.classList.remove(`pe-cal-selected${selectInverse}`);
       this.state.selectedElement.removeAttribute('aria-selected');
     }
     if (document.activeElement.hasAttribute('aria-disabled')) return;
-    if (document.activeElement !== icons[0] && document.activeElement !== icons[1]) {
-      document.activeElement.classList.add(`pe-cal-selected${selectInverse}`);
-      document.activeElement.setAttribute('aria-selected', true);
-      this.setState({
-        selectedYear: this.state.year,
-        selectedMonth: this.state.month,
-        selectedDate: parseInt(document.activeElement.innerText),
-        selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), parseInt(document.activeElement.innerText)),
-        selectedElement: document.activeElement
-      });
-  }
+    for (let i = 0; i < days.length; i++) {
+      if (document.activeElement === days[i]) {
+        document.activeElement.classList.add(`pe-cal-selected${selectInverse}`);
+        document.activeElement.setAttribute('aria-selected', true);
+        this.setState({
+          selectedYear: this.state.year,
+          selectedMonth: this.state.month,
+          selectedDate: parseInt(document.activeElement.innerText),
+          selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), parseInt(document.activeElement.innerText)),
+          selectedElement: document.activeElement
+        });
+      }
+    }
   }
 
   render() {
     const { monthNamesFull, month, year, dayNames, startDay, daysInMonth,
-            firstOfMonth, selectedDate, disablePast, minDate, dayNamesFull, contrast
-          } = this.state;
+            firstOfMonth, selectedDate, disablePast, minDate, dayNamesFull,
+            contrast, secondaryDate, selectedDt } = this.state;
+
     const colorSwap = contrast ? 'calendar-contrast' :'';
 
     return (
@@ -231,16 +243,19 @@ export default class Calendar extends Component {
             startDay={startDay} />
 
           <Dates
+            selectedDt={selectedDt}
             month={month}
             year={year}
             contrast={contrast}
             selectedDate={selectedDate}
             daysInMonth={daysInMonth}
+            dayNamesFull={dayNamesFull}
             firstOfMonth={firstOfMonth}
             startDay={startDay}
             onSelect={this.selectDate}
             disablePast={disablePast}
-            minDate={minDate} />
+            minDate={minDate}
+            secondaryDate={secondaryDate} />
         </div>
       </div>
     );
