@@ -67,6 +67,10 @@
   border-radius: 0;
   border: 1px solid $pe-color-concrete;
 }
+.pe-cal-date.pe-cal-past {
+  height: 40px;
+  line-height: 38px;
+}
 
 /* inverse */
 .calendar-contrast {
