@@ -11,6 +11,7 @@
   background-color: $pe-color-white;
 
   .pe-cal-header {
+    margin-bottom: 8px;
     text-align: right;
     overflow: hidden;
   }
@@ -39,9 +40,10 @@
     text-align: center;
     width: 40px;
   }
-  .pe-cal-weekdays {
+  .pe-cal-weekdays div {
     height: 40px;
     color: $pe-color-medium-gray;
+    line-height: 40px;
   }
   .pe-cal-date {
     cursor: pointer;
@@ -81,7 +83,7 @@
 
 .calendar-contrast .pe-cal-header .inverse-header,
 .calendar-contrast .pe-arrowIcons,
-.calendar-contrast .pe-cal-weekdays {
+.calendar-contrast .pe-cal-weekdays div {
   color: $pe-color-white;
 }
 .calendar-contrast .pe-arrowIcons:hover,
@@ -111,6 +113,8 @@
 }
 
 .pe-cal-cell.pe-cal-date.pe-cal-past-inverse {
+  height: 40px;
+  line-height: 38px;
   color: $pe-color-digital-pearson-blue;
   cursor: not-allowed;
 }
