@@ -82,7 +82,6 @@ export default class Dates extends Component {
                   {isSecondaryDate = secondaryDate.some(date => date.getTime()===current.getTime())}
                   {newSelectedDtClass = (selectedDt.getTime() === current.getTime() && (selectedDt.getDate() !== that.statics.date || selectedDt.getMonth() !== that.statics.month)) ? 'pe-cal-selected' :'';}
 
-                  {console.log(monthNames);}
                   return (
                     <div className={`${className} pe-label ${dayContrast}`}>
                       <div className={isCurrentDate ? 'currentDate-box': ''}>
