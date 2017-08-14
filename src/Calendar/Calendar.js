@@ -91,11 +91,12 @@ export default class Calendar extends Component {
   }
 
   handleKeys = (e) => {
-    if (e.which === 37 || e.which === 38 || e.which === 39 || e.which === 40) {
+    var which = e.which || e.keyCode;
+    if (which === 37 || which === 38 || which === 39 || which === 40) {
       e.preventDefault();
     }
 
-    switch (e.which) {
+    switch (which) {
       case 13: this.enterSelect(); break;
       case 37: this.leftArrow(); break;
       case 38: this.upArrow(); break;
@@ -245,6 +246,7 @@ export default class Calendar extends Component {
           <Dates
             selectedDt={selectedDt}
             month={month}
+            monthNames={monthNamesFull}
             year={year}
             contrast={contrast}
             selectedDate={selectedDate}

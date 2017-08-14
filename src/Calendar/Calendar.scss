@@ -56,6 +56,7 @@
   margin: 4px;
   line-height: 32px;
   border-radius: 16px;
+    
 }
   .pe-cal-date:hover .pe-cal-cell-square {
     color: $pe-color-charcoal;
@@ -101,10 +102,17 @@
   color: $pe-color-white;
   background-color: $pe-color-medium-gray;
 }
+/* for IE */
+.pe-cal-row div[tabindex]:focus {
+  outline: 1px dotted $pe-color-charcoal;
+}
 /* inverse */
 .pe-cal-date.date-inverse .pe-cal-selected {
   color: $pe-color-charcoal;
   background-color: $pe-color-white;
+}
+.calendar-contrast .pe-cal-row div[tabindex]:focus {
+  outline: 1px dotted $pe-color-white;
 }
 
 .pe-calendar .pe-cal-cell.pe-cal-date.pe-cal-past {
