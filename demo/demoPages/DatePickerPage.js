@@ -50,7 +50,6 @@ class DatePickerPage extends Component {
                 <li>time:Boolean  === "render datepicker as timepicker"</li>
                 <li>className:String  === "styles to pass to datepicker"</li>
                 <li>id:String === "A unique name for the datepicker"</li>
-                <li>associationId:String === "A unique name to associate 2 picker elemets, used for range"</li>
                 <li>twentyFourHour:Boolean  === "render timepicker in 24 hour format"</li>
                 <li>dateFormat:String === "format for date/time entry"</li>
                 <li>inputState:String === "styles for input state, one of 'error','disabled','readOnly','default'"</li>

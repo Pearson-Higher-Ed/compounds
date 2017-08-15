@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes            from 'prop-types';
 import { Icon, Calendar }   from '../../index';
-import TimeList             from './components/TimeList';
+import { TimeList }         from './components/TimeList';
 import moment               from 'moment';
 
 import './DatePicker.scss';
@@ -12,7 +12,7 @@ export default class DatePicker extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = { focusStartIndex : 0 };
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
     this.datePickerFocus       = _datePickerFocus.bind(this);
@@ -21,6 +21,8 @@ export default class DatePicker extends Component {
     this.calendarHandler       = _calendarHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
     this.inputEvents           = _inputEvents.bind(this);
+    this.listEventInterface    = _listEventInterface.bind(this);
+
   }
 
   componentDidMount(){
@@ -67,7 +69,7 @@ export default class DatePicker extends Component {
 
         {displayOpen  && inputState !== 'readOnly' && <div className="pe-dropdownContainer">
           {!time && <Calendar disablePast={true} selectedDates={[]} onSelect={this.calendarHandler} />}
-          { time && <TimeList id={`${id}-timelist`} timeListRef={ul => this.list = ul} hoursToList={hoursToList} selectedHour={datepickerValue} timeToParent={this.timeListHandler}/>}
+          { time && <TimeList id={`${id}-timelist`} timeListRef={ul => this.list = ul} listEvents={this.listEventInterface} hoursToList={hoursToList} selectedHour={datepickerValue} timeToParent={this.timeListHandler}/>}
         </div>}
 
       </div>
@@ -103,35 +105,18 @@ DatePicker.propTypes = {
 function _datePickerFocus(){
   const { inputState, labelFocusStyle } = this.state;
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
-    this.setState({labelStyleTmp:labelFocusStyle, displayOpen:true});
+    this.setState({ labelStyleTmp:labelFocusStyle, displayOpen:true });
   }
 };
 
 function _datePickerBlur(e){
-  // console.log(e)
-  // this.setState({datepickerValue:e.target.innerText, labelStyleTmp:this.state.labelStyle, displayOpen:false});
-  // this.setState({markToClose:e.target});
-
+  this.setState({ labelStyleTmp:this.state.labelStyle, displayOpen:false});
 };
 
 function _changeHandler(e){
-  this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  //validate time....
+  this.setState({ datepickerValue:e.target.value, displayOpen:false, labelStyleTmp:this.state.labelStyle });
   this.props.changeHandler.call(this, e.target.value);
-};
-
-function _inputEvents(e){
-  switch(e.which){
-    case 40:  //keypress: down arrow
-    console.log(e)
-      this.list.children[0].focus();
-      break;
-    case 27:  //keypress: esc
-      this.setState({displayOpen:false, labelStyleTmp:this.state.labelStyle});
-      break;
-    case 13:  //keypress: enter
-      this.timeListHandler(e);
-      break;
-  };
 };
 
 function _timeListHandler(e){
@@ -140,6 +125,45 @@ function _timeListHandler(e){
 
 function _calendarHandler(date){
   this.setState({ datepickerValue:moment(date.selectedDt).format('L'), displayOpen:false, labelStyleTmp:this.state.labelStyle });
+};
+
+function _inputEvents(e){
+  switch(e.which){
+    case 40:  //keypress: down arrow
+    time ? this.list.children[0].focus():null;
+    break;
+    case 27:  //keypress: esc
+    this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
+    break;
+  };
+};
+
+function _listEventInterface(e) {
+  let { focusStartIndex } = this.state;
+
+  switch(e.which){
+    case 40:  //keypress: down arrow
+      e.stopPropagation();
+      console.log(focusStartIndex)
+      if(focusStartIndex >= 0 && focusStartIndex < this.list.children.length - 1){
+        focusStartIndex++;
+        this.setState({focusStartIndex});
+        this.list.children[focusStartIndex].focus();
+        this.list.setAttribute("aria-activedescendant", this.list.children[focusStartIndex].id);
+      }
+      break;
+    case 38:  //keypress: up arrow
+      if(focusStartIndex > 0 && focusStartIndex < this.list.children.length){
+        focusStartIndex--;
+        this.setState({focusStartIndex});
+        this.list.children[focusStartIndex].focus();
+        this.list.setAttribute("aria-activedescendant", this.list.children[focusStartIndex].id);
+      }
+      break;
+    case 13:  //keypress: enter
+      this.timeListHandler(e);
+      break;
+  };
 };
 
 function _applyDatePickerStyles(inputState) {
