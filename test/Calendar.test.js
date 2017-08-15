@@ -7,6 +7,13 @@ import { Calendar } from '../index';
 describe('Calendar', () => {
 
   describe('Calendar', function () {
+    const document = jsdom('');
+
+    Object.keys(document.defaultView).forEach((property) => {
+      if (typeof global[property] === 'undefined') {
+        global[property] = document.defaultView[property];
+      }
+    });
 
     it('sets the minDate properly', function() {
       const minDate = new Date(2017, 5, 5);
@@ -39,18 +46,11 @@ describe('Calendar', () => {
     });
 
     describe('mounted', function () {
-      const document = jsdom('');
       const date = new Date();
       const currentDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
       const month = date.getMonth();
 
-      Object.keys(document.defaultView).forEach((property) => {
-        if (typeof global[property] === 'undefined') {
-          global[property] = document.defaultView[property];
-        }
-      });
       const wrapper = mount(<Calendar />);
-
       it('selects a new date', function() {
         const selectedDate = new Date(date.getFullYear(), date.getMonth(), 3);
         expect(wrapper.node.state.selectedDt).toEqual(currentDate);
@@ -68,6 +68,7 @@ describe('Calendar', () => {
         wrapper.find('[aria-label="Next month"]').simulate('click');
         expect(wrapper.node.state.month).toEqual(month);
       });
+
     });
 
   });

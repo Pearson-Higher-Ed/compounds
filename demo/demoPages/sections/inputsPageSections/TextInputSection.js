@@ -5,17 +5,17 @@ import { TextInput } from '../../../../index';
 
 const TextInputSection = (props) => (
   <div>
-    <h1><a href="http://pearson-higher-ed.github.io/design/c/inputs/#single-line-text">Single Line Text Input</a></h1>
+    <h2><a href="http://pearson-higher-ed.github.io/design/c/inputs/#single-line-text">Single Line Text Input</a></h2>
 
       <div className="code">
-        <h2>Props:</h2>
+        <h3>Props:</h3>
         <p>TextInput:</p>
         <ul>
           <li>id:String(required) === "a unique name"</li>
           <li>labelText:String(required) === "a desciptive label"</li>
           <li>fancy:Boolean === true/false</li>
           <li>inputState:String === "default", "error", "disabled", "readOnly"</li>
-          <li>placeholder:String(required) === "a unique name"</li>
+          <li>placeholder:String  === "a placeholder text (not recommended)"</li>
           <li>changeHandler:Function(required) === "handles changes"</li>
           <li>infoMessage:String === "an optional info message displayed below the input"</li>
           <li>errorMessage:String === "an optional error message displayed below the input"</li>
@@ -23,7 +23,7 @@ const TextInputSection = (props) => (
       </div>
 
 
-      <h2>Single Line - Basic</h2>
+      <h3>Single Line - Basic</h3>
       <TextInput
         id            = "a"
         inputState    = "default"
@@ -39,7 +39,7 @@ const TextInputSection = (props) => (
       <br />
       <br />
 
-      <h2>Single Line</h2>
+      <h3>Single Line</h3>
       <TextInput
         id            = "b"
         fancy         = {true}
@@ -57,7 +57,7 @@ const TextInputSection = (props) => (
       <br />
 
 
-      <h2>Single Line -  Basic Error</h2>
+      <h3>Single Line -  Basic Error</h3>
       <TextInput
         id            = "c"
         inputState    = "error"
@@ -74,7 +74,7 @@ const TextInputSection = (props) => (
       <br />
 
 
-      <h2>Single Line - Error</h2>
+      <h3>Single Line - Error</h3>
       <TextInput
         id            = "d"
         fancy         = {true}
@@ -92,7 +92,7 @@ const TextInputSection = (props) => (
       <br />
 
 
-      <h2>Single Line -  Basic Disabled</h2>
+      <h3>Single Line -  Basic Disabled</h3>
       <TextInput
         id            = "e"
         inputState    = "disabled"
@@ -109,7 +109,7 @@ const TextInputSection = (props) => (
       <br />
 
 
-      <h2>Single Line - Disabled</h2>
+      <h3>Single Line - Disabled</h3>
       <TextInput
         id            = "f"
         fancy         = {true}
@@ -127,7 +127,7 @@ const TextInputSection = (props) => (
       <br />
 
 
-      <h2>Single Line - Read Only</h2>
+      <h3>Single Line - Read Only</h3>
       <TextInput
         id            = "g"
         inputState    = "readOnly"
@@ -146,7 +146,7 @@ const TextInputSection = (props) => (
       <br />
 
 
-      <h2>Single Line - Basic Read Only</h2>
+      <h3>Single Line - Basic Read Only</h3>
       <TextInput
         id            = "h"
         inputState    = "readOnly"

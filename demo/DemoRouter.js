@@ -10,6 +10,8 @@ import FooterPage         from './demoPages/FooterPage';
 import DatePickerPage     from './demoPages/DatePickerPage';
 import TimePickerPage     from './demoPages/TimePickerPage';
 import LoadingSpinnerPage from './demoPages/LoadingSpinnerPage';
+import StaticAlertPage    from './demoPages/StaticAlertPage';
+import CalendarPage       from './demoPages/CalendarPage';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
 
@@ -20,13 +22,14 @@ const DemoRouter = (props) => (
       <HeaderPage />
         <Route path="/" exact         component={HomePage}   />
         <Route path="/icons"          component={IconPage}   />
-        <Route path="/date-picker"     component={DatePickerPage}   />
-        <Route path="/time-picker"     component={TimePickerPage}   />
         <Route path="/inputs"         component={InputsPage} />
         <Route path="/buttons"        component={ButtonPage} />
         <Route path="/dropdown"       component={DropdownPage} />
-        <Route path="/loadingSpinner" component={LoadingSpinnerPage} />
         <Route path="/footer"         component={FooterPage} />
+        <Route path="/tabs"           component={TabsPage} />
+        <Route path="/loadingSpinner" component={LoadingSpinnerPage} />
+        <Route path="/staticAlert"    component={StaticAlertPage} />
+        <Route path="/calendar"       component={CalendarPage} />
     </div>
   </Router>
 )

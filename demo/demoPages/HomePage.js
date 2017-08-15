@@ -7,22 +7,24 @@ const HomePage = () => (
 
           <h1>Atomic React Components</h1>
 
-          <p>Welcome to Compounds SDK! This SDK is mean to be an
+          <p>Welcome to Compounds SDK! This SDK is an
             Open Source, Accessible (a11y), Unified Brand that
             is International Ready (i18n, l10n). </p>
 
-          <p>React Components:</p>
+          <h2>React Components:</h2>
 
           <ul className="homepageList">
             <li><Link className="link_homepage" to={`buttons`}>Buttons</Link></li>
             <li><Link className="link_homepage" to={`icons`}>Icons</Link></li>
             <li><Link className="link_homepage" to={`inputs`}>Inputs</Link></li>
-            <li><Link className="link_homepage" to={`modal`}>Modal</Link></li>
             <li><Link className="link_homepage" to={`dropdown`}>Dropdown</Link></li>
             <li><Link className="link_homepage" to={`footer`}>Footer</Link></li>
+            <li><Link className="link_homepage" to={`tabs`}>Tabs</Link></li>
             <li><Link className="link_homepage" to={`loadingSpinner`}>Loading Spinner</Link></li>
             <li><Link className="link_homepage" to={`date-picker`}>DatePicker</Link></li>
             <li><Link className="link_homepage" to={`time-picker`}>TimePicker</Link></li>
+            <li><Link className="link_homepage" to={`staticAlert`}>Static Alert</Link></li>
+            <li><Link className="link_homepage" to={`calendar`}>Calendar</Link></li>
           </ul>
 
           <p>Contributions: <a href="https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md">FAQ</a></p>

@@ -66,7 +66,7 @@ h2 a {
   height:50px;
 }
 
-.header button {
+.header .headerButton {
   float:right;
   margin:2.5px;
   outline:none;
@@ -124,12 +124,7 @@ h2 a {
   line-height: 24px;
 }
 
-
-// ====Datepicker ==============================================
-.sidebyside {
-  display: flex;
-  width :100%;
-  &:first-child{
-    margin-right:20px;
-  }
+.inline-pic {
+  height: 50%;
+  width: 50%;
 }

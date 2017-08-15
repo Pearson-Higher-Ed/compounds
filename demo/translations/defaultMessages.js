@@ -14,6 +14,16 @@ export const messages = defineMessages({
     description    : 'PasswordInput show/hide',
     defaultMessage : 'hide'
   },
+  isNotVisibleMsg: {
+    id             : 'isNotVisibleMsg',
+    description    : 'PasswordInput show/hide status (for screen reader users)',
+    defaultMessage : 'Password is hidden'
+  },
+  isVisibleMsg: {
+    id             : 'isVisibleMsg',
+    description    : 'PasswordInput show/hide status (for screen reader users)',
+    defaultMessage : 'Password is visible'
+  },
   passwordPlaceholder: {
     id             : 'passwordPlaceholder',
     description    : 'PasswordInput placeholder',

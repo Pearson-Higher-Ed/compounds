@@ -11,13 +11,13 @@ const elements          = `${__dirname}/node_modules/pearson-elements/dist/css/e
 const fontsDir          = `${__dirname}/node_modules/pearson-elements/dist/fonts/`;
 const fonts             = fs.readdirSync(fontsDir, 'utf-8').map(font => fontsDir + font);
 
-
 module.exports = {
   entry: {
-    demo  : [ demo, demoScss ],
-    dev   : [ elements, icons, main ],
-    dist  : [ compounds ],
-    fonts : fonts
+    demo              : [ demo, demoScss ],
+    dev               : [ elements, icons ],
+    eventInstantiator : [ main ],
+    dist              : [ compounds ],
+    fonts             : fonts
   },
   output: {
     path          : path.resolve(__dirname, 'build'),

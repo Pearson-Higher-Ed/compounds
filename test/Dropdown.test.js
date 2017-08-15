@@ -11,6 +11,7 @@ describe('Dropdown', () => {
     beforeEach(function () {
       this.wrapper = shallow(<Dropdown presentationType="label"
                                        presentationText="Label here"
+                                       dropdownControlLabel="Test"
                                        list={items}
                                        mobileTitle="My mobile title" />);
     });
@@ -34,6 +35,7 @@ describe('Dropdown', () => {
     beforeEach(function () {
       this.wrapper = shallow(<Dropdown presentationType="button"
                                        presentationText="Button"
+                                       dropdownControlLabel="Test"
                                        list={items}
                                        mobileTitle="Mobile Title" />);
     });
@@ -43,17 +45,13 @@ describe('Dropdown', () => {
       _currentElement.props.presentationText).toBe('Button');
     });
 
-    it('has the correct Icon', function () {
-      expect(this.wrapper.find('button').node.props.children.props.className).toEqual('pe-icon--dropdown-open-sm-18');
-    });
-
-
   });
 
   describe('Dropdown - Icon only', function () {
 
     it('has the correct Icon', function () {
       this.wrapper = shallow(<Dropdown presentationType="icon"
+                                       dropdownControlLabel="Test"
                                        list={items}
                                        mobileTitle="Title" />);
       expect(this.wrapper.find('button').node.props.children.props.name).toEqual('dropdown-open-sm-24');
@@ -68,9 +66,10 @@ describe('Dropdown', () => {
       });
 
       const wrap = mount(<Dropdown presentationType="icon"
+                                   dropdownControlLabel="Test"
                                    list={items}
                                    mobileTitle="Title" />);
-      wrap.find('div').simulate('click');
+      wrap.find('.dropdown-container').simulate('click');
       wrap.update();
       expect(wrap.find('.li-wrapper')).toExist(true);
     });

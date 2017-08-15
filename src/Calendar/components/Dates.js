@@ -17,11 +17,15 @@ export default class Dates extends Component {
     let onClick;
     let isDate;
     let className;
+    let isSecondaryDate;
+    let isCurrentDate;
+    let newSelectedDtClass='';
     const weekStack = Array(...{ length: 7 }).map(Number.call, Number);
-    const { contrast, daysInMonth, firstOfMonth, year, month, selectedDate,
-            disablePast, minDate, onSelect } = this.props;
+    const { contrast, daysInMonth, firstOfMonth, year, monthNames, month, selectedDate,
+            disablePast, minDate, onSelect, secondaryDate, dayNamesFull,
+            selectedDt } = this.props;
     const dayContrast = contrast ? 'date-inverse' :'';
-    const disabledContrast = contrast ? '-inverse' :'';
+    const disabledContrast = contrast ? '-inverse' : '';
     const that = this;
     const startDay = firstOfMonth.getUTCDay();
     const first = firstOfMonth.getDay();
@@ -42,13 +46,14 @@ export default class Dates extends Component {
     return (
       <div className={className}
            role="grid"
+           tabIndex="0"
            aria-activedescendant={`day${selectedDate}`}
            aria-labelledby="pe-cal-month"
       >
         {haystack.map((item, i) => {
           d = day + i * 7;
           return (
-            <div className="pe-cal-row">
+            <div className="pe-cal-row" role="row">
               {weekStack.map((item, i) => {
                 d += 1;
                 isDate = d > 0 && d <= daysInMonth;
@@ -67,37 +72,32 @@ export default class Dates extends Component {
                       <div className={`${className}${disabledContrast} pe-label`}
                            aria-disabled={true}
                            id={`day${d}`}
-                           tabIndex="0"
+                           tabIndex="-1"
                       >
                         {d}
                       </div>
                     );
                   }
+                  {isCurrentDate = current.getDate().toString().split(' ')==that.statics.date && firstOfMonth.getMonth().toString().split(' ')==that.statics.month;}
+                  {isSecondaryDate = secondaryDate.some(date => date.getTime()===current.getTime())}
+                  {newSelectedDtClass = (selectedDt.getTime() === current.getTime() && (selectedDt.getDate() !== that.statics.date || selectedDt.getMonth() !== that.statics.month)) ? 'pe-cal-selected' :'';}
 
                   return (
                     <div className={`${className} pe-label ${dayContrast}`}>
-                      {current.getDate().toString().split(' ') == that.statics.date &&
-                       firstOfMonth.getMonth().toString().split(' ') == that.statics.month
-                         ? <div className="currentDate-box">
-                             <div className="pe-cal-cell-square"
-                                  id={`day${d}`}
-                                  role="gridcell"
-                                  tabIndex="0"
-                                  onClick={onSelect.bind(that, year, month, d)}
-                             >
-                               {d}
-                               <span className="pe-sr-only">Current date</span>
-                             </div>
-                           </div>
-                         : <div className="pe-cal-cell-square"
-                                id={`day${d}`}
-                                role="gridcell"
-                                tabIndex="0"
-                                onClick={onSelect.bind(that, year, month, d)}
+                      <div className={isCurrentDate ? 'currentDate-box': ''}>
+                         <div className={`pe-cal-cell-square ${isSecondaryDate ? 'secondary-date':''} ${newSelectedDtClass}`}
+                            id={`day${d}`}
+                            role="gridcell"
+                            aria-label={`${dayNamesFull[i]} ${monthNames[month]} ${d}`}
+                            aria-current={isCurrentDate ? 'date' : null}
+                            tabIndex="-1"
+                            onClick={onSelect.bind(that, year, month, d)}
                            >
-                             {d}
-                           </div>
-                      }
+                           {d}
+                           {isCurrentDate && <span className="pe-sr-only">Current date</span>}
+                           {isSecondaryDate && <span className="pe-sr-only">Secondary date</span>}
+                         </div>
+                       </div>
                     </div>
                   );
                 }
