@@ -21,10 +21,10 @@ const HomePage = () => (
             <li><Link className="link_homepage" to={`footer`}>Footer</Link></li>
             <li><Link className="link_homepage" to={`tabs`}>Tabs</Link></li>
             <li><Link className="link_homepage" to={`loadingSpinner`}>Loading Spinner</Link></li>
-            <li><Link className="link_homepage" to={`date-picker`}>DatePicker</Link></li>
-            <li><Link className="link_homepage" to={`time-picker`}>TimePicker</Link></li>
             <li><Link className="link_homepage" to={`staticAlert`}>Static Alert</Link></li>
             <li><Link className="link_homepage" to={`calendar`}>Calendar</Link></li>
+            <li><Link className="link_homepage" to={`date-picker`}>DatePicker</Link></li>
+            <li><Link className="link_homepage" to={`time-picker`}>TimePicker</Link></li>
           </ul>
 
           <p>Contributions: <a href="https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md">FAQ</a></p>

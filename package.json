@@ -12,13 +12,8 @@
   },
   "scripts": {
     "start": "npm run serve",
-<<<<<<< HEAD
-    "serve": "NODE_ENV=development webpack-dev-server",
-    "deploy": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
-=======
     "serve": "NODE_ENV=development webpack-dev-server --hot",
     "gh-pages": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gh-pages.js",
->>>>>>> origin/DES-540
     "test": "jest --no-cache --coverage",
     "build": "NODE_ENV=production webpack -p",
     "gen-changelog": "node ./node_modules/@pearson-components/npm-scripts/npm_scripts/gen-changelog.js",
@@ -51,13 +46,9 @@
       }
     }
   },
-<<<<<<< HEAD
   "dependencies": {
     "moment": "^2.18.1"
   },
-=======
-  "dependencies": {},
->>>>>>> origin/DES-540
   "devDependencies": {
     "@pearson-components/npm-scripts": "^0.5.1",
     "babel-core": "^6.23.1",

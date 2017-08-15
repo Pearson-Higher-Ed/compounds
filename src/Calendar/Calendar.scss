@@ -1,76 +1,3 @@
-<<<<<<< HEAD
-.pe-calendar {
-  border: 1px solid #c7c7c7;
-  background-color: #fff;
-  min-width: 320px;
-  padding: 16px 0 20px 0;
-  height: 320px;
-  width: 320px;
-  position: absolute;
-  z-index: 1;
-}
-
-.calendar-contrast {
-  background-color: #005a70;
-  border: 1px solid #005a70;
-}
-
-.pe-calendar .pe-cal-row {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-}
-
-.pe-calendar .pe-cal-cell {
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-  flex-grow: 1;
-  flex-basis: 0;
-  justify-content: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.pe-cal-cell-dayNames {
-  color: #6a7070;
-}
-
-.inverse-title,
-.inverse-dayNames,
-.date-inverse {
-  color: #FFFFFF !important;
-}
-
-.date-inverse:hover {
-  color: #252525 !important;
-}
-
-.inverse-buttons {
-  color: #FFFFFF !important;
-
-  &:hover {
-    color: #c7c7c7 !important;
-  }
-}
-
-.pe-arrowIcons {
-  cursor: pointer;
-  height: 40px;
-  flex-grow: 0 !important;
-  display: inline;
-  text-align: center;
-
-  &:focus {
-    span {
-      color: #252525;
-    }
-  }
-}
-
-.fake-title-space {
-  padding: 0 3px;
-=======
 @import '../../node_modules/pearson-elements/scss/elements/color/color';
 
 .pe-calendar {
@@ -121,123 +48,15 @@
   .pe-cal-date {
     cursor: pointer;
   }
->>>>>>> origin/DES-540
 }
 
 .pe-cal-cell-square {
   height: 32px;
   width: 32px;
-<<<<<<< HEAD
-  align-items: center;
-  display: flex;
-  justify-content: center;
-
-  &:hover {
-    background-color: #e9e9e9;
-    border-radius: 16px;
-  }
-}
-
-.currentDate-box {
-  height: 38px;
-  width: 38px;
-  border: 1px solid #c7c7c7;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.pe-cal-selected,
-.pe-cal-selected-inverse {
-  border-radius: 16px;
-  font-weight: 600;
-}
-
-.pe-cal-selected {
-  background-color: #6a7070;
-  color: #fff;
-
-  &:hover {
-    background-color: #6a7070;
-  }
-}
-
-.pe-cal-selected-inverse {
-  color: #252525;
-  background-color: #fff;
-
-  &:hover {
-    background-color: #fff;
-  }
-}
-
-.icon-wrapper {
-  color: #6a7070;
-  width: 40px;
-
-  &:hover {
-    color: #252525;
-  }
-}
-
-.pe-calendar .pe-cal-title {
-  padding: 0 8px 8px;
-  height: 40px;
-  justify-content: flex-start;
-}
-
-.pe-calendar .pe-cal-weekdays {
-  height: 40px;
-}
-
-.pe-calendar .pe-cal-dates {
-  display: flex;
-  flex-flow: column nowrap;
-  flex-grow: 6;
-  flex-basis: 0;
-}
-
-.pe-calendar .pe-cal-dates.pe-cal-fix {
-  flex-grow: 5;
-}
-
-.pe-calendar .pe-cal-dates .pe-cal-row {
-  flex-grow: 1;
-}
-
-.pe-calendar .pe-cal-cell.pe-cal-date {
-  cursor: pointer;
-  height: 40px;
-  width: 40px;
-}
-
-.pe-calendar .pe-cal-cell.pe-cal-date.pe-cal-past {
-  color: #c7c7c7;
-  cursor: not-allowed;
-}
-
-.pe-cal-past-inverse {
-  color: #047a9c;
-  cursor: not-allowed;
-}
-
-.pe-calendar:after {
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-}
-
-.pe-calendar .pe-inner {
-  height: 100%;
-  display: flex;
-  padding: 0 20px;
-  flex-flow: column nowrap;
-}
-=======
   margin: 4px;
   line-height: 32px;
   border-radius: 16px;
-    
+
 }
   .pe-cal-date:hover .pe-cal-cell-square {
     color: $pe-color-charcoal;
@@ -307,4 +126,3 @@
   color: $pe-color-digital-pearson-blue;
   cursor: not-allowed;
 }
->>>>>>> origin/DES-540
