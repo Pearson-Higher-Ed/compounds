@@ -9,7 +9,7 @@ export const TimeList = (props) => {
     const { id, hoursToList, timeToParent, selectedHour, timeListRef, listEvents } = props;
 
     return (
-      <ul id="timelist" className="pe-timepicker-list" ref={timeListRef} onKeyUp={listEvents} role="listbox" aria-expanded="true" aria-live="polite">
+      <ul id="timelist" className="pe-timepicker-list" ref={timeListRef} onKeyDown={listEvents} role="listbox" aria-expanded="true" aria-live="polite">
         {
           hoursToList.map((hour,i) =>
             <li key           = {`${id}-item-${i}`}

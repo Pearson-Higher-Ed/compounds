@@ -27,7 +27,7 @@
   pointer-events : none;
 }
 
-.pe-datepicker-container {
+.pe-timePicker-container {
   @extend %abstract, %container-extend;
   padding    : 0px;
   margin-top : $textInput-basic-marginTop;
@@ -35,15 +35,14 @@
   min-width  : 150px;
 }
 
-.pe-datepicker-input-styles::-ms-clear {
+.pe-timePicker-input-styles::-ms-clear {
     display: none;
 }
 
-.pe-datepicker-container svg {
+.pe-timePicker-container svg {
   @extend %container-extend-svg;
   fill : $pe-color-medium-gray;
 }
-
 
 .pe-dropdownContainer{
   position : absolute;

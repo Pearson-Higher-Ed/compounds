@@ -9,13 +9,11 @@ class DatePickerPage extends Component {
 
   constructor(props){
     super(props);
+    
     this.state = {
-      datepickerValue1 : null,
-      datepickerValue2 : null,
-      datepickerValue3 : null,
-      datepickerValue4 : null,
-      datepickerValue5 : null,
-      datepickerValue6 : null
+      datePickerValue1 : null,
+      datePickerValue2 : null,
+      datePickerValue3 : null
     };
 
   }
@@ -23,7 +21,7 @@ class DatePickerPage extends Component {
   render() {
 
     const { intl } = this.props;
-    const { inputState, hourFormat, datepickerValue1, datepickerValue2, datepickerValue3, datepickerValue4, datepickerValue5, datepickerValue6 } = this.state;
+    const { inputState, datePickerValue1, datePickerValue2, datePickerValue3 } = this.state;
 
 
     // ======================Internationalization Example=========================
@@ -50,11 +48,10 @@ class DatePickerPage extends Component {
                 <li>time:Boolean  === "render datepicker as timepicker"</li>
                 <li>className:String  === "styles to pass to datepicker"</li>
                 <li>id:String === "A unique name for the datepicker"</li>
-                <li>twentyFourHour:Boolean  === "render timepicker in 24 hour format"</li>
                 <li>dateFormat:String === "format for date/time entry"</li>
                 <li>inputState:String === "styles for input state, one of 'error','disabled','readOnly','default'"</li>
                 <li>labelText:String === "unique lable for the input field"</li>
-                <li>datepickerValue:Date/Time === "value to be displayed by the datepicker/timepicker"</li>
+                <li>datePickerValue:Date/Time === "value to be displayed by the datepicker/timepicker"</li>
                 <li>changeHandler:Function === "function to pass values on change"</li>
                 <li>infoMessage:String === "an optional info message displayed below the input"</li>
                 <li>errorMessage:String === "an optional error message displayed below the input"</li>
@@ -70,8 +67,8 @@ class DatePickerPage extends Component {
               dateFormat      = "mm/dd/yyyy"
               inputState      = {inputState}
               labelText       = "Select date"
-              datepickerValue = {this.state.datepickerValue1}
-              changeHandler   = {e => this.setState({datepickerValue1:e.target.value})}
+              datepickerValue = {datePickerValue1}
+              changeHandler   = {value => this.setState({datePickerValue1:value})}
               infoMessage     = {text.textInputInfoMessage}
               errorMessage    = {text.textInputErrorMessage}
             />
@@ -82,21 +79,19 @@ class DatePickerPage extends Component {
               id              = "someGiantId2"
               dateFormat      = "mm/dd/yyyy"
               inputState      = {inputState}
-              associationId   = "range1"
               labelText       = "Select Start date"
-              datepickerValue = {this.state.datepickerValue2}
-              changeHandler   = {e => this.setState({datepickerValue2:e.target.value})}
+              datepickerValue = {datePickerValue2}
+              changeHandler   = {value => this.setState({datePickerValue2:value})}
               infoMessage     = {text.textInputInfoMessage}
               errorMessage    = {text.textInputErrorMessage}
             />
             <DatePicker
               id              = "someGiantId3"
-              associationId   = "range1"
               dateFormat      = "mm/dd/yyyy"
               inputState      = {inputState}
               labelText       = "Select End date"
-              datepickerValue = {this.state.datepickerValue3}
-              changeHandler   = {e => this.setState({datepickerValue3:e.target.value})}
+              datepickerValue = {datePickerValue3}
+              changeHandler   = {value => this.setState({datePickerValue3:value})}
               infoMessage     = {text.textInputInfoMessage}
               errorMessage    = {text.textInputErrorMessage}
             />
