@@ -34,7 +34,7 @@ export default class Footer extends Component {
     for (let i = 0; i < this.props.links.length; i++) {
       let item = this.props.links[i];
       items.push(<li key={i}>
-                   <a href={item.href}>{item.text}</a>
+                   <a href={item.href} target="_blank">{item.text}</a>
                    <span aria-hidden={true}>|</span>
                  </li>);
     }
