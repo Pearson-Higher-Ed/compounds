@@ -51,7 +51,7 @@ const FooterPage = (props) => {
             this prop as this will absolutely position the Footer over your content.</li>
             <li className="li-props">anchorTarget:String</li>
             <li className="li-props">The <b>anchorTarget</b> prop allows you to control what value the `target` attribute on the Footer&#39;s {`<a>`} receives. <br/>
-            The acceptable strings are '_blank', '_self', '_parent', '_top'. <br/>
+            The acceptable strings are '_blank', '_self', '_parent', '_top'. If nothing is passed, the prop will default to '_self'.<br/>
             For more information on the details of these keywords please visit <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">MDN</a>
             </li>
           </ul>
