@@ -179,12 +179,11 @@ export default class Calendar extends Component {
   }
 
   selectDate = (year, month, date, element) => {
-    const selectInverse = this.props.contrast ? '-inverse' :'';
     if (this.state.selectedElement) {
-      this.state.selectedElement.classList.remove(`pe-cal-selected${selectInverse}`);
+      this.state.selectedElement.classList.remove('pe-cal-selected');
       this.state.selectedElement.removeAttribute('aria-selected');
     }
-    element.target.classList.add(`pe-cal-selected${selectInverse}`);
+    element.target.classList.add('pe-cal-selected');
     element.target.setAttribute('aria-selected', true);
     this.setState({
       selectedYear: year,
@@ -196,17 +195,16 @@ export default class Calendar extends Component {
   }
 
   enterSelect = () => {
-    const selectInverse = this.props.contrast ? '-inverse' :'';
     const icons = document.querySelectorAll('button.pe-arrowIcons');
     const days = document.querySelectorAll('div.pe-cal-cell-square');
     if (this.state.selectedElement) {
-      this.state.selectedElement.classList.remove(`pe-cal-selected${selectInverse}`);
+      this.state.selectedElement.classList.remove('pe-cal-selected');
       this.state.selectedElement.removeAttribute('aria-selected');
     }
     if (document.activeElement.hasAttribute('aria-disabled')) return;
     for (let i = 0; i < days.length; i++) {
       if (document.activeElement === days[i]) {
-        document.activeElement.classList.add(`pe-cal-selected${selectInverse}`);
+        document.activeElement.classList.add('pe-cal-selected');
         document.activeElement.setAttribute('aria-selected', true);
         this.setState({
           selectedYear: this.state.year,
