@@ -1,3 +1,20 @@
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.9...v0.9.0) (2017-08-17)
+
+
+### Bug Fixes
+
+* contrast style bugs ([be79fb4](https://github.com/Pearson-Higher-Ed/compounds/commit/be79fb4))
+* Restrict enter keypress to dates, add in FirstDay prop ([539da16](https://github.com/Pearson-Higher-Ed/compounds/commit/539da16))
+* selectedDt updating properly ([fd6ceb9](https://github.com/Pearson-Higher-Ed/compounds/commit/fd6ceb9))
+
+
+### Features
+
+* add newSelectedDt prop ([4c711fd](https://github.com/Pearson-Higher-Ed/compounds/commit/4c711fd))
+
+
+
 <a name="0.8.9"></a>
 ## [0.8.9](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.8...v0.8.9) (2017-08-01)
 
@@ -92,6 +109,7 @@
 ### Bug Fixes
 
 * dropdown overlaying other elements & taking up 100% height on mobile ([83144f6](https://github.com/Pearson-Higher-Ed/compounds/commit/83144f6))
+* past dates disabled ([3b49dbd](https://github.com/Pearson-Higher-Ed/compounds/commit/3b49dbd))
 
 
 
