@@ -212,7 +212,7 @@ export default class Calendar extends Component {
           selectedYear: this.state.year,
           selectedMonth: this.state.month,
           selectedDate: parseInt(document.activeElement.innerText),
-          selectedDt: new Date(new Date().getFullYear(), new Date().getMonth(), parseInt(document.activeElement.innerText)),
+          selectedDt: new Date(this.state.year, this.state.month, parseInt(document.activeElement.innerText)),
           selectedElement: document.activeElement
         });
       }
