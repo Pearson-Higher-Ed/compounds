@@ -17,16 +17,14 @@ export default class DatePicker extends Component {
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
     this.datePickerFocus       = _datePickerFocus.bind(this);
-    this.datePickerBlur        = _datePickerBlur.bind(this);
     this.calendarHandler       = _calendarHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
-    this.inputEvents           = _inputEvents.bind(this);
   }
 
   componentDidMount(){
     this.applyDatePickerStyles(this.props.inputState);
   }
-  
+
   componentWillReceiveProps(nextProps){
     this.applyDatePickerStyles(nextProps.inputState);
   }
@@ -42,7 +40,7 @@ export default class DatePicker extends Component {
     const inputStyles         = inputStyle ? `pe-datepicker-input-styles ${inputStyle}`:`pe-datepicker-input-styles`;
 console.log(dateObject)
     return (
-      <div className={mainContainerStyles} onBlur={this.datePickerBlur} onKeyDown={this.inputEvents} onFocus={this.datePickerFocus}>
+      <div className={mainContainerStyles} onFocus={this.datePickerFocus}>
         <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${dateFormat})`}</label>
 
         <div className={containerStyle}>
@@ -95,18 +93,6 @@ function _datePickerFocus(){
   }
 };
 
-function _datePickerBlur(e){
-  // this.setState({ labelStyleTmp:this.state.labelStyle, displayOpen:false});
-};
-
-function _inputEvents(e){
-  switch(e.which){
-    case 9:  //keypress: down arrow
-      e.stopPropagation();
-      this.setState({displayOpen:false})
-  }
-}
-
 function _changeHandler(e){
 
   const { dateFormat } = this.props;
@@ -118,9 +104,9 @@ function _changeHandler(e){
 
 
   // parse input and form date object...
-  const year  = 0;
   const month = 0;
   const day   = 0;
+  const year  = 0;
 
   this.setState({ datepickerValue:e.target.value, dateObject:new Date(year, month, day), displayOpen:false, labelStyleTmp:this.state.labelStyle });
   this.props.changeHandler.call(this, e.target.value);

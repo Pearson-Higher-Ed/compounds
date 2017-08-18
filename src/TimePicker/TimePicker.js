@@ -16,11 +16,11 @@ export default class TimePicker extends Component {
 
     this.applyTimePickerStyles = _applyTimePickerStyles.bind(this);
     this.timePickerFocus       = _timePickerFocus.bind(this);
-    this.timePickerBlur        = _timePickerBlur.bind(this);
     this.timeListHandler       = _timeListHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
     this.inputEvents           = _inputEvents.bind(this);
     this.listEventInterface    = _listEventInterface.bind(this);
+    this.timeValidator         = _timeValidator.bind(this);
 
   }
 
@@ -29,8 +29,11 @@ export default class TimePicker extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    this.applyTimePickerStyles(nextProps.inputState);
+    this.applyTimePickerStyles(this.state.validatedState ? this.state.validatedState : nextProps.inputState);
   }
+
+    // return false;
+  // }
 
   render() {
 
@@ -44,7 +47,7 @@ export default class TimePicker extends Component {
     const hoursToList         = twentyFourHour ? TWENTYFOUR_HOURS : HOURS;
 
     return (
-      <div className={mainContainerStyles} onBlur={this.timePickerBlur} onKeyDown={this.inputEvents} onFocus={this.timePickerFocus}>
+      <div className={mainContainerStyles} onKeyDown={this.inputEvents} onFocus={this.timePickerFocus}>
         <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${timeFormat})`}</label>
 
         <div className={containerStyle}>
@@ -106,32 +109,56 @@ function _timePickerFocus(){
   }
 };
 
-function _timePickerBlur(e){
-  this.setState({ labelStyleTmp:this.state.labelStyle, displayOpen:false});
-};
-
 function _changeHandler(e){
-  //valitime time....
-  console.log(e)
 
-  this.setState({ timePickerValue:e.target.value, displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  this.timeValidator(e);
+
+  this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
   this.props.changeHandler.call(this, e.target.value);
 };
 
+function _timeValidator(e){
+  //validate time....
+  const listToMatch            = this.props.twentyFourHour ? TWENTYFOUR_HOURS : this.props.HOURS;
+  const matchedValue           = listToMatch.filter(match => match.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
+  const matchedValueNormalized = matchedValue.length !== 0 ? matchedValue[0].toLowerCase() : '' ;
+  const inputValueNormalized   = e.target.value.toLowerCase();
+
+  let validatedValue = "";
+  let validatedState = "default";
+
+  if(inputValueNormalized === matchedValueNormalized){
+    console.log('valid time!', e.target.value)
+    validatedValue = e.target.value;
+    validatedState = "default";
+  }else {
+    console.log('invalid time!', e.target.value)
+    validatedState = "error";
+  }
+
+  const valueToPass = validatedValue ? validatedValue : e.target.value;
+
+  // console.log(e.target.value)
+  console.log(matchedValue)
+  // this.setState({ timePickerValue:valueToPass, validatedState });
+}
+
 function _timeListHandler(e){
-  console.log(e)
   this.setState({ timePickerValue:e.target.innerText, displayOpen:false, labelStyleTmp:this.state.labelStyle });
 };
-
 
 function _inputEvents(e){
   switch(e.which){
     case 40:  //keypress: down arrow
-    this.list.children[0].focus();
-    break;
+      e.preventDefault();
+      this.list.children[0].focus();
+      break;
     case 27:  //keypress: esc
-    this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
-    break;
+      this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
+      break;
+    case 9:   //keypress: tab
+      this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
+      break;
   };
 };
 
@@ -141,7 +168,7 @@ function _listEventInterface(e) {
   switch(e.which){
     case 40:  //keypress: down arrow
       e.stopPropagation();
-      console.log(focusStartIndex)
+      e.preventDefault();
       if(focusStartIndex >= 0 && focusStartIndex < this.list.children.length - 1){
         focusStartIndex++;
         this.setState({focusStartIndex});
@@ -150,6 +177,8 @@ function _listEventInterface(e) {
       }
       break;
     case 38:  //keypress: up arrow
+      e.stopPropagation();
+      e.preventDefault();
       if(focusStartIndex > 0 && focusStartIndex < this.list.children.length){
         focusStartIndex--;
         this.setState({focusStartIndex});
@@ -158,10 +187,8 @@ function _listEventInterface(e) {
       }
       break;
     case 13:  //keypress: enter
+      e.preventDefault();
       this.timeListHandler(e);
-      break;
-    case 13:  //keypress: tab
-      this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
       break;
   };
 };
