@@ -1,3 +1,8 @@
+<a name="0.9.1"></a>
+## [0.9.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.9.0...v0.9.1) (2017-08-17)
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.8.9...v0.9.0) (2017-08-17)
 
