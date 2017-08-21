@@ -57,6 +57,10 @@
 	outline       : none;
 }
 
+.react-phone-number-input__phone--error {
+	border-bottom: 1px solid #db0020;
+}
+
 .react-phone-number-input__phone:focus
 {
 	border-bottom: 4px solid #047a9c;

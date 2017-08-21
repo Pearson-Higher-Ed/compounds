@@ -18,8 +18,8 @@ export default class PhoneNumber extends Component {
 
   render() {
     const { country, placeholder, onChange, value, onKeyDown, disabled,
-            onCountryChange, dictionary, countries, international, convertToNational,
-            selectMaxItems, style, inputStyle, className, inputClassName, labelText,
+            onCountryChange, countries, international, convertToNational,
+            selectMaxItems, className, inputClassName, labelText,
             infoMessage, errorMessage } = this.props;
 
     const errorLabel = errorMessage ? '--label_error' :'';
@@ -27,7 +27,6 @@ export default class PhoneNumber extends Component {
 
     return (
       <div>
-
         <label className={`pe-textLabelInput__label${errorLabel}`}>{labelText}</label>
 
         <Phone
@@ -38,13 +37,10 @@ export default class PhoneNumber extends Component {
           onKeyDown={onKeyDown}
           disabled={disabled}
           onCountryChange={onCountryChange}
-          dictionary={dictionary}
           countries={countries}
           international={international}
           convertToNational={convertToNational}
           selectMaxItems={selectMaxItems}
-          style={style}
-          inputStyle={inputStyle}
           className={className}
           inputClassName={errorInput}
         />
