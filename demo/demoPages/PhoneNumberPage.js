@@ -46,12 +46,12 @@ const PhoneNumberPage = () => (
       </div> <br/>
 
     <PhoneNumber
-    country="US"
-    placeholder="555-555-5555"
-    labelText="Mobile phone"
-    onChange={(num) => console.log(num)}
+      country="US"
+      placeholder="555-555-5555"
+      labelText="Mobile phone"
+      onChange={(num) => console.log(num)}
     />
-    
+
     <h3>Example usage</h3>
     <p className="code">
       {`<PhoneNumber`} <br/>

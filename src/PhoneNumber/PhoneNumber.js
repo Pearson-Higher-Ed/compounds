@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Phone from 'react-phone-number-input';
 
-import './PhoneNumber.scss';
+import './rrui.css';
+import './style.css';
 
 export default class PhoneNumber extends Component {
 
