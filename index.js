@@ -12,3 +12,4 @@ export LoadingSpinner  from './src/loadingSpinner/loadingSpinner';
 export StaticAlert     from './src/StaticAlert/StaticAlert';
 export Calendar        from './src/Calendar/Calendar';
 export PhoneNumber     from './src/PhoneNumber/PhoneNumber';
+export Table           from './src/Table/Table';
