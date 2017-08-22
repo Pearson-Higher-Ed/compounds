@@ -14,7 +14,7 @@ export default class WeekDays extends Component {
             <div className={`pe-cal-cell pe-label--small pe-cal-cell-dayNames ${inverseColor}`}
                  key={i}
             >
-              <abbr title={dayNamesFull[i]}>
+              <abbr title={dayNamesFull[(startDay + i) % 7]}>
                 {dayNames[(startDay + i) % 7]}
               </abbr>
             </div>
