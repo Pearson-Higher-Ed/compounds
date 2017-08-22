@@ -1,3 +1,13 @@
+<a name="0.10.2"></a>
+## [0.10.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.1...v0.10.2) (2017-08-22)
+
+
+### Bug Fixes
+
+* <abbr> day now aligns if a diff weekStartDay is passed ([cdc9472](https://github.com/Pearson-Higher-Ed/compounds/commit/cdc9472))
+
+
+
 <a name="0.10.1"></a>
 ## [0.10.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.0...v0.10.1) (2017-08-22)
 
