@@ -2,7 +2,9 @@ import React from 'react';
 import { Table } from '../../index';
 
 const TablePage = () => (
-  <Table />
+  <div style={{padding: 16}}>
+    <Table />
+  </div>
 );
 
 export default TablePage;

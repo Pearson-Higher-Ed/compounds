@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Sortable from './Sortable';
+import Selectable from './Selectable';
 
-export default class Table extends Component {
+const Table = () => {
 
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-
-    return (
-      <div>Table</div>
-    )
-  }
+  return (
+    <div>
+      <Sortable />
+      <Selectable />
+    </div>
+  )
 }
+
+
+export default Table;
