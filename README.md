@@ -12,6 +12,8 @@ Install and save in your package.json:
 
     npm install pearson-compounds --save
 
+    npm run build
+
 Import a single component:
 
     import { Button } from 'pearson-compounds';
