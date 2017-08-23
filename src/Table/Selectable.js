@@ -2,7 +2,6 @@ import React from 'react';
 import Icon from '../Icon';
 
 const Selectable = () => {
-
   return (
     <div>
     <table className="pe-table pe-table--selectable">
