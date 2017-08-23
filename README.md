@@ -12,8 +12,6 @@ Install and save in your package.json:
 
     npm install pearson-compounds --save
 
-    npm run build
-
 Import a single component:
 
     import { Button } from 'pearson-compounds';
@@ -74,6 +72,7 @@ Optionally, install [React developer tools](https://chrome.google.com/webstore/d
 After cloning the repository:
 
     npm install
+    npm run build
     npm start
 
 Navigate to **http://localhost:8081/demo**, where the spawned Node server hosts a webpack-generated SPA using
