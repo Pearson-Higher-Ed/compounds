@@ -7,8 +7,9 @@ const HomePage = () => (
 
           <h1>Atomic React Components</h1>
 
-          <p>Welcome to Compounds SDK! This SDK is an Open Source, Accessible (a11y),
-            Unified Brand that is International Ready (i18n, l10n). </p>
+          <p>Welcome to Compounds SDK! This SDK is an
+            Open Source, Accessible (a11y), Unified Brand that
+            is International Ready (i18n, l10n). </p>
 
           <h2>React Components:</h2>
 
@@ -21,6 +22,8 @@ const HomePage = () => (
             <li><Link className="link_homepage" to={`tabs`}>Tabs</Link></li>
             <li><Link className="link_homepage" to={`loadingSpinner`}>Loading Spinner</Link></li>
             <li><Link className="link_homepage" to={`staticAlert`}>Static Alert</Link></li>
+            <li><Link className="link_homepage" to={`calendar`}>Calendar</Link></li>
+            <li><Link className="link_homepage" to={`phone-number`}>Phone Number</Link></li>
           </ul>
 
           <p>Contributions: <a href="https://github.com/Pearson-Higher-Ed/docs/blob/master/origami-contributions.md">FAQ</a></p>
