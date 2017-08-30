@@ -182,10 +182,12 @@ const IconPage = () => (
             <li><Icon name="show-off-24">Show Off 24</Icon> show-off-24</li>
             <li><Icon name="show-on-18">Show On 18</Icon> show-on-18</li>
             <li><Icon name="show-on-24">Show On 24</Icon> show-on-24</li>
-            <li><Icon name="sort-up-18">Sort Up 18</Icon> sort-up-18</li>
-            <li><Icon name="sort-up-24">Sort Up 24</Icon> sort-up-24</li>
+            <li><Icon name="sortable-18">Sortable 18</Icon> sortable-18</li>
+            <li><Icon name="sortable-24">Sortable 24</Icon> sortable-24</li>
             <li><Icon name="sort-down-18">Sort Down 18</Icon> sort-down-18</li>
             <li><Icon name="sort-down-24">Sort Down 24</Icon> sort-down-24</li>
+            <li><Icon name="sort-up-18">Sort Up 18</Icon> sort-up-18</li>
+            <li><Icon name="sort-up-24">Sort Up 24</Icon> sort-up-24</li>
             <li><Icon name="tip-18">Tip 18</Icon> tip-18</li>
             <li><Icon name="tip-24">Tip 24</Icon> tip-24</li>
             <li><Icon name="view-list-18">View List 18</Icon> view-list-18</li>
