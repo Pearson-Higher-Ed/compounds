@@ -53,7 +53,7 @@ export default class Dates extends Component {
         {haystack.map((item, i) => {
           d = day + i * 7;
           return (
-            <div className="pe-cal-row" role="row">
+            <div className="pe-cal-row" role="row" key={`row${i}`}>
               {weekStack.map((item, i) => {
                 d += 1;
                 isDate = d > 0 && d <= daysInMonth;
@@ -72,6 +72,7 @@ export default class Dates extends Component {
                       <div className={`${className}${disabledContrast} pe-label`}
                            aria-disabled={true}
                            id={`day${d}`}
+                           key={`day${d}`}
                            tabIndex="-1"
                       >
                         {d}
@@ -83,7 +84,7 @@ export default class Dates extends Component {
                   {newSelectedDtClass = (selectedDt.getTime() === current.getTime() && (selectedDt.getDate() !== that.statics.date || selectedDt.getMonth() !== that.statics.month)) ? 'pe-cal-selected' :'';}
 
                   return (
-                    <div className={`${className} pe-label ${dayContrast}`}>
+                    <div className={`${className} pe-label ${dayContrast}`} key={`day${d}`}>
                       <div className={isCurrentDate ? 'currentDate-box': ''}>
                          <div className={`pe-cal-cell-square ${isSecondaryDate ? 'secondary-date':''} ${newSelectedDtClass}`}
                             id={`day${d}`}
@@ -102,7 +103,7 @@ export default class Dates extends Component {
                   );
                 }
 
-                return <div className="pe-cal-cell" />;
+                return <div className="pe-cal-cell" key={`day${d}`} />;
               })}
             </div>
           );
