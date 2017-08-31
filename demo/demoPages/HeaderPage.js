@@ -33,6 +33,7 @@ import { Icon, Button }     from '../../index';
           <li><Link className="link" to={`/calendar`} >Calendar</Link></li>
           <li><Link className="link" to={`/date-picker`} >DatePicker</Link></li>
           <li><Link className="link" to={`/time-picker`} >TimePicker</Link></li>
+          <li><Link className="link" to={`/phone-number`} >Phone Number</Link></li>
         </ul>
         {this.props.children}
       </div>

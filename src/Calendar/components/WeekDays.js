@@ -12,9 +12,9 @@ export default class WeekDays extends Component {
         {dayNumbers.map((item, i) => {
           return (
             <div className={`pe-cal-cell pe-label--small pe-cal-cell-dayNames ${inverseColor}`}
-                 key={i}
+                 key={`weekday${i}`}
             >
-              <abbr title={dayNamesFull[i]}>
+              <abbr title={dayNamesFull[(startDay + i) % 7]}>
                 {dayNames[(startDay + i) % 7]}
               </abbr>
             </div>

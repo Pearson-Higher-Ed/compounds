@@ -2,11 +2,12 @@
 
 .pe-calendar {
   box-sizing: content-box;
-  padding: 16px 20px 20px 20px;
   width: 280px;
+  min-height: 284px;
+  color: $pe-color-charcoal;
+  padding: 16px 20px 20px;
   position: absolute;
   z-index: 1;
-  color: $pe-color-charcoal;
   border: 1px solid $pe-color-concrete;
   background-color: $pe-color-white;
 
@@ -62,13 +63,16 @@
     color: $pe-color-charcoal;
     background-color: $pe-color-moonlight;
   }
-.currentDate-box .pe-cal-cell-square {
+.currentDate-box {
   width: 36px;
   height: 36px;
   margin: 1px 0 0 0;
   line-height: 36px;
   border-radius: 0;
   border: 1px solid $pe-color-concrete;
+}
+.currentDate-box .pe-cal-cell-square {
+  margin: 3px 2px 2px;
 }
 .pe-cal-date.pe-cal-past {
   height: 40px;

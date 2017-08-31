@@ -72,6 +72,7 @@ Optionally, install [React developer tools](https://chrome.google.com/webstore/d
 After cloning the repository:
 
     npm install
+    npm run build
     npm start
 
 Navigate to **http://localhost:8081/demo**, where the spawned Node server hosts a webpack-generated SPA using

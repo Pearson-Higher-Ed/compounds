@@ -13,6 +13,7 @@ import StaticAlertPage    from './demoPages/StaticAlertPage';
 import CalendarPage       from './demoPages/CalendarPage';
 import DatePickerPage     from './demoPages/DatePickerPage';
 import TimePickerPage     from './demoPages/TimePickerPage';
+import PhoneNumberPage    from './demoPages/PhoneNumberPage';
 
 import { HashRouter as Router, Route } from 'react-router-dom';
 
@@ -33,6 +34,7 @@ const DemoRouter = (props) => (
         <Route path="/calendar"       component={CalendarPage} />
         <Route path="/date-picker"    component={DatePickerPage} />
         <Route path="/time-picker"    component={TimePickerPage} />
+        <Route path="/phone-number"   component={PhoneNumberPage} />
     </div>
   </Router>
 )
