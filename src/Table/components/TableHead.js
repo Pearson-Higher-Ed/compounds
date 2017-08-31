@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Table extends Component {
+export default class TableHead extends Component {
 
   getChildContext() {
     return {
-      table: {}
+      table: {
+        head: true
+      }
     };
   }
 
@@ -13,13 +15,17 @@ export default class Table extends Component {
     const { children } = this.props;
 
     return (
-      <table className="pe-table pe-table--selectable">
+      <thead>
         {children}
-      </table>
+      </thead>
     )
   }
 }
 
-Table.childContextTypes = {
+TableHead.contextTypes = {
   table: PropTypes.object
-};
+}
+
+TableHead.childContextTypes = {
+  table: PropTypes.object
+}

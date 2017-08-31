@@ -13,3 +13,8 @@ export StaticAlert     from './src/StaticAlert/StaticAlert';
 export Calendar        from './src/Calendar/Calendar';
 export PhoneNumber     from './src/PhoneNumber/PhoneNumber';
 export Table           from './src/Table/Table';
+export TableBody       from './src/Table/components/TableBody';
+export TableHead     from './src/Table/components/TableHead';
+export TableHeaderCell from './src/Table/components/TableHeaderCell';
+export TableRow        from './src/Table/components/TableRow';
+export TableRowCell    from './src/Table/components/TableRowCell';
