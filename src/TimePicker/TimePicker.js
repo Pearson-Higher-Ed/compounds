@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import ReactDom             from 'react-dom';
 import PropTypes            from 'prop-types';
 import { Icon }             from '../../index';
-import { TimeList }         from './components/TimeList';
+import { List }             from './components/List';
 import moment               from 'moment';
 
 import './TimePicker.scss';
@@ -12,15 +13,18 @@ export default class TimePicker extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { focusStartIndex : 0 };
+    this.state = {
+      focusStartIndex : 0,
+      timePickerValue : this.props.timePickerValue
+    };
 
     this.applyTimePickerStyles = _applyTimePickerStyles.bind(this);
     this.timePickerFocus       = _timePickerFocus.bind(this);
-    this.timeListHandler       = _timeListHandler.bind(this);
+    this.timePickerBlur        = _timePickerBlur.bind(this);
+    this.listHandler           = _listHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
     this.inputEvents           = _inputEvents.bind(this);
     this.listEventInterface    = _listEventInterface.bind(this);
-    this.timeValidator         = _timeValidator.bind(this);
 
   }
 
@@ -31,9 +35,6 @@ export default class TimePicker extends Component {
   componentWillReceiveProps(nextProps){
     this.applyTimePickerStyles(this.state.validatedState ? this.state.validatedState : nextProps.inputState);
   }
-
-    // return false;
-  // }
 
   render() {
 
@@ -70,7 +71,7 @@ export default class TimePicker extends Component {
         {errorMessage && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
 
         {displayOpen  && inputState !== 'readOnly' && <div className="pe-dropdownContainer">
-          <TimeList id={`${id}-timelist`} timeListRef={ul => this.list = ul} listEvents={this.listEventInterface} hoursToList={hoursToList} selectedHour={timePickerValue} timeToParent={this.timeListHandler}/>
+          <List id={`${id}-list`} listRef={ul => this.list = ul} listEvents={this.listEventInterface} itemsToList={hoursToList} selectedItem={timePickerValue} itemToParent={this.listHandler}/>
         </div>}
 
       </div>
@@ -109,41 +110,16 @@ function _timePickerFocus(){
   }
 };
 
+function _timePickerBlur(){
+  this.setState({ labelStyleTmp:this.state.labelStyle, displayOpen:false});
+};
+
 function _changeHandler(e){
-
-  this.timeValidator(e);
-
-  this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  this.setState({ timePickerValue:e.target.value, displayOpen:false, labelStyleTmp:this.state.labelStyle });
   this.props.changeHandler.call(this, e.target.value);
 };
 
-function _timeValidator(e){
-  //validate time....
-  const listToMatch            = this.props.twentyFourHour ? TWENTYFOUR_HOURS : this.props.HOURS;
-  const matchedValue           = listToMatch.filter(match => match.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1);
-  const matchedValueNormalized = matchedValue.length !== 0 ? matchedValue[0].toLowerCase() : '' ;
-  const inputValueNormalized   = e.target.value.toLowerCase();
-
-  let validatedValue = "";
-  let validatedState = "default";
-
-  if(inputValueNormalized === matchedValueNormalized){
-    console.log('valid time!', e.target.value)
-    validatedValue = e.target.value;
-    validatedState = "default";
-  }else {
-    console.log('invalid time!', e.target.value)
-    validatedState = "error";
-  }
-
-  const valueToPass = validatedValue ? validatedValue : e.target.value;
-
-  // console.log(e.target.value)
-  console.log(matchedValue)
-  // this.setState({ timePickerValue:valueToPass, validatedState });
-}
-
-function _timeListHandler(e){
+function _listHandler(e){
   this.setState({ timePickerValue:e.target.innerText, displayOpen:false, labelStyleTmp:this.state.labelStyle });
 };
 
@@ -188,7 +164,7 @@ function _listEventInterface(e) {
       break;
     case 13:  //keypress: enter
       e.preventDefault();
-      this.timeListHandler(e);
+      this.listHandler(e);
       break;
   };
 };

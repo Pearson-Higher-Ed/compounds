@@ -1,6 +1,6 @@
 @import '../../../node_modules/pearson-elements/scss/elements/color/color';
 
-.pe-timepicker-list{
+.pe-itemList{
   -ms-overflow-style : none;
   overflow           : auto;
   background         : #FFFFFF;
@@ -14,7 +14,7 @@
 }
 
 
-.pe-timepicker-list-item-hour{
+.pe-itemList-item{
   list-style-type : none;
   padding-top     : 8px;
   padding-bottom  : 8px;
@@ -30,7 +30,7 @@
   }
 }
 
-.pe-timepicker-list-item-hour svg {
+.pe-itemList-item svg {
   margin-left  : -23px;
   margin-right : 5px;
   color        : $pe-color-medium-gray;
