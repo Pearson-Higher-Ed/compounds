@@ -22,28 +22,34 @@ export default class TableHeaderCell extends Component {
     super(props)
 
     this.state = {
-      placeholder: 'check-sm-18'
+      iconName: 'ban-18'
     }
   }
 
-  onClick = () => {
-    const { placeholder } = this.state;
-    if (placeholder === 'check-sm-18') {
-      this.setState({ placeholder: 'sort-up-18' })
-    } else if (placeholder === 'sort-up-18') {
-      this.setState({ placeholder: 'sort-down-18' })
-    } else if (placeholder === 'sort-down-18') {
-      this.setState({ placeholder: 'sort-up-18' })
+  iconToggle = () => {
+    const { iconName } = this.state;
+    if (iconName === 'ban-18') {
+      this.setState({ iconName: 'sort-up-18' })
+    } else if (iconName === 'sort-up-18') {
+      this.setState({ iconName: 'sort-down-18' })
+    } else if (iconName === 'sort-down-18') {
+      this.setState({ iconName: 'sort-up-18' })
     }
   }
 
   render() {
     const { children, scope, inputId, containerId, inputLabel, columnSort } = this.props;
     const { table, selectable } = this.context;
-    const { placeholder } = this.state;
+    const { iconName } = this.state;
 
     return (
-      <th>
+      <th aria-sort={
+        iconName === 'sort-up-18'
+        ? 'ascending'
+        : iconName === 'sort-down-18'
+        ? 'descending'
+        : null
+      }>
         {
           selectable && !children
             ?  <div className="pe-checkbox" id={containerId}>
@@ -57,8 +63,8 @@ export default class TableHeaderCell extends Component {
         }
         {
           columnSort &&
-            <button type="button" className="pe-icon--btn" onClick={this.onClick}>
-              <Icon name={placeholder} />
+            <button type="button" className="pe-icon--btn" onClick={this.iconToggle}>
+              <Icon name={iconName} />
             </button>
         }
       </th>
