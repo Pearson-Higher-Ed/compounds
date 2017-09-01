@@ -6,7 +6,7 @@ const TableRow = (props, context) => {
   const { children } = props;
   const { table } = context;
 
-  const onClick = e => {
+  const onClick = () => {
     const tables = document.querySelectorAll('.pe-table--selectable');
     for (let i=0; i< tables.length; i++) {
       let table = tables[i];
@@ -19,29 +19,12 @@ const TableRow = (props, context) => {
         if (input && input.type === 'checkbox') {
           if (input.checked) {
             tr.classList.add('selected');
-          } else {
-            tr.classList.remove('selected')
+           } else {
+            tr.classList.remove('selected');
           }
-          // tr.addEventListener('click',(e) => {
-          //   var thisTR=this;
-          //   console.log(thisTR, 'ok');
-          //   if (e.target.nodeName!=='INPUT' && e.target.nodeName!=='LABEL') {
-          //     input.click();
-          //   }
-          //   selectToggle(thisTR, input);
-          // }, false);
         }
       });
     }
-
-  // function selectToggle(tr, input) {
-  //   if (input.checked) {
-  //     tr.classList.add('selected');
-  //   }
-  //   else {
-  //     tr.classList.remove('selected');
-  //   }
-  // }
 }
 
   return (

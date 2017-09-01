@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../Icon';
 
+// some check for columnSort; put the <Icon /> next to children
+
 const TableHeaderCell = (props, context) => {
-  const { children, scope, inputId, containerId, inputLabel } = props;
+  const { children, scope, inputId, containerId, inputLabel, columnSort } = props;
   const { table, selectable } = context;
 
   return (
     <th scope={scope}>
-      { selectable && !children
+      {
+        selectable && !children
           ?  <div className="pe-checkbox" id={containerId}>
                <input type="checkbox" id={inputId} />
                <label htmlFor={inputId}>{inputLabel}</label>
@@ -17,6 +20,12 @@ const TableHeaderCell = (props, context) => {
                </span>
              </div>
           : children
+      }
+      {
+        columnSort &&
+          <button type="button" className="pe-icon--btn">
+            <Icon name="sortable-18" />
+          </button>
       }
     </th>
   )
@@ -29,11 +38,13 @@ TableHeaderCell.propTypes = {
   scope: PropTypes.string,
   inputId: PropTypes.string,
   containerId: PropTypes.string,
-  inputLabel: PropTypes.string
+  inputLabel: PropTypes.string,
+  columnSort: PropTypes.bool
 }
 
 TableHeaderCell.defaultProps = {
-  scope: 'col'
+  scope: 'col',
+  columnSort: false
 }
 
 TableHeaderCell.contextTypes = {

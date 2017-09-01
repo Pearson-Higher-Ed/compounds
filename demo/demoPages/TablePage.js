@@ -16,7 +16,7 @@ const TablePage = () => (
             containerId="comic_select"
             inputLabel="Select"
           />
-          <TableHeaderCell>Comic</TableHeaderCell>
+          <TableHeaderCell columnSort>Comic</TableHeaderCell>
           <TableHeaderCell>Main characters</TableHeaderCell>
           <TableHeaderCell>Country</TableHeaderCell>
         </TableRow>
