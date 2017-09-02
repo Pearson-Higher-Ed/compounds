@@ -6,7 +6,7 @@ const TableRow = (props, context) => {
   const { children } = props;
   const { table } = context;
 
-  const onClick = () => {
+  const onChange = () => {
     const tables = document.querySelectorAll('.pe-table--selectable');
     for (let i=0; i< tables.length; i++) {
       let table = tables[i];
@@ -28,7 +28,7 @@ const TableRow = (props, context) => {
 }
 
   return (
-    <tr className={className} onClick={onClick}>
+    <tr className={className} onChange={onChange}>
       {children}
     </tr>
   )
