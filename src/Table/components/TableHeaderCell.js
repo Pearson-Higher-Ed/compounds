@@ -53,8 +53,9 @@ export default class TableHeaderCell extends Component {
 
   render() {
     const { children, scope, inputId, containerId, inputLabel, columnSort } = this.props;
-    const { selectable } = this.context;
+    const { selectable, sortable } = this.context;
     const { iconName } = this.state;
+    const sortClass = sortable ? 'pe-table__sortable' : null;
 
     return (
       <th aria-sort={
@@ -64,6 +65,7 @@ export default class TableHeaderCell extends Component {
             ? 'descending'
             : null }
           columnSort={columnSort}
+          className={sortClass}
       >
         {
           selectable && !children
@@ -91,7 +93,8 @@ export default class TableHeaderCell extends Component {
 }
 
 TableHeaderCell.contextTypes = {
-  selectable: PropTypes.bool
+  selectable: PropTypes.bool,
+  sortable: PropTypes.bool
 }
 
 function _selectAll() {

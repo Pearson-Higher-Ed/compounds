@@ -16,7 +16,8 @@ export default class Table extends Component {
 
   getChildContext() {
     return {
-      selectable: this.props.selectable
+      selectable: this.props.selectable,
+      sortable: this.props.sortable
     };
   }
 
@@ -34,5 +35,6 @@ export default class Table extends Component {
 }
 
 Table.childContextTypes = {
-  selectable: PropTypes.bool
+  selectable: PropTypes.bool,
+  sortable: PropTypes.bool
 };
