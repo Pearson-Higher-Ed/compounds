@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import Icon from '../../Icon';
 
 const TableRowCell = (props, context) => {
-  const { children, inputId, containerId, cellId, labelledbyId } = props;
+  const { children, inputId, containerId, cellId, labelledbyCellId } = props;
   const { selectable } = context;
   return (
     <td id={cellId}>
       { selectable && !children
         ? <div className="pe-checkbox">
-            <input type="checkbox" id={inputId} aria-labelledby={`${containerId} ${labelledbyId}}`} />
+            <input type="checkbox" id={inputId} aria-labelledby={`${containerId} ${labelledbyCellId}}`} />
             <label htmlFor={inputId}> </label>
             <span>
               <Icon name="check-sm-18" />
@@ -27,7 +27,7 @@ TableRowCell.propTypes = {
   inputId: PropTypes.string,
   containerId: PropTypes.string,
   cellId: PropTypes.string,
-  labelledbyId: PropTypes.string
+  labelledbyCellId: PropTypes.string
 }
 
 TableRowCell.contextTypes = {

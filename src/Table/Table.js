@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export default class Table extends Component {
 
   static propTypes = {
+    children: PropTypes.node,
     sortable: PropTypes.bool,
     selectable: PropTypes.bool
   }

@@ -2,18 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TableRow = (props) => {
-  const className = null;
   const { children } = props;
 
-  const onChange = () => {
+  const selected = () => {
     const tables = document.querySelectorAll('.pe-table--selectable');
-    for (let i=0; i< tables.length; i++) {
+    for (let i=0; i<tables.length; i++) {
       let table = tables[i];
       let tbody = table.getElementsByTagName('tbody')[0];
       let trs = [].slice.call(tbody.getElementsByTagName('TR'));
 
       trs.forEach((tr) => {
-        let thisTR = tr;
         let input = tr.getElementsByTagName('INPUT')[0];
         if (input && input.type === 'checkbox') {
           if (input.checked) {
@@ -27,7 +25,7 @@ const TableRow = (props) => {
 }
 
   return (
-    <tr className={className} onChange={onChange}>
+    <tr onClick={selected}>
       {children}
     </tr>
   )
@@ -36,6 +34,5 @@ const TableRow = (props) => {
 export default TableRow;
 
 TableRow.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string
+  children: PropTypes.node
 }
