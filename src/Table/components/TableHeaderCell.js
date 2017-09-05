@@ -55,7 +55,7 @@ export default class TableHeaderCell extends Component {
     const { children, scope, inputId, containerId, inputLabel, columnSort } = this.props;
     const { selectable, sortable } = this.context;
     const { iconName } = this.state;
-    const sortClass = sortable ? 'pe-table__sortable' : null;
+    const sortClass = sortable ? 'pe-table__sortable' :'';
 
     return (
       <th aria-sort={
