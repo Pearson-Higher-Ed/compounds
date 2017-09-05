@@ -1,30 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class TableBody extends Component {
+const TableBody = (props) => {
+  const { children } = props;
 
-  getChildContext() {
-    return {
-      table: {
-        body: true
-      }
-    };
-  }
-
-  render() {
-    const { children } = this.props
-
-    return (
-      <tbody>
-        {children}
-      </tbody>
-    )
-  }
+  return (
+    <tbody>
+      {children}
+    </tbody>
+  )
 }
 
-TableBody.contextTypes = {
-  table: PropTypes.object
-}
+export default TableBody;
 
-TableBody.childContextTypes = {
-  table: PropTypes.object
+TableBody.propTypes = {
+  children: PropTypes.node
 }

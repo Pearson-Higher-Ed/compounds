@@ -22,14 +22,13 @@ export default class TableHeaderCell extends Component {
     super(props)
 
     this.state = {
-      iconName: 'ban-18'
+      iconName: 'sortable-18'
     }
   }
 
   iconToggle = () => {
     const { iconName } = this.state;
-    // temporarily using ban-18 until sortable-18 is fixed
-    if (iconName === 'ban-18') {
+    if (iconName === 'sortable-18') {
       this.setState({ iconName: 'sort-up-18' })
     } else if (iconName === 'sort-up-18') {
       this.setState({ iconName: 'sort-down-18' })
@@ -39,14 +38,16 @@ export default class TableHeaderCell extends Component {
   }
 
   checkAll = () => {
-    let checkboxes = document.getElementsByTagName('input');
+    const checkboxes = document.getElementsByTagName('input');
     for (let i = 0; i < checkboxes.length; i++) {
-      if (checkboxes[i].checked === false) {
-        console.log('1');
-        checkboxes[i].checked = true;
-      } else {
-        console.log('2');
-        checkboxes[i].checked = false;
+      if (checkboxes[i].type === 'checkbox') {
+        if (checkboxes[i].checked === false) {
+          console.log('check');
+          checkboxes[i].checked = true;
+        } else {
+          console.log('uncheck');
+          checkboxes[i].checked = false;
+        }
       }
     }
   }
@@ -54,7 +55,7 @@ export default class TableHeaderCell extends Component {
 
   render() {
     const { children, scope, inputId, containerId, inputLabel, columnSort } = this.props;
-    const { table, selectable } = this.context;
+    const { selectable } = this.context;
     const { iconName } = this.state;
 
     return (
@@ -88,6 +89,5 @@ export default class TableHeaderCell extends Component {
 }
 
 TableHeaderCell.contextTypes = {
-  table: PropTypes.object,
   selectable: PropTypes.bool
 }

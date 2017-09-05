@@ -38,7 +38,7 @@ const TablePage = () => (
             containerId="comic_select"
             labelledbyId="sel_sew"
           />
-          <TableRowCell>Suske en Wiske</TableRowCell>
+          <TableRowCell cellId="sel_sew">Suske en Wiske</TableRowCell>
           <TableRowCell>Suske, Wiske, Tante Sidonia, Krimson</TableRowCell>
           <TableRowCell>Belgium</TableRowCell>
         </TableRow>

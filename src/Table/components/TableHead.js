@@ -1,31 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class TableHead extends Component {
+const TableHead = (props) => {
+  const { children } = props;
 
-  getChildContext() {
-    return {
-      table: {
-        head: true
-      }
-    };
-  }
-
-  render() {
-    const { children } = this.props;
-
-    return (
-      <thead>
-        {children}
-      </thead>
-    )
-  }
+  return (
+    <thead>
+      {children}
+    </thead>
+  )
 }
 
-TableHead.contextTypes = {
-  table: PropTypes.object
-}
+export default TableHead;
 
-TableHead.childContextTypes = {
-  table: PropTypes.object
+TableHead.propTypes = {
+  children: PropTypes.node
 }

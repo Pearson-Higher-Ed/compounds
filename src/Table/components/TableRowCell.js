@@ -4,7 +4,7 @@ import Icon from '../../Icon';
 
 const TableRowCell = (props, context) => {
   const { children, inputId, containerId, cellId, labelledbyId } = props;
-  const { table, selectable } = context;
+  const { selectable } = context;
   return (
     <td id={cellId}>
       { selectable && !children
@@ -31,6 +31,5 @@ TableRowCell.propTypes = {
 }
 
 TableRowCell.contextTypes = {
-  table: PropTypes.object,
   selectable: PropTypes.bool
 }
