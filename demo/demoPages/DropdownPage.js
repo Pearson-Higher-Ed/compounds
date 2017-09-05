@@ -7,7 +7,7 @@ const mobileTitle = "Test title";
 
 const DropdownPage = () => (
     <div className="displaySection">
-    <h2><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/">Dropdown</a></h2>
+    <h2><a href="https://pearson-higher-ed.github.io/design/c/dropdown/beta/" target="_blank">Dropdown</a></h2>
 
       <div className="elementContainer">
 

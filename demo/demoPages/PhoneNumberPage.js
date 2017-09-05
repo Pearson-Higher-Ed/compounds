@@ -5,7 +5,7 @@ const eight = {paddingLeft: 8};
 
 const PhoneNumberPage = () => (
   <div className="displaySection">
-    <h1>Phone Number</h1> <br/>
+    <h2>Phone Number</h2> <br/>
     <div elementContainer>
       <div className="code">
         <h3>Props</h3>

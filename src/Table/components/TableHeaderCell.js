@@ -10,12 +10,11 @@ export default class TableHeaderCell extends Component {
     inputId: PropTypes.string,
     containerId: PropTypes.string,
     inputLabel: PropTypes.string,
-    columnSort: PropTypes.bool
+    columnSort: PropTypes.func
   }
 
   static defaultProps = {
-    scope: 'col',
-    columnSort: false
+    scope: 'col'
   }
 
   constructor(props) {
@@ -37,6 +36,10 @@ export default class TableHeaderCell extends Component {
     document.removeEventListener('keydown', this.handleKey);
   }
 
+  componentDidUpdate() {
+    if (this.props.columnSort) this.props.columnSort();
+  }
+
   iconToggle = () => {
     const { iconName } = this.state;
     if (iconName === 'sortable-18') {
@@ -55,11 +58,12 @@ export default class TableHeaderCell extends Component {
 
     return (
       <th aria-sort={
-        iconName === 'sort-up-18'
-        ? 'ascending'
-        : iconName === 'sort-down-18'
-        ? 'descending'
-        : null }
+            iconName === 'sort-up-18'
+            ? 'ascending'
+            : iconName === 'sort-down-18'
+            ? 'descending'
+            : null }
+          columnSort={columnSort}
       >
         {
           selectable && !children

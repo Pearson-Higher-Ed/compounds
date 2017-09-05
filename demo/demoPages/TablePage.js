@@ -7,7 +7,8 @@ import { Table,
          TableRowCell } from '../../index';
 
 const TablePage = () => (
-  <div style={{padding: 16}}>
+  <div className="displaySection">
+    <h2><a href="http://pearson-higher-ed.github.io/design/c/tables/" target="_blank">Table</a></h2>
     <Table selectable sortable>
       <TableHead>
         <TableRow>
@@ -16,7 +17,7 @@ const TablePage = () => (
             containerId="comic_select"
             inputLabel="Select"
           />
-          <TableHeaderCell columnSort>Comic</TableHeaderCell>
+          <TableHeaderCell columnSort={() => console.log('woo')}>Comic</TableHeaderCell>
           <TableHeaderCell>Main characters</TableHeaderCell>
           <TableHeaderCell>Country</TableHeaderCell>
         </TableRow>
