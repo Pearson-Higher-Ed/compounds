@@ -24,6 +24,17 @@ export default class TableHeaderCell extends Component {
     this.state = {
       iconName: 'sortable-18'
     }
+
+    this.selectAll = _selectAll.bind(this);
+    this.handleKeys = _handleKeys.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeys);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeys);
   }
 
   iconToggle = () => {
@@ -37,22 +48,6 @@ export default class TableHeaderCell extends Component {
     }
   }
 
-  checkAll = () => {
-    const checkboxes = document.getElementsByTagName('input');
-    for (let i = 0; i < checkboxes.length; i++) {
-      if (checkboxes[i].type === 'checkbox') {
-        if (checkboxes[i].checked === false) {
-          console.log('check');
-          checkboxes[i].checked = true;
-        } else {
-          console.log('uncheck');
-          checkboxes[i].checked = false;
-        }
-      }
-    }
-  }
-
-
   render() {
     const { children, scope, inputId, containerId, inputLabel, columnSort } = this.props;
     const { selectable } = this.context;
@@ -64,17 +59,20 @@ export default class TableHeaderCell extends Component {
         ? 'ascending'
         : iconName === 'sort-down-18'
         ? 'descending'
-        : null
-      }>
+        : null }
+      >
         {
           selectable && !children
-            ?  <div className="pe-checkbox" id={containerId} onChange={this.checkAll}>
-                 <input type="checkbox" id={inputId} />
-                 <label htmlFor={inputId}>{inputLabel}</label>
-                 <span>
-                   <Icon name="check-sm-18" />
-                 </span>
-               </div>
+            ? <div className="pe-checkbox"
+                   id={containerId}
+                   onClick={this.selectAll}
+                   onKeyDown={this.handleKeys}>
+                <input type="checkbox" id={inputId} />
+                <label htmlFor={inputId}>{inputLabel}</label>
+                <span>
+                  <Icon name="check-sm-18" />
+                </span>
+              </div>
             : children
         }
         {
@@ -90,4 +88,17 @@ export default class TableHeaderCell extends Component {
 
 TableHeaderCell.contextTypes = {
   selectable: PropTypes.bool
+}
+
+function _selectAll() {
+  const checkboxes = document.getElementsByTagName('input');
+  for (let i = 1; i < checkboxes.length; i++) {
+    checkboxes[i].checked = checkboxes[0].checked;
+  }
+}
+
+function _handleKeys(e) {
+  if (e.which === 32) {
+    this.selectAll;
+  }
 }
