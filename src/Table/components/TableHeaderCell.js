@@ -26,15 +26,15 @@ export default class TableHeaderCell extends Component {
     }
 
     this.selectAll = _selectAll.bind(this);
-    this.handleKeys = _handleKeys.bind(this);
+    this.handleKey = _handleKey.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKeys);
+    document.addEventListener('keydown', this.handleKey);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeys);
+    document.removeEventListener('keydown', this.handleKey);
   }
 
   iconToggle = () => {
@@ -66,7 +66,7 @@ export default class TableHeaderCell extends Component {
             ? <div className="pe-checkbox"
                    id={containerId}
                    onClick={this.selectAll}
-                   onKeyDown={this.handleKeys}>
+                   onKeyDown={this.handleKey}>
                 <input type="checkbox" id={inputId} />
                 <label htmlFor={inputId}>{inputLabel}</label>
                 <span>
@@ -91,13 +91,13 @@ TableHeaderCell.contextTypes = {
 }
 
 function _selectAll() {
-  const checkboxes = document.getElementsByTagName('input');
+  const checkboxes = document.querySelectorAll('div.pe-checkbox input');
   for (let i = 1; i < checkboxes.length; i++) {
     checkboxes[i].checked = checkboxes[0].checked;
   }
 }
 
-function _handleKeys(e) {
+function _handleKey(e) {
   if (e.which === 32) {
     this.selectAll;
   }
