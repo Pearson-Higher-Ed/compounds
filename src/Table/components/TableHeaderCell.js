@@ -10,7 +10,8 @@ export default class TableHeaderCell extends Component {
     inputId: PropTypes.string,
     containerId: PropTypes.string,
     inputLabel: PropTypes.string,
-    columnSort: PropTypes.func
+    columnSort: PropTypes.func,
+    alignCell: PropTypes.oneOf(['center', 'right'])
   }
 
   static defaultProps = {
@@ -52,10 +53,15 @@ export default class TableHeaderCell extends Component {
   }
 
   render() {
-    const { children, scope, inputId, containerId, inputLabel, columnSort } = this.props;
+    const { children, scope, inputId, containerId, inputLabel, columnSort,
+            alignCell } = this.props;
     const { selectable, sortable } = this.context;
     const { iconName } = this.state;
     const sortClass = sortable ? 'pe-table__sortable' :'';
+    const columnAlignment = alignCell === 'center' ? ' pe-table__center'
+                            : alignCell === 'right'
+                            ? ' pe-table__right'
+                            : '';
 
     return (
       <th aria-sort={
@@ -65,7 +71,7 @@ export default class TableHeaderCell extends Component {
             ? 'descending'
             : null }
           columnSort={columnSort}
-          className={sortClass}
+          className={`${sortClass}${columnAlignment}`}
       >
         {
           selectable && !children

@@ -44,9 +44,13 @@ const TablePage = () => (
         <li className="li-props">Applies the appropriate Icons to show the column is sortable and allows a sorting Function
           to be passed in on the data.  <br/>Toggles from 'ASC' to 'DESC'.
         </li>
+        <li className="li-props">alignCell:String </li>
+        <li className="li-props">Allows you to change the alignment of the contents of a cell.  Acceptable strings are 'center' and 'right'. <br/>
+          By default the element will maintain its left alignment.
+        </li>
         <li className="li-props">**The following props are only necessary on Selectable tables.**</li>
         <li className="li-props">inputId:String</li>
-        <li className="li-props">The inputId is passed to the checkbox and its label.</li>
+        <li className="li-props">The inputId is passed to the checkbox and its label. This can only start with letters or an underscore (applies to all id&#39;s).</li>
         <li className="li-props">inputLabel:String</li>
         <li className="li-props">Label for the corresponding checkbox.</li>
         <li className="li-props">containerId:String</li>
