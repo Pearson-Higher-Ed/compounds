@@ -62,6 +62,7 @@ export default class TableHeaderCell extends Component {
                             : alignCell === 'right'
                             ? ' pe-table__right'
                             : '';
+    const sortCheck = columnSort ? columnSort :null;
 
     return (
       <th aria-sort={
@@ -70,7 +71,7 @@ export default class TableHeaderCell extends Component {
             : iconName === 'sort-down-18'
             ? 'descending'
             : null }
-          columnSort={columnSort}
+          columnSort={sortCheck}
           className={`${sortClass}${columnAlignment}`}
       >
         {
