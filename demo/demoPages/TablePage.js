@@ -19,11 +19,17 @@ const TablePage = () => (
       <ul>
         <li className="li-props">children:Node</li>
         <li className="li-props">sortable:Boolean</li>
-        <li className="li-props">Applies the appropriate styles to a sortable table.</li>
+        <li className="li-props">Applies the appropriate styles to a sortable table. If you are using a sortable table, <br/>
+          <i>TableHeaderCell</i> and <i>TableRowCell</i> must be self closing to get the pe-checkbox to render.
+        </li>
         <li className="li-props">selectable:Boolean</li>
         <li className="li-props">Applies the appropriate styles to a selectable table.
           Both sortable and selectable can be used simultaneously.
         </li>
+        <li className="li-props">insertCaption:Boolean</li>
+        <li className="li-props">Inserts a {`<caption>`} element into the <i>Table</i>.</li>
+        <li className="li-props">captionText:String</li>
+        <li className="li-props">**Only needed if <i>insertCaption</i> is present**. Defaults to null.</li>
       </ul>
       <h3>TableBody props</h3>
       <ul>
@@ -118,7 +124,7 @@ const TablePage = () => (
     {`</Table>`}
     </div><br/>
 
-    <Table selectable sortable>
+    <Table selectable sortable insertCaption captionText="WOOOOOOO">
       <TableHead>
         <TableRow>
           <TableHeaderCell
@@ -126,7 +132,7 @@ const TablePage = () => (
             containerId="comic_select"
             inputLabel="Select"
           />
-          <TableHeaderCell columnSort={() => console.log('Hey')}>Comic</TableHeaderCell>
+          <TableHeaderCell>Comic</TableHeaderCell>
           <TableHeaderCell>Main characters</TableHeaderCell>
           <TableHeaderCell>Country</TableHeaderCell>
         </TableRow>

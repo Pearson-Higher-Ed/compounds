@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const TableRow = (props) => {
   const { children } = props;
 
-  const selected = () => {
+  const selectedRow = () => {
     const tables = document.querySelectorAll('.pe-table--selectable');
     for (let i=0; i<tables.length; i++) {
       let table = tables[i];
@@ -25,7 +25,7 @@ const TableRow = (props) => {
 }
 
   return (
-    <tr onClick={selected}>
+    <tr onClick={selectedRow}>
       {children}
     </tr>
   )

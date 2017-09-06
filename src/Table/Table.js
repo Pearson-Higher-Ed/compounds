@@ -6,12 +6,16 @@ export default class Table extends Component {
   static propTypes = {
     children: PropTypes.node,
     sortable: PropTypes.bool,
-    selectable: PropTypes.bool
+    selectable: PropTypes.bool,
+    insertCaption: PropTypes.bool,
+    captionText: PropTypes.string
   }
 
   static defaultProps = {
     sortable: false,
-    selectable: false
+    selectable: false,
+    insertCaption: false,
+    captionText: null
   }
 
   getChildContext() {
@@ -22,12 +26,16 @@ export default class Table extends Component {
   }
 
   render() {
-    const { children, sortable, selectable } = this.props;
+    const { children, sortable, selectable, insertCaption, captionText } = this.props;
     const sortClass = sortable ? ' pe-table--active-headers' :'';
     const selectClass = selectable ? ' pe-table--selectable' :'';
 
     return (
       <table className={`pe-table${sortClass}${selectClass}`}>
+        {
+          insertCaption &&
+            <caption>{captionText}</caption>
+        }
         {children}
       </table>
     )
