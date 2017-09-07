@@ -124,7 +124,7 @@ const TablePage = () => (
     {`</Table>`}
     </div><br/>
 
-    <Table selectable sortable insertCaption captionText="WOOOOOOO">
+    <Table selectable sortable>
       <TableHead>
         <TableRow>
           <TableHeaderCell
@@ -132,7 +132,7 @@ const TablePage = () => (
             containerId="comic_select"
             inputLabel="Select"
           />
-          <TableHeaderCell>Comic</TableHeaderCell>
+          <TableHeaderCell columnSort={() => console.log('Hey')}>Comic</TableHeaderCell>
           <TableHeaderCell>Main characters</TableHeaderCell>
           <TableHeaderCell>Country</TableHeaderCell>
         </TableRow>
