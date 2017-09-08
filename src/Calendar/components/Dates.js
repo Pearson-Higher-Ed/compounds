@@ -20,6 +20,9 @@ export default class Dates extends Component {
     let isSecondaryDate;
     let isCurrentDate;
     let newSelectedDtClass='';
+    let secondaryString='';
+    let chosenDateString='';
+    let ariaLabel='';
     const weekStack = Array(...{ length: 7 }).map(Number.call, Number);
     const { contrast, daysInMonth, firstOfMonth, year, monthNames, month, selectedDate,
             disablePast, minDate, onSelect, secondaryDate, dayNamesFull,
@@ -82,6 +85,10 @@ export default class Dates extends Component {
                   {isCurrentDate = current.getDate().toString().split(' ')==that.statics.date && firstOfMonth.getMonth().toString().split(' ')==that.statics.month;}
                   {isSecondaryDate = secondaryDate.some(date => date.getTime()===current.getTime())}
                   {newSelectedDtClass = (selectedDt.getTime() === current.getTime() && (selectedDt.getDate() !== that.statics.date || selectedDt.getMonth() !== that.statics.month)) ? 'pe-cal-selected' :'';}
+            
+                  {secondaryString = isSecondaryDate ? ' Secondary date' : ''}
+                  {chosenDateString = (selectedDt.getTime() === current.getTime() && (selectedDt.getDate() !== that.statics.date || selectedDt.getMonth() !== that.statics.month)) ? ' Chosen date' : '';}
+                  {ariaLabel = dayNamesFull[i]+' '+monthNames[month]+' '+d+secondaryString+chosenDateString}
 
                   return (
                     <div className={`${className} pe-label ${dayContrast}`} key={`day${d}`}>
@@ -89,7 +96,7 @@ export default class Dates extends Component {
                          <div className={`pe-cal-cell-square ${isSecondaryDate ? 'secondary-date':''} ${newSelectedDtClass}`}
                             id={`day${d}`}
                             role="gridcell"
-                            aria-label={`${dayNamesFull[i]} ${monthNames[month]} ${d}`}
+                            aria-label={ariaLabel}
                             aria-current={isCurrentDate ? 'date' : null}
                             tabIndex="-1"
                             onClick={onSelect.bind(that, year, month, d)}
