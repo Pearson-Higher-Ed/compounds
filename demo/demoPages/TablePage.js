@@ -104,7 +104,7 @@ const TablePage = () => (
           <div style={twentyFour}>{`<TableRowCell`}</div>
             <div style={thirtyTwo}>{`inputId="c1"`}</div>
             <div style={thirtyTwo}>{`containerId="comic_select"`}</div>
-            <div style={thirtyTwo}>{`labelledbyId="sel_Spirou"`}</div>
+            <div style={thirtyTwo}>{`labelledbyCellId="sel_Spirou"`}</div>
           <div style={twentyFour}>{`/>`}</div>
           <div style={twentyFour}>{`<TableRowCell cellId="sel_Spirou">Spirou</TableRowCell>`}</div>
           <div style={twentyFour}>{`<TableRowCell>Spirou, Fantasio</TableRowCell>`}</div>
@@ -114,7 +114,7 @@ const TablePage = () => (
           <div style={twentyFour}>{`<TableRowCell`}</div>
             <div style={thirtyTwo}>{`inputId="c2"`}</div>
             <div style={thirtyTwo}>{`containerId="comic_select"`}</div>
-            <div style={thirtyTwo}>{`labelledbyId="sel_sew"`}</div>
+            <div style={thirtyTwo}>{`labelledbyCellId="sel_sew"`}</div>
           <div style={twentyFour}>{`/>`}</div>
           <div style={twentyFour}>{`<TableRowCell cellId="sel_sew">Suske en Wiske</TableRowCell>`}</div>
           <div style={twentyFour}>{`<TableRowCell>Suske, Wiske, Tante Sidonia, Krimson</TableRowCell>`}</div>
@@ -142,7 +142,7 @@ const TablePage = () => (
           <TableRowCell
             inputId="c1"
             containerId="comic_select"
-            labelledbyId="sel_Spirou"
+            labelledbyCellId="sel_Spirou"
           />
           <TableRowCell cellId="sel_Spirou">Spirou</TableRowCell>
           <TableRowCell>Spirou, Fantasio</TableRowCell>
@@ -152,7 +152,7 @@ const TablePage = () => (
           <TableRowCell
             inputId="c2"
             containerId="comic_select"
-            labelledbyId="sel_sew"
+            labelledbyCellId="sel_sew"
           />
           <TableRowCell cellId="sel_sew">Suske en Wiske</TableRowCell>
           <TableRowCell>Suske, Wiske, Tante Sidonia, Krimson</TableRowCell>

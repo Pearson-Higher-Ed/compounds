@@ -14,7 +14,7 @@ const TableRowCell = (props, context) => {
     <td id={cellId} className={`${columnAlignment}`}>
       { selectable && !children
         ? <div className="pe-checkbox">
-            <input type="checkbox" id={inputId} aria-labelledby={`${containerId} ${labelledbyCellId}}`} />
+            <input type="checkbox" id={inputId} aria-labelledby={`${containerId} ${labelledbyCellId}`} />
             <label htmlFor={inputId}> </label>
             <span>
               <Icon name="check-sm-18" />
