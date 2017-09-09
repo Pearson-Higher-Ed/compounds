@@ -43,9 +43,6 @@ export default class TableHeaderCell extends Component {
 
   iconToggle = () => {
     const { iconName } = this.state;
-    if (iconName === 'sortable-18') {
-      return this.setState({ iconName: 'sort-up-18' })
-    }
     if (iconName === 'sort-up-18') {
       return this.setState({ iconName: 'sort-down-18' })
     }
