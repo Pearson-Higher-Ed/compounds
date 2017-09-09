@@ -44,12 +44,13 @@ export default class TableHeaderCell extends Component {
   iconToggle = () => {
     const { iconName } = this.state;
     if (iconName === 'sortable-18') {
-      this.setState({ iconName: 'sort-up-18' })
-    } else if (iconName === 'sort-up-18') {
-      this.setState({ iconName: 'sort-down-18' })
-    } else if (iconName === 'sort-down-18') {
-      this.setState({ iconName: 'sort-up-18' })
+      return this.setState({ iconName: 'sort-up-18' })
     }
+    if (iconName === 'sort-up-18') {
+      return this.setState({ iconName: 'sort-down-18' })
+    }
+
+    return this.setState({ iconName: 'sort-up-18' });
   }
 
   render() {
@@ -58,10 +59,8 @@ export default class TableHeaderCell extends Component {
     const { selectable, sortable } = this.context;
     const { iconName } = this.state;
     const sortClass = sortable ? 'pe-table__sortable' :'';
-    const columnAlignment = alignCell === 'center' ? ' pe-table__center'
-                            : alignCell === 'right'
-                            ? ' pe-table__right'
-                            : '';
+    const columnAlignment = (alignCell === 'center' || alignCell === 'right')
+                            ? ' pe-table__' + alignCell :'';
     const sortCheck = columnSort ? columnSort :null;
 
     return (
