@@ -102,8 +102,6 @@ export default class Dates extends Component {
                             onClick={onSelect.bind(that, year, month, d)}
                            >
                            {d}
-                           {isCurrentDate && <span className="pe-sr-only">Current date</span>}
-                           {isSecondaryDate && <span className="pe-sr-only">Secondary date</span>}
                          </div>
                        </div>
                     </div>
