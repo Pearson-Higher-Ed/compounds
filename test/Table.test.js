@@ -13,7 +13,7 @@ describe('Table', () => {
 
     it('should render children', function() {
       const childWrapper = shallow(<Table><TableHead /></Table>);
-      expect(childWrapper.node.props.children.type).toEqual(TableHead);
+      expect(childWrapper.node.props.children[1].type).toEqual(TableHead);
     });
   });
 });
