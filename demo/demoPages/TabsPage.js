@@ -7,7 +7,10 @@ const sixteen = {paddingLeft: 16};
 
 const TabsPage = () => (
   <div className="displaySection">
-    <h2><a href="http://pearson-higher-ed.github.io/design/c/tab-navigation/beta/">Tabs</a></h2>
+    <h2><a href="http://pearson-higher-ed.github.io/design/c/tab-navigation/beta/" target="_blank">
+          Tabs
+        </a>
+    </h2>
 
     <div className="elementContainer">
       <Tabs>
