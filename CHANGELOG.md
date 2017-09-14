@@ -1,10 +1,40 @@
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.11.0...v0.12.0) (2017-09-14)
+
+
+
 <a name="0.11.0"></a>
-# [0.11.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.9.1...v0.11.0) (2017-09-07)
+# [0.11.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.4...v0.11.0) (2017-09-07)
+
+
+
+<a name="0.10.4"></a>
+## [0.10.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.3...v0.10.4) (2017-08-30)
+
+
+
+<a name="0.10.3"></a>
+## [0.10.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.2...v0.10.3) (2017-08-23)
+
+
+
+<a name="0.10.2"></a>
+## [0.10.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.1...v0.10.2) (2017-08-22)
 
 
 ### Bug Fixes
 
 * <abbr> day now aligns if a diff weekStartDay is passed ([cdc9472](https://github.com/Pearson-Higher-Ed/compounds/commit/cdc9472))
+
+
+
+<a name="0.10.1"></a>
+## [0.10.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.0...v0.10.1) (2017-08-22)
+
+
+
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.9.1...v0.10.0) (2017-08-21)
 
 
 
