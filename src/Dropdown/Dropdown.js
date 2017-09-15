@@ -138,7 +138,7 @@ export default class Dropdown extends Component {
         break;
       case 'icon':
         btnIcon = true;
-        buttonClass = 'dropdown-activator';
+        buttonClass = 'dropdown-activator pe-icon--btn';
         buttonLabel = (
           <Icon name="dropdown-open-sm-24">{this.props.label}</Icon>
         );

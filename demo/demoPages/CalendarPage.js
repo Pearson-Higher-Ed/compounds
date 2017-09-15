@@ -3,7 +3,7 @@ import { Calendar } from '../../index';
 
 const CalendarPage = () => (
   <div className="displaySection">
-    <h2><a href="http://pearson-higher-ed.github.io/design/c/calendar/">Calendar</a></h2>
+    <h2><a href="http://pearson-higher-ed.github.io/design/c/calendar/" target="_blank">Calendar</a></h2>
     <div className="elementContainer">
       <div className="code">
         <h3>Props</h3>
