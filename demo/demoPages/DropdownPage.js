@@ -34,6 +34,19 @@ class DropdownPage extends React.Component {
                 Callback that is fired when an item is selected in the Dropdown menu.
               </li>
             </ul>
+            <h3>Dropdown item Props </h3>
+            <h4>Required:</h4>
+            <ul>
+              <li className="li-props">type: divider, button or link</li>
+              <li className="li-props">label: accessibility label (except for divider type)</li>
+              <li className="li-props">url: only required for link type</li>
+            </ul>
+            <h4>Optional:</h4>
+            <ul>
+              <li className="li-props">checkmark: whether or not to leave spacing for a selected checkmark</li>
+              <li className="li-props">selected: accessibility/globalization word for 'selected'</li>
+              <li className="li-props">selectedName: accessibility label for name of item</li>
+            </ul>
           </div>
           <h3>label /w Icon (shows selectable and actual connections to changeHandler)</h3>
           <Dropdown
@@ -48,7 +61,8 @@ class DropdownPage extends React.Component {
             type="text"
             label="text"
             id="text">
-            <DropdownItem checkmark selected={this.state.buttonSelected} selectedName="selected" label="list item 1" type="button" />
+            <DropdownItem checkmark selected={this.state.buttonSelected}
+              selectedName="selected" label="list item 1" type="button" />
             <DropdownItem type="divider" />
             <DropdownItem checkmark label="list item 2" type="link" url="http://www.google.com" />
             <DropdownItem checkmark label="list item 3" type="link" url="http://www.google.com" />
@@ -64,9 +78,9 @@ class DropdownPage extends React.Component {
                 label="text"
                 id="text"
               >
-                <DropdownItem label="list item 1" />
-                <DropdownItem divider />
-                <DropdownItem label="list item 2" />
+                <DropdownItem checkmark label="list item 1" />
+                <DropdownItem checkmark divider />
+                <DropdownItem checkmark label="list item 2" />
               </Dropdown>`}
           </p>
           <h3>button /w Icon (no changehandler connection)</h3>
