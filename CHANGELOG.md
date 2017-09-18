@@ -1,3 +1,13 @@
+<a name="0.12.1"></a>
+## [0.12.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.4...v0.12.1) (2017-09-15)
+
+
+### Bug Fixes
+
+* If passed in a different start day, the aria-label follows with the appropriate full day name ([d9716be](https://github.com/Pearson-Higher-Ed/compounds/commit/d9716be))
+
+
+
 <a name="0.10.4"></a>
 ## [0.10.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.3...v0.10.4) (2017-08-30)
 

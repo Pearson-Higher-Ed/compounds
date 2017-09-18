@@ -5,7 +5,7 @@ const StaticAlertPage = () => (
   <div>
     <div className="displaySection">
       <h1 style={{paddingTop: 65}}>
-        <a href="http://pearson-higher-ed.github.io/design/c/alerts/beta/#static-global-alert">
+        <a href="http://pearson-higher-ed.github.io/design/c/alerts/beta/#static-global-alert" target="_blank">
         StaticAlert
         </a>
       </h1>

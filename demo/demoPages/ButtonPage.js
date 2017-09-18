@@ -5,7 +5,7 @@ import { Button, Icon } from '../../index';
 
 const ButtonPage = () => (
       <div className="displaySection">
-        <h2><a href="https://pearson-higher-ed.github.io/design/c/buttons/">Buttons</a></h2>
+        <h2><a href="https://pearson-higher-ed.github.io/design/c/buttons/" target="_blank">Buttons</a></h2>
 
         <div className="elementContainer">
 

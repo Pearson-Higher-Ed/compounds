@@ -34,6 +34,7 @@ import { Icon, Button }     from '../../index';
           <li><Link className="link" to={`/date-picker`} >DatePicker</Link></li>
           <li><Link className="link" to={`/time-picker`} >TimePicker</Link></li>
           <li><Link className="link" to={`/phone-number`} >Phone Number</Link></li>
+          <li><Link className="link" to={`/table`} >Table</Link></li>
         </ul>
         {this.props.children}
       </div>

@@ -10,7 +10,7 @@ rules:
   # Style
   comma-spacing: 2
   eol-last: 2
-  indent: [2, 2]
+  indent: [2, 2, { "SwitchCase": 1 }]
   new-cap: 2
   one-var: [2, never]
   quotes: [1, single]
