@@ -104,7 +104,6 @@ function _changeHandler(e){
 };
 
 function _calendarHandler(date){
-  console.log(date);
   const changeHandlerParam = {
     target: {
       value: (date.selectedMonth + 1) + '/' + date.selectedDate + '/' + date.selectedYear
