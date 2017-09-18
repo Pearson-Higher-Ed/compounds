@@ -95,7 +95,7 @@ function _datePickerFocus(){
 };
 
 function _datePickerBlur(){
-  this.setState({ labelStyleTmp:this.state.labelStyle, displayOpen:false});
+  // this.setState({ labelStyleTmp:this.state.labelStyle, displayOpen:false});
 };
 
 function _changeHandler(e){
@@ -104,7 +104,14 @@ function _changeHandler(e){
 };
 
 function _calendarHandler(date){
+  console.log(date);
+  const changeHandlerParam = {
+    target: {
+      value: (date.selectedMonth + 1) + '/' + date.selectedDate + '/' + date.selectedYear
+    }
+  };
   this.setState({ datepickerValue:moment(date.selectedDt).format('L'), dateObject:date.selectedDt, displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  this.changeHandler(changeHandlerParam);
 };
 
 function _applyDatePickerStyles(inputState) {
