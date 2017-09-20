@@ -23,6 +23,8 @@
     position: absolute;
     background-color: #ffffff;
     z-index: 5;
+    max-height: 300px;
+    overflow-y: auto;
 
     li {
 
