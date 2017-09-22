@@ -95,7 +95,10 @@ function _datePickerFocus(){
 };
 
 function _datePickerBlur(){
-  // this.setState({ labelStyleTmp:this.state.labelStyle, displayOpen:false});
+  this.setState({
+    labelStyleTmp:this.state.labelStyle,
+    displayOpen:false
+  });
 };
 
 function _changeHandler(e){
