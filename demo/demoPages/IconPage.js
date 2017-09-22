@@ -4,7 +4,7 @@ import { Icon, Button } from '../../index';
 
 const IconPage = () => (
       <div className="displaySection">
-        <h2><a href="https://pearson-higher-ed.github.io/design/c/icons/beta" target="_blank">Icons</a></h2>
+        <h2><a href="https://pearson-higher-ed.github.io/design/c/icons/beta">Icons</a></h2>
 
         <div className="elementContainer">
 
@@ -25,6 +25,9 @@ const IconPage = () => (
 
           <h4>Basic Icon with alt text "close":</h4>
           <Icon name="remove-sm-18">close</Icon>
+          <Icon name="sortable-18" />
+          <Icon name="sort-down-18" />
+          <Icon name="sort-up-18" />
           <p className="code">{"<Icon name='remove-sm-18'>close</Icon>"}</p>
 
           <br />
