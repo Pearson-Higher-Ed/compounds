@@ -115,12 +115,20 @@ function _timePickerBlur(){
 };
 
 function _changeHandler(e){
+  console.log('change handler');
+  console.log(e.target.value);
   this.setState({ timePickerValue:e.target.value, displayOpen:false, labelStyleTmp:this.state.labelStyle });
   this.props.changeHandler.call(this, e.target.value);
 };
 
 function _listHandler(e){
+  const changeHandlerParam = {
+    target: {
+      value: e.target.innerText.toUpperCase()
+    }
+  };
   this.setState({ timePickerValue:e.target.innerText, displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  this.changeHandler(changeHandlerParam);
 };
 
 function _inputEvents(e){
