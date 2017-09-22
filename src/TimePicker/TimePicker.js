@@ -34,6 +34,7 @@ export default class TimePicker extends Component {
 
   componentWillReceiveProps(nextProps){
     this.applyTimePickerStyles(this.state.validatedState ? this.state.validatedState : nextProps.inputState);
+    this.setState({timePickerValue: nextProps.timePickerValue});
   }
 
   render() {
