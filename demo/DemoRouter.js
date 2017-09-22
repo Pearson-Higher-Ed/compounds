@@ -11,6 +11,8 @@ import TabsPage           from './demoPages/TabsPage';
 import LoadingSpinnerPage from './demoPages/LoadingSpinnerPage';
 import StaticAlertPage    from './demoPages/StaticAlertPage';
 import CalendarPage       from './demoPages/CalendarPage';
+import DatePickerPage     from './demoPages/DatePickerPage';
+import TimePickerPage     from './demoPages/TimePickerPage';
 import PhoneNumberPage    from './demoPages/PhoneNumberPage';
 import TablePage          from './demoPages/TablePage';
 
@@ -31,6 +33,8 @@ const DemoRouter = (props) => (
         <Route path="/loadingSpinner" component={LoadingSpinnerPage} />
         <Route path="/staticAlert"    component={StaticAlertPage} />
         <Route path="/calendar"       component={CalendarPage} />
+        <Route path="/date-picker"    component={DatePickerPage} />
+        <Route path="/time-picker"    component={TimePickerPage} />
         <Route path="/phone-number"   component={PhoneNumberPage} />
         <Route path="/table"          component={TablePage} />
     </div>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { RadioCheckGroup }  from '../../../../index';
 
 
-class RadioCheckGroupSection extends Component {
+export default class RadioCheckGroupSection extends Component {
 
   constructor(props){
     super(props);
@@ -16,9 +16,9 @@ class RadioCheckGroupSection extends Component {
       radioSelectedOptions2   : ["tea"]
     };
 
-    this.radioHandler1    = _radioHandler1.bind(this);
-    this.radioHandler2    = _radioHandler2.bind(this);
-    this.checkboxHandler  = _checkboxHandler.bind(this);
+    this.radioHandler1   = _radioHandler1.bind(this);
+    this.radioHandler2   = _radioHandler2.bind(this);
+    this.checkboxHandler = _checkboxHandler.bind(this);
   }
 
 
@@ -32,12 +32,13 @@ class RadioCheckGroupSection extends Component {
             <h3>Props:</h3>
             <p>RadioCheckGroup:</p>
             <ul>
-              <li>id:String(required)               === "a unique name"</li>
-              <li>legendText:String(required)       === "a desciptive label"</li>
-              <li>options:Object(required)          === {'{<option>:<inputState>,<option>:<inputState>, ... }'} where inputState is one of 'default','disabled'. </li>
-              <li>name:String(required)             === "a desciptive name"</li>
-              <li>selectedOptions:Array             === "the checked options (radio only supports a single selected option by definition)"</li>
-              <li>changeHandler:Function(required)  === "handles populating the selected options from the options (see source for example <a href='https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js'>https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js</a>)"</li>
+              <li>inputType:String(required)       === "radio or checkbox"</li>
+              <li>id:String(required)              === "a unique name"</li>
+              <li>legendText:String(required)      === "a desciptive label"</li>
+              <li>options:Object(required)         === {'{<option>:<inputState>,<option>:<inputState>, ... }'} where inputState is one of 'default','disabled'. </li>
+              <li>name:String(required)            === "a desciptive name"</li>
+              <li>selectedOptions:Array            === "the checked options (radio only supports a single selected option by definition)"</li>
+              <li>changeHandler:Function(required) === "handles populating the selected options from the options (see source for example <a href='https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js'>https://github.com/Pearson-Higher-Ed/compounds/blob/inputs/demo/demoPages/sections/inputsPageSections/RadioCheckGroupSection.js</a>)"</li>
             </ul>
 
           </div>
@@ -52,7 +53,6 @@ class RadioCheckGroupSection extends Component {
             selectedOptions = {this.state.radioSelectedOptions1}
             changeHandler   = {this.radioHandler1}
             />
-          <br />
           <p className="code">{'<RadioCheckGroup inputType="radio" id="radiobutton1" legendText="radiobutton1" options={{"tea":"default","coffee":"disabled","soda":"","water":"disabled"}} selectedOptions={["tea"]} changeHandler={() => {}} />'}</p>
 
 
@@ -81,17 +81,12 @@ class RadioCheckGroupSection extends Component {
             selectedOptions = {this.state.checkboxSelectedOptions}
             changeHandler   = {this.checkboxHandler}
             />
-          <br />
           <p className="code">{'<RadioCheckGroup inputType="checkbox" id="checkbox1" legendText="checkbox1" options={{"tea":"default","coffee":"disabled","soda":"","water":"disabled"}} selectedOptions={["coffee","water","tea"]} changeHandler={() => {}} />'}</p>
 
       </div>
     )
   }
 }
-
-
-export default RadioCheckGroupSection;
-
 
 
 function _checkboxHandler (newSelectionArray) {

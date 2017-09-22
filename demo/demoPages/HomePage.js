@@ -23,6 +23,8 @@ const HomePage = () => (
             <li><Link className="link_homepage" to={`loadingSpinner`}>Loading Spinner</Link></li>
             <li><Link className="link_homepage" to={`staticAlert`}>Static Alert</Link></li>
             <li><Link className="link_homepage" to={`calendar`}>Calendar</Link></li>
+            <li><Link className="link_homepage" to={`date-picker`}>DatePicker</Link></li>
+            <li><Link className="link_homepage" to={`time-picker`}>TimePicker</Link></li>
             <li><Link className="link_homepage" to={`phone-number`}>Phone Number</Link></li>
             <li><Link className="link_homepage" to={`table`}>Table</Link></li>
           </ul>
