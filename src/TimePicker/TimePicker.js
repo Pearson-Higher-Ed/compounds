@@ -115,8 +115,6 @@ function _timePickerBlur(){
 };
 
 function _changeHandler(e){
-  console.log('change handler');
-  console.log(e.target.value);
   this.setState({ timePickerValue:e.target.value, displayOpen:false, labelStyleTmp:this.state.labelStyle });
   this.props.changeHandler.call(this, e.target.value);
 };
