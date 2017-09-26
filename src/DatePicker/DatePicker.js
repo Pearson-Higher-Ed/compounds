@@ -12,7 +12,9 @@ export default class DatePicker extends Component {
     super(props);
 
     this.state = {
-      datepickerValue : this.props.datePickerValue
+      datepickerValue : this.props.datePickerValue,
+      disablePast: this.props.disablePast ? this.props.disablePast : null,
+      minDate: this.props.minDate ? this.props.minDate : null
     };
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
@@ -32,7 +34,9 @@ export default class DatePicker extends Component {
 
   render() {
 
-    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue, spanStyle, dateObject, containerStyle, placeholder } = this.state;
+    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
+            spanStyle, dateObject, containerStyle, placeholder, disablePast, minDate
+          } = this.state;
     const { className, inputState, id, labelText, dateFormat, infoMessage, errorMessage } = this.props;
 
     const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
@@ -64,7 +68,12 @@ export default class DatePicker extends Component {
         {errorMessage && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
 
         {displayOpen  && inputState !== 'readOnly' && <div className="pe-dropdownContainer">
-          <Calendar disablePast newSelectedDt={dateObject} onSelect={this.calendarHandler} />
+          <Calendar
+            disablePast={disablePast}
+            minDate={minDate}
+            newSelectedDt={dateObject}
+            onSelect={this.calendarHandler}
+          />
         </div>}
 
       </div>
@@ -83,7 +92,9 @@ DatePicker.propTypes = {
   infoMessage   : PropTypes.string,
   errorMessage  : PropTypes.string,
   inputState    : PropTypes.string,
-  className     : PropTypes.string
+  className     : PropTypes.string,
+  disablePast   : PropTypes.bool,
+  minDate       : PropTypes.object
 };
 
 

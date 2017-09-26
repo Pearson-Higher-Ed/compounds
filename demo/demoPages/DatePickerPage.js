@@ -55,6 +55,8 @@ class DatePickerPage extends Component {
                 <li>changeHandler:Function === "function to pass values on change"</li>
                 <li>infoMessage:String === "an optional info message displayed below the input"</li>
                 <li>errorMessage:String === "an optional error message displayed below the input"</li>
+                <li>disablePast: Boolean === "Disable all past dates"</li>
+                <li>minDate:Object === "Accepts a date object which disables all dates prior to that date."</li>
               </ul>
 
               <h3>Configure Props:</h3>
