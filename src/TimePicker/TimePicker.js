@@ -39,18 +39,23 @@ export default class TimePicker extends Component {
 
   render() {
 
-    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, timePickerValue, spanStyle, containerStyle, placeholder } = this.state;
-    const { className, inputState, id, labelText, timeFormat, infoMessage, errorMessage, twentyFourHour, TWENTYFOUR_HOURS, HOURS } = this.props;
+    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, timePickerValue,
+            spanStyle, containerStyle, placeholder
+          } = this.state;
+    const { className, inputState, id, labelText, timeFormat, infoMessage,
+            errorMessage, twentyFourHour, TWENTYFOUR_HOURS, HOURS, disableLabel
+          } = this.props;
 
     const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby     = em + (infoMessage ? `infoMsg-${id}` : '');
     const mainContainerStyles = className  ? `pe-timePicker-main ${className}`:`pe-timePicker-main`;
     const inputStyles         = inputStyle ? `pe-timePicker-input-styles ${inputStyle}`:`pe-timePicker-input-styles`;
     const hoursToList         = twentyFourHour ? TWENTYFOUR_HOURS : HOURS;
+    const labelCheck          = disableLabel ? ' pe-sr-only' :'';
 
     return (
       <div className={mainContainerStyles} onKeyDown={this.inputEvents} onFocus={this.timePickerFocus}>
-        <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${timeFormat})`}</label>
+        <label className={`${labelStyleTmp}${labelCheck}`} htmlFor={id}>{`${labelText} (${timeFormat})`}</label>
 
         <div className={containerStyle}>
           <input
@@ -100,7 +105,8 @@ TimePicker.propTypes = {
   className        : PropTypes.string,
   HOURS            : PropTypes.array,
   TWENTYFOUR_HOURS : PropTypes.array,
-  twentyFourHour   : PropTypes.bool
+  twentyFourHour   : PropTypes.bool,
+  disableLabel     : PropTypes.bool
 };
 
 
@@ -132,14 +138,14 @@ function _listHandler(e){
 
 function _inputEvents(e){
   switch(e.which){
-    case 40:  //keypress: down arrow
+    case 40:  //down arrow
       e.preventDefault();
       this.list.children[0].focus();
       break;
-    case 27:  //keypress: esc
+    case 27:  //esc
       this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
       break;
-    case 9:   //keypress: tab
+    case 9:   //tab
       this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
       break;
   };
@@ -149,7 +155,7 @@ function _listEventInterface(e) {
   let { focusStartIndex } = this.state;
 
   switch(e.which){
-    case 40:  //keypress: down arrow
+    case 40:  //down arrow
       e.stopPropagation();
       e.preventDefault();
       if(focusStartIndex >= 0 && focusStartIndex < this.list.children.length - 1){
@@ -159,7 +165,7 @@ function _listEventInterface(e) {
         this.list.setAttribute("aria-activedescendant", this.list.children[focusStartIndex].id);
       }
       break;
-    case 38:  //keypress: up arrow
+    case 38:  //up arrow
       e.stopPropagation();
       e.preventDefault();
       if(focusStartIndex > 0 && focusStartIndex < this.list.children.length){
@@ -169,7 +175,7 @@ function _listEventInterface(e) {
         this.list.setAttribute("aria-activedescendant", this.list.children[focusStartIndex].id);
       }
       break;
-    case 13:  //keypress: enter
+    case 13:  //enter
       e.preventDefault();
       this.listHandler(e);
       break;

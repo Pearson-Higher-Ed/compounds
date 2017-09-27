@@ -64,6 +64,7 @@ class TimePickerPage extends Component {
 
           <h2>TimePicker (basic time): </h2>
           <TimePicker
+            disableLabel
             id              = "someGiantId1"
             timeFormat      = "hh:mm"
             inputState      = {inputState}
