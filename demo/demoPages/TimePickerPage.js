@@ -54,6 +54,7 @@ class TimePickerPage extends Component {
               <li>changeHandler:Function === "function to pass values on change"</li>
               <li>infoMessage:String === "an optional info message displayed below the input"</li>
               <li>errorMessage:String === "an optional error message displayed below the input"</li>
+              <li>disableLabel:Boolean === "Allows visually disabling of the label.  Text must still be passed to the labelText even if this is present for a11y purposes."</li>
             </ul>
 
             <h3>Configure Props:</h3>
@@ -64,7 +65,6 @@ class TimePickerPage extends Component {
 
           <h2>TimePicker (basic time): </h2>
           <TimePicker
-            disableLabel
             id              = "someGiantId1"
             timeFormat      = "hh:mm"
             inputState      = {inputState}
