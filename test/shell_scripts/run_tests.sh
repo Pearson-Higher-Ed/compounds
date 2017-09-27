@@ -9,7 +9,7 @@ body="{
 \"branch\":\"rebrand\",
 \"config\": {
 \"script\": [
-\"export component=compounds_sdk\",
+\"export component=compounds-sdk\",
 \"export feature_branch=$TRAVIS_BRANCH\",
 \"chmod 777 ./src/main/shell_scripts/components.sh\",
 \"./src/main/shell_scripts/components.sh\",
