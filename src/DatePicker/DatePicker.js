@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDom             from 'react-dom';
 import PropTypes            from 'prop-types';
 import { Icon, Calendar }   from '../../index';
 import moment               from 'moment';
@@ -19,17 +20,29 @@ export default class DatePicker extends Component {
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
     this.datePickerFocus       = _datePickerFocus.bind(this);
-    this.datePickerBlur        = _datePickerBlur.bind(this);
     this.calendarHandler       = _calendarHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
   }
 
   componentDidMount(){
     this.applyDatePickerStyles(this.props.inputState);
+    document.addEventListener('click', this.clickListener);
   }
 
   componentWillReceiveProps(nextProps){
     this.applyDatePickerStyles(nextProps.inputState);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.clickListener);
+  }
+
+  clickListener = (e) => {
+    const domNode = ReactDOM.findDOMNode(this);
+
+    if ((!domNode || !domNode.contains(e.target))) {
+      this.setState({ displayOpen: false });
+    }
   }
 
   render() {
@@ -37,7 +50,9 @@ export default class DatePicker extends Component {
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
             spanStyle, dateObject, containerStyle, placeholder, disablePast, minDate
           } = this.state;
-    const { className, inputState, id, labelText, dateFormat, infoMessage, errorMessage } = this.props;
+    const { className, inputState, id, labelText, dateFormat, infoMessage,
+            errorMessage
+          } = this.props;
 
     const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby     = em + (infoMessage ? `infoMsg-${id}` : '');
@@ -45,7 +60,7 @@ export default class DatePicker extends Component {
     const inputStyles         = inputStyle ? `pe-datepicker-input-styles ${inputStyle}`:`pe-datepicker-input-styles`;
 
     return (
-      <div className={mainContainerStyles} onFocus={this.datePickerFocus} onBlur={this.datePickerBlur}>
+      <div className={mainContainerStyles} onFocus={this.datePickerFocus}>
         <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${dateFormat})`}</label>
 
         <div className={containerStyle}>
@@ -103,13 +118,6 @@ function _datePickerFocus(){
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
     this.setState({ labelStyleTmp:labelFocusStyle, displayOpen:true });
   }
-};
-
-function _datePickerBlur(){
-  // this.setState({
-  //   labelStyleTmp:this.state.labelStyle,
-  //   displayOpen:false
-  // });
 };
 
 function _changeHandler(e){
