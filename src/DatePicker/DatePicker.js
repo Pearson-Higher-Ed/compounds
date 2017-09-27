@@ -45,6 +45,10 @@ export default class DatePicker extends Component {
     }
   }
 
+  fakeBlur = () => {
+    console.log(this.div);
+  }
+
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
@@ -60,7 +64,12 @@ export default class DatePicker extends Component {
     const inputStyles         = inputStyle ? `pe-datepicker-input-styles ${inputStyle}`:`pe-datepicker-input-styles`;
 
     return (
-      <div className={mainContainerStyles} onFocus={this.datePickerFocus}>
+      <div
+        className={mainContainerStyles}
+        onFocus={this.datePickerFocus}
+        ref={(container) => { this.div = container; }}
+        onKeyDown={this.fakeBlur}
+      >
         <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${dateFormat})`}</label>
 
         <div className={containerStyle}>

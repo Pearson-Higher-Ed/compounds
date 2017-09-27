@@ -54,11 +54,11 @@ class TimePickerPage extends Component {
               <li>changeHandler:Function === "function to pass values on change"</li>
               <li>infoMessage:String === "an optional info message displayed below the input"</li>
               <li>errorMessage:String === "an optional error message displayed below the input"</li>
-              <li>disableLabel:Boolean === "Allows visually disabling of the label.  Text must still be passed to the labelText even if this is present for a11y purposes."</li>
+              <li>disableLabel:Boolean === "Allows visual disabling of the label.  Text must still be passed to the labelText even if this is present for a11y purposes."</li>
             </ul>
 
             <h3>Configure Props:</h3>
-            <Select id="select" changeHandler={e => this.setState({inputState:`${e.target.value}`}) } selectedOption={inputState} labelText="Select An inputState:" options={["default", "error", "readOnly", "disabled"]} />
+            <Select id="select" changeHandler={e => this.setState({inputState:`${e.target.value}`})} selectedOption={inputState} labelText="Select An inputState:" options={["default", "error", "readOnly", "disabled"]} />
 
           </div>
 
@@ -70,7 +70,7 @@ class TimePickerPage extends Component {
             inputState      = {inputState}
             labelText       = "Select time"
             timePickerValue = {timepickerValue1}
-            changeHandler   = {e => this.setState({timepickerValue1})}
+            changeHandler   = {time => this.setState({ timepickerValue1: time })}
             infoMessage     = {text.textInputInfoMessage}
             errorMessage    = {text.textInputErrorMessage}
           />
@@ -83,7 +83,7 @@ class TimePickerPage extends Component {
             inputState      = {inputState}
             labelText       = "Select time"
             timePickerValue = {timepickerValue2}
-            changeHandler   = {e => this.setState({timepickerValue2})}
+            changeHandler   = {time => this.setState({ timepickerValue2: time })}
             infoMessage     = {text.textInputInfoMessage}
             errorMessage    = {text.textInputErrorMessage}
           />
@@ -93,7 +93,7 @@ class TimePickerPage extends Component {
             inputState      = {inputState}
             labelText       = "Select time"
             timePickerValue = {timepickerValue3}
-            changeHandler   = {e => this.setState({timepickerValue3})}
+            changeHandler   = {time => this.setState({ timepickerValue3: time })}
             infoMessage     = {text.textInputInfoMessage}
             errorMessage    = {text.textInputErrorMessage}
           />

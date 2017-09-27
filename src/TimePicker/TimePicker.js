@@ -20,7 +20,6 @@ export default class TimePicker extends Component {
 
     this.applyTimePickerStyles = _applyTimePickerStyles.bind(this);
     this.timePickerFocus       = _timePickerFocus.bind(this);
-    this.timePickerBlur        = _timePickerBlur.bind(this);
     this.listHandler           = _listHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
     this.inputEvents           = _inputEvents.bind(this);
@@ -30,11 +29,24 @@ export default class TimePicker extends Component {
 
   componentDidMount(){
     this.applyTimePickerStyles(this.props.inputState);
+    document.addEventListener('click', this.clickListener);
   }
 
   componentWillReceiveProps(nextProps){
     this.applyTimePickerStyles(this.state.validatedState ? this.state.validatedState : nextProps.inputState);
     this.setState({timePickerValue: nextProps.timePickerValue});
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.clickListener);
+  }
+
+  clickListener = (e) => {
+    const domNode = ReactDOM.findDOMNode(this);
+
+    if ((!domNode || !domNode.contains(e.target))) {
+      this.setState({ displayOpen: false });
+    }
   }
 
   render() {
@@ -43,7 +55,7 @@ export default class TimePicker extends Component {
             spanStyle, containerStyle, placeholder
           } = this.state;
     const { className, inputState, id, labelText, timeFormat, infoMessage,
-            errorMessage, twentyFourHour, TWENTYFOUR_HOURS, HOURS, disableLabel
+            errorMessage, twentyFourHour, TWENTYFOUR_HOURS, HOURS, hideLabel
           } = this.props;
 
     const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
@@ -51,7 +63,7 @@ export default class TimePicker extends Component {
     const mainContainerStyles = className  ? `pe-timePicker-main ${className}`:`pe-timePicker-main`;
     const inputStyles         = inputStyle ? `pe-timePicker-input-styles ${inputStyle}`:`pe-timePicker-input-styles`;
     const hoursToList         = twentyFourHour ? TWENTYFOUR_HOURS : HOURS;
-    const labelCheck          = disableLabel ? ' pe-sr-only' :'';
+    const labelCheck          = hideLabel ? ' pe-sr-only' :'';
 
     return (
       <div className={mainContainerStyles} onKeyDown={this.inputEvents} onFocus={this.timePickerFocus}>
@@ -77,7 +89,14 @@ export default class TimePicker extends Component {
         {errorMessage && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
 
         {displayOpen  && inputState !== 'readOnly' && <div className="pe-dropdownContainer">
-          <List id={`${id}-list`} listRef={ul => this.list = ul} listEvents={this.listEventInterface} itemsToList={hoursToList} selectedItem={timePickerValue} itemToParent={this.listHandler}/>
+          <List
+            id={`${id}-list`}
+            listRef={ul => this.list = ul}
+            listEvents={this.listEventInterface}
+            itemsToList={hoursToList}
+            selectedItem={timePickerValue}
+            itemToParent={this.listHandler}
+          />
         </div>}
 
       </div>
@@ -106,7 +125,7 @@ TimePicker.propTypes = {
   HOURS            : PropTypes.array,
   TWENTYFOUR_HOURS : PropTypes.array,
   twentyFourHour   : PropTypes.bool,
-  disableLabel     : PropTypes.bool
+  hideLabel        : PropTypes.bool
 };
 
 
@@ -115,10 +134,6 @@ function _timePickerFocus(){
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
     this.setState({ labelStyleTmp:labelFocusStyle, displayOpen:true });
   }
-};
-
-function _timePickerBlur(){
-  this.setState({ labelStyleTmp:this.state.labelStyle, displayOpen:false});
 };
 
 function _changeHandler(e){
