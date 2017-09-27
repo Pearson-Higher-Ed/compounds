@@ -22,8 +22,8 @@
 
 %container-extend-svg {
   position       : absolute;
-  bottom         : $svg-bottom;
-  right          : $svg-right;
+  top            : 8px;
+  right          : 14px;
   pointer-events : none;
 }
 

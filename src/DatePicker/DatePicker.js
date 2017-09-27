@@ -45,10 +45,6 @@ export default class DatePicker extends Component {
     }
   }
 
-  fakeBlur = () => {
-    console.log('hey');
-  }
-
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
@@ -67,8 +63,6 @@ export default class DatePicker extends Component {
       <div
         className={mainContainerStyles}
         onFocus={this.datePickerFocus}
-        ref={(container) => { this.div = container; }}
-        onKeyDown={this.fakeBlur}
       >
         <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${dateFormat})`}</label>
 
@@ -91,14 +85,15 @@ export default class DatePicker extends Component {
         {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
         {errorMessage && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
 
-        {displayOpen  && inputState !== 'readOnly' && <div className="pe-dropdownContainer">
-          <Calendar
-            disablePast={disablePast}
-            minDate={minDate}
-            newSelectedDt={dateObject}
-            onSelect={this.calendarHandler}
-          />
-        </div>}
+        {displayOpen  && inputState !== 'readOnly' &&
+          <div className="pe-dropdownContainer">
+            <Calendar
+              disablePast={disablePast}
+              minDate={minDate}
+              newSelectedDt={dateObject}
+              onSelect={this.calendarHandler}
+            />
+          </div> }
 
       </div>
     );
