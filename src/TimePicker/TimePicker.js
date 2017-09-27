@@ -130,9 +130,9 @@ TimePicker.propTypes = {
 
 
 function _timePickerFocus(){
-  const { inputState, labelFocusStyle } = this.state;
+  const { inputState } = this.state;
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
-    this.setState({ labelStyleTmp:labelFocusStyle, displayOpen:true });
+    this.setState({ displayOpen:true });
   }
 };
 

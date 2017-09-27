@@ -46,7 +46,7 @@ export default class DatePicker extends Component {
   }
 
   fakeBlur = () => {
-    console.log(this.div);
+    console.log('hey');
   }
 
   render() {
@@ -123,9 +123,9 @@ DatePicker.propTypes = {
 
 
 function _datePickerFocus(){
-  const { inputState, labelFocusStyle } = this.state;
+  const { inputState } = this.state;
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
-    this.setState({ labelStyleTmp:labelFocusStyle, displayOpen:true });
+    this.setState({ displayOpen:true });
   }
 };
 

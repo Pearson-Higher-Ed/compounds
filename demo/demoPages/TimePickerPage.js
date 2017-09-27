@@ -21,7 +21,6 @@ class TimePickerPage extends Component {
     const { intl } = this.props;
     const { inputState, timepickerValue1, timepickerValue2, timepickerValue3 } = this.state;
 
-
     // ======================Internationalization Example=========================
     // intl prop is injected by the injectIntl() at the bottom of the page...
     // Provider Context wraps the root element in demo.js.
@@ -37,7 +36,6 @@ class TimePickerPage extends Component {
         <h1><a href="http://pearson-higher-ed.github.io/design/c/time-picker/v1.0.0">TimePicker - current design (v1.0.0)</a></h1>
 
         <div className="elementContainer">
-
 
           <div className="code">
             <h2>TimePicker:</h2>
@@ -61,7 +59,6 @@ class TimePickerPage extends Component {
             <Select id="select" changeHandler={e => this.setState({inputState:`${e.target.value}`})} selectedOption={inputState} labelText="Select An inputState:" options={["default", "error", "readOnly", "disabled"]} />
 
           </div>
-
 
           <h2>TimePicker (basic time): </h2>
           <TimePicker
