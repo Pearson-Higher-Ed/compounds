@@ -45,12 +45,6 @@ export default class DatePicker extends Component {
     }
   }
 
-  numCheck = (e) => {
-    if (e.which >= 48 && e.which <= 57) {
-      this.setState({ displayOpen: false });
-    }
-  }
-
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
@@ -81,7 +75,6 @@ export default class DatePicker extends Component {
             disabled         = {inputState === 'disabled'}
             readOnly         = {inputState === 'readOnly'}
             onChange         = {this.changeHandler}
-            onKeyDown        = {this.numCheck}
           />
           <span className="pe-iconWrapper"><Icon name={"calendar-18"} /></span>
         </div>

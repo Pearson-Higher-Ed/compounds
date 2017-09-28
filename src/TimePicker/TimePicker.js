@@ -49,12 +49,6 @@ export default class TimePicker extends Component {
     }
   }
 
-  numCheck = (e) => {
-    if (e.which >= 48 && e.which <= 57) {
-      this.setState({ displayOpen: false });
-    }
-  }
-
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, timePickerValue,
@@ -87,7 +81,6 @@ export default class TimePicker extends Component {
             disabled         = {inputState === 'disabled'}
             readOnly         = {inputState === 'readOnly'}
             onChange         = {this.changeHandler}
-            onKeyDown        = {this.numCheck}
           />
           <span className="pe-iconWrapper"><Icon name={"clock-18"} /></span>
         </div>
