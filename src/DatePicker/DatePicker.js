@@ -45,6 +45,25 @@ export default class DatePicker extends Component {
     }
   }
 
+  messageCheck = () => {
+    const { infoMessage, errorMessage, id } = this.props;
+
+    if (infoMessage) {
+      return (
+        <span id={`infoMsg-${id}`} className="pe-input--info_message">
+          {infoMessage}
+        </span>
+      );
+    }
+    if (errorMessage && this.state.inputState === 'error') {
+      return (
+        <span id={`errMsg-${id}`} className="pe-input--error_message">
+          {errorMessage}
+        </span>
+      );
+    }
+  }
+
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
@@ -61,7 +80,11 @@ export default class DatePicker extends Component {
 
     return (
       <div className={mainContainerStyles} onFocus={this.datePickerFocus}>
-        <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${dateFormat})`}</label>
+        <label
+          className={labelStyleTmp}
+          htmlFor={id}>
+            {`${labelText} (${dateFormat})`}
+        </label>
 
         <div className={containerStyle}>
           <input
@@ -76,18 +99,12 @@ export default class DatePicker extends Component {
             readOnly         = {inputState === 'readOnly'}
             onChange         = {this.changeHandler}
           />
-          <span className="pe-iconWrapper"><Icon name={"calendar-18"} /></span>
+          <span className="pe-iconWrapper">
+            <Icon name={"calendar-18"} />
+          </span>
         </div>
 
-        {infoMessage  &&
-          <span id={`infoMsg-${id}`} className="pe-input--info_message">
-            {infoMessage}
-          </span> }
-
-        {errorMessage && inputState === 'error' &&
-          <span id={`errMsg-${id}`} className="pe-input--error_message">
-            {errorMessage}
-          </span> }
+        {this.messageCheck()}
 
         {displayOpen  && inputState !== 'readOnly' &&
           <Calendar
@@ -117,14 +134,14 @@ DatePicker.propTypes = {
   minDate       : PropTypes.object
 };
 
-function _datePickerFocus(){
+function _datePickerFocus() {
   const { inputState } = this.state;
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
     this.setState({ displayOpen: true });
   }
 };
 
-function _changeHandler(e){
+function _changeHandler(e) {
   this.setState({
     datepickerValue: e.target.value,
     displayOpen: false,
@@ -133,7 +150,7 @@ function _changeHandler(e){
   this.props.changeHandler.call(this, e.target.value);
 };
 
-function _calendarHandler(date){
+function _calendarHandler(date) {
   const changeHandlerParam = {
     target: {
       value: (date.selectedMonth + 1) + '/' + date.selectedDate + '/' + date.selectedYear
