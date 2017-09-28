@@ -45,8 +45,13 @@ export default class DatePicker extends Component {
     }
   }
 
-  render() {
+  closeOnEscape = (e) => {
+    if (e.which === 27) {
+      this.setState({ displayOpen: false });
+    }
+  }
 
+  render() {
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
             spanStyle, dateObject, containerStyle, placeholder, disablePast, minDate
           } = this.state;
@@ -60,11 +65,13 @@ export default class DatePicker extends Component {
     const inputStyles         = inputStyle ? `pe-datepicker-input-styles ${inputStyle}`:`pe-datepicker-input-styles`;
 
     return (
-      <div className={mainContainerStyles} onFocus={this.datePickerFocus}>
-        <label
-          className={labelStyleTmp}
-          htmlFor={id}>
-            {`${labelText} (${dateFormat})`}
+      <div
+        className={mainContainerStyles}
+        onFocus={this.datePickerFocus}
+        onKeyDown={this.closeOnEscape}
+      >
+        <label className={labelStyleTmp} htmlFor={id}>
+          {`${labelText} (${dateFormat})`}
         </label>
 
         <div className={containerStyle}>
