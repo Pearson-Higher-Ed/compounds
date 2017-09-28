@@ -101,9 +101,6 @@ class TimePickerPage extends Component {
       )
   }
 
-
 }
-
-
 
 export default injectIntl(TimePickerPage);

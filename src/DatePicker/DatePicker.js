@@ -24,12 +24,12 @@ export default class DatePicker extends Component {
     this.changeHandler         = _changeHandler.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.applyDatePickerStyles(this.props.inputState);
     document.addEventListener('click', this.clickListener);
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     this.applyDatePickerStyles(nextProps.inputState);
   }
 
@@ -46,8 +46,7 @@ export default class DatePicker extends Component {
   }
 
   numCheck = (e) => {
-    const numberCheck = /[0-9]/g;
-    if (numberCheck.test(e.which)) {
+    if (e.which >= 48 && e.which <= 57) {
       this.setState({ displayOpen: false });
     }
   }
@@ -67,10 +66,7 @@ export default class DatePicker extends Component {
     const inputStyles         = inputStyle ? `pe-datepicker-input-styles ${inputStyle}`:`pe-datepicker-input-styles`;
 
     return (
-      <div
-        className={mainContainerStyles}
-        onFocus={this.datePickerFocus}
-      >
+      <div className={mainContainerStyles} onFocus={this.datePickerFocus}>
         <label className={labelStyleTmp} htmlFor={id}>{`${labelText} (${dateFormat})`}</label>
 
         <div className={containerStyle}>
@@ -90,8 +86,15 @@ export default class DatePicker extends Component {
           <span className="pe-iconWrapper"><Icon name={"calendar-18"} /></span>
         </div>
 
-        {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
-        {errorMessage && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
+        {infoMessage  &&
+          <span id={`infoMsg-${id}`} className="pe-input--info_message">
+            {infoMessage}
+          </span> }
+
+        {errorMessage && inputState === 'error' &&
+          <span id={`errMsg-${id}`} className="pe-input--error_message">
+            {errorMessage}
+          </span> }
 
         {displayOpen  && inputState !== 'readOnly' &&
           <Calendar
@@ -108,7 +111,6 @@ export default class DatePicker extends Component {
 
 }
 
-
 DatePicker.propTypes = {
   id            : PropTypes.string.isRequired,
   labelText     : PropTypes.string.isRequired,
@@ -122,16 +124,19 @@ DatePicker.propTypes = {
   minDate       : PropTypes.object
 };
 
-
 function _datePickerFocus(){
   const { inputState } = this.state;
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
-    this.setState({ displayOpen:true });
+    this.setState({ displayOpen: true });
   }
 };
 
 function _changeHandler(e){
-  this.setState({ datepickerValue:e.target.value, displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  this.setState({
+    datepickerValue: e.target.value,
+    displayOpen: false,
+    labelStyleTmp: this.state.labelStyle
+  });
   this.props.changeHandler.call(this, e.target.value);
 };
 
@@ -141,7 +146,12 @@ function _calendarHandler(date){
       value: (date.selectedMonth + 1) + '/' + date.selectedDate + '/' + date.selectedYear
     }
   };
-  this.setState({ datepickerValue:moment(date.selectedDt).format('L'), dateObject:date.selectedDt, displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  this.setState({
+    datepickerValue: moment(date.selectedDt).format('L'),
+    dateObject: date.selectedDt,
+    displayOpen: false,
+    labelStyleTmp: this.state.labelStyle
+  });
   this.changeHandler(changeHandlerParam);
 };
 
@@ -174,6 +184,11 @@ function _applyDatePickerStyles(inputState) {
       containerStyle  = 'pe-datepicker-container';
   };
 
-  this.setState({ labelStyle, labelStyleTmp:labelStyle, inputStyle, labelFocusStyle, containerStyle });
-
+  this.setState({
+    labelStyle,
+    labelStyleTmp: labelStyle,
+    inputStyle,
+    labelFocusStyle,
+    containerStyle
+  });
 };

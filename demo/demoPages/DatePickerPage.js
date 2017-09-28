@@ -23,7 +23,6 @@ class DatePickerPage extends Component {
     const { intl } = this.props;
     const { inputState, datePickerValue1, datePickerValue2, datePickerValue3 } = this.state;
 
-
     // ======================Internationalization Example=========================
     // intl prop is injected by the injectIntl() at the bottom of the page...
     // Provider Context wraps the root element in demo.js.
@@ -105,6 +104,5 @@ class DatePickerPage extends Component {
     }
 
 }
-
 
 export default injectIntl(DatePickerPage);

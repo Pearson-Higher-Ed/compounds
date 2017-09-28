@@ -49,6 +49,12 @@ export default class TimePicker extends Component {
     }
   }
 
+  numCheck = (e) => {
+    if (e.which >= 48 && e.which <= 57) {
+      this.setState({ displayOpen: false });
+    }
+  }
+
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, timePickerValue,
@@ -81,23 +87,31 @@ export default class TimePicker extends Component {
             disabled         = {inputState === 'disabled'}
             readOnly         = {inputState === 'readOnly'}
             onChange         = {this.changeHandler}
+            onKeyDown        = {this.numCheck}
           />
           <span className="pe-iconWrapper"><Icon name={"clock-18"} /></span>
         </div>
 
-        {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
-        {errorMessage && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
+        {infoMessage  &&
+          <span id={`infoMsg-${id}`} className="pe-input--info_message">
+            {infoMessage}
+          </span> }
+        {errorMessage && inputState === 'error' &&
+          <span id={`errMsg-${id}`} className="pe-input--error_message">
+            {errorMessage}
+          </span> }
 
-        {displayOpen  && inputState !== 'readOnly' && <div className="pe-dropdownContainer">
-          <List
-            id={`${id}-list`}
-            listRef={ul => this.list = ul}
-            listEvents={this.listEventInterface}
-            itemsToList={hoursToList}
-            selectedItem={timePickerValue}
-            itemToParent={this.listHandler}
-          />
-        </div>}
+        {displayOpen  && inputState !== 'readOnly' &&
+          <div className="pe-dropdownContainer">
+            <List
+              id={`${id}-list`}
+              listRef={ul => this.list = ul}
+              listEvents={this.listEventInterface}
+              itemsToList={hoursToList}
+              selectedItem={timePickerValue}
+              itemToParent={this.listHandler}
+            />
+          </div> }
 
       </div>
     );
@@ -132,12 +146,16 @@ TimePicker.propTypes = {
 function _timePickerFocus(){
   const { inputState } = this.state;
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
-    this.setState({ displayOpen:true });
+    this.setState({ displayOpen: true });
   }
 };
 
 function _changeHandler(e){
-  this.setState({ timePickerValue:e.target.value, displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  this.setState({
+    timePickerValue: e.target.value,
+    displayOpen: false,
+    labelStyleTmp: this.state.labelStyle
+  });
   this.props.changeHandler.call(this, e.target.value);
 };
 
@@ -147,7 +165,10 @@ function _listHandler(e){
       value: e.target.innerText.toUpperCase()
     }
   };
-  this.setState({ timePickerValue:e.target.innerText, displayOpen:false, labelStyleTmp:this.state.labelStyle });
+  this.setState({ timePickerValue: e.target.innerText,
+    displayOpen: false,
+    labelStyleTmp: this.state.labelStyle
+  });
   this.changeHandler(changeHandlerParam);
 };
 
@@ -226,6 +247,11 @@ function _applyTimePickerStyles(inputState) {
       containerStyle  = 'pe-timePicker-container';
   };
 
-  this.setState({ labelStyle, labelStyleTmp:labelStyle, inputStyle, labelFocusStyle, containerStyle });
-
+  this.setState({
+    labelStyle,
+    labelStyleTmp: labelStyle,
+    inputStyle,
+    labelFocusStyle,
+    containerStyle
+  });
 };
