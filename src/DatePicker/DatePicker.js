@@ -45,25 +45,6 @@ export default class DatePicker extends Component {
     }
   }
 
-  messageCheck = () => {
-    const { infoMessage, errorMessage, id } = this.props;
-
-    if (infoMessage) {
-      return (
-        <span id={`infoMsg-${id}`} className="pe-input--info_message">
-          {infoMessage}
-        </span>
-      );
-    }
-    if (errorMessage && this.state.inputState === 'error') {
-      return (
-        <span id={`errMsg-${id}`} className="pe-input--error_message">
-          {errorMessage}
-        </span>
-      );
-    }
-  }
-
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
@@ -104,7 +85,15 @@ export default class DatePicker extends Component {
           </span>
         </div>
 
-        {this.messageCheck()}
+        {infoMessage  &&
+          <span id={`infoMsg-${id}`} className="pe-input--info_message">
+            {infoMessage}
+          </span> }
+
+        {errorMessage && inputState === 'error' &&
+          <span id={`errMsg-${id}`} className="pe-input--error_message">
+            {errorMessage}
+          </span> }
 
         {displayOpen  && inputState !== 'readOnly' &&
           <Calendar
