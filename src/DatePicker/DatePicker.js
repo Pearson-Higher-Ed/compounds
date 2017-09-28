@@ -45,6 +45,13 @@ export default class DatePicker extends Component {
     }
   }
 
+  numCheck = (e) => {
+    const numberCheck = /[0-9]/g;
+    if (numberCheck.test(e.which)) {
+      this.setState({ displayOpen: false });
+    }
+  }
+
   render() {
 
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
@@ -78,6 +85,7 @@ export default class DatePicker extends Component {
             disabled         = {inputState === 'disabled'}
             readOnly         = {inputState === 'readOnly'}
             onChange         = {this.changeHandler}
+            onKeyDown        = {this.numCheck}
           />
           <span className="pe-iconWrapper"><Icon name={"calendar-18"} /></span>
         </div>
@@ -86,14 +94,12 @@ export default class DatePicker extends Component {
         {errorMessage && inputState === 'error' && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
 
         {displayOpen  && inputState !== 'readOnly' &&
-          <div className="pe-dropdownContainer">
-            <Calendar
-              disablePast={disablePast}
-              minDate={minDate}
-              newSelectedDt={dateObject}
-              onSelect={this.calendarHandler}
-            />
-          </div> }
+          <Calendar
+            disablePast={disablePast}
+            minDate={minDate}
+            newSelectedDt={dateObject}
+            onSelect={this.calendarHandler}
+          /> }
 
       </div>
     );
