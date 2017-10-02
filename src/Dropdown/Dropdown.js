@@ -23,7 +23,8 @@ export default class Dropdown extends Component {
 
     this.state = {
       open: false,
-      selectedItem: ''
+      selectedItem: '',
+      buttonFocus: true
     };
 
     this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -127,6 +128,7 @@ export default class Dropdown extends Component {
         open: false,
         selectedItem: selectedListItem.dataset.item
       });
+      this.container.children[0].focus();
     }
   }
 
@@ -164,6 +166,7 @@ export default class Dropdown extends Component {
         aria-controls={`${this.props.id.replace(' ', '_')}-dropdown`}
         aria-haspopup="true"
         btnIcon={btnIcon}
+        focus={this.state.buttonFocus}
         onClick={this.toggleDropdown}
         >
         {buttonLabel}
