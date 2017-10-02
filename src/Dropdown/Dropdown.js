@@ -101,6 +101,13 @@ export default class Dropdown extends Component {
         }
         this.list.children[this.focusedItem].children[0].focus();
       }
+
+      if (event.which === 9) {
+        // tab
+        this.setState({
+          open: false
+        });
+      }
     }
   }
 
