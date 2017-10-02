@@ -77,7 +77,7 @@ export default class TimePicker extends Component {
 
         <div className={containerStyle}>
           <input
-            ref              = {(input) => { this.input = input; }}
+            ref              = {(input) => this.input = input}
             type             = "text"
             id               = {id}
             placeholder      = {placeholder}

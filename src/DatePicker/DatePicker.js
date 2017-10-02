@@ -46,7 +46,7 @@ export default class DatePicker extends Component {
   }
 
   handleKeys = (e) => {
-    if (e.which === 27 || e.shiftKey && e.which === 9) {
+    if (e.which === 27) {
       this.setState({ displayOpen: false });
     }
     if (e.which === 13) {
@@ -56,7 +56,12 @@ export default class DatePicker extends Component {
 
   focusCheck = (e) => {
     if (document.activeElement === this.cal.children[0].children[0].children[2]) {
-      if (e.which === 9) {
+      if (!(e.shiftKey) && e.which === 9) {
+        this.setState({ displayOpen: false });
+      }
+    }
+    if (document.activeElement === this.cal.children[0].children[0].children[0].children[1]) {
+      if (e.shiftKey && e.which === 9) {
         this.setState({ displayOpen: false });
       }
     }
@@ -87,7 +92,7 @@ export default class DatePicker extends Component {
 
         <div className={containerStyle}>
           <input
-            ref              = {(input) => { this.input = input; }}
+            ref              = {(input) => this.input = input}
             type             = "text"
             id               = {id}
             placeholder      = {placeholder}
@@ -116,7 +121,7 @@ export default class DatePicker extends Component {
 
         {displayOpen  && inputState !== 'readOnly' &&
           <div
-            ref={(cal) => { this.cal = cal; }}
+            ref={(div) => this.cal = div}
             onKeyDown={this.focusCheck}
           >
             <Calendar
