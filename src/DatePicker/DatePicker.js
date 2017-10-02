@@ -46,18 +46,14 @@ export default class DatePicker extends Component {
   }
 
   closeOnKeys = (e) => {
-    if (e.which === 27) {
-      this.setState({ displayOpen: false });
-    }
-    if (e.shiftKey && e.which === 9) {
+    if (e.which === 27 || e.shiftKey && e.which === 9) {
       this.setState({ displayOpen: false });
     }
   }
 
   focusCheck = (e) => {
     if (document.activeElement === this.cal.children[0].children[0].children[2]) {
-      if (!(e.shiftKey) && e.which === 9) {
-        console.log(this.cal.children[0].children[0].children[2]);
+      if (e.which === 9) {
         this.setState({ displayOpen: false });
       }
     }
