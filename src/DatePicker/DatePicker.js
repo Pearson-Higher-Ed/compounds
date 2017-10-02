@@ -14,7 +14,7 @@ export default class DatePicker extends Component {
 
     this.state = {
       datepickerValue : this.props.datePickerValue,
-      disablePast: this.props.disablePast ? this.props.disablePast : null,
+      disablePast: this.props.disablePast ? this.props.disablePast : false,
       minDate: this.props.minDate ? this.props.minDate : null
     };
 
@@ -45,8 +45,8 @@ export default class DatePicker extends Component {
     }
   }
 
-  closeOnEscape = (e) => {
-    if (e.which === 27) {
+  closeOnKeys = (e) => {
+    if (e.which === 27 || e.which === 16) {
       this.setState({ displayOpen: false });
     }
   }
@@ -68,7 +68,7 @@ export default class DatePicker extends Component {
       <div
         className={mainContainerStyles}
         onFocus={this.datePickerFocus}
-        onKeyDown={this.closeOnEscape}
+        onKeyDown={this.closeOnKeys}
       >
         <label className={labelStyleTmp} htmlFor={id}>
           {`${labelText} (${dateFormat})`}
@@ -86,6 +86,7 @@ export default class DatePicker extends Component {
             disabled         = {inputState === 'disabled'}
             readOnly         = {inputState === 'readOnly'}
             onChange         = {this.changeHandler}
+            onKeyDown        = {this.closeOnKeys}
           />
           <span className="pe-iconWrapper">
             <Icon name={"calendar-18"} />

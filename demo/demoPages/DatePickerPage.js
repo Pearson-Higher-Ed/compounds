@@ -62,7 +62,7 @@ class DatePickerPage extends Component {
               <Select id="select" changeHandler={e => this.setState({inputState:`${e.target.value}`}) } selectedOption={inputState} labelText="Select An inputState:" options={["default", "error", "readOnly", "disabled"]} />
             </div>
 
-            <h2>DatePicker (basic): </h2>
+            <h2>DatePicker</h2>
             <DatePicker
               id              = "someGiantId1"
               dateFormat      = "mm/dd/yyyy"
@@ -75,7 +75,7 @@ class DatePickerPage extends Component {
             />
             <p className="code">{`<DatePicker id = "someGiantId" dateFormat = "mm/dd/yyyy" inputState = "default" labelText = "Select date" datepickerValue = {this.state.datepickerValue2} changeHandler = {() => console.log("DatePicker-(basic)-changed!!")} infoMessage = "${text.textInputInfoMessage}" errorMessage = "${text.textInputErrorMessage}" />`}</p>
 
-            <h2>DatePicker (basic range): </h2>
+            <h2>DatePicker (range): </h2>
             <DatePicker
               id              = "someGiantId2"
               dateFormat      = "mm/dd/yyyy"
