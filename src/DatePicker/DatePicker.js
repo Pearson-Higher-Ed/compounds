@@ -46,8 +46,20 @@ export default class DatePicker extends Component {
   }
 
   closeOnKeys = (e) => {
-    if (e.which === 27 || e.which === 16) {
+    if (e.which === 27) {
       this.setState({ displayOpen: false });
+    }
+    if (e.shiftKey && e.which === 9) {
+      this.setState({ displayOpen: false });
+    }
+  }
+
+  focusCheck = (e) => {
+    if (document.activeElement === this.cal.children[0].children[0].children[2]) {
+      if (!(e.shiftKey) && e.which === 9) {
+        console.log(this.cal.children[0].children[0].children[2]);
+        this.setState({ displayOpen: false });
+      }
     }
   }
 
@@ -86,7 +98,6 @@ export default class DatePicker extends Component {
             disabled         = {inputState === 'disabled'}
             readOnly         = {inputState === 'readOnly'}
             onChange         = {this.changeHandler}
-            onKeyDown        = {this.closeOnKeys}
           />
           <span className="pe-iconWrapper">
             <Icon name={"calendar-18"} />
@@ -104,12 +115,17 @@ export default class DatePicker extends Component {
           </span> }
 
         {displayOpen  && inputState !== 'readOnly' &&
-          <Calendar
-            disablePast={disablePast}
-            minDate={minDate}
-            newSelectedDt={dateObject}
-            onSelect={this.calendarHandler}
-          /> }
+          <div
+            ref={(cal) => { this.cal = cal; }}
+            onKeyDown={this.focusCheck}
+          >
+            <Calendar
+              disablePast={disablePast}
+              minDate={minDate}
+              newSelectedDt={dateObject}
+              onSelect={this.calendarHandler}
+            />
+          </div> }
 
       </div>
     );
