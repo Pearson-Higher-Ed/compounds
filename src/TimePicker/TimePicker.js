@@ -19,7 +19,7 @@ export default class TimePicker extends Component {
     };
 
     this.applyTimePickerStyles = _applyTimePickerStyles.bind(this);
-    this.timePickerFocus       = _timePickerFocus.bind(this);
+    this.timePickerOpen       = _timePickerOpen.bind(this);
     this.listHandler           = _listHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
     this.inputEvents           = _inputEvents.bind(this);
@@ -66,11 +66,18 @@ export default class TimePicker extends Component {
     const labelCheck          = hideLabel ? ' pe-sr-only' :'';
 
     return (
-      <div className={mainContainerStyles} onKeyDown={this.inputEvents} onFocus={this.timePickerFocus}>
-        <label className={`${labelStyleTmp}${labelCheck}`} htmlFor={id}>{`${labelText} (${timeFormat})`}</label>
+      <div
+        className={mainContainerStyles}
+        onKeyDown={this.inputEvents}
+        onClick={this.timePickerOpen}
+      >
+        <label className={`${labelStyleTmp}${labelCheck}`} htmlFor={id}>
+          {`${labelText} (${timeFormat})`}
+        </label>
 
         <div className={containerStyle}>
           <input
+            ref              = {(input) => { this.input = input; }}
             type             = "text"
             id               = {id}
             placeholder      = {placeholder}
@@ -82,7 +89,9 @@ export default class TimePicker extends Component {
             readOnly         = {inputState === 'readOnly'}
             onChange         = {this.changeHandler}
           />
-          <span className="pe-iconWrapper"><Icon name={"clock-18"} /></span>
+          <span className="pe-iconWrapper">
+            <Icon name="clock-18" />
+          </span>
         </div>
 
         {infoMessage  &&
@@ -136,10 +145,11 @@ TimePicker.propTypes = {
 };
 
 
-function _timePickerFocus(){
+function _timePickerOpen(){
   const { inputState } = this.state;
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
-    this.setState({ displayOpen: true });
+    this.setState({ displayOpen: !this.state.displayOpen });
+    this.input.focus();
   }
 };
 
@@ -158,7 +168,8 @@ function _listHandler(e){
       value: e.target.innerText.toUpperCase()
     }
   };
-  this.setState({ timePickerValue: e.target.innerText,
+  this.setState({
+    timePickerValue: e.target.innerText,
     displayOpen: false,
     labelStyleTmp: this.state.labelStyle
   });
@@ -173,9 +184,13 @@ function _inputEvents(e){
       break;
     case 27:  //esc
       this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
+      this.input.focus();
       break;
     case 9:   //tab
       this.setState({ displayOpen:false, labelStyleTmp:this.state.labelStyle });
+      break;
+    case 13:
+      this.setState({ displayOpen: !this.state.displayOpen });
       break;
   };
 };
@@ -207,6 +222,8 @@ function _listEventInterface(e) {
     case 13:  //enter
       e.preventDefault();
       this.listHandler(e);
+      this.setState({ displayOpen: false });
+      this.input.focus();
       break;
   };
 };

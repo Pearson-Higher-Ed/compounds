@@ -19,7 +19,7 @@ export default class DatePicker extends Component {
     };
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
-    this.datePickerFocus       = _datePickerFocus.bind(this);
+    this.datePickerOpen       = _datePickerOpen.bind(this);
     this.calendarHandler       = _calendarHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
   }
@@ -45,9 +45,12 @@ export default class DatePicker extends Component {
     }
   }
 
-  closeOnKeys = (e) => {
+  handleKeys = (e) => {
     if (e.which === 27 || e.shiftKey && e.which === 9) {
       this.setState({ displayOpen: false });
+    }
+    if (e.which === 13) {
+      this.setState({ displayOpen: true });
     }
   }
 
@@ -75,8 +78,8 @@ export default class DatePicker extends Component {
     return (
       <div
         className={mainContainerStyles}
-        onFocus={this.datePickerFocus}
-        onKeyDown={this.closeOnKeys}
+        onKeyDown={this.handleKeys}
+        onClick={this.datePickerOpen}
       >
         <label className={labelStyleTmp} htmlFor={id}>
           {`${labelText} (${dateFormat})`}
@@ -84,6 +87,7 @@ export default class DatePicker extends Component {
 
         <div className={containerStyle}>
           <input
+            ref              = {(input) => { this.input = input; }}
             type             = "text"
             id               = {id}
             placeholder      = {placeholder}
@@ -96,7 +100,7 @@ export default class DatePicker extends Component {
             onChange         = {this.changeHandler}
           />
           <span className="pe-iconWrapper">
-            <Icon name={"calendar-18"} />
+            <Icon name="calendar-18" />
           </span>
         </div>
 
@@ -143,7 +147,7 @@ DatePicker.propTypes = {
   minDate       : PropTypes.object
 };
 
-function _datePickerFocus() {
+function _datePickerOpen() {
   const { inputState } = this.state;
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
     this.setState({ displayOpen: true });
@@ -157,6 +161,7 @@ function _changeHandler(e) {
     labelStyleTmp: this.state.labelStyle
   });
   this.props.changeHandler.call(this, e.target.value);
+  this.input.focus();
 };
 
 function _calendarHandler(date) {
