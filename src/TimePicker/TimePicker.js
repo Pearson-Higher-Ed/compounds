@@ -89,7 +89,7 @@ export default class TimePicker extends Component {
             readOnly         = {inputState === 'readOnly'}
             onChange         = {this.changeHandler}
           />
-          <span className="pe-iconWrapper">
+          <span className="pe-icon-wrapper">
             <Icon name="clock-18" />
           </span>
         </div>
@@ -104,7 +104,7 @@ export default class TimePicker extends Component {
           </span> }
 
         {displayOpen  && inputState !== 'readOnly' &&
-          <div className="pe-dropdownContainer">
+          <div className="pe-dropdown-container">
             <List
               id={`${id}-list`}
               listRef={ul => this.list = ul}
