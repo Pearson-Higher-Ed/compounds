@@ -49,7 +49,7 @@ describe('TimePicker', () => {
       this.wrapper.find('input').simulate('click');
       const e = {"target":{"innerText":"Hi There"}};
       this.wrapper.instance().listHandler(e);
-      expect(this.wrapper.instance().state.timePickerValue).toEqual("Hi There");
+      expect(this.wrapper.instance().state.timepickerValue).toEqual("Hi There");
     });
 
     it('should handle the inputKeyEvents esc key', function() {
@@ -104,7 +104,7 @@ describe('TimePicker', () => {
       this.wrapper.find('input').simulate('click');
       const e = {"target":{"value":"Hi There"}};
       this.wrapper.instance().changeHandler(e);
-      expect(this.wrapper.instance().state.timePickerValue).toEqual("Hi There");
+      expect(this.wrapper.instance().state.timepickerValue).toEqual("Hi There");
     });
 
     // it('should handle the inputKeyEvents down key', function() {

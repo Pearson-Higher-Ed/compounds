@@ -27,7 +27,7 @@
   pointer-events : none;
 }
 
-.pe-timePicker-container {
+.pe-timepicker-container {
   @extend %abstract, %container-extend;
   padding    : 0px;
   margin-top : $textInput-basic-marginTop;
@@ -35,11 +35,11 @@
   min-width  : 150px;
 }
 
-.pe-timePicker-input-styles::-ms-clear {
+.pe-timepicker-input-styles::-ms-clear {
     display: none;
 }
 
-.pe-timePicker-container svg {
+.pe-timepicker-container svg {
   @extend %container-extend-svg;
   fill : $pe-color-medium-gray;
 }

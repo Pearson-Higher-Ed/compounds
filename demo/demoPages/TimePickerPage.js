@@ -66,7 +66,7 @@ class TimePickerPage extends Component {
             timeFormat      = "hh:mm"
             inputState      = {inputState}
             labelText       = "Select time"
-            timePickerValue = {timepickerValue1}
+            timepickerValue = {timepickerValue1}
             changeHandler   = {time => this.setState({ timepickerValue1: time })}
             infoMessage     = {text.textInputInfoMessage}
             errorMessage    = {text.textInputErrorMessage}
@@ -79,7 +79,7 @@ class TimePickerPage extends Component {
             timeFormat      = "hh:mm"
             inputState      = {inputState}
             labelText       = "Select time"
-            timePickerValue = {timepickerValue2}
+            timepickerValue = {timepickerValue2}
             changeHandler   = {time => this.setState({ timepickerValue2: time })}
             infoMessage     = {text.textInputInfoMessage}
             errorMessage    = {text.textInputErrorMessage}
@@ -89,7 +89,7 @@ class TimePickerPage extends Component {
             timeFormat      = "hh:mm"
             inputState      = {inputState}
             labelText       = "Select time"
-            timePickerValue = {timepickerValue3}
+            timepickerValue = {timepickerValue3}
             changeHandler   = {time => this.setState({ timepickerValue3: time })}
             infoMessage     = {text.textInputInfoMessage}
             errorMessage    = {text.textInputErrorMessage}

@@ -15,11 +15,11 @@ export default class TimePicker extends Component {
 
     this.state = {
       focusStartIndex : 0,
-      timePickerValue : this.props.timePickerValue
+      timepickerValue : this.props.timepickerValue
     };
 
     this.applyTimePickerStyles = _applyTimePickerStyles.bind(this);
-    this.timePickerOpen       = _timePickerOpen.bind(this);
+    this.timepickerOpen       = _timepickerOpen.bind(this);
     this.listHandler           = _listHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
     this.inputEvents           = _inputEvents.bind(this);
@@ -34,7 +34,7 @@ export default class TimePicker extends Component {
 
   componentWillReceiveProps(nextProps){
     this.applyTimePickerStyles(this.state.validatedState ? this.state.validatedState : nextProps.inputState);
-    this.setState({timePickerValue: nextProps.timePickerValue});
+    this.setState({timepickerValue: nextProps.timepickerValue});
   }
 
   componentWillUnmount() {
@@ -51,7 +51,7 @@ export default class TimePicker extends Component {
 
   render() {
 
-    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, timePickerValue,
+    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, timepickerValue,
             spanStyle, containerStyle, placeholder
           } = this.state;
     const { className, inputState, id, labelText, timeFormat, infoMessage,
@@ -60,8 +60,8 @@ export default class TimePicker extends Component {
 
     const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby     = em + (infoMessage ? `infoMsg-${id}` : '');
-    const mainContainerStyles = className  ? `pe-timePicker-main ${className}`:`pe-timePicker-main`;
-    const inputStyles         = inputStyle ? `pe-timePicker-input-styles ${inputStyle}`:`pe-timePicker-input-styles`;
+    const mainContainerStyles = className  ? `pe-timepicker-main ${className}`:`pe-timepicker-main`;
+    const inputStyles         = inputStyle ? `pe-timepicker-input-styles ${inputStyle}`:`pe-timepicker-input-styles`;
     const hoursToList         = twentyFourHour ? TWENTYFOUR_HOURS : HOURS;
     const labelCheck          = hideLabel ? ' pe-sr-only' :'';
 
@@ -69,7 +69,7 @@ export default class TimePicker extends Component {
       <div
         className={mainContainerStyles}
         onKeyDown={this.inputEvents}
-        onClick={this.timePickerOpen}
+        onClick={this.timepickerOpen}
       >
         <label className={`${labelStyleTmp}${labelCheck}`} htmlFor={id}>
           {`${labelText} (${timeFormat})`}
@@ -81,7 +81,7 @@ export default class TimePicker extends Component {
             type             = "text"
             id               = {id}
             placeholder      = {placeholder}
-            value            = {timePickerValue}
+            value            = {timepickerValue}
             className        = {inputStyles}
             aria-describedby = {ariaDescribedby}
             aria-invalid     = {inputState === 'error'}
@@ -110,7 +110,7 @@ export default class TimePicker extends Component {
               listRef={ul => this.list = ul}
               listEvents={this.listEventInterface}
               itemsToList={hoursToList}
-              selectedItem={timePickerValue}
+              selectedItem={timepickerValue}
               itemToParent={this.listHandler}
             />
           </div> }
@@ -145,7 +145,7 @@ TimePicker.propTypes = {
 };
 
 
-function _timePickerOpen(){
+function _timepickerOpen(){
   const { inputState } = this.state;
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
     this.setState({ displayOpen: !this.state.displayOpen });
@@ -155,7 +155,7 @@ function _timePickerOpen(){
 
 function _changeHandler(e){
   this.setState({
-    timePickerValue: e.target.value,
+    timepickerValue: e.target.value,
     displayOpen: false,
     labelStyleTmp: this.state.labelStyle
   });
@@ -169,7 +169,7 @@ function _listHandler(e){
     }
   };
   this.setState({
-    timePickerValue: e.target.innerText,
+    timepickerValue: e.target.innerText,
     displayOpen: false,
     labelStyleTmp: this.state.labelStyle
   });
@@ -236,25 +236,25 @@ function _applyTimePickerStyles(inputState) {
       labelStyle      = 'pe-textLabelInput__label--label_error';
       labelFocusStyle = 'pe-textLabelInput__label--label_error';
       inputStyle      = 'pe-textInput--basic_error';
-      containerStyle  = 'pe-timePicker-container';
+      containerStyle  = 'pe-timepicker-container';
       break;
     case 'disabled':
       labelStyle      = 'pe-textLabelInput__label';
       labelFocusStyle = 'pe-textLabelInput__label';
-      containerStyle  = 'pe-timePicker-container';
+      containerStyle  = 'pe-timepicker-container';
       inputStyle      = 'pe-textInput--basic';
       break;
     case 'readOnly':
       labelStyle      = 'pe-textLabelInput__label';
       labelFocusStyle = 'pe-textLabelInput__label';
       inputStyle      = 'pe-textInput--input_readonly';
-      containerStyle  = 'pe-timePicker-container';
+      containerStyle  = 'pe-timepicker-container';
       break;
     default:
       labelStyle      = 'pe-textLabelInput__label';
       labelFocusStyle = 'pe-textLabelInput__label--label_focus';
       inputStyle      = 'pe-textInput--basic';
-      containerStyle  = 'pe-timePicker-container';
+      containerStyle  = 'pe-timepicker-container';
   };
 
   this.setState({
