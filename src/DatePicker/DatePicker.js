@@ -48,8 +48,9 @@ export default class DatePicker extends Component {
   handleKeys = (e) => {
     if (e.which === 27) {
       this.setState({ displayOpen: false });
+      this.input.focus();
     }
-    if (e.which === 13) {
+    if (e.altKey && e.which === 40) {
       this.setState({ displayOpen: true });
     }
   }
