@@ -141,7 +141,7 @@ TimePicker.propTypes = {
   HOURS            : PropTypes.array,
   TWENTYFOUR_HOURS : PropTypes.array,
   twentyFourHour   : PropTypes.bool,
-  disableLabel        : PropTypes.bool
+  disableLabel     : PropTypes.bool
 };
 
 

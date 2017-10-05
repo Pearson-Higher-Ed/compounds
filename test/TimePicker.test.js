@@ -47,9 +47,9 @@ describe('TimePicker', () => {
     it('should handle the timelist', function() {
       this.wrapper = mount(<TimePicker id="test" labelText="test" timeFormat="hh:mm" changeHandler={() => {}}/>);
       this.wrapper.find('input').simulate('click');
-      const e = {"target":{"innerText":"Hi There"}};
+      const e = {"target":{"innerText":"HI THERE"}};
       this.wrapper.instance().listHandler(e);
-      expect(this.wrapper.instance().state.timepickerValue).toEqual("Hi There");
+      expect(this.wrapper.instance().state.timepickerValue).toEqual("HI THERE");
     });
 
     it('should handle the inputKeyEvents esc key', function() {
@@ -96,7 +96,7 @@ describe('TimePicker', () => {
       this.wrapper.find('input').simulate('click');
       const e = {"which":1000};
       this.wrapper.instance().inputEvents(e);
-      expect(this.wrapper.find('ul').exists()).toEqual(false);
+      expect(this.wrapper.find('ul').exists()).toEqual(true);
     });
 
     it('should call the changehandler', function() {

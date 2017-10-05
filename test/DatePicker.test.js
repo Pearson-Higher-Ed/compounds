@@ -35,15 +35,6 @@ describe('DatePicker', () => {
       expect(this.wrapper.instance().state.inputStyle).toEqual('pe-textInput--basic');
     });
 
-    it('should handle the calendar', function() {
-      this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} />);
-      this.wrapper.find('input').simulate('click');
-      const date ='Thu May 04 2017 00:00:00 GMT-0600 (MDT)';
-      const testdate = new Date();
-      this.wrapper.instance().calendarHandler(date);
-      expect(this.wrapper.instance().state.datepickerValue).toEqual(moment(testdate).format('L'));
-    });
-
     it('should check classes on the main container', function() {
       this.wrapper = mount(<DatePicker id="test" labelText="test" dateFormat="hh:mm" changeHandler={() => {}} id='errorInput' className="hithere" inputState='error' errorMessage='error message' />);
       expect(this.wrapper.find('.hithere').exists()).toEqual(true);
