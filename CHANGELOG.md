@@ -1,5 +1,15 @@
+<a name="0.13.0"></a>
+# [0.13.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.12.4...v0.13.0) (2017-10-05)
+
+
+
 <a name="0.12.4"></a>
 ## [0.12.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.12.3...v0.12.4) (2017-10-03)
+
+
+### Bug Fixes
+
+* timepicker - insure changeHandler called in listHandler ([b2a5e19](https://github.com/Pearson-Higher-Ed/compounds/commit/b2a5e19))
 
 
 
@@ -25,6 +35,8 @@
 ### Bug Fixes
 
 * <abbr> day now aligns if a diff weekStartDay is passed ([cdc9472](https://github.com/Pearson-Higher-Ed/compounds/commit/cdc9472))
+* inputState prop ([938a718](https://github.com/Pearson-Higher-Ed/compounds/commit/938a718))
+* tests ([253b2fc](https://github.com/Pearson-Higher-Ed/compounds/commit/253b2fc))
 
 
 
@@ -40,6 +52,7 @@
 ### Bug Fixes
 
 * contrast style bugs ([be79fb4](https://github.com/Pearson-Higher-Ed/compounds/commit/be79fb4))
+* inputState prop ([65ad25b](https://github.com/Pearson-Higher-Ed/compounds/commit/65ad25b))
 * Restrict enter keypress to dates, add in FirstDay prop ([539da16](https://github.com/Pearson-Higher-Ed/compounds/commit/539da16))
 * selectedDt updating properly ([fd6ceb9](https://github.com/Pearson-Higher-Ed/compounds/commit/fd6ceb9))
 
