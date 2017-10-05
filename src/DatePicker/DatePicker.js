@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDom             from 'react-dom';
 import PropTypes            from 'prop-types';
 import { Icon, Calendar }   from '../../index';
 import moment               from 'moment';
@@ -38,9 +37,9 @@ export default class DatePicker extends Component {
   }
 
   clickListener = (e) => {
-    const domNode = ReactDOM.findDOMNode(this);
+    const currentElement = e.target;
 
-    if ((!domNode || !domNode.contains(e.target))) {
+    if (!this.container.contains(currentElement)) {
       this.setState({ displayOpen: false });
     }
   }
@@ -86,6 +85,7 @@ export default class DatePicker extends Component {
         className={mainContainerStyles}
         onKeyDown={this.handleKeys}
         onClick={this.datePickerOpen}
+        ref={(dom) => this.container = dom}
       >
         <label className={labelStyleTmp} htmlFor={id}>
           {`${labelText} (${dateFormat})`}

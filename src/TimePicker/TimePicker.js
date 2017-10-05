@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDom             from 'react-dom';
 import PropTypes            from 'prop-types';
 import { Icon }             from '../../index';
 import { List }             from './components/List';
@@ -42,9 +41,9 @@ export default class TimePicker extends Component {
   }
 
   clickListener = (e) => {
-    const domNode = ReactDOM.findDOMNode(this);
+    const currentElement = e.target;
 
-    if ((!domNode || !domNode.contains(e.target))) {
+    if (!this.container.contains(currentElement)) {
       this.setState({ displayOpen: false });
     }
   }
@@ -70,6 +69,7 @@ export default class TimePicker extends Component {
         className={mainContainerStyles}
         onKeyDown={this.inputEvents}
         onClick={this.timepickerOpen}
+        ref={(dom) => this.container = dom}
       >
         <label className={`${labelStyleTmp}${labelCheck}`} htmlFor={id}>
           {`${labelText} (${timeFormat})`}
