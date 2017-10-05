@@ -54,7 +54,7 @@ export default class TimePicker extends Component {
             spanStyle, containerStyle, placeholder
           } = this.state;
     const { className, inputState, id, labelText, timeFormat, infoMessage,
-            errorMessage, twentyFourHour, TWENTYFOUR_HOURS, HOURS, hideLabel
+            errorMessage, twentyFourHour, TWENTYFOUR_HOURS, HOURS, disableLabel
           } = this.props;
 
     const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
@@ -62,7 +62,7 @@ export default class TimePicker extends Component {
     const mainContainerStyles = className  ? `pe-timepicker-main ${className}`:`pe-timepicker-main`;
     const inputStyles         = inputStyle ? `pe-timepicker-input-styles ${inputStyle}`:`pe-timepicker-input-styles`;
     const hoursToList         = twentyFourHour ? TWENTYFOUR_HOURS : HOURS;
-    const labelCheck          = hideLabel ? ' pe-sr-only' :'';
+    const labelCheck          = disableLabel ? ' pe-sr-only' :'';
 
     return (
       <div
@@ -141,7 +141,7 @@ TimePicker.propTypes = {
   HOURS            : PropTypes.array,
   TWENTYFOUR_HOURS : PropTypes.array,
   twentyFourHour   : PropTypes.bool,
-  hideLabel        : PropTypes.bool
+  disableLabel        : PropTypes.bool
 };
 
 

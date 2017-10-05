@@ -18,7 +18,7 @@ export default class DatePicker extends Component {
     };
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
-    this.datePickerOpen       = _datePickerOpen.bind(this);
+    this.datePickerOpen        = _datePickerOpen.bind(this);
     this.calendarHandler       = _calendarHandler.bind(this);
     this.changeHandler         = _changeHandler.bind(this);
   }
