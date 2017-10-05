@@ -1,94 +1,55 @@
-import React from 'react';
-
-import { MultiLineText } from '../../../../index';
-
-
-const MultiLineTextSection = (props) => (
-  <div>
-    <h2><a href="http://pearson-higher-ed.github.io/design/c/inputs/#multiple-line-text">Multiple Line Text</a></h2>
-
-    <div className="code">
-      <h3>Props:</h3>
-      <p>Multiple Line Text:</p>
-      <ul>
-        <li>id:String(required) === "a unique name"</li>
-        <li>labelText:String(required) === "a desciptive label"</li>
-        <li>placeholder:String  === "a placeholder text (not recommended)"</li>
-        <li>changeHandler:Function(required) === handles selection</li>
-        <li>infoMessage:String === "an optional info message displayed below the input"</li>
-        <li>errorMessage:String === "an optional error message displayed below the input"</li>
-      </ul>
-
-    </div>
+import React, { Component }      from 'react';
+import { MultiLineText, Select } from '../../../../index';
 
 
-    <h3>MultiLine</h3>
-    <MultiLineText
-      id           = "Multi"
-      labelText    = "Multi-line label"
-      placeholder  = "Many words displayed over multiple lines."
-      changeHandler  = {() => {}}
-      infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-      errorMessage = {props.intlDefaultText.textInputErrorMessage}
-      />
+export default class MultiLineTextSection extends Component {
 
-    <p className="code">{'<MultiLineText id="Multi" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
-
-    <br />
-    <br />
+  constructor(props) {
+    super(props);
+    this.state = { inputState : 'default' };
+  }
 
 
-    <h3>MultiLine - error</h3>
-    <MultiLineText
-      id           = "Multi2"
-      inputState   = 'error'
-      labelText    = "Multi-line label"
-      placeholder  = "Many words displayed over multiple lines."
-      changeHandler  = {() => {}}
-      infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-      errorMessage = {props.intlDefaultText.textInputErrorMessage}
-      />
+  render(){
 
-    <p className="code">{'<MultiLineText id="Multi2" inputState="error" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
+    const { inputState } = this.state;
 
+    return (
+      <div>
+        <h2><a href="http://pearson-higher-ed.github.io/design/c/inputs/#multiple-line-text">Multiple Line Text</a></h2>
 
-    <br />
-    <br />
-
-    <h3>MultiLine - readOnly</h3>
-    <MultiLineText
-      id           = "Multi3"
-      inputState   = 'readOnly'
-      labelText    = "Multi-line label"
-      placeholder  = "Many words displayed over multiple lines."
-      changeHandler  = {() => {}}
-      infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-      errorMessage = {props.intlDefaultText.textInputErrorMessage}
-      readOnly     = {true}
-      />
-
-    <p className="code">{'<MultiLineText id="Multi3" inputState="readOnly" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" readOnly={true} />'}</p>
+        <div className="code">
+          <h3>Props:</h3>
+          <p>Multiple Line Text:</p>
+          <ul>
+            <li>id:String(required) === "a unique name"</li>
+            <li>labelText:String(required) === "a desciptive label"</li>
+            <li>inputState:String    === "default", "error", "disabled", "readOnly"</li>
+            <li>placeholder:String  === "a placeholder text (not recommended)"</li>
+            <li>changeHandler:Function(required) === handles selection</li>
+            <li>infoMessage:String === "an optional info message displayed below the input"</li>
+            <li>errorMessage:String === "an optional error message displayed below the input"</li>
+          </ul>
+          <h3>Configure Props:</h3>
+          <Select id="select" changeHandler={e => this.setState({inputState:`${e.target.value}`}) } selectedOption={inputState} labelText="Select An inputState:" options={["default", "error", "readOnly", "disabled"]} />
+        </div>
 
 
-    <br />
-    <br />
+        <h3>MultiLine</h3>
+        <MultiLineText
+          id            = "Multi"
+          labelText     = "Multi-line label"
+          placeholder   = "Many words displayed over multiple lines."
+          changeHandler = {() => {}}
+          inputState    = {inputState}
+          infoMessage   = {this.props.intlDefaultText.textInputInfoMessage}
+          errorMessage  = {this.props.intlDefaultText.textInputErrorMessage}
+          />
 
-    <h3>MultiLine - disabled</h3>
-    <MultiLineText
-      id           = "Multi4"
-      inputState   = 'disabled'
-      labelText    = "Multi-line label"
-      placeholder  = "Many words displayed over multiple lines."
-      changeHandler  = {() => {}}
-      infoMessage  = {props.intlDefaultText.textInputInfoMessage}
-      errorMessage = {props.intlDefaultText.textInputErrorMessage}
-      disabled     = {true}
-      />
-
-    <p className="code">{'<MultiLineText id="Multi4" inputState="disabled" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" disabled={true} />'}</p>
+        <p className="code">{'<MultiLineText id="Multi" labelText="Multi-line label" placeholder="Many words displayed over multiple lines." changeHandler={() => {}} infoMessage="This is an info message" errorMessage="This is an error message" />'}</p>
 
 
-  </div>
-)
-
-export default MultiLineTextSection;
+      </div>
+    )
+  }
+}

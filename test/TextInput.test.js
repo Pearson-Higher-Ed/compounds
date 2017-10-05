@@ -15,13 +15,13 @@ describe('TextInput', () => {
 
     it('should apply correct style for error type', function(){
       this.wrapper = shallow(<TextInput id="textInputTestId2" labelText="TextInput Label:"  changeHandler={() => {}} inputState='error' />);
-      this.wrapper.instance().applyTextInputStyles();
+      this.wrapper.instance().applyTextInputStyles('error');
       expect(this.wrapper.find('label').node.props.className).toEqual('pe-textLabelInput__label--label_error')
     });
 
     it('should apply correct style for disabled type', function(){
       this.wrapper = shallow(<TextInput id="textInputTestId3" labelText="TextInput Label:"  changeHandler={() => {}} inputState='disabled' />);
-      this.wrapper.instance().applyTextInputStyles();
+      this.wrapper.instance().applyTextInputStyles('disabled');
       expect(this.wrapper.find('label').node.props.className).toEqual('pe-textLabelInput__label')
     });
 

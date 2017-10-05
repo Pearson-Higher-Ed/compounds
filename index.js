@@ -12,6 +12,8 @@ export Pane            from './src/Tabs/Pane';
 export LoadingSpinner  from './src/loadingSpinner/loadingSpinner';
 export StaticAlert     from './src/StaticAlert/StaticAlert';
 export Calendar        from './src/Calendar/Calendar';
+export DatePicker      from './src/DatePicker/DatePicker';
+export TimePicker      from './src/TimePicker/TimePicker';
 export PhoneNumber     from './src/PhoneNumber/PhoneNumber';
 export Table           from './src/Table/Table';
 export TableBody       from './src/Table/components/TableBody';

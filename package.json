@@ -40,14 +40,15 @@
     "testPathIgnorePatterns": [
       "<rootDir>/(build|node_modules|demo|coverage)/"
     ],
-    "testEnvironment": "node",
     "coverageThreshold": {
       "global": {
         "lines": 80
       }
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.18.1"
+  },
   "devDependencies": {
     "@pearson-components/npm-scripts": "^0.5.1",
     "babel-core": "^6.23.1",
