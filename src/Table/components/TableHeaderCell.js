@@ -37,12 +37,12 @@ export default class TableHeaderCell extends Component {
     document.removeEventListener('keydown', this.handleKey);
   }
 
-  componentDidUpdate() {
-    if (this.props.columnSort) this.props.columnSort();
   }
 
   iconToggle = () => {
     const { iconName } = this.state;
+    this.props.columnSort()
+
     if (iconName === 'sort-up-18') {
       return this.setState({ iconName: 'sort-down-18' })
     }
