@@ -29,6 +29,10 @@ export default class TableHeaderCell extends Component {
     this.selectAll = _selectAll.bind(this);
   }
 
+  isControlled() {
+    return this.props.iconName != null
+  }
+
   iconToggle = () => {
     const { iconName } = this.state;
     this.props.columnSort()
@@ -44,7 +48,7 @@ export default class TableHeaderCell extends Component {
     const { children, inputId, containerId, inputLabel, columnSort,
             alignCell } = this.props;
     const { selectable, sortable } = this.context;
-    const { iconName } = this.state;
+    const { iconName } = this.isControlled() ? this.props : this.state;
     const sortClass = sortable ? 'pe-table__sortable' :'';
     const columnAlignment = (alignCell === 'center' || alignCell === 'right')
                             ? ' pe-table__' + alignCell :'';

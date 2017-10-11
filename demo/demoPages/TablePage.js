@@ -22,10 +22,19 @@ class TablePage extends React.Component {
   handleColumnSort = (item) => {
     return () => {
       console.log(item);
-      this.setState({
-        itemSelected: item
-      });
+      this.setState(prevState => ({
+        itemSelected: item,
+        direction: prevState.direction === 'up' ? 'down' : 'up'
+      }));
     }
+  }
+
+  getIconName = () => {
+    if (this.state.itemSelected === 'country') {
+      return this.state.direction === 'up' ? 'sort-down-18' : 'sort-up-18';
+    }
+
+    return  'sortable-18';
   }
 
   render() {
@@ -153,7 +162,7 @@ class TablePage extends React.Component {
               />
               <TableHeaderCell columnSort={this.handleColumnSort('comic')} defaultIcon="sort-up-18">Comic</TableHeaderCell>
               <TableHeaderCell columnSort={this.handleColumnSort('character')}>Main characters</TableHeaderCell>
-              <TableHeaderCell columnSort={this.handleColumnSort('country')}>Country</TableHeaderCell>
+              <TableHeaderCell columnSort={this.handleColumnSort('country')} iconName={this.getIconName()}>Country</TableHeaderCell>
             </TableRow>
           </TableHead>
           <TableBody>
