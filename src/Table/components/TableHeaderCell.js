@@ -11,7 +11,8 @@ export default class TableHeaderCell extends Component {
     containerId: PropTypes.string,
     inputLabel: PropTypes.string,
     columnSort: PropTypes.func,
-    alignCell: PropTypes.oneOf(['center', 'right'])
+    alignCell: PropTypes.oneOf(['center', 'right']),
+    defaultIcon: PropTypes.string
   }
 
   static defaultProps = {
@@ -22,7 +23,7 @@ export default class TableHeaderCell extends Component {
     super(props)
 
     this.state = {
-      iconName: 'sortable-18'
+      iconName: this.props.defaultIcon || 'sortable-18'
     }
 
     this.selectAll = _selectAll.bind(this);
