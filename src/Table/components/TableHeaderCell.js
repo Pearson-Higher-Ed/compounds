@@ -51,7 +51,7 @@ export default class TableHeaderCell extends Component {
   }
 
   render() {
-    const { children, scope, inputId, containerId, inputLabel, columnSort,
+    const { children, inputId, containerId, inputLabel, columnSort,
             alignCell } = this.props;
     const { selectable, sortable } = this.context;
     const { iconName } = this.state;
