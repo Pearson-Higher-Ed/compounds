@@ -90,6 +90,8 @@ class TablePage extends React.Component {
             <li className="li-props">Assigns the id to the {`<div>`} containing the checkbox.  This id must also be passed
               to the TableRowCell component and is <br/>referred to by the same prop name.
             </li>
+            <li className="li-props">defaultIcon:String - defaultIcon to show</li>
+            <li className="li-props">iconName - control icon name yourself</li>
           </ul>
           <h3>TableRow props</h3>
           <ul>
