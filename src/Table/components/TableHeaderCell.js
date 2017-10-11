@@ -26,17 +26,6 @@ export default class TableHeaderCell extends Component {
     }
 
     this.selectAll = _selectAll.bind(this);
-    this.handleKey = _handleKey.bind(this);
-  }
-
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKey);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKey);
-  }
-
   }
 
   iconToggle = () => {
@@ -74,8 +63,7 @@ export default class TableHeaderCell extends Component {
           selectable && !children
             ? <div className="pe-checkbox"
                    id={containerId}
-                   onClick={this.selectAll}
-                   onKeyDown={this.handleKey}>
+                   onClick={this.selectAll}>
                 <input type="checkbox" id={inputId} />
                 <label htmlFor={inputId}>{inputLabel}</label>
                 <span>
@@ -104,11 +92,5 @@ function _selectAll() {
   const checkboxes = document.querySelectorAll('div.pe-checkbox input');
   for (let i = 1; i < checkboxes.length; i++) {
     checkboxes[i].checked = checkboxes[0].checked;
-  }
-}
-
-function _handleKey(e) {
-  if (e.which === 32) {
-    this.selectAll;
   }
 }
