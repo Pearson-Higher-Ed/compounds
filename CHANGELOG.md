@@ -1,3 +1,13 @@
+<a name="0.13.2"></a>
+## [0.13.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.1...v0.13.2) (2017-10-17)
+
+
+### Bug Fixes
+
+* Changed document level key listener to component level ([2b8e24b](https://github.com/Pearson-Higher-Ed/compounds/commit/2b8e24b))
+
+
+
 <a name="0.13.1"></a>
 ## [0.13.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.0...v0.13.1) (2017-10-16)
 
