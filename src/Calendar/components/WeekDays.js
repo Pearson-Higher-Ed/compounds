@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const WeekDays = ({dayNamesFull, dayNames, weekStartDay, contrast}) => {
   const dayNumbers = Array(...{ length: 7 }).map(Number.call, Number);
