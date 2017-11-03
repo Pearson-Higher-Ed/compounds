@@ -174,10 +174,9 @@ function _changeHandler(e) {
 };
 
 function _calendarHandler(date) {
-  const { dateFormat } = this.props
   let dateString = (date.selectedMonth + 1) + '/' + date.selectedDate + '/' + date.selectedYear;
 
-  if (dateFormat.toLowerCase() === 'dd/mm/yyyy') {
+  if (this.props.dateFormat.toLowerCase() === 'dd/mm/yyyy') {
     dateString = date.selectedDate + '/' + (date.selectedMonth + 1) + '/' + date.selectedYear;
   }
 
