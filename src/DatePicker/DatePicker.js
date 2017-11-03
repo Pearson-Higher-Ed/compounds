@@ -164,7 +164,6 @@ function _datePickerOpen() {
 };
 
 function _changeHandler(e) {
-  const { dateFormat } = this.props;
   this.setState({
     datepickerValue: e.target.value,
     displayOpen: false,
