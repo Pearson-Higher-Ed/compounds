@@ -87,7 +87,7 @@ export default class DatePicker extends Component {
         ref={(dom) => this.container = dom}
       >
         <label className={labelStyleTmp} htmlFor={id}>
-          {`${labelText} (${dateFormat})`}
+          {labelText}
         </label>
 
         <div className={containerStyle}>
