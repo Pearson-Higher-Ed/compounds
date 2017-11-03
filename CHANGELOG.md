@@ -1,3 +1,13 @@
+<a name="0.13.6"></a>
+## [0.13.6](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.5...v0.13.6) (2017-11-03)
+
+
+### Bug Fixes
+
+* Allow entire label to be set by labelText ([0a10c72](https://github.com/Pearson-Higher-Ed/compounds/commit/0a10c72))
+
+
+
 <a name="0.13.5"></a>
 ## [0.13.5](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.4...v0.13.5) (2017-11-01)
 
