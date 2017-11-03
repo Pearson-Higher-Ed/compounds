@@ -70,9 +70,7 @@ export default class DatePicker extends Component {
     const { inputStyle, labelStyleTmp, labelStyle, displayOpen, datepickerValue,
             spanStyle, dateObject, containerStyle, placeholder, disablePast, minDate
           } = this.state;
-    const { className, inputState, id, labelText, dateFormat, infoMessage,
-            errorMessage
-          } = this.props;
+    const { className, inputState, id, labelText, infoMessage, errorMessage } = this.props;
 
     const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby     = em + (infoMessage ? `infoMsg-${id}` : '');
