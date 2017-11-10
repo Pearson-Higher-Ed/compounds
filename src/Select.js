@@ -24,36 +24,36 @@ export default class Select extends Component {
 
   render() {
 
-    const { labelStyle, inputStyle, spanStyle, selectStyle, containerStyle, containerFocusStyle, disabledStyle, containerStyleTmp, labelFocusStyle, labelStyleTmp } = this.state;
+    const { labelStyle, spanStyle, selectStyle, containerStyle, containerFocusStyle, containerStyleTmp, labelFocusStyle, labelStyleTmp } = this.state;
     const { id, fancy, labelText, inputState, options, infoMessage, errorMessage, changeHandler, selectedOption } = this.props;
 
     const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby =  em + ((infoMessage) ? `infoMsg-${id}` : '');
 
-      return (
-        <div>
-          <label className={labelStyleTmp} htmlFor={id}>{labelText}</label>
-          <div className={containerStyleTmp}>
-            <select id           = {id}
-                    defaultValue = {selectedOption}
-                    className    = {selectStyle}
-                    aria-invalid     = {inputState === 'error'}
-                    aria-describedby = {ariaDescribedby}
-                    disabled         = {inputState === 'disabled'}
-                    readOnly         = {inputState === 'readOnly'}
-                    onFocus      = { () => this.setState({labelStyleTmp:labelFocusStyle, containerStyleTmp:containerFocusStyle}) }
-                    onBlur       = { () => this.setState({labelStyleTmp:labelStyle, containerStyleTmp:containerStyle}) }
-                    onChange     = { changeHandler }
-                    >
-              {options.map((o, i) => <option key={`select-${id}-${i}`}>{o}</option>)}
-            </select>
-            {fancy && <span className={spanStyle} />}
-            <Icon name='dropdown-open-sm-24' />
-          </div>
-            {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
-            {inputState === 'error' && errorMessage && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
+    return (
+      <div>
+        <label className={labelStyleTmp} htmlFor={id}>{labelText}</label>
+        <div className={containerStyleTmp}>
+          <select id           = {id}
+                  defaultValue = {selectedOption}
+                  className    = {selectStyle}
+                  aria-invalid     = {inputState === 'error'}
+                  aria-describedby = {ariaDescribedby}
+                  disabled         = {inputState === 'disabled'}
+                  readOnly         = {inputState === 'readOnly'}
+                  onFocus      = {() => this.setState({labelStyleTmp:labelFocusStyle, containerStyleTmp:containerFocusStyle})}
+                  onBlur       = {() => this.setState({labelStyleTmp:labelStyle, containerStyleTmp:containerStyle})}
+                  onChange     = {changeHandler}
+                  >
+            {options.map((o, i) => <option key={`select-${id}-${i}`}>{o}</option>)}
+          </select>
+          {fancy && <span className={spanStyle} />}
+          <Icon name="dropdown-open-sm-24" />
         </div>
-      )
+          {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
+          {inputState === 'error' && errorMessage && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
+      </div>
+    )
 
   }
 
@@ -76,7 +76,7 @@ Select.propTypes = {
 
 function _applySelectStyles(inputState) {
 
-        let { containerStyle, containerStyleTmp, containerFocusStyle, labelStyle, selectStyle, spanStyle, disabledStyle, labelFocusStyle, labelStyleTmp } = this.state;
+        let { containerStyle, containerFocusStyle, labelStyle, selectStyle, spanStyle, disabledStyle, labelFocusStyle } = this.state;
         const { fancy } = this.props;
 
         switch (inputState) {

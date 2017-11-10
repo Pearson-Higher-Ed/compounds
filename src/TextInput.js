@@ -24,14 +24,14 @@ export default class TextInput extends Component {
     this.applyTextInputStyles(this.props.inputState);
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     this.applyTextInputStyles(nextProps.inputState);
   }
 
   render() {
 
     const { labelStyle, inputStyle, spanStyle, passwordStatusText, visibilityStatusText, passwordTypeSelector, butttonStyle, labelFocusStyle, labelStyleTmp  }  = this.state;
-    const { inputState, fancy, id, labelText, password, placeholder, infoMessage, errorMessage, changeHandler } = this.props;
+    const { inputState, id, labelText, password, placeholder, infoMessage, errorMessage, changeHandler } = this.props;
 
     const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby =  em + ((infoMessage) ? `infoMsg-${id}` : '');
@@ -51,8 +51,8 @@ export default class TextInput extends Component {
           readOnly         = {inputState === 'readOnly'}
           onFocus          = {() => this.setState({labelStyleTmp:labelFocusStyle})}
           onBlur           = {() => this.setState({labelStyleTmp:labelStyle})}
-          onChange         = { changeHandler }
-          />
+          onChange         = {changeHandler}
+        />
 
         {(inputState  !== 'readOnly' || inputState !== 'disabled') && <span className={spanStyle} />}
         {password     && <span><button type="button" className={butttonStyle} id={`showbutton-${id}`} onClick={this.togglePassword} disabled={inputState === 'disabled'}>{passwordStatusText}</button> <span aria-live="polite" aria-atomic="true" className="pe-sr-only">{visibilityStatusText}</span></span>}
@@ -81,8 +81,8 @@ TextInput.propTypes = {
 
 
 function _togglePassword() {
-  const { passwordTypeSelector, passwordStatusText, visibilityStatusText } = this.state;
-  const { showText, hideText, isNotVisibleMsg, isVisibleMsg, inputState } = this.props;
+  const { passwordTypeSelector, passwordStatusText } = this.state;
+  const { showText, hideText, isNotVisibleMsg, isVisibleMsg } = this.props;
 
   const passwordTypeSelectorTmp = (passwordTypeSelector === 'password') ? 'text' : 'password';
   const visibilityStatusTextTmp = (passwordStatusText === showText) ? isVisibleMsg : isNotVisibleMsg;
@@ -93,7 +93,7 @@ function _togglePassword() {
 };
 
 function _applyTextInputStyles( inputState ) {
-  let { labelStyle, inputStyle, spanStyle, butttonStyle, labelFocusStyle, labelStyleTmp } = this.state;
+  let { labelStyle, inputStyle, spanStyle, butttonStyle, labelFocusStyle } = this.state;
   const { fancy } = this.props;
 
   switch (inputState) {

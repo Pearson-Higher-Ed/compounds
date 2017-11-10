@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes            from 'prop-types';
 import { Icon }             from '../../index';
 import { List }             from './components/List';
-import moment               from 'moment';
 
 import './TimePicker.scss';
 
@@ -26,12 +25,12 @@ export default class TimePicker extends Component {
 
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.applyTimePickerStyles(this.props.inputState);
     document.addEventListener('click', this.clickListener);
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     this.applyTimePickerStyles(this.state.validatedState ? this.state.validatedState : nextProps.inputState);
     this.setState({timepickerValue: nextProps.timepickerValue});
   }
@@ -50,9 +49,8 @@ export default class TimePicker extends Component {
 
   render() {
 
-    const { inputStyle, labelStyleTmp, labelStyle, displayOpen, timepickerValue,
-            spanStyle, containerStyle, placeholder
-          } = this.state;
+    const { inputStyle, labelStyleTmp, displayOpen, timepickerValue,
+            containerStyle, placeholder } = this.state;
     const { className, inputState, id, labelText, timeFormat, infoMessage,
             errorMessage, twentyFourHour, TWENTYFOUR_HOURS, HOURS, disableLabel
           } = this.props;
@@ -145,15 +143,15 @@ TimePicker.propTypes = {
 };
 
 
-function _timepickerOpen(){
+function _timepickerOpen() {
   const { inputState } = this.state;
-  if(inputState !== 'readOnly' || inputState !== 'disabled'){
+  if (inputState !== 'readOnly' || inputState !== 'disabled'){
     this.setState({ displayOpen: !this.state.displayOpen });
     this.input.focus();
   }
 };
 
-function _changeHandler(e){
+function _changeHandler(e) {
   this.setState({
     timepickerValue: e.target.value,
     displayOpen: false,
@@ -162,7 +160,7 @@ function _changeHandler(e){
   this.props.changeHandler.call(this, e.target.value);
 };
 
-function _listHandler(e){
+function _listHandler(e) {
   const changeHandlerParam = {
     target: {
       value: e.target.innerText.toUpperCase()
@@ -176,8 +174,8 @@ function _listHandler(e){
   this.changeHandler(changeHandlerParam);
 };
 
-function _inputEvents(e){
-  switch(e.which){
+function _inputEvents(e) {
+  switch (e.which) {
     case 40:  //down arrow
       e.preventDefault();
       this.list.children[0].focus();
@@ -198,11 +196,11 @@ function _inputEvents(e){
 function _listEventInterface(e) {
   let { focusStartIndex } = this.state;
 
-  switch(e.which){
+  switch (e.which) {
     case 40:  //down arrow
       e.stopPropagation();
       e.preventDefault();
-      if(focusStartIndex >= 0 && focusStartIndex < this.list.children.length - 1){
+      if (focusStartIndex >= 0 && focusStartIndex < this.list.children.length - 1) {
         focusStartIndex++;
         this.setState({focusStartIndex});
         this.list.children[focusStartIndex].focus();
@@ -212,7 +210,7 @@ function _listEventInterface(e) {
     case 38:  //up arrow
       e.stopPropagation();
       e.preventDefault();
-      if(focusStartIndex > 0 && focusStartIndex < this.list.children.length){
+      if (focusStartIndex > 0 && focusStartIndex < this.list.children.length) {
         focusStartIndex--;
         this.setState({focusStartIndex});
         this.list.children[focusStartIndex].focus();
@@ -229,7 +227,7 @@ function _listEventInterface(e) {
 };
 
 function _applyTimePickerStyles(inputState) {
-  let { labelStyle, inputStyle, labelFocusStyle, labelStyleTmp, containerStyle } = this.state;
+  let { labelStyle, inputStyle, labelFocusStyle, containerStyle } = this.state;
 
   switch (inputState) {
     case 'error':

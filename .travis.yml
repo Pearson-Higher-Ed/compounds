@@ -3,7 +3,6 @@ sudo: false
 node_js:
 - 4
 - 6
-- 8
 script:
 - npm run ci
 - chmod 777 ./test/shell_scripts/run_tests.sh
