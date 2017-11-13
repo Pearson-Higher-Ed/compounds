@@ -1,3 +1,13 @@
+<a name="0.13.7"></a>
+## [0.13.7](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.6...v0.13.7) (2017-11-13)
+
+
+### Bug Fixes
+
+* Cleanup unused variables ([da04513](https://github.com/Pearson-Higher-Ed/compounds/commit/da04513))
+
+
+
 <a name="0.13.6"></a>
 ## [0.13.6](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.5...v0.13.6) (2017-11-03)
 
