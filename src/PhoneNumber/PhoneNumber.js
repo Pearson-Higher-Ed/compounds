@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Phone from 'react-phone-number-input';
+import Phone from './source/Input.js';
+import metadata from 'libphonenumber-js/metadata.min.json';
 
-import './rrui.css';
-import './style.css';
+import './component/rrui.css';
+import './component/style.css';
 
 export default class PhoneNumber extends Component {
 
   static propTypes = {
+    id: PropTypes.string,
     labelText: PropTypes.string,
     infoMessage: PropTypes.string,
     errorMessage: PropTypes.string
+  }
+
+  static defaultProps = {
+    fancy: true
   }
 
   constructor(props) {
@@ -18,10 +24,10 @@ export default class PhoneNumber extends Component {
   }
 
   render() {
-    const { country, placeholder, onChange, value, onKeyDown, disabled,
+    const { id, country, placeholder, onChange, value, onKeyDown, disabled,
             onCountryChange, countries, international, convertToNational,
             selectMaxItems, className, inputClassName, labelText,
-            infoMessage, errorMessage } = this.props;
+            infoMessage, errorMessage, fancy } = this.props;
 
     const errorLabel = errorMessage ? '--label_error' :'';
     const errorInput = errorMessage ? 'react-phone-number-input__phone--error' : inputClassName;
@@ -31,6 +37,7 @@ export default class PhoneNumber extends Component {
         <label className={`pe-textLabelInput__label${errorLabel}`}>{labelText}</label>
 
         <Phone
+          id={id}
           value={value}
           country={country}
           placeholder={placeholder}
@@ -44,9 +51,11 @@ export default class PhoneNumber extends Component {
           selectMaxItems={selectMaxItems}
           className={className}
           inputClassName={errorInput}
+          metadata={metadata}
+          fancy={fancy}
         />
-        {infoMessage && <p className="pe-input--info_message">{infoMessage}</p>}
-        {errorMessage && <p className="pe-input--error_message">{errorMessage}</p>}
+        {infoMessage && <p className="pe-input--info_message" aria-describedby={id}>{infoMessage}</p>}
+        {errorMessage && <p className="pe-input--error_message" aria-describedby={id}>{errorMessage}</p>}
 
       </div>
     );

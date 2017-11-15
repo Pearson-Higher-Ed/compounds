@@ -75,7 +75,6 @@
 
 .react-phone-number-input .rrui__select__arrow
 {
-	margin-top  : 0.3em;
 	margin-left : 0.3em;
 	color: #252525;
 }
@@ -94,8 +93,8 @@
 .react-phone-number-input__icon
 {
 	/* The flag icon size is 4x3 hence the exact `width` and `height` values */
-	width      : 1.24em;
-	height     : 0.93em;
+	width: 20px;
+	height: 15px;
 
 	border     : 1px solid #bfbfbf;
 	/* Makes sure `width`x`height` is exactly `4x3` and `border` width is not included in it */
