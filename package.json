@@ -47,6 +47,7 @@
     }
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "input-format": "^0.1.15",
     "libphonenumber-js": "^0.4.40",
     "moment": "^2.18.1",
