@@ -33,23 +33,25 @@ export default class Dropdown extends Component {
   }
 
   placement(dropdown) {
-    const anchor = dropdown.children[0];
-    const element = dropdown.children[1];
-    // get window geometry - this is how jQuery does it
-    const elementRect = element.getBoundingClientRect();
-    const anchorRect = anchor.getBoundingClientRect();
-    // then we are past the right side and need to right justify
-    const touch_right = window.innerWidth < elementRect.right;
-    // we need to push up
-    const touch_bottom = elementRect.bottom > window.innerHeight;
+    if (window.screen.width > 479) {
+      const anchor = dropdown.children[0];
+      const element = dropdown.children[1];
+      // get window geometry - this is how jQuery does it
+      const elementRect = element.getBoundingClientRect();
+      const anchorRect = anchor.getBoundingClientRect();
+      // then we are past the right side and need to right justify
+      const touch_right = window.innerWidth < elementRect.right;
+      // we need to push up
+      const touch_bottom = elementRect.bottom > window.innerHeight;
 
-    if (touch_bottom) {
-      // 4 because of margins
-      element.style.top = `-${(elementRect.height + 4)}px`;
-    }
+      if (touch_bottom) {
+        // 4 because of margins
+        element.style.top = `-${(elementRect.height + 4)}px`;
+      }
 
-    if (touch_right) {
-      element.style.left = `-${elementRect.width - anchorRect.width}px`;
+      if (touch_right) {
+        element.style.left = `-${elementRect.width - anchorRect.width}px`;
+      }
     }
   }
 
@@ -115,7 +117,6 @@ export default class Dropdown extends Component {
     if (dom.nodeName !== 'LI') {
       return this.getParentLiSelected(dom.parentElement);
     }
-
     return dom;
   }
 
@@ -179,7 +180,7 @@ export default class Dropdown extends Component {
           <div className="mobile-title">
             <h1 className="pe-page-title pe-page-title--small">
               {this.props.mobileTitle}
-              <span className="icon-fix">
+              <span className="icon-fix" onClick={this.toggleDropdown}>
                 <Icon name="remove-lg-18"></Icon>
               </span>
             </h1>
