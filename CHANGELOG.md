@@ -1,3 +1,13 @@
+<a name="0.14.2"></a>
+## [0.14.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.14.1...v0.14.2) (2017-11-17)
+
+
+### Bug Fixes
+
+* fixed z-index for the UL rather than the entire container ([d7fd462](https://github.com/Pearson-Higher-Ed/compounds/commit/d7fd462))
+
+
+
 <a name="0.14.1"></a>
 ## [0.14.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.14.0...v0.14.1) (2017-11-17)
 
