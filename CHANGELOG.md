@@ -1,3 +1,13 @@
+<a name="0.14.1"></a>
+## [0.14.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.14.0...v0.14.1) (2017-11-17)
+
+
+### Bug Fixes
+
+* Dropdown Mobile header position & spacing ([3a0940a](https://github.com/Pearson-Higher-Ed/compounds/commit/3a0940a))
+
+
+
 <a name="0.14.0"></a>
 # [0.14.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.7...v0.14.0) (2017-11-15)
 
@@ -29,7 +39,12 @@
 
 
 <a name="0.13.4"></a>
-## [0.13.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.2...v0.13.4) (2017-10-19)
+## [0.13.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.3...v0.13.4) (2017-10-19)
+
+
+
+<a name="0.13.3"></a>
+## [0.13.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.2...v0.13.3) (2017-10-18)
 
 
 
