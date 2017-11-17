@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Phone from './components/Input.js';
-import metadata from 'libphonenumber-js/metadata.min.json';
+import metadata from 'libphonenumber-js/metadata.full.json';
 
 import './component/rrui.css';
 import './component/style.css';
@@ -16,7 +16,8 @@ export default class PhoneNumber extends Component {
   }
 
   static defaultProps = {
-    fancy: true
+    fancy: true,
+    errorMessage: ''
   }
 
   constructor(props) {
@@ -53,9 +54,11 @@ export default class PhoneNumber extends Component {
           inputClassName={errorInput}
           metadata={metadata}
           fancy={fancy}
+          error={errorMessage}
+          labelText={labelText}
         />
-        {infoMessage && <p className="pe-input--info_message" aria-describedby={id}>{infoMessage}</p>}
-        {errorMessage && <p className="pe-input--error_message" aria-describedby={id}>{errorMessage}</p>}
+        {infoMessage && <p className="pe-input--info_message" id={id + "phoneNumberInfo"}>{infoMessage}</p>}
+        {errorMessage && <p className="pe-input--error_message" id={id + "phoneNumberError"}>{errorMessage}</p>}
 
       </div>
     );

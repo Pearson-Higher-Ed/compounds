@@ -332,7 +332,7 @@ export default class Input extends Component
 			}
 
 			selectLabel = dictionary[country_code] || default_dictionary[country_code];
-			selectLabel = selectLabel + ' (+' + getPhoneCode(country_code) + ')';
+			selectLabel = selectLabel + ' +' + getPhoneCode(country_code);
 
 			this.select_options.push
 			({
@@ -433,7 +433,6 @@ export default class Input extends Component
 		catch(e) {
 			country_number = '001'
 		}
-		console.log('set country code values: ' + country_code + ' ' + country_number);
 
 		this.setState({
 			country_code: country_code,
@@ -964,6 +963,7 @@ export default class Input extends Component
 			convertToNational,
 			metadata,
 			fancy,
+			labelText,
 			...input_props
 		}
 		= this.props
@@ -984,8 +984,16 @@ export default class Input extends Component
 		= this.state
 
 		const phoneCodeLabel = country_select_is_shown ? 'rrui-input__intlCode--disabled' : 'rrui-input__intlCode';
-		const useFancy = fancy ? 'pe-textInput' : 'pe-textInput--basic';
-		const underlineSpan = fancy ? (<span className='pe-input_underline'></span>) : '';
+		const ariaDescribedbyInput =  id + 'phoneNumberInfo ' + id + 'phoneNumberError';
+		const selectLabelAria = selectAriaLabel ? selectAriaLabel + ' screen readers, skip to ' + labelText : 'Select country screen readers, skip to ' + labelText;
+		const fancyGroup = fancy ? 'rrui__buttonCodeGroup' : 'rrui__buttonCodeGroup-basic';
+		let underlineSpan = fancy ? (<span className='pe-input_underline'></span>) : '';
+		let useFancy = fancy ? 'pe-textInput rrui-input__padding' : 'pe-textInput--basic';
+
+		if (error) {
+			useFancy = fancy ? 'pe-textInput--input_error rrui-input__padding' : 'pe-textInput--basic_error';
+			underlineSpan = fancy ? (<span className='pe-inputError_underline'></span>) : '';
+		}
 
 		if (!fancy) {
 			inputStyle.marginTop = '0px';
@@ -1008,6 +1016,7 @@ export default class Input extends Component
 
 				{/* Country `<select/>` and phone number `<input/>` */}
 				<div className="react-phone-number-input__row">
+					<div className={fancyGroup}>
 
 					{/* Country `<select/>` */}
 					{ showCountrySelect && this.can_change_country() &&
@@ -1028,7 +1037,7 @@ export default class Input extends Component
 							focusUponSelection={ false }
 							saveOnIcons={ saveOnIcons }
 							name={ input_props.name ? `${input_props.name}__country` : undefined }
-							ariaLabel={ selectAriaLabel }
+							ariaLabel={ selectLabelAria }
 							closeAriaLabel={ selectCloseAriaLabel }
 							style={ selectStyle }
 							className={ classNames('react-phone-number-input__country',
@@ -1038,16 +1047,18 @@ export default class Input extends Component
 							inputClassName={ inputClassName }/>
 					}
 
-					<div className={ phoneCodeLabel }>{ '+' + country_number }</div>
+						<div className={ phoneCodeLabel }>{ '+' + country_number }</div>
+					</div>
 
 					{/* Phone number `<input/>` */}
 					{ !country_select_is_shown &&
 						<div className='rrui-input__container'><InputComponent
-							id={id}
+							id={id + "phoneNumberInput"}
 							type="tel"
 							{ ...input_props }
 							ref={ this.store_input_instance }
 							value={ value }
+							aria-label={labelText}
 							onChange={ this.on_change }
 							onBlur={ this.on_blur }
 							disabled={ disabled }
@@ -1058,6 +1069,7 @@ export default class Input extends Component
 							style={ inputStyle }
 							metadata={ metadata }
 							className={ useFancy }
+							aria-describedby={ ariaDescribedbyInput }
 							/>
 							{ underlineSpan }
 						</div>
