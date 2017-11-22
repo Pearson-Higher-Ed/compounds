@@ -1,3 +1,13 @@
+<a name="0.15.3"></a>
+## [0.15.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.15.2...v0.15.3) (2017-11-22)
+
+
+### Bug Fixes
+
+* babel-runtime as a dependency ([03ae299](https://github.com/Pearson-Higher-Ed/compounds/commit/03ae299))
+
+
+
 <a name="0.15.2"></a>
 ## [0.15.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.14.2...v0.15.2) (2017-11-22)
 
