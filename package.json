@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
     "classnames": "^2.2.5",
     "input-format": "^0.1.15",
     "libphonenumber-js": "^0.4.40",
