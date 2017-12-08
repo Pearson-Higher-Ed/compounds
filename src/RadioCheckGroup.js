@@ -19,17 +19,18 @@ class RadioCheckGroup extends Component {
           <fieldset className="pe-fieldset">
             <legend className="pe-legend">{legendText}</legend>
             {Object.keys(options).map((opt, i) => {
+              const key = options[opt].value ? options[opt].value : opt;
               return (
-                    <div key={`${name}-${opt}-${i}`} className={(inputType === 'radio')?"pe-radio":"pe-checkbox"}>
-                      <input id       = {`radiocheck-${name}-${opt}-${i}`}
+                    <div key={`${name}-${key}-${i}`} className={(inputType === 'radio')?"pe-radio":"pe-checkbox"}>
+                      <input id       = {`radiocheck-${name}-${key}-${i}`}
                              type     = {inputType}
                              name     = {name}
-                             value    = {opt}
+                             value    = {key}
                              checked  = {selectedOptions.indexOf(opt) > -1}
                              disabled = {(inputType === 'checkbox') ? options[opt].toLowerCase().indexOf('disabled') > -1 : (Object.keys(options).filter(o => options[o] === 'disabled').length > 0) }
                              onChange = {this.groupHandler}
                              />
-                      <label htmlFor={`radiocheck-${name}-${opt}-${i}`}>{opt}</label>
+                      <label htmlFor={`radiocheck-${name}-${key}-${i}`}>{options[opt].label ? options[opt].label : opt}</label>
                       <span>
                         <svg
                           aria-hidden = "true"
