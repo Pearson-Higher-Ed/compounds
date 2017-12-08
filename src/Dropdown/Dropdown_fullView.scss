@@ -2,6 +2,12 @@
   cursor: pointer;
 }
 
+.dropdown-image {
+  svg {
+    margin-left: 4px;
+  }
+}
+
 .dropdown-container {
   display: inline-block;
   position: relative;
@@ -27,6 +33,7 @@
     overflow-y: auto;
 
     li {
+
       &:hover, &:focus {
         background-color: $pe-color-moonlight;
       }
