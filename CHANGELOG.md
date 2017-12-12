@@ -1,20 +1,25 @@
-<a name="0.15.3"></a>
-## [0.15.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.15.2...v0.15.3) (2017-11-22)
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.15.0...v0.16.0) (2017-12-12)
 
 
 ### Bug Fixes
 
 * babel-runtime as a dependency ([03ae299](https://github.com/Pearson-Higher-Ed/compounds/commit/03ae299))
+* implement UXF dropdown in PhoneNumber ([2e0e8f7](https://github.com/Pearson-Higher-Ed/compounds/commit/2e0e8f7))
+* Update Dropdown button color | Update LICENSE | rename countries file ([b165bfc](https://github.com/Pearson-Higher-Ed/compounds/commit/b165bfc))
 
 
 
-<a name="0.15.2"></a>
-## [0.15.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.14.2...v0.15.2) (2017-11-22)
+<a name="0.15.0"></a>
+# [0.15.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.3...v0.15.0) (2017-11-17)
 
 
 ### Bug Fixes
 
-* Update Dropdown button color | Update LICENSE | rename countries file ([b165bfc](https://github.com/Pearson-Higher-Ed/compounds/commit/b165bfc))
+* Allow entire label to be set by labelText ([0a10c72](https://github.com/Pearson-Higher-Ed/compounds/commit/0a10c72))
+* Cleanup unused variables ([da04513](https://github.com/Pearson-Higher-Ed/compounds/commit/da04513))
+* Dropdown Mobile header position & spacing ([3a0940a](https://github.com/Pearson-Higher-Ed/compounds/commit/3a0940a))
+* fixed z-index for the UL rather than the entire container ([d7fd462](https://github.com/Pearson-Higher-Ed/compounds/commit/d7fd462))
 
 
 ### Features
@@ -23,82 +28,13 @@
 
 
 
-<a name="0.14.2"></a>
-## [0.14.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.14.1...v0.14.2) (2017-11-17)
-
-
-### Bug Fixes
-
-* fixed z-index for the UL rather than the entire container ([d7fd462](https://github.com/Pearson-Higher-Ed/compounds/commit/d7fd462))
-
-
-
-<a name="0.14.1"></a>
-## [0.14.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.14.0...v0.14.1) (2017-11-17)
-
-
-### Bug Fixes
-
-* Dropdown Mobile header position & spacing ([3a0940a](https://github.com/Pearson-Higher-Ed/compounds/commit/3a0940a))
-
-
-
-<a name="0.14.0"></a>
-# [0.14.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.7...v0.14.0) (2017-11-15)
-
-
-
-<a name="0.13.7"></a>
-## [0.13.7](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.6...v0.13.7) (2017-11-13)
-
-
-### Bug Fixes
-
-* Cleanup unused variables ([da04513](https://github.com/Pearson-Higher-Ed/compounds/commit/da04513))
-
-
-
-<a name="0.13.6"></a>
-## [0.13.6](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.5...v0.13.6) (2017-11-03)
-
-
-### Bug Fixes
-
-* Allow entire label to be set by labelText ([0a10c72](https://github.com/Pearson-Higher-Ed/compounds/commit/0a10c72))
-
-
-
-<a name="0.13.5"></a>
-## [0.13.5](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.4...v0.13.5) (2017-11-01)
-
-
-
-<a name="0.13.4"></a>
-## [0.13.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.3...v0.13.4) (2017-10-19)
-
-
-
 <a name="0.13.3"></a>
-## [0.13.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.2...v0.13.3) (2017-10-18)
-
-
-
-<a name="0.13.2"></a>
-## [0.13.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.1...v0.13.2) (2017-10-17)
+## [0.13.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.0...v0.13.3) (2017-10-18)
 
 
 ### Bug Fixes
 
 * Changed document level key listener to component level ([2b8e24b](https://github.com/Pearson-Higher-Ed/compounds/commit/2b8e24b))
-
-
-
-<a name="0.13.1"></a>
-## [0.13.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.13.0...v0.13.1) (2017-10-16)
-
-
-### Bug Fixes
-
 * move `columnsSort` out of `componentDidUpdate` to prevent infinite loops ([da737de](https://github.com/Pearson-Higher-Ed/compounds/commit/da737de))
 
 
@@ -130,12 +66,7 @@
 
 
 <a name="0.12.2"></a>
-## [0.12.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.12.1...v0.12.2) (2017-09-20)
-
-
-
-<a name="0.12.1"></a>
-## [0.12.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.12.0...v0.12.1) (2017-09-15)
+## [0.12.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.11.0...v0.12.2) (2017-09-20)
 
 
 ### Bug Fixes
@@ -144,53 +75,15 @@
 
 
 
-<a name="0.12.0"></a>
-# [0.12.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.11.0...v0.12.0) (2017-09-14)
-
-
-
 <a name="0.11.0"></a>
-# [0.11.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.4...v0.11.0) (2017-09-07)
-
-
-### Bug Fixes
-
-* tests ([253b2fc](https://github.com/Pearson-Higher-Ed/compounds/commit/253b2fc))
-
-
-
-<a name="0.10.4"></a>
-## [0.10.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.3...v0.10.4) (2017-08-30)
-
-
-
-<a name="0.10.3"></a>
-## [0.10.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.2...v0.10.3) (2017-08-23)
-
-
-
-<a name="0.10.2"></a>
-## [0.10.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.1...v0.10.2) (2017-08-22)
+# [0.11.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.9.1...v0.11.0) (2017-09-07)
 
 
 ### Bug Fixes
 
 * <abbr> day now aligns if a diff weekStartDay is passed ([cdc9472](https://github.com/Pearson-Higher-Ed/compounds/commit/cdc9472))
-
-
-
-<a name="0.10.1"></a>
-## [0.10.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.10.0...v0.10.1) (2017-08-22)
-
-
-
-<a name="0.10.0"></a>
-# [0.10.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.9.1...v0.10.0) (2017-08-21)
-
-
-### Bug Fixes
-
 * inputState prop ([938a718](https://github.com/Pearson-Higher-Ed/compounds/commit/938a718))
+* tests ([253b2fc](https://github.com/Pearson-Higher-Ed/compounds/commit/253b2fc))
 
 
 
