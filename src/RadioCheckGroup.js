@@ -2,35 +2,22 @@ import React, { Component } from 'react';
 import PropTypes            from 'prop-types';
 
 
-class RadioCheckGroup extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = { checkboxSelectedOptions:[] };
-
-    this.groupHandler = _groupHandler.bind(this);
-  }
-
-  render(){
-
-    const { legendText, options, name, inputType, selectedOptions, changeHandler } = this.props;
-
+const RadioCheckGroup = ({ legendText, options, name, inputType, changeHandler }) => {
     return (
           <fieldset className="pe-fieldset">
             <legend className="pe-legend">{legendText}</legend>
-            {Object.keys(options).map((opt, i) => {
-              const key = options[opt].value ? options[opt].value : opt;
+            {options.map((opt, i) => {
               return (
-                    <div key={`${name}-${key}-${i}`} className={(inputType === 'radio')?"pe-radio":"pe-checkbox"}>
-                      <input id       = {`radiocheck-${name}-${key}-${i}`}
+                    <div key={`${name}-${opt.value}-${i}`} className={(inputType === 'radio')?"pe-radio":"pe-checkbox"}>
+                      <input id       = {`radiocheck-${name}-${opt.value}-${i}`}
                              type     = {inputType}
                              name     = {name}
-                             value    = {key}
-                             checked  = {selectedOptions.indexOf(opt) > -1}
-                             disabled = {(inputType === 'checkbox') ? options[opt].toLowerCase().indexOf('disabled') > -1 : (Object.keys(options).filter(o => options[o] === 'disabled').length > 0) }
-                             onChange = {this.groupHandler}
+                             value    = {opt.value}
+                             checked  = {opt.checked}
+                             disabled = {opt.disabled}
+                             onChange = {changeHandler}
                              />
-                      <label htmlFor={`radiocheck-${name}-${key}-${i}`}>{options[opt].label ? options[opt].label : opt}</label>
+                      <label htmlFor={`radiocheck-${name}-${opt.value}-${i}`}>{opt.label}</label>
                       <span>
                         <svg
                           aria-hidden = "true"
@@ -47,7 +34,6 @@ class RadioCheckGroup extends Component {
           </fieldset>
       )
     }
-}
 
 export default RadioCheckGroup;
 
@@ -55,29 +41,8 @@ export default RadioCheckGroup;
 RadioCheckGroup.propTypes = {
   id              : PropTypes.string.isRequired,
   legendText      : PropTypes.string.isRequired,
-  options         : PropTypes.object.isRequired,
-  inputType       : PropTypes.string.isRequired,
+  options         : PropTypes.array.isRequired,
   inputType       : PropTypes.string.isRequired,
   changeHandler   : PropTypes.func.isRequired,
   name            : PropTypes.string,
-  selectedOptions : PropTypes.array
 };
-
-
-function _groupHandler (e) {
-    const newSelection                 = e.target.value;
-    const { selectedOptions }          = this.props;
-    const { inputType, changeHandler } = this.props;
-
-    let newSelectionArray;
-
-    if(selectedOptions.indexOf(newSelection) > -1) {
-      newSelectionArray = selectedOptions.filter(s => s !== newSelection)
-    } else {
-      newSelectionArray = (inputType === 'radio') ? [newSelection] : [...selectedOptions, newSelection];
-    }
-
-    this.setState({ selectedOptions: newSelectionArray });
-
-    changeHandler.call(this, newSelectionArray);
-}
