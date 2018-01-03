@@ -1,3 +1,13 @@
+<a name="0.16.1"></a>
+## [0.16.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.16.0...v0.16.1) (2018-01-03)
+
+
+### Bug Fixes
+
+* Calendar unit tests now work properly on Dec / Jan edge cases ([d3d98f3](https://github.com/Pearson-Higher-Ed/compounds/commit/d3d98f3))
+
+
+
 <a name="0.16.0"></a>
 # [0.16.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.15.0...v0.16.0) (2017-12-12)
 
