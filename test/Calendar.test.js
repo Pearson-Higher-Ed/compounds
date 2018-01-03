@@ -79,7 +79,7 @@ describe('Calendar', () => {
         }
       });
 
-      it('goes ot next month if December', function() {
+      it('goes to next month if December', function() {
         if (wrapper.node.state.month === 11) {
           wrapper.find('[aria-label="Next month"]').simulate('click');
           expect(wrapper.node.state.month).toEqual(0);
