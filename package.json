@@ -4,7 +4,7 @@
   "description": "**DEPRECATED** Atomic React Components",
   "main": "./build/dist.compounds.js",
   "author": "Pearson Design Accelerator",
-  "license": "PEARSON PROPRIETARY AND CONFIDENTIAL INFORMATION SUBJECT TO NDA",
+  "license": "MIT",
   "homepage": "http://pearson-higher-ed.github.io/compounds/",
   "repository": {
     "type": "git",
