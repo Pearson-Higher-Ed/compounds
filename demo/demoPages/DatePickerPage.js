@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import { injectIntl }       from 'react-intl';
-import { messages }         from '../../translations/defaultMessages';
+import { messages }         from '../translations/defaultMessages';
 
-import { DatePicker, Select } from '../../../index';
+import { DatePicker, Select } from '../../index';
 
 
 class DatePickerPage extends Component {
