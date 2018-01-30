@@ -249,10 +249,11 @@ export default class Dropdown extends Component {
 
     if (this.props.children) {
       for (let i = 0; i < this.props.children.length; i++) {
-        if (this.props.children[i].props.selected) {
+        const { props = {} } = this.props.children[i] || {};
+        if (props.selected) {
           selectedIndex = i;
           break;
-        }
+        } 
       }
     }
 
