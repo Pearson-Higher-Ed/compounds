@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon'
@@ -38,8 +39,7 @@ export default class DropdownItem extends Component {
       case 'button':
         return (
           <li role="presentation" data-item={label} data-value={selectValue}>
-            <button role="menuitem" className={checkmark ? 'checkmark' : ''} onClick={onClick}
-            type="button" tabIndex="-1">
+            <button role="menuitem" className={checkmark ? 'checkmark' : ''} onClick={onClick} type="button" tabIndex="-1">
               {checkmark ?
                   <span style={{visibility: selected ? 'visible' : 'hidden'}}>
                     <Icon name="check-sm-18">{selectedName}</Icon>
@@ -53,11 +53,10 @@ export default class DropdownItem extends Component {
           </li>
         );
         break;
-      case 'imageButton':
-        return (
-            <li role="presentation" data-item={label} data-value={selectValue} id={dropdownId + '-' + selectValue}>
-              <button role="menuitem" className={checkmark ? 'checkmark' : ''} onClick={onClick}
-              type="button" tabIndex="-1">
+        case 'imageButton':
+          return (
+            <li role="presentation" data-item={label} data-value={selectValue} id={dropdownId + "-" + selectValue}>
+              <button role="menuitem" className={checkmark ? 'checkmark' : ''} onClick={onClick} type="button" tabIndex="-1">
               {checkmark ?
                   <span style={{visibility: selected ? 'visible' : 'hidden'}}>
                     <Icon name="check-sm-18">{selectedName}</Icon>
@@ -73,7 +72,16 @@ export default class DropdownItem extends Component {
           );
         break;
       default:
+        return <li id="itemTypeNotRecognized">DropdownItem "type" prop not recognized...</li>
         break;
     }
   }
 };
+
+DropdownItem.propTypes = {
+  type: PropTypes.string.isRequired
+};
+
+DropdownItem.defaultProps = {
+  type: "link",
+}
