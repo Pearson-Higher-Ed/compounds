@@ -1,5 +1,15 @@
+<a name="0.17.4"></a>
+## [0.17.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.3...v0.17.4) (2018-02-19)
+
+
+### Bug Fixes
+
+* only scroll if dropdown is set to scrollable ([eea4991](https://github.com/Pearson-Higher-Ed/compounds/commit/eea4991))
+
+
+
 <a name="0.17.3"></a>
-## [0.17.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.1...v0.17.3) (2018-02-16)
+## [0.17.3](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.2...v0.17.3) (2018-02-16)
 
 
 ### Bug Fixes
@@ -8,16 +18,39 @@
 
 
 
+<a name="0.17.2"></a>
+## [0.17.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.1...v0.17.2) (2018-01-30)
+
+
+
 <a name="0.17.1"></a>
-## [0.17.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.15.3...v0.17.1) (2018-01-22)
+## [0.17.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.16.1...v0.17.1) (2018-01-22)
 
 
 ### Bug Fixes
 
 * Add type to Dropdown trigger ([d255af2](https://github.com/Pearson-Higher-Ed/compounds/commit/d255af2))
-* Calendar unit tests now work properly on Dec / Jan edge cases ([d3d98f3](https://github.com/Pearson-Higher-Ed/compounds/commit/d3d98f3))
-* implement UXF dropdown in PhoneNumber ([2e0e8f7](https://github.com/Pearson-Higher-Ed/compounds/commit/2e0e8f7))
 * update package-lock.json to address security issue. ([2da7c1a](https://github.com/Pearson-Higher-Ed/compounds/commit/2da7c1a))
+
+
+
+<a name="0.16.1"></a>
+## [0.16.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.16.0...v0.16.1) (2018-01-03)
+
+
+### Bug Fixes
+
+* Calendar unit tests now work properly on Dec / Jan edge cases ([d3d98f3](https://github.com/Pearson-Higher-Ed/compounds/commit/d3d98f3))
+
+
+
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.15.3...v0.16.0) (2017-12-12)
+
+
+### Bug Fixes
+
+* implement UXF dropdown in PhoneNumber ([2e0e8f7](https://github.com/Pearson-Higher-Ed/compounds/commit/2e0e8f7))
 
 
 
@@ -32,12 +65,17 @@
 
 
 <a name="0.15.2"></a>
-## [0.15.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.14.2...v0.15.2) (2017-11-22)
+## [0.15.2](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.15.0...v0.15.2) (2017-11-22)
 
 
 ### Bug Fixes
 
 * Update Dropdown button color | Update LICENSE | rename countries file ([b165bfc](https://github.com/Pearson-Higher-Ed/compounds/commit/b165bfc))
+
+
+
+<a name="0.15.0"></a>
+# [0.15.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.14.2...v0.15.0) (2017-11-17)
 
 
 ### Features
