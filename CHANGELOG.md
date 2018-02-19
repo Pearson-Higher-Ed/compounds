@@ -1,5 +1,5 @@
-<a name="0.17.5"></a>
-## [0.17.5](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.4...v0.17.5) (2018-02-19)
+<a name="0.17.6"></a>
+## [0.17.6](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.4...v0.17.6) (2018-02-19)
 
 
 
