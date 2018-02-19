@@ -1,3 +1,8 @@
+<a name="0.17.5"></a>
+## [0.17.5](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.4...v0.17.5) (2018-02-19)
+
+
+
 <a name="0.17.4"></a>
 ## [0.17.4](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.3...v0.17.4) (2018-02-19)
 
@@ -5,6 +10,7 @@
 ### Bug Fixes
 
 * only scroll if dropdown is set to scrollable ([eea4991](https://github.com/Pearson-Higher-Ed/compounds/commit/eea4991))
+* Update classNames to avoid collision with other Alerts ([9186424](https://github.com/Pearson-Higher-Ed/compounds/commit/9186424))
 
 
 
