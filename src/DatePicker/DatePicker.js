@@ -167,11 +167,6 @@ DatePicker.propTypes = {
 
 DatePicker.defaultProps = {
   dateFormat: 'mm/dd/yyyy',
-  dayNamesFull: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-  monthNamesFull: ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"],
-  weekStartDay: 0,
-  dayNamesShort: ["S", "M", "T", "W", "T", "F", "S"],
   inputState: ''
 }
 
