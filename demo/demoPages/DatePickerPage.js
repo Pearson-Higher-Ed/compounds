@@ -12,9 +12,9 @@ class DatePickerPage extends Component {
     super(props);
 
     this.state = {
-      datePickerValue1 : null,
-      datePickerValue2 : null,
-      datePickerValue3 : null
+      datePickerValue1 :null,
+      datePickerValue2 :null,
+      datePickerValue3 :null
     };
 
   }
@@ -71,7 +71,7 @@ class DatePickerPage extends Component {
               </ul>
 
               <h3>Configure Props:</h3>
-              <Select id="select" changeHandler={e => this.setState({inputState:`${e.target.value}`}) } selectedOption={inputState} labelText="Select An inputState:" options={["default", "error", "readOnly", "disabled"]} />
+              <Select id="select" changeHandler={e => this.setState({inputState:`${e.target.value}`}) } selectedOption={inputState} labelText="Select An inputState:" options={["default", "error", "readOnly", 'disabled']} />
             </div>
 
             <h2>DatePicker</h2>

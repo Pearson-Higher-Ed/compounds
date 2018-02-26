@@ -171,13 +171,15 @@ DatePicker.defaultProps = {
   monthNamesFull: ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"],
   weekStartDay: 0,
-  dayNamesShort: ["S", "M", "T", "W", "T", "F", "S"]
+  dayNamesShort: ["S", "M", "T", "W", "T", "F", "S"],
+  inputState: ''
 }
 
 function _datePickerOpen() {
-  const { inputState } = this.state;
+  const { inputState } = this.props;
   const enteredDate = this.parseDate(this.state.datepickerValue || '');
-  if(inputState !== 'readOnly' || inputState !== 'disabled'){
+
+  if (inputState === '' || inputState === 'default' || inputState === 'error') {
     this.setState({
       displayOpen: true,
       dateObject: enteredDate
@@ -197,9 +199,7 @@ function _changeHandler(e) {
 
 function _parseDate(dateString) {
   const dateParts = dateString.split('/');
-  if (dateParts.length !== 3) {
-    return;
-  }
+  if (dateParts.length !== 3) return;
 
   const dayPart = this.props.dateFormat.toLowerCase() === 'dd/mm/yyyy' ? dateParts[0] : dateParts[1];
   const monthPart = this.props.dateFormat.toLowerCase() === 'dd/mm/yyyy' ? dateParts[1] : dateParts[0];
