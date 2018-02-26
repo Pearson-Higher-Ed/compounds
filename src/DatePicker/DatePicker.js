@@ -51,7 +51,7 @@ export default class DatePicker extends Component {
     }
     if (e.altKey && e.which === 40) {
       const enteredDate = this.parseDate(e.target.value);
-      this.setState({ 
+      this.setState({
         displayOpen: true,
         dateObject: enteredDate
       });
@@ -75,7 +75,9 @@ export default class DatePicker extends Component {
     const { inputStyle, labelStyleTmp, displayOpen, datepickerValue,
             dateObject, containerStyle, placeholder, disablePast, minDate
           } = this.state;
-    const { className, inputState, id, labelText, infoMessage, errorMessage } = this.props;
+    const { className, inputState, id, labelText, infoMessage, errorMessage,
+            dayNamesFull, monthNamesFull, weekStartDay, dayNamesShort
+          } = this.props;
 
     const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
     const ariaDescribedby     = em + (infoMessage ? `infoMsg-${id}` : '');
@@ -132,6 +134,10 @@ export default class DatePicker extends Component {
               minDate={minDate}
               newSelectedDt={dateObject}
               onSelect={this.calendarHandler}
+              dayNamesFull={dayNamesFull}
+              monthNamesFull={monthNamesFull}
+              weekStartDay={weekStartDay}
+              dayNamesShort={dayNamesShort}
             />
           </div> }
 
@@ -152,18 +158,27 @@ DatePicker.propTypes = {
   inputState    : PropTypes.string,
   className     : PropTypes.string,
   disablePast   : PropTypes.bool,
-  minDate       : PropTypes.object
+  minDate       : PropTypes.object,
+  dayNamesFull  : PropTypes.arrayOf(PropTypes.string),
+  monthNamesFull: PropTypes.arrayOf(PropTypes.string),
+  weekStartDay  : PropTypes.number,
+  dayNamesShort : PropTypes.arrayOf(PropTypes.string)
 };
 
 DatePicker.defaultProps = {
-  dateFormat: 'mm/dd/yyyy'
+  dateFormat: 'mm/dd/yyyy',
+  dayNamesFull: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  monthNamesFull: ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"],
+  weekStartDay: 0,
+  dayNamesShort: ["S", "M", "T", "W", "T", "F", "S"]
 }
 
 function _datePickerOpen() {
   const { inputState } = this.state;
   const enteredDate = this.parseDate(this.state.datepickerValue || '');
   if(inputState !== 'readOnly' || inputState !== 'disabled'){
-    this.setState({ 
+    this.setState({
       displayOpen: true,
       dateObject: enteredDate
     });
@@ -188,7 +203,7 @@ function _parseDate(dateString) {
 
   const dayPart = this.props.dateFormat.toLowerCase() === 'dd/mm/yyyy' ? dateParts[0] : dateParts[1];
   const monthPart = this.props.dateFormat.toLowerCase() === 'dd/mm/yyyy' ? dateParts[1] : dateParts[0];
-  
+
   const year = Number.parseInt(dateParts[2]);
   if (Number.isNaN(year) || year < 1900 || year > 9999) {
     return;
