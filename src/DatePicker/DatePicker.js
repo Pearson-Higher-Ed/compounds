@@ -11,9 +11,7 @@ export default class DatePicker extends Component {
     super(props);
 
     this.state = {
-      datepickerValue : this.props.datePickerValue,
-      disablePast: this.props.disablePast ? this.props.disablePast : false,
-      minDate: this.props.minDate ? this.props.minDate : null
+      datepickerValue : this.props.datePickerValue
     };
 
     this.applyDatePickerStyles = _applyDatePickerStyles.bind(this);
@@ -73,10 +71,9 @@ export default class DatePicker extends Component {
 
   render() {
     const { inputStyle, labelStyleTmp, displayOpen, datepickerValue,
-            dateObject, containerStyle, placeholder, disablePast, minDate
-          } = this.state;
+            dateObject, containerStyle, placeholder } = this.state;
     const { className, inputState, id, labelText, infoMessage, errorMessage,
-            dayNamesFull, monthNamesFull, weekStartDay, dayNamesShort
+            dayNamesFull, monthNamesFull, weekStartDay, dayNamesShort, disablePast, minDate
           } = this.props;
 
     const em                  = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
@@ -176,8 +173,8 @@ function _datePickerOpen() {
 
   if (inputState === '' || inputState === 'default' || inputState === 'error') {
     this.setState({
-      displayOpen: true,
-      dateObject: enteredDate
+      dateObject: enteredDate,
+      displayOpen: !this.state.displayOpen,
     });
   }
 };
@@ -200,20 +197,16 @@ function _parseDate(dateString) {
   const monthPart = this.props.dateFormat.toLowerCase() === 'dd/mm/yyyy' ? dateParts[1] : dateParts[0];
 
   const year = Number.parseInt(dateParts[2]);
-  if (Number.isNaN(year) || year < 1900 || year > 9999) {
-    return;
-  }
+  if (Number.isNaN(year) || year < 1900 || year > 9999) return;
+
   const isLeapYear = year % 4 === 0;
 
   const month = Number.parseInt(monthPart);
-  if (Number.isNaN(month) || month < 1 || month > 12) {
-    return;
-  }
+  if (Number.isNaN(month) || month < 1 || month > 12) return;
 
   const day = Number.parseInt(dayPart);
-  if (Number.isNaN(day) || day < 1 || day > 31) {
-    return;
-  }
+  if (Number.isNaN(day) || day < 1 || day > 31) return;
+
   if ((!isLeapYear && month === 2 && day > 28) ||
       (isLeapYear && month === 2 && day > 29) ||
       ([4, 6, 9, 11].includes(month) && day > 30)) {
