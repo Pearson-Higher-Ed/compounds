@@ -16,10 +16,9 @@ describe('Footer', () => {
       expect(this.wrapper.node.type).toEqual('footer');
     });
 
-    it('has the correct Copyright text + year', function () {
-      const year = new Date().getFullYear();
+    it('has the correct Copyright text', function () {
       expect(this.wrapper.node.props.children[1].props.children)
-      .toEqual(['Copyright © ',year,' ', 'CR text']);
+      .toEqual("CR text");
     });
 
     it('correctly passes the light prop', function () {
