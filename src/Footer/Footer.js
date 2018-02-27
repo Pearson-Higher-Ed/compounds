@@ -1,61 +1,54 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Footer.scss';
 
-export default class Footer extends Component {
+const currentYear = new Date().getFullYear();
 
-  static propTypes = {
-    copyrightText: PropTypes.string,
-    links: PropTypes.array.isRequired,
-    light: PropTypes.bool,
-    singlePageStick: PropTypes.bool,
-    anchorTarget: PropTypes.oneOf(['_blank', '_self', '_parent', '_top'])
-  }
+const Footer = ({ copyrightText, links, anchorTarget, light, singlePageStick }) => {
 
-  static defaultProps = {
-    light: false,
-    singlePageStick: false,
-    anchorTarget: "_self"
-  }
+  const renderCopy = () => {
+    return <p className="pe-label">{copyrightText}</p>;
+  };
 
-  constructor(props) {
-    super(props)
-  }
-
-  renderCopy() {
-    const year = new Date().getFullYear();
-    return (<p className="pe-label">
-              Copyright &copy; {year} {this.props.copyrightText}
-            </p>);
-  }
-
-  renderLinks() {
+  const renderLinks = () => {
     let items = [];
 
-    for (let i = 0; i < this.props.links.length; i++) {
-      let item = this.props.links[i];
+    for (let i = 0; i < links.length; i++) {
+      let item = links[i];
       items.push(<li key={i}>
-                   <a href={item.href} target={this.props.anchorTarget}>{item.text}</a>
+                   <a href={item.href} target={`_${anchorTarget}`}>{item.text}</a>
                    <span aria-hidden={true}>|</span>
                  </li>);
     }
     return items;
-  }
+  };
 
-  render() {
+  const lightCheck = light ? 'pe-footer--light':'';
+  const stickCheck = singlePageStick ? '--stick':'';
 
-    const { light, singlePageStick } = this.props;
-    const lightCheck = light ? 'pe-footer--light':'';
-    const stickCheck = singlePageStick ? '--stick':'';
+  return (
+      <footer className={`pe-footer${stickCheck} pe-label ${lightCheck}`}>
+        <ul>
+          {renderLinks()}
+        </ul>
+        {renderCopy()}
+      </footer>
+  );
+}
 
-    return (
-        <footer className={`pe-footer${stickCheck} pe-label ${lightCheck}`}>
-          <ul>
-            {this.renderLinks()}
-          </ul>
-          {this.renderCopy()}
-        </footer>
-    )
-  }
+export default Footer;
+
+Footer.propTypes = {
+  links: PropTypes.array.isRequired,
+  light: PropTypes.bool,
+  singlePageStick: PropTypes.bool,
+  anchorTarget: PropTypes.oneOf(['blank', 'self'])
+}
+
+Footer.defaultProps = {
+  light: false,
+  singlePageStick: false,
+  anchorTarget: 'self',
+  copyrightText: ['Copyright', <span>&copy;</span>, `${currentYear} Pearson Education Inc. All Rights Reserved.`]
 }

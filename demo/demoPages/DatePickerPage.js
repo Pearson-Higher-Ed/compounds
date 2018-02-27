@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { injectIntl }       from 'react-intl';
 import { messages }         from '../translations/defaultMessages';

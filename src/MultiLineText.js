@@ -20,41 +20,37 @@ export default class MultiLineText extends Component {
   }
 
   render() {
+    const { id, labelText, placeholder, infoMessage, errorMessage, inputState, changeHandler } = this.props;
+    const { labelStyle, inputStyle, labelFocusStyle, labelFocusStyleTmp } = this.state;
 
-      const { id, labelText, placeholder, infoMessage, errorMessage, inputState, changeHandler } = this.props;
-      const { labelStyle, inputStyle, labelFocusStyle, labelFocusStyleTmp } = this.state;
+    const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
+    const ariaDescribedby =  em + ((infoMessage) ? `infoMsg-${id}` : '');
 
-      const em = (inputState === 'error' && errorMessage) ? `errMsg-${id} ` : '';
-      const ariaDescribedby =  em + ((infoMessage) ? `infoMsg-${id}` : '');
-
-      return (
-        <div>
-          <label className={labelFocusStyleTmp} htmlFor={id}>{labelText}</label>
-          <textarea
-            className        = {inputStyle}
-            id               = {id}
-            cols             = "30"
-            rows             = "5"
-            placeholder      = {placeholder}
-            aria-invalid     = {inputState === 'error'}
-            aria-describedby = {ariaDescribedby}
-            disabled         = {inputState === 'disabled'}
-            readOnly         = {inputState === 'readOnly'}
-            onFocus          = {() => this.setState({labelFocusStyleTmp:labelFocusStyle})}
-            onBlur           = {() => this.setState({labelFocusStyleTmp:labelStyle})}
-            onChange         = {changeHandler}
-          >
-          </textarea>
-            {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
-            {inputState === 'error' && errorMessage && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
-        </div>
-      )
-
+    return (
+      <div>
+        <label className={labelFocusStyleTmp} htmlFor={id}>{labelText}</label>
+        <textarea
+          className        = {inputStyle}
+          id               = {id}
+          cols             = "30"
+          rows             = "5"
+          placeholder      = {placeholder}
+          aria-invalid     = {inputState === 'error'}
+          aria-describedby = {ariaDescribedby}
+          disabled         = {inputState === 'disabled'}
+          readOnly         = {inputState === 'readOnly'}
+          onFocus          = {() => this.setState({labelFocusStyleTmp:labelFocusStyle})}
+          onBlur           = {() => this.setState({labelFocusStyleTmp:labelStyle})}
+          onChange         = {changeHandler}
+        >
+        </textarea>
+          {infoMessage  && <span id={`infoMsg-${id}`} className="pe-input--info_message">{infoMessage}</span>}
+          {inputState === 'error' && errorMessage && <span id={`errMsg-${id}`} className="pe-input--error_message">{errorMessage}</span>}
+      </div>
+    )
   }
 
 }
-
-
 
 MultiLineText.propTypes = {
   id                 : PropTypes.string.isRequired,
@@ -66,7 +62,6 @@ MultiLineText.propTypes = {
   'aria-describedby' : PropTypes.string,
   'aria-invalid'     : PropTypes.bool
 };
-
 
 function _applyMultiLineStyles(inputState) {
 
@@ -95,5 +90,4 @@ function _applyMultiLineStyles(inputState) {
   };
 
   this.setState({labelStyle, inputStyle, labelFocusStyle, labelFocusStyleTmp:labelStyle});
-
 };

@@ -1,16 +1,10 @@
 import React from 'react';
 import { Footer } from '../../index';
 
-import { injectIntl } from 'react-intl';
-import { messages }   from '../translations/defaultMessages';
 
+const FooterPage = () => {
 
-const copyrightText = 'Pearson Education Inc. All Rights Reserved.';
-
-const FooterPage = (props) => {
-
-  const { intl } = props;
-
+  const currentYear = new Date().getFullYear();
   const testLinks = [{
     text: 'First link',
     href: 'first'
@@ -22,13 +16,9 @@ const FooterPage = (props) => {
     href: 'last'
   }];
 
-  const intlText = {
-    copyrightText : intl.formatMessage(messages.copyrightText)
-  };
-
   return (
     <div className="displaySection">
-      <h2><a href="http://pearson-higher-ed.github.io/design/c/footer/" target="_blank">Footer</a></h2>
+      <h2><a href="http://pearson-higher-ed.github.io/design/c/footer/">Footer</a></h2>
 
       <div className="elementContainer">
         <div className="code">
@@ -41,7 +31,9 @@ const FooterPage = (props) => {
           <h4>Optional:</h4>
           <ul>
             <li className="li-props">copyrightText:String</li>
-            <li className="li-props">Used to insert copyright information.</li>
+            <li className="li-props">Used to insert copyright information. Defaults to
+            Copyright &copy; {currentYear} Pearson Education Inc. All Rights Reserved.
+            </li>
             <li className="li-props">light:Boolean === {`<Footer light />`}</li>
             <li className="li-props">The <b>light</b> prop can be used to provide contrast
             on a darker background.</li>
@@ -49,11 +41,8 @@ const FooterPage = (props) => {
             <li className="li-props">The <b>singlePageStick</b> prop can be used if the page you are using the Footer on does <br/>
             not exceed the screen&#39;s height. If the page exceeds one screen in height do not use <br/>
             this prop as this will absolutely position the Footer over your content.</li>
-            <li className="li-props">anchorTarget:String</li>
-            <li className="li-props">The <b>anchorTarget</b> prop allows you to control what value the `target` attribute on the Footer&#39;s {`<a>`} receives. <br/>
-            The acceptable strings are '_blank', '_self', '_parent', '_top'. If nothing is passed, the prop will default to '_self'.<br/>
-            For more information on the details of these keywords please visit <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">MDN</a>
-            </li>
+            <li className="li-props">anchorTarget:String === {`'blank' || 'self'`}</li>
+            <li className="li-props">The anchorTarget prop specifies where to open the linked document.</li>
           </ul>
         </div>
 
@@ -69,14 +58,12 @@ const FooterPage = (props) => {
               text: 'Last link',
               href: 'last'
             }];`} <br/>
-            {`const crText= 'Pearson Education Inc.
-            All Rights Reserved.';`} <br/><br/>
-            {`<Footer links={testLinks} copyrightText={crText} singlePageStick />`}
+            {`<Footer links={testLinks} singlePageStick />`}
           </p>
-        <Footer links={testLinks} copyrightText={intlText.copyrightText} singlePageStick />
+        <Footer links={testLinks} singlePageStick />
       </div>
     </div>
     );
 };
 
-export default injectIntl(FooterPage);
+export default FooterPage;
