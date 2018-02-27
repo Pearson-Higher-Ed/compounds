@@ -1,5 +1,17 @@
-<a name="0.17.6"></a>
-## [0.17.6](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.4...v0.17.6) (2018-02-19)
+<a name="0.18.0"></a>
+# [0.18.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.5...v0.18.0) (2018-02-27)
+
+
+### Bug Fixes
+
+* Allow DatePicker to pass down i8ln values ([86d37eb](https://github.com/Pearson-Higher-Ed/compounds/commit/86d37eb))
+* Datepicker no longer opens on disabled state ([1e857a0](https://github.com/Pearson-Higher-Ed/compounds/commit/1e857a0))
+* Update 24_Hours default values ([e50533f](https://github.com/Pearson-Higher-Ed/compounds/commit/e50533f))
+
+
+
+<a name="0.17.5"></a>
+## [0.17.5](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.4...v0.17.5) (2018-02-19)
 
 
 
