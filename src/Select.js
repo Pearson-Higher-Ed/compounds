@@ -3,7 +3,7 @@ import PropTypes            from 'prop-types';
 import { Icon }             from '../index.js';
 
 
-class Select extends Component {
+export default class Select extends Component {
 
   constructor(props){
     super(props);
@@ -50,8 +50,6 @@ class Select extends Component {
   }
 
 };
-
-export default Select;
 
 Select.propTypes = {
   id            : PropTypes.string.isRequired,
