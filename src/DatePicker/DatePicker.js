@@ -114,12 +114,12 @@ export default class DatePicker extends Component {
         {infoMessage  &&
           <span id={`infoMsg-${id}`} className="pe-input--info_message">
             {infoMessage}
-          </span> }
+          </span>}
 
         {errorMessage && inputState === 'error' &&
           <span id={`errMsg-${id}`} className="pe-input--error_message">
             {errorMessage}
-          </span> }
+          </span>}
 
         {displayOpen  && inputState !== 'readOnly' &&
           <div
@@ -136,7 +136,7 @@ export default class DatePicker extends Component {
               weekStartDay={weekStartDay}
               dayNamesShort={dayNamesShort}
             />
-          </div> }
+          </div>}
 
       </div>
     );
@@ -174,7 +174,7 @@ function _datePickerOpen() {
   if (inputState === '' || inputState === 'default' || inputState === 'error') {
     this.setState({
       dateObject: enteredDate,
-      displayOpen: !this.state.displayOpen,
+      displayOpen: true
     });
   }
 };
@@ -210,7 +210,7 @@ function _parseDate(dateString) {
   if ((!isLeapYear && month === 2 && day > 28) ||
       (isLeapYear && month === 2 && day > 29) ||
       ([4, 6, 9, 11].includes(month) && day > 30)) {
-        return;
+    return;
   }
 
   return new Date(year, month - 1, day);
