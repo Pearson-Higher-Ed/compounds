@@ -1,3 +1,13 @@
+<a name="0.18.1"></a>
+## [0.18.1](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.18.0...v0.18.1) (2018-03-05)
+
+
+### Bug Fixes
+
+* Revert displayOpen to only True ([4e4ac29](https://github.com/Pearson-Higher-Ed/compounds/commit/4e4ac29))
+
+
+
 <a name="0.18.0"></a>
 # [0.18.0](https://github.com/Pearson-Higher-Ed/compounds/compare/v0.17.5...v0.18.0) (2018-02-27)
 
